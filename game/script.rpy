@@ -95,7 +95,7 @@ init -2 python:
 init 0 python:
     
     # TODO: NVL length - could this be how many outputs are shown on the terminal display? 
-    config.nvl_list_length = 10
+    config.nvl_list_length = 4
 
     # Game variables here... maybe find non-persistent way?
     renpy.image("red1", "#220000")
