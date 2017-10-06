@@ -10,7 +10,7 @@ Available programs: <mail.app>, <chat.app>"""
     $say()
     
     while True:
-        e "> [inputv] [argument]{nw}"
+        $echo()
         
         if inputv not in expected:
             call wait from _call_wait_mainscreen

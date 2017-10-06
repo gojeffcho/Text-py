@@ -1,27 +1,27 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/mainscreen.rpy", line 10, in script
-    $say()
-  File "game/mainscreen.rpy", line 10, in <module>
-    $say()
-  File "game/script.rpy", line 252, in say
-    e(desc + "\n" + append)
-KeyError: u'mail'
+  File "game/login.rpy", line 26, in script
+    $echo()
+  File "game/login.rpy", line 26, in <module>
+    $echo()
+  File "game/script.rpy", line 259, in echo
+    e("{fast}> [cmd]{nw}")
+KeyError: u'cmd'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/mainscreen.rpy", line 10, in script
-    $say()
+  File "game/login.rpy", line 26, in script
+    $echo()
   File "/Applications/renpy-6.99.12.4-sdk/renpy/ast.py", line 814, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "/Applications/renpy-6.99.12.4-sdk/renpy/python.py", line 1719, in py_exec_bytecode
     exec bytecode in globals, locals
-  File "game/mainscreen.rpy", line 10, in <module>
-    $say()
-  File "game/script.rpy", line 252, in say
-    e(desc + "\n" + append)
+  File "game/login.rpy", line 26, in <module>
+    $echo()
+  File "game/script.rpy", line 259, in echo
+    e("{fast}> [cmd]{nw}")
   File "/Applications/renpy-6.99.12.4-sdk/renpy/character.py", line 868, in __call__
     what = what_pattern.replace("[what]", sub(what, translate=translate))
   File "/Applications/renpy-6.99.12.4-sdk/renpy/character.py", line 850, in sub
@@ -32,7 +32,7 @@ Full traceback:
   File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 585, in _vformat
   File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 646, in get_field
   File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 605, in get_value
-KeyError: u'mail'
+KeyError: u'cmd'
 
 Darwin-16.7.0-x86_64-i386-64bit
 Ren'Py 6.99.12.4.2187

@@ -3,7 +3,7 @@ label login_first:
     $expected = ["help", "?", "new"]
     $pickup = []
     $room = "Electric Sheep Co. - New User"
-    $desc = """ 
+    $desc = """{cps=0}
      ______          _____       _____       
 ________  /____________  /__________(_)______
 _  _ \_  /_  _ \  ___/  __/_  ___/_  /_  ___/
@@ -15,15 +15,15 @@ _  _ \_  /_  _ \  ___/  __/_  ___/_  /_  ___/
 \__ \ | | |  __/  __/ |_) | | | | | | (__ 
 |___/_| |_|\___|\___| .__/  |_|_| |_|\___|
                     |_|                            
+{/cps}
+Welcome, new user!  
 
-{cps=15}Welcome, new user!  
-
-Please type "new" to set up your account.  You can type "help" or "?" at any time to see the list of commands available to you.{/cps}"""
+Please type {b}new{/b} to set up your account.  You can type {b}help{/b} or {b}?{/b} at any time to see the list of commands available to you."""
     
     $say()
     
     while True:
-        e "> [inputv] [argument]{nw}"
+        $echo()
         
         if inputv not in expected:
             call wait from _call_wait_login
@@ -32,8 +32,12 @@ Please type "new" to set up your account.  You can type "help" or "?" at any tim
             call help from _call_help_login
             
         elif inputv == "new":
-            $flush_input()
-            jump login_new
+            if len(argument) == 0:
+                $flush_input()
+                nvl clear
+                jump login_new
+            else:
+                call wait from _call_wait_login_3
             
     return
     
@@ -43,14 +47,27 @@ label login_new:
     $expected = ["help", "?", "create"]
     $pickup = []
     $room = "Electric Sheep Co. - Create New User"
-    $desc = """{cps=15}We're{/cps} {cps=30}thrilled{/cps} {cps=15}to have you join our company!  Let's create your account.  Please type "create" followed by your desired username to create your login.
+    $desc = """{cps=0}
+     ______          _____       _____       
+________  /____________  /__________(_)______
+_  _ \_  /_  _ \  ___/  __/_  ___/_  /_  ___/
+/  __/  / /  __/ /__ / /_ _  /   _  / / /__  
+\___//_/  \___/\___/ \__/ /_/    /_/  \___/  
+     _                       _            
+ ___| |__   ___  ___ _ __   (_)_ __   ___ 
+/ __| '_ \ / _ \/ _ \ '_ \  | | '_ \ / __|
+\__ \ | | |  __/  __/ |_) | | | | | | (__ 
+|___/_| |_|\___|\___| .__/  |_|_| |_|\___|
+                    |_|                       
+{/cps}                        
+We're {cps=50}thrilled to have you join our company!{/cps}  Let's create your account.  Please type {b}create{/b} followed by your desired username to create your login.
     
-Example: > create shelby {/cps}"""
+Example: {b}> create shelby{/b}"""
 
     $say()
     
     while True:
-        e "> [inputv] [argument]{nw}"
+        $echo()
         
         if inputv not in expected:
             call wait from _call_wait_login_2
@@ -60,9 +77,9 @@ Example: > create shelby {/cps}"""
         
         elif inputv == "create":
 
-            if argument != "":
-                $set_username(argument)
-                $desc = "{cps=15}Your username has been set to: '" + username + "'.  {b}Please remember this username{/b} as you will use it to log in each day along with your bio-authentication.\n\nPress <ENTER> to continue when you are ready.{/cps}"
+            if len(argument) == 1:
+                $set_username(argument[0])
+                $desc = "{cps=15}Your username has been set to '{u}" + username + "{/u}'.  {b}Please remember this username{/b} as you will use it to log in each day along with your bio-authentication.\n\nPress <ENTER> to continue when you are ready.{/cps}"
                 $say()
                 $flush_input()
 
@@ -81,7 +98,7 @@ label login:
     $expected = ["help", "?", "login"]
     $pickup = []
     $room = "Electric Sheep Co. - Login"
-    $desc = """
+    $desc = """{cps=0}
      ______          _____       _____       
 ________  /____________  /__________(_)______
 _  _ \_  /_  _ \  ___/  __/_  ___/_  /_  ___/
@@ -93,13 +110,13 @@ _  _ \_  /_  _ \  ___/  __/_  ___/_  /_  ___/
 \__ \ | | |  __/  __/ |_) | | | | | | (__ 
 |___/_| |_|\___|\___| .__/  |_|_| |_|\___|
                     |_|                            
-
+{/cps}
 Please type "login <username>" to log in, or "help" for a list of available commands."""
     
     $say()
     
     while True:
-        e "> [inputv] [argument]{nw}"
+        $echo()
         
         if inputv not in expected:
             call wait from _call_wait_login_1
@@ -108,16 +125,18 @@ Please type "login <username>" to log in, or "help" for a list of available comm
             call help from _call_help_login_1
         
         elif inputv == "login":
-            if argument == username:
-                $desc = "Press <ENTER> for bioauthentication..."
+            if len(argument) == 1 and argument[0] == username:
+                $desc = "Press and hold <ENTER> for one second for bioauthentication..."
                 $say()
-                
-                $desc = "Login successful!  Welcome, " + username + ".  (Press ENTER to continue)"
+            
+                $desc = "Login successful!  Welcome, " + username + ".  Press <ENTER> to proceed."
                 $say()
                 $flush_input()
+                nvl clear
                 jump mainscreen
+                                    
             else:
-                $desc = "Incorrect login!"
+                $desc = "{color=#f00}Incorrect login '" + " ".join(argument) + "'!{/color}"
                 $say()
             
     return

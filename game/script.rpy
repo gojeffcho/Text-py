@@ -94,7 +94,8 @@ init -2 python:
     
 init 0 python:
     
-    config.nvl_list_length = 4
+    # TODO: NVL length - could this be how many outputs are shown on the terminal display? 
+    config.nvl_list_length = 10
 
     # Game variables here... maybe find non-persistent way?
     renpy.image("red1", "#220000")
@@ -137,7 +138,7 @@ init 0 python:
     
     config.say_attribute_transition = dissolve
     
-    config.default_text_cps = 1
+    config.default_text_cps = 15
 
     config.window_auto_hide = [ 'scene', 'alma' ]
     
@@ -145,12 +146,17 @@ init 0 python:
     def update_input(value=""): 
         global argument
         global inputv
+
+        # Flush command and args before setting
+        inputv = ""
+        argument = ""
+
         words = str.split(str(value))
         if len(words) == 0 or len(words) == 1:
-            inputv = value
+            inputv = value.strip()
         if len(words) >= 2:
-            inputv = words[0]
-            argument = words[1]
+            inputv = words[0].strip()
+            argument = words[1:]
         
         
     def flush_input():
@@ -244,7 +250,14 @@ init 0 python:
         if fantasy <=0:
             renpy.jump("reality")
         return
-        
+    
+    def echo():
+        cmd = inputv 
+        args = " ".join(argument)
+        if args != "":
+            cmd = cmd + " " + args
+        e("{cps=125}> " + cmd + "{/cps}{nw}")
+    
     def say():
         global desc
         global append
