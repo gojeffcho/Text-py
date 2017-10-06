@@ -1,9 +1,9 @@
 # RenPy files we don't care about
 errors.txt
 log.txt
-tmp/
-game/cache
-game/saves
+tmp/*
+game/cache/*
+game/saves/*
 
 # Windows image file caches
 Thumbs.db
