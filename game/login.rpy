@@ -81,7 +81,20 @@ label login:
     $expected = ["help", "?", "login"]
     $pickup = []
     $room = "Electric Sheep Co. - Login"
-    $desc = """<PLACEHOLDER: MAIN LOGIN SCREEN (graphic ASCII clashes with outputs and can't manually clear the screen, will reinsert once this is sorted)> Please type "login <username>" to log in, or "help" for a list of available commands."""
+    $desc = """
+     ______          _____       _____       
+________  /____________  /__________(_)______
+_  _ \_  /_  _ \  ___/  __/_  ___/_  /_  ___/
+/  __/  / /  __/ /__ / /_ _  /   _  / / /__  
+\___//_/  \___/\___/ \__/ /_/    /_/  \___/  
+     _                       _            
+ ___| |__   ___  ___ _ __   (_)_ __   ___ 
+/ __| '_ \ / _ \/ _ \ '_ \  | | '_ \ / __|
+\__ \ | | |  __/  __/ |_) | | | | | | (__ 
+|___/_| |_|\___|\___| .__/  |_|_| |_|\___|
+                    |_|                            
+
+Please type "login <username>" to log in, or "help" for a list of available commands."""
     
     $say()
     
