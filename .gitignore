@@ -2,8 +2,8 @@
 errors.txt
 log.txt
 tmp/
-game/cache/
-game/saves/
+game/cache
+game/saves
 
 # Windows image file caches
 Thumbs.db
