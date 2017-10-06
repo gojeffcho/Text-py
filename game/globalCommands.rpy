@@ -6,7 +6,7 @@ label set_username:
 label wait:
     if inputv == "":
         $flush_input()
-        e "{fast}{color=#f00}Please enter a command.{/color}"
+        e "{fast}{color=#f00}Error{/color}: Please enter a command."
         
     else:
         python:

@@ -79,7 +79,7 @@ Example: {b}> create shelby{/b}"""
 
             if len(argument) == 1:
                 $set_username(argument[0])
-                $desc = "{cps=15}Your username has been set to '{u}" + username + "{/u}'.  {b}Please remember this username{/b} as you will use it to log in each day along with your bio-authentication.\n\nPress <ENTER> to continue when you are ready.{/cps}"
+                $desc = "{cps=15}Your username has been set to {u}" + username + "{/u}.  {b}Please remember this username{/b} as you will use it to log in each day along with your bio-authentication.\n\nPress {b}<ENTER>{/b} to continue when you are ready.{/cps}"
                 $say()
                 $flush_input()
 
@@ -88,7 +88,7 @@ Example: {b}> create shelby{/b}"""
                 jump login
 
             else:
-                $desc = "{color=#f00}Please enter a valid username.{/color}"
+                $desc = "{color=#f00}Error{/color}: Please enter a valid username."
                 $say()
     
     return
@@ -111,7 +111,7 @@ _  _ \_  /_  _ \  ___/  __/_  ___/_  /_  ___/
 |___/_| |_|\___|\___| .__/  |_|_| |_|\___|
                     |_|                            
 {/cps}
-Please type {b}login <username>{/b} to log in, or {b}help{b} for a list of available commands."""
+Please type {b}login <username>{/b} to log in, or {b}help{/b} for a list of available commands."""
     
     $say()
     
@@ -127,17 +127,17 @@ Please type {b}login <username>{/b} to log in, or {b}help{b} for a list of avail
         elif inputv == "login":
             if len(argument) == 1:
                 if argument[0] == username:
-                    $desc = "Press and hold <ENTER> for one second for bioauthentication..."
+                    $desc = "Press and hold {b}<ENTER>{/b} for one second for bioauthentication..."
                     $say()
             
-                    $desc = "{color=#00f}Login successful{/color}!  Welcome, " + username + ".  Press <ENTER> to proceed."
+                    $desc = "{color=#00f}Login successful{/color}!  Welcome, " + username + ".  Press {b}<ENTER>{/b} to proceed."
                     $say()
                     $flush_input()
                     nvl clear
                     jump mainscreen
                                     
                 else:
-                    $desc = "{color=#f00}Incorrect login '" + " ".join(argument) + "'!{/color}"
+                    $desc = "{color=#f00}Error{/color}: Incorrect login '" + " ".join(argument) + "'!  Please try again."
                     $say()
             elif len(argument) == 0:
                 $desc = "{color=#f00}Error{/color}: You must supply a username after {b}login{/b}."
