@@ -65,6 +65,8 @@ Example: > create shelby {/cps}"""
                 $desc = "{cps=15}Your username has been set to: '" + username + "'.  {b}Please remember this username{/b} as you will use it to log in each day along with your bio-authentication.\n\nPress <ENTER> to continue when you are ready.{/cps}"
                 $say()
                 $flush_input()
+
+                nvl clear
                 
                 jump login
 
