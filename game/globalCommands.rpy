@@ -8,10 +8,13 @@ label wait:
 #         $flush_input()
         e "{color=#f00}Please enter a command.{/color}"
         
-    else:    
-        $s = inputv
-#         $flush_input()
-        e "'[s]': {color=#f00}command not found{/color}.  Type 'help' or '?' for available commands."
+    else:
+        python:
+            s = inputv 
+            a = " ".join(argument)
+            if a != "":
+                s = s + " " + a 
+            e("'[s]': {color=#f00}command not found{/color}.  Type 'help' or '?' for available commands.")
     return
     
     
