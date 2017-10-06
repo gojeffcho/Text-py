@@ -250,7 +250,14 @@ init 0 python:
         if fantasy <=0:
             renpy.jump("reality")
         return
-        
+    
+    def echo():
+        cmd = inputv 
+        args = " ".join(argument)
+        if args != "":
+            cmd = cmd + " " + args
+        e("{cps=125}> " + cmd + "{/cps}{nw}")
+    
     def say():
         global desc
         global append
