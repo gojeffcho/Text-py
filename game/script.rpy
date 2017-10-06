@@ -19,6 +19,8 @@ image bg black = "#000000"
       
       
 init -2 python:
+
+    config.keymap['dismiss'].remove('K_SPACE')
     
     global hide_val
     hide_val = False
