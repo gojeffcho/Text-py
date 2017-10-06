@@ -111,7 +111,7 @@ _  _ \_  /_  _ \  ___/  __/_  ___/_  /_  ___/
 |___/_| |_|\___|\___| .__/  |_|_| |_|\___|
                     |_|                            
 {/cps}
-Please type "login <username>" to log in, or "help" for a list of available commands."""
+Please type {b}login <username>{/b} to log in, or {b}help{b} for a list of available commands."""
     
     $say()
     
@@ -125,18 +125,25 @@ Please type "login <username>" to log in, or "help" for a list of available comm
             call help from _call_help_login_1
         
         elif inputv == "login":
-            if len(argument) == 1 and argument[0] == username:
-                $desc = "Press and hold <ENTER> for one second for bioauthentication..."
-                $say()
+            if len(argument) == 1:
+                if argument[0] == username:
+                    $desc = "Press and hold <ENTER> for one second for bioauthentication..."
+                    $say()
             
-                $desc = "Login successful!  Welcome, " + username + ".  Press <ENTER> to proceed."
-                $say()
-                $flush_input()
-                nvl clear
-                jump mainscreen
+                    $desc = "{color=#00f}Login successful{/color}!  Welcome, " + username + ".  Press <ENTER> to proceed."
+                    $say()
+                    $flush_input()
+                    nvl clear
+                    jump mainscreen
                                     
+                else:
+                    $desc = "{color=#f00}Incorrect login '" + " ".join(argument) + "'!{/color}"
+                    $say()
+            elif len(argument) == 0:
+                $desc = "{color=#f00}Error{/color}: You must supply a username after {b}login{/b}."
+                $say()
             else:
-                $desc = "{color=#f00}Incorrect login '" + " ".join(argument) + "'!{/color}"
+                $desc = "{color=#f00}Error{/color}: Please type {b}login <username>{/b} to log in.  Your username is only one word."
                 $say()
             
     return

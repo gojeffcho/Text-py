@@ -572,7 +572,7 @@ screen quick_menu():
 #         textbutton _("F.Skip") action Skip(fast=True, confirm=True)
 #         textbutton _("Auto") action Preference("auto-forward", "toggle")
         textbutton _("Prefs") action ShowMenu('preferences')
-        textbutton _("Quit") action Quit()
+        textbutton _("Quit") action Quit(confirm=False)
 
 init -2:
     style quick_button:

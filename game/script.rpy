@@ -9,7 +9,7 @@ style my_text is text:
     color "#00cc00"
 
 # Declare characters used by this game.
-define e = Character(None, kind=nvl, what_style="my_text")
+define term = Character(None, kind=nvl, what_style="my_text")
 
 image bg black = "#000000"
 
@@ -256,13 +256,13 @@ init 0 python:
         args = " ".join(argument)
         if args != "":
             cmd = cmd + " " + args
-        e("{cps=125}> " + cmd + "{/cps}{nw}")
+        term("{cps=125}> " + cmd + "{/cps}{nw}")
     
     def say():
         global desc
         global append
         
-        e(desc + "\n" + append)
+        term(desc + "\n" + append)
         desc = ""
         append = ""
         
@@ -271,9 +271,9 @@ init 0 python:
         flush_input()
         global smalltalkcounter
         if smalltalkcounter >= len(smalltalkarray1):
-            e("We should keep going. I can talk to Echo later.")
+            term("We should keep going. I can talk to Echo later.")
             return
-        e(smalltalkarray1[smalltalkcounter])
+        term(smalltalkarray1[smalltalkcounter])
         smalltalkcounter += 1
         return
     
