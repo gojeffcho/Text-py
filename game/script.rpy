@@ -1,42 +1,59 @@
-﻿style my_text is text:
+# Disable rollback
+define config.rollback_enabled = False
+
+# Styles for characters
+style my_text is text:
     size 16
     font "ufonts.com_terminal.ttf"
+#     font "courier"
     color "#00cc00"
-
-# You can place the script of your game in this file.
-
-# Declare images below this line, using the image statement.
-# eg. image eileen happy = "eileen_happy.png"
 
 # Declare characters used by this game.
 define e = Character(None, kind=nvl, what_style="my_text")
 
 image bg black = "#000000"
 
-
-
 # NVL configuration
-      
-      
+            
 init -2 python:
 
+    # Fix spacebar entry
     config.keymap['dismiss'].remove('K_SPACE')
+    
+    # Remove mouseclick skip
+    config.keymap['dismiss'].remove('mouseup_1')
     
     global hide_val
     hide_val = False
     
+    # Track username
+    global username
+    username = ""
+    
+    # Track stars
+    global stars
+    stars = 0
+    
+    # Track AI sympathy
+    global sympathy
+    sympathy = 0
+    
+    # TODO: REMOVE
     global fantasy
     fantasy = 100
     
     global inputv
     inputv = ""
     
+    # TODO: REMOVE or alter items mechanic
     global items
-    items = ["leaflet"]
+    items = []
     
+    # TODO: REMOVE or alter think mechanic
     global think_message
     think_message = ""
     
+    # TODO: REMOVE or alter pickup mechanic
     global pickup
     pickup = [""]
     
@@ -62,6 +79,7 @@ init -2 python:
     global room
     room = ""
     
+    # TODO: assume remove
     global smalltalkarray1
     smalltalkarray1 = [
     "'So...' I ask Echo, 'where are we? I'm, uh, new around here.'\n'Why, we're in, uh...' she stutters. 'What was it called again? Oh, right: Ivalice!'\nSounds like a fantasy location, for sure. Wait, isn't that response kind of strange?\n'Well, to be specific, it looks like we're in a dungeon,' she adds.",    
@@ -76,13 +94,9 @@ init -2 python:
     
 init 0 python:
     
-
     config.nvl_list_length = 4
 
     # Game variables here... maybe find non-persistent way?
-
-    
-    
     renpy.image("red1", "#220000")
     renpy.image("red2", "#440000")
     renpy.image("red3", "#660000")
@@ -91,7 +105,6 @@ init 0 python:
     renpy.image("red6", "#FF0000")
     
     flash = Fade(.25, 0, .75, color="#fff")
-    
     
     
     menu = nvl_menu
@@ -124,10 +137,11 @@ init 0 python:
     
     config.say_attribute_transition = dissolve
     
-    config.default_text_cps = 30
+    config.default_text_cps = 1
 
     config.window_auto_hide = [ 'scene', 'alma' ]
     
+    # TODO: add all strings to argument, instead of only the second one
     def update_input(value=""): 
         global argument
         global inputv
@@ -144,7 +158,12 @@ init 0 python:
         global argument
         inputv = ""
         argument = ""
+
+    def set_username(name):
+        global username
+        username = name
         
+    # TODO: we can probably use this for our different applications
     def change_background_color(fantasyval):
         global append
         append = fantasy_message()
@@ -171,14 +190,16 @@ init 0 python:
         if fantasyval < 0:
             renpy.scene()
             renpy.show("red6")
-        
+    
+    # TODO: REMOVE
     def gain_fantasy(value):
         global fantasy 
         fantasy += value
         if fantasy > 100:
             fantasy = 100
         change_background_color(fantasy)
-      
+    
+    # TODO: REMOVE
     def fantasy_message():
         global fantasy
         global append_done
@@ -212,7 +233,7 @@ init 0 python:
             append_done = 0
             return ""
         
-        
+    # TODO: remove
     def small_fantasy_loss():
         global fantasy
         
@@ -232,7 +253,7 @@ init 0 python:
         desc = ""
         append = ""
         
-    
+    # TODO: REMOVE assumed
     def echo_smalltalk():
         flush_input()
         global smalltalkcounter
@@ -242,7 +263,8 @@ init 0 python:
         e(smalltalkarray1[smalltalkcounter])
         smalltalkcounter += 1
         return
-        
+    
+    # TODO: REMOVE refactor
     def think():
         global fantasy
         global think_message 
@@ -269,6 +291,20 @@ init 0 python:
 # The game starts here.
 label start:
     python:
+    
+        # Track username
+        global username
+        username = ""
+    
+        # Track stars
+        global stars
+        stars = 0
+    
+        # Track AI sympathy
+        global sympathy
+        sympathy = 0
+
+        # TODO REMOVE
         global fantasy
         fantasy = 100
         
@@ -276,7 +312,7 @@ label start:
         inputv = ""
         
         global items
-        items = ["leaflet"]
+        items = []
         
         global think_message
         think_message = ""
@@ -290,76 +326,6 @@ label start:
         global argument
         argument = ""
         
-        
+    # GOTO first scene
     scene bg black
-    jump dungeon1
-    
-    
-label wait:
-    if inputv == "":
-        $flush_input()
-        e "Please give a command."
-        
-    else:    
-        $s = inputv
-        $flush_input()
-        e "You said '[s]'. Please supply a valid command. Enter 'help' for more information."
-    return
-    
-    
-label help:
-    
-    
-    python:
-        string = "Right now, I can do one of these: [expected]."
-        flush_input()
-        e(string)
-    return
-    
-label inventory:
-    $s = items
-    $flush_input()
-    e "I have [s] in my inventory right now."
-    
-    return 
-    
-label take:
-    python:
-        global items
-        global pickup
-        
-        arg = argument
-        flush_input()
-        if arg == "":
-            e("What am I taking?")
-        elif arg not in pickup:
-            e("There isn't a '[arg]' here.")
-        elif arg in pickup:
-            items += [arg]
-            pickup.remove(arg)
-            e("Added '[arg]' to inventory.")
-            
-        
-    return
-    
-    
-label use_failed:
-    python:
-        global argument
-        global items
-        
-        if argument == "":
-            flush_input()
-            e("What am I using?")
-        elif argument not in items:
-            flush_input()
-            e("I don't have that in my inventory. Are you thinking of another game?")
-        elif argument in items:
-            if argument == "echo":
-                flush_input()
-                e("A shrill voice from my side: 'Who are you callin' an item? You can't use me!'\nMaybe I should try 'echo'...")
-            else:
-                flush_input()
-                e("I can't use that item right now.")
-
-    return
+    jump login_first

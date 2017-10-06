@@ -2,6 +2,12 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 23: Tab characters are not allowed in Ren'Py scripts.
+The label _call_wait is defined twice, at
+  File "game/login.rpy", line 29 and
+  File "game/mainscreen.rpy", line 13.
+
+The label _call_help is defined twice, at
+  File "game/login.rpy", line 32 and
+  File "game/mainscreen.rpy", line 16.
 
 Ren'Py Version: Ren'Py 6.99.12.4.2187

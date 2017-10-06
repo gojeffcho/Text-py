@@ -1,4 +1,4 @@
-﻿# This file is in the public domain. Feel free to modify it as a basis
+# This file is in the public domain. Feel free to modify it as a basis
 # for your own screens.
 
 # Note that many of these screens may be given additional arguments in the
@@ -144,7 +144,7 @@ screen nvl(dialogue, items=None):
             key k action [Return(None)]
     window:
         style "nvl_window"
-        bottom_padding 1000
+        bottom_padding 50
         has vbox:
             style "nvl_vbox"
 
@@ -153,7 +153,7 @@ screen nvl(dialogue, items=None):
                     text_style "my_text"
                     text_xalign 0.0
                     xalign 0.0
-                label "==Fantasy: [fantasy]==":
+                label "==Time: [fantasy]==":
                     text_style "my_text"
                     text_xalign 1.0
                     xalign 1.0
@@ -564,14 +564,15 @@ screen quick_menu():
         xalign 1.0
         yalign 1.0
 
-        textbutton _("Back") action Rollback()
-        textbutton _("Save") action ShowMenu('save')
-        textbutton _("Q.Save") action QuickSave()
-        textbutton _("Q.Load") action QuickLoad()
-        textbutton _("Skip") action Skip()
-        textbutton _("F.Skip") action Skip(fast=True, confirm=True)
-        textbutton _("Auto") action Preference("auto-forward", "toggle")
+#         textbutton _("Back") action Rollback()
+#         textbutton _("Save") action ShowMenu('save')
+#         textbutton _("Q.Save") action QuickSave()
+#         textbutton _("Q.Load") action QuickLoad()
+#         textbutton _("Skip") action Skip()
+#         textbutton _("F.Skip") action Skip(fast=True, confirm=True)
+#         textbutton _("Auto") action Preference("auto-forward", "toggle")
         textbutton _("Prefs") action ShowMenu('preferences')
+        textbutton _("Quit") action Quit()
 
 init -2:
     style quick_button:
