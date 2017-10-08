@@ -11,9 +11,6 @@ label wait:
     else:
         python:
             s = inputv 
-            a = " ".join(argument)
-            if a != "":
-                s = s + " " + a 
             flush_input()
             term("{cps=125}'[s]': {color=#f00}command not found{/color}.  Type 'help' or '?' for available commands.")
     return

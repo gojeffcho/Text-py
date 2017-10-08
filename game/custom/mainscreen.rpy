@@ -1,7 +1,7 @@
 label mainscreen:
     $expected = ["look", "l", "help", "?", "mail.app", "chat.app"]
     $pickup = []
-    $room = "Electric Sheep Co. - Home"
+    $room = "Home"
     $desc = """{cps=150}<PLACEHOLDER: This is the main screen> Login: MOTD, graphics, etc. here{/cps}
     
 Available programs: <{color=#87ceeb}mail.app{/color}>, <{color=#87ceeb}chat.app{/color}>"""

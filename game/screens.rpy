@@ -116,7 +116,7 @@ screen input(prompt=None):
 
         has vbox
 
-        input id "input" style "my_text"
+        input id "input" style "terminalinput"
 
     use quick_menu
 
@@ -130,18 +130,21 @@ screen input(prompt=None):
 screen nvl(dialogue, items=None):
 
     window id "inputwindow":
-      has hbox
+      has hbox:
+        xmaximum 850
+        pos (75, 40)
+        
       
       # No input box - normal nvl mode
       if hide_val is True:
-            text " <<Hit 'enter' to continue.>>" style "my_text"
+            text " <<Hit 'enter' to continue.>>" style "terminalinput"
             for x in config.keymap["dismiss"]:
                 key x action [Return(None)]
       
       # Terminal mode - input box at the bottom           
       else:
-        text "> " style "my_text"
-        input id "inputv" style "my_text" changed update_input
+        text "> " style "terminalinput"
+        input id "inputv" style "terminalinput" changed update_input
         for k in config.keymap["dismiss"]:
           if k is not "K_SPACE":
             key k action [Return(None)]
@@ -151,16 +154,15 @@ screen nvl(dialogue, items=None):
         bottom_padding 50
         has vbox:
             style "nvl_vbox"
+            xmaximum 850
+            pos (30, 15)
 
             hbox:
-                label "== [room] ==      ":
-                    text_style "my_text"
+                #                               |25     |40     |53      |63                       |73
+                label "== Electric Sheep Inc. - [room:20]        Time: [hour:2]:[min:02] [ampm] ==":
+                    text_style "terminal"
                     text_xalign 0.0
                     xalign 0.0
-                label "== Time: [hour]:[min:02] [ampm] ==":
-                    text_style "my_text"
-                    text_xalign 1.0
-                    xalign 1.0
                     
         # Display dialogue.
         for who, what, who_id, what_id, window_id in dialogue:
@@ -168,7 +170,7 @@ screen nvl(dialogue, items=None):
                 id window_id
 
                 has hbox:
-                    spacing 10
+                    spacing 8
 
                 if who is not None:
                     text who id who_id

@@ -3,29 +3,29 @@ label login_first:
     
     play music "music/bg0.mp3" fadein 3.8 loop
 
+label login_first_again:
+
     $expected = ["look", "l", "help", "?", "new"]
     $pickup = []
-    $room = "Electric Sheep Inc. - New User"
-    $desc = """{cps=0}{font=font/AnonymousPro-Regular.ttf}{color=#ffd700}
-        ███████╗██╗     ███████╗ ██████╗████████╗██████╗ ██╗ ██████╗          
-        ██╔════╝██║     ██╔════╝██╔════╝╚══██╔══╝██╔══██╗██║██╔════╝    
-        █████╗  ██║     █████╗  ██║        ██║   ██████╔╝██║██║         
-        ██╔══╝  ██║     ██╔══╝  ██║        ██║   ██╔══██╗██║██║         
-        ███████╗███████╗███████╗╚██████╗   ██║   ██║  ██║██║╚██████╗    
-        ╚══════╝╚══════╝╚══════╝ ╚═════╝   ╚═╝   ╚═╝  ╚═╝╚═╝ ╚═════╝
+    $room = "New User"
+    $desc = """{cps=0}{font=font/AnonymousPro.ttf}{color=#ffd700}
+        ███████╗██╗     ███████╗ ██████╗████████╗██████╗ ██╗ ██████╗        
+        ██╔════╝██║     ██╔════╝██╔════╝╚══██╔══╝██╔══██╗██║██╔════╝        
+        █████╗  ██║     █████╗  ██║        ██║   ██████╔╝██║██║             
+        ██╔══╝  ██║     ██╔══╝  ██║        ██║   ██╔══██╗██║██║             
+        ███████╗███████╗███████╗╚██████╗   ██║   ██║  ██║██║╚██████╗        
+        ╚══════╝╚══════╝╚══════╝ ╚═════╝   ╚═╝   ╚═╝  ╚═╝╚═╝ ╚═════╝        
                                                                     
-        ███████╗██╗  ██╗███████╗███████╗██████╗                         
-        ██╔════╝██║  ██║██╔════╝██╔════╝██╔══██╗                        
-        ███████╗███████║█████╗  █████╗  ██████╔╝                        
-        ╚════██║██╔══██║██╔══╝  ██╔══╝  ██╔═══╝                         
-        ███████║██║  ██║███████╗███████╗██║                             
-        ╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝                          
+        ███████╗██╗  ██╗███████╗███████╗██████╗     ██╗███╗   ██╗ ██████╗   
+        ██╔════╝██║  ██║██╔════╝██╔════╝██╔══██╗    ██║████╗  ██║██╔════╝   
+        ███████╗███████║█████╗  █████╗  ██████╔╝    ██║██╔██╗ ██║██║        
+        ╚════██║██╔══██║██╔══╝  ██╔══╝  ██╔═══╝     ██║██║╚██╗██║██║        
+        ███████║██║  ██║███████╗███████╗██║         ██║██║ ╚████║╚██████╗██╗
+        ╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝         ╚═╝╚═╝  ╚═══╝ ╚═════╝╚═╝                  
 {/color}{/font}{/cps}
 Welcome, new user!  
 
-Please type {b}new{/b} to set up your account.  You can type {b}help{/b} or {b}?{/b} at any 
-time to see the list of currently available commands.  If you become lost 
-on any screen, type {b}look{/b} or {b}l{/b} (lowercase L) to recall the original prompt."""
+Please type {b}new{/b} to set up your account.  You can type {b}help{/b} or {b}?{/b} at any time to see the list of currently available commands.  If you become lost on any screen, type {b}look{/b} or {b}l{/b} (lowercase L) to recall the original prompt."""
     
     $say()
     
@@ -39,7 +39,7 @@ on any screen, type {b}look{/b} or {b}l{/b} (lowercase L) to recall the original
             if len(argument) == 0:
                 $flush_input()
                 nvl clear
-                jump login_first
+                jump login_first_again
             else:
                 $has_args()
         
@@ -60,8 +60,8 @@ label login_new:
     $flush_input()
     $expected = ["look", "l", "help", "?", "create"]
     $pickup = []
-    $room = "Electric Sheep Inc. - Create User"
-    $desc = """{cps=0}{font=font/AnonymousPro-Regular.ttf}{color=#ffd700}
+    $room = "Create User"
+    $desc = """{cps=0}{font=font/AnonymousPro.ttf}{color=#ffd700}
         ███████╗██╗     ███████╗ ██████╗████████╗██████╗ ██╗ ██████╗          
         ██╔════╝██║     ██╔════╝██╔════╝╚══██╔══╝██╔══██╗██║██╔════╝    
         █████╗  ██║     █████╗  ██║        ██║   ██████╔╝██║██║         
@@ -76,10 +76,7 @@ label login_new:
         ███████║██║  ██║███████╗███████╗██║                             
         ╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝                 
 {/color}{/font}{/cps}
-We're {cps=50}thrilled to have you join our company!{/cps}  Let's create your account.  
-Please type {b}create{/b} followed by your desired username (at least five 
-characters long) to create your login.  If you become lost on any screen, 
-type {b}look{/b} or {b}l{/b} (lowercase L) to see the original prompt.
+We're {cps=50}thrilled to have you join our company!{/cps}  Let's create your account.  Please type {b}create{/b} followed by your desired username (at least five characters long) to create your login.  If you become lost on any screen, type {b}look{/b} or {b}l{/b} (lowercase L) to see the original prompt.
     
 Example: {b}> create shelby{/b}"""
 
@@ -115,10 +112,7 @@ Example: {b}> create shelby{/b}"""
                     $flush_input()
                     nvl clear
                     
-                    $desc = """
-Your username has been set to {u}[username]{/u}.  {b}Please remember this username{/b} 
-as you will use it to log in each day along with your bio-authentication.\n\n
-Press {b}<ENTER>{/b} to continue when you are ready."""
+                    $desc = """Your username has been set to {u}[username]{/u}.  {b}Please remember this username{/b} as you will use it to log in each day along with your bio-authentication.\n\nPress {b}<ENTER>{/b} to continue when you are ready."""
                     $say()
 
                     nvl clear                
@@ -138,8 +132,8 @@ Press {b}<ENTER>{/b} to continue when you are ready."""
 label login:
     $expected = ["look", "l", "help", "?", "login"]
     $pickup = []
-    $room = "Electric Sheep Inc. - Login"
-    $desc = """{cps=0}{font=font/AnonymousPro-Regular.ttf}{color=#ffd700}
+    $room = "Login"
+    $desc = """{cps=0}{font=font/AnonymousPro.ttf}{color=#ffd700}
               ___                  __                         
              /\_ \                /\ \__         __            
            __\//\ \      __    ___\ \ ,_\  _ __ /\_\    ___    
@@ -157,9 +151,7 @@ label login:
                                           \ \_\                         
                                            \/_/                           
 {/color}{/font}{/cps}
-Please type {b}login <username>{/b} to log in, or {b}help{/b} for a list of available 
-commands.  If you become lost on any screen, type {b}look{/b} or {b}l{/b} (lowercase L) 
-to see the original prompt again."""
+Please type {b}login <username>{/b} to log in, or {b}help{/b} for a list of available commands.  If you become lost on any screen, type {b}look{/b} or {b}l{/b} (lowercase L) to see the original prompt again."""
     
     $say()
     

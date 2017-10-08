@@ -2,14 +2,24 @@
 define config.rollback_enabled = False
 
 # Styles for characters
-style my_text is text:
+style terminal is text:
     size 16
-    font "font/ufonts.com_terminal.ttf"
-#     font "AnonymousPro-Regular.ttf"
-    color "#00cc00"
+#     font "font/VT323.ttf"
+#     font "font/terminal.ttf"
+    font "font/Dotrice.otf"
+#     font "font/AnonymousPro.ttf"
+#     color "#00cc00"
+    color "#15db15"
+    
+style terminalinput is text:
+    size 18
+#     font "font/terminal.ttf"
+    font "font/Dotrice.otf"
+#     color "#00cc00"
+    color "#15db15"
 
 # Declare characters used by this game.
-define term = Character(None, kind=nvl, what_style="my_text")
+define term = Character(None, kind=nvl, what_style="terminal")
 
 image bg black = "#000000"
 
