@@ -142,6 +142,7 @@ screen nvl(dialogue, items=None):
         for k in config.keymap["dismiss"]:
           if k is not "K_SPACE":
             key k action [Return(None)]
+            
     window:
         style "nvl_window"
         bottom_padding 50
@@ -149,14 +150,15 @@ screen nvl(dialogue, items=None):
             style "nvl_vbox"
 
             hbox:
-                label "==[room]==      ":
+                label "== [room] ==      ":
                     text_style "my_text"
                     text_xalign 0.0
                     xalign 0.0
-                label "==Time: [fantasy]==":
+                label "== Time: [hour]:[min:02] [ampm] ==":
                     text_style "my_text"
                     text_xalign 1.0
                     xalign 1.0
+                    
         # Display dialogue.
         for who, what, who_id, what_id, window_id in dialogue:
             window:
@@ -572,7 +574,7 @@ screen quick_menu():
 #         textbutton _("F.Skip") action Skip(fast=True, confirm=True)
 #         textbutton _("Auto") action Preference("auto-forward", "toggle")
         textbutton _("Prefs") action ShowMenu('preferences')
-        textbutton _("Quit") action Quit()
+        textbutton _("Quit") action Quit(confirm=False)
 
 init -2:
     style quick_button:
@@ -582,7 +584,7 @@ init -2:
 
     style quick_button_text:
         is default
-        size 12
+        size 15
         idle_color "#8888"
         hover_color "#ccc"
         selected_idle_color "#cc08"

@@ -6,7 +6,7 @@ label set_username:
 label wait:
     if inputv == "":
         $flush_input()
-        e "{fast}{color=#f00}Please enter a command.{/color}"
+        term "{cps=125}{color=#f00}Error{/color}: Please enter a command."
         
     else:
         python:
@@ -14,13 +14,19 @@ label wait:
             a = " ".join(argument)
             if a != "":
                 s = s + " " + a 
-            e("{fast}'[s]': {color=#f00}command not found{/color}.  Type 'help' or '?' for available commands.")
+            flush_input()
+            term("{cps=125}'[s]': {color=#f00}command not found{/color}.  Type 'help' or '?' for available commands.")
     return
     
     
 label help:
     python:
-        string = "Available commands: <" + ">, <".join(expected) + ">"
-        flush_input()
-        e("{fast}" + string)
+        if len(argument) > 0:
+            s = inputv
+            flush_input()
+            term("{cps=125}Command '" + s + "' takes no additional arguments.")
+        
+        else:
+            flush_input()
+            term("{cps=125}Available commands: <" + ">, <".join(expected) + ">{/cps}")
     return
