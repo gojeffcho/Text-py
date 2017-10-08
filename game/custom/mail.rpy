@@ -1,12 +1,12 @@
 label mail:
-    $expected = ["look", "l", "help", "?", "email", "exit"]
+    $expected = ["look", "l", "help", "?", "show", "email", "exit"]
     $pickup = []
     $room = "Email"
     $desc = """{cps=150}<PLACEHOLDER: This is the email app screen> Fancy ASCII email graphics{/cps}
 
-Type {b}email{/b} followed by the message number you wish to open, or "exit" to quit.
+Type {b}show emails{/b} to see the list of available emails, {b}email{/b} followed by the message number you wish to open, or "exit" to quit.
 
-Example: {b}> email 5{/b}"""
+Example: {b}> email e_boss0{/b}"""
     
     $say()
     
@@ -46,12 +46,29 @@ Example: {b}> email 5{/b}"""
                 jump mainscreen
             else:
                 $has_args()
+                
+        elif cmd == "show":
+            
+            if len(args) == 1 and args[0] == "emails":
+                $s = "{cps=150}{color=#faebd7}" + "    * " + "\n    * ".join(emaillist) + "{/color}{/cps}"
+                $desc = s
+                $say()
+            
+            else:
+                $desc = "{color=#f00}Error{/color}: please type {b}show emails{/b} to view your email list."
+                $say()
         
         elif cmd == "email":
             if len(args) == 1:
                 if args[0] in emaillist:
-                    $desc = "<PLACEHOLDER> Correct Email Choice"
+                    
+                    $desc = "Downloading email [args[0]]{cps=2}... ... ...{/cps} Done.\n" \
+                            "Press {b}ENTER{/b} to open email."
                     $say()
+                    
+                    nvl clear
+                    jump expression args[0]
+                    
                 else:  
                     $flush_input()
                     $desc = "Please enter a valid email message."

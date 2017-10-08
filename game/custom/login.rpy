@@ -132,6 +132,10 @@ Example: {b}> create shelby{/b}"""
                     
                     $desc = """Your username has been set to {u}[username]{/u}.  {b}Please remember this username{/b} as you will use it to log in each day along with your bio-authentication.\n\nPress {b}<ENTER>{/b} to continue when you are ready."""
                     $say()
+                    
+                    $emaillist.append("e_boss0")
+                    $chatlist.append("c_demo0")
+                    $update_avails()
 
                     nvl clear                
                     jump login

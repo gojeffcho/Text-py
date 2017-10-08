@@ -54,6 +54,7 @@ Example: {b}> chat 2{/b}"""
                             "Press {b}ENTER{/b} to enter chat."
                     $say()
                     
+                    nvl clear
                     jump expression args[0]
                     
                 else:  
