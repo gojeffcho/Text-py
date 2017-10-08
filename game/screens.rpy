@@ -131,11 +131,14 @@ screen nvl(dialogue, items=None):
 
     window id "inputwindow":
       has hbox
+      
+      # No input box - normal nvl mode
       if hide_val is True:
             text " <<Hit 'enter' to continue.>>" style "my_text"
             for x in config.keymap["dismiss"]:
                 key x action [Return(None)]
-                 
+      
+      # Terminal mode - input box at the bottom           
       else:
         text "> " style "my_text"
         input id "inputv" style "my_text" changed update_input

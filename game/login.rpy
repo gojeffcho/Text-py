@@ -3,7 +3,7 @@ label login_first:
     $expected = ["ls", "help", "?", "new"]
     $pickup = []
     $room = "Electric Sheep Co. - New User"
-    $desc = """{cps=0}{font=AnonymousPro-Regular.ttf}
+    $desc = """{cps=0}{font=AnonymousPro-Regular.ttf}{color=#ffd700}
               ___                  __                         
              /\_ \                /\ \__         __            
            __\//\ \      __    ___\ \ ,_\  _ __ /\_\    ___    
@@ -20,7 +20,7 @@ label login_first:
          \/___/   \/_/\/_/\/____/\/____/ \ \ \/      \/_/\/_/\/_/\/____/ 
                                           \ \_\                         
                                            \/_/                           
-{/font}{/cps}
+{/color}{/font}{/cps}
 Welcome, new user!  
 
 Please type {b}new{/b} to set up your account.  You can type {b}help{/b} or {b}?{/b} at any time to see the list of commands available to you."""
@@ -59,7 +59,7 @@ label login_new:
     $expected = ["ls", "help", "?", "create"]
     $pickup = []
     $room = "Electric Sheep Co. - Create New User"
-    $desc = """{cps=0}{font=AnonymousPro-Regular.ttf}
+    $desc = """{cps=0}{font=AnonymousPro-Regular.ttf}{color=#ffd700}
               ___                  __                         
              /\_ \                /\ \__         __            
            __\//\ \      __    ___\ \ ,_\  _ __ /\_\    ___    
@@ -76,7 +76,7 @@ label login_new:
          \/___/   \/_/\/_/\/____/\/____/ \ \ \/      \/_/\/_/\/_/\/____/ 
                                           \ \_\                         
                                            \/_/                                            
-{/font}{/cps}
+{/color}{/font}{/cps}
 We're {cps=50}thrilled to have you join our company!{/cps}  Let's create your account.  Please type {b}create{/b} followed by your desired username (at least five characters long) to create your login.
     
 Example: {b}> create shelby{/b}"""
@@ -134,7 +134,7 @@ label login:
     $expected = ["ls", "help", "?", "login"]
     $pickup = []
     $room = "Electric Sheep Co. - Login"
-    $desc = """{cps=0}{font=AnonymousPro-Regular.ttf}
+    $desc = """{cps=0}{font=AnonymousPro-Regular.ttf}{color=#ffd700}
               ___                  __                         
              /\_ \                /\ \__         __            
            __\//\ \      __    ___\ \ ,_\  _ __ /\_\    ___    
@@ -151,7 +151,7 @@ label login:
          \/___/   \/_/\/_/\/____/\/____/ \ \ \/      \/_/\/_/\/_/\/____/ 
                                           \ \_\                         
                                            \/_/                           
-{/font}{/cps}
+{/color}{/font}{/cps}
 Please type {b}login <username>{/b} to log in, or {b}help{/b} for a list of available commands."""
     
     $say()
@@ -179,10 +179,10 @@ Please type {b}login <username>{/b} to log in, or {b}help{/b} for a list of avai
                     $desc = "Press and hold {b}<ENTER>{/b} for one second for bioauthentication..."
                     $say()
                     
-                    $desc = "{cps=2}...{/cps} {nw}"
+                    $desc = "{cps=3}...{/cps} {nw}"
                     $say()
             
-                    $desc = "{color=#00f}Login successful{/color}!  Welcome, " + username + ".  Press {b}<ENTER>{/b} to proceed."
+                    $desc = "{color=#87ceeb}Login successful{/color}!  Welcome, " + username + ".  Press {b}<ENTER>{/b} to proceed."
                     $say()
                     $flush_input()
                     nvl clear

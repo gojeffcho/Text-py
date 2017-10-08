@@ -160,7 +160,7 @@ init 0 python:
         args = " ".join(argument)
         if args != "":
             cmd = cmd + " " + args
-        term("{cps=125}> " + cmd + "{/cps}{nw}")
+        term("{cps=0}> " + cmd + "{/cps}{nw}")
         
     def flush_input():
         global inputv

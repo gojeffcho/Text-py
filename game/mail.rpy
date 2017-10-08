@@ -2,7 +2,7 @@ label mail:
     $expected = ["ls", "help", "?", "email", "exit"]
     $pickup = []
     $room = "Electric Sheep Co. - Email"
-    $desc = """<PLACEHOLDER: This is the email app screen> Fancy ASCII email graphics
+    $desc = """{cps=150}<PLACEHOLDER: This is the email app screen> Fancy ASCII email graphics{/cps}
 
 Type {b}email{/b} followed by the message number you wish to open, or "exit" to quit.
 

@@ -28,5 +28,5 @@ label help:
         
         else:
             flush_input()
-            term("{cps=125}Available commands: <" + ">, <".join(expected) + ">{/cps}")
+            term("{cps=125}Available commands: <{color=#faebd7}" + "{/color}>, <{color=#faebd7}".join(expected) + "{/color}>{/cps}")
     return

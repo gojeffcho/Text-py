@@ -2,7 +2,7 @@ label chat:
     $expected = ["ls", "help", "?", "chat", "exit"]
     $pickup = []
     $room = "Electric Sheep Co. - Chat"
-    $desc = """<PLACEHOLDER: This is the chat app screen> Fancy ASCII chat graphics
+    $desc = """{cps=150}<PLACEHOLDER: This is the chat app screen> Fancy ASCII chat graphics{/cps}
 
 Type {b}chat{/b} followed by the number of the person you wish to chat with to proceed, or "exit" to quit.
 
