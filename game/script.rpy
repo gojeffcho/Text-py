@@ -1,21 +1,16 @@
-# Change nothing
-
 # Disable rollback
 define config.rollback_enabled = False
 
 # Styles for characters
 style terminal is text:
     size 16
-#     font "font/VT323.ttf"
 #     font "font/terminal.ttf"
     font "font/Dotrice.otf"
-#     font "font/AnonymousPro.ttf"
 #     color "#00cc00"
     color "#15db15"
     
 style terminalinput is text:
     size 18
-#     font "font/terminal.ttf"
     font "font/Dotrice.otf"
 #     color "#00cc00"
     color "#15db15"
@@ -23,100 +18,37 @@ style terminalinput is text:
 # Declare characters used by this game.
 define term = Character(None, kind=nvl, what_style="terminal")
 
+# Backgrounds and Overlays
 image bg black = "#000000"
-
-# NVL configuration
-            
-init -2 python:
+image overlay = "img/overlay.png"
+    
+init 0 python:
+    
+    ############################
+    ### Game Initializations ###    
+    ############################
 
     # Fix spacebar entry
     config.keymap['dismiss'].remove('K_SPACE')
     
     # Remove mouseclick skip
     config.keymap['dismiss'].remove('mouseup_1')
+
     
+    #########################
+    ### NVL Configuration ###
+    #########################
+    
+    # hide_val False to go with terminal input box at the bottom
     global hide_val
     hide_val = False
-        
-    # Track username
-    global username
-    username = ""
-    
-    # Track easter eggs
-    global easters
-    easters = ["fuck", "goddamn"]
-    
-    # Track available chats
-    global chatlist
-    chatlist = []
-
-    # Track available emails
-    global emaillist
-    emaillist = []
-    
-    # Track current time
-    global hour
-    global min
-    global ampm
-    hour = 8
-    min = 00
-    ampm = "am"
-        
-    # Track stars
-    global stars
-    stars = 0
-    
-    # Track AI sympathy
-    global sympathy
-    sympathy = 0
-    
-    global inputv
-    inputv = ""
-    
-    # TODO: REMOVE or alter items mechanic
-    global items
-    items = []
-    
-    # TODO: REMOVE or alter think mechanic
-    global think_message
-    think_message = ""
-    
-    # TODO: REMOVE or alter pickup mechanic
-    global pickup
-    pickup = [""]
-    
-    global expected
-    expected = []
-    
-    global argument
-    argument = ""
-    
-    global desc
-    desc = ""
-    
-    global append
-    append = ""
-    
-    global room
-    room = ""
-    
-    
-init 0 python:
     
     # TODO: NVL length - could this be how many outputs are shown on the terminal display? 
     config.nvl_list_length = 7
 
-    # Game variables here... maybe find non-persistent way?
-    renpy.image("red1", "#220000")
-    renpy.image("red2", "#440000")
-    renpy.image("red3", "#660000")
-    renpy.image("red4", "#880000")
-    renpy.image("red5", "#BB0000")
-    renpy.image("red6", "#FF0000")
-    
-    flash = Fade(.25, 0, .75, color="#fff")
-    
-    
+    # Set NVL Background Image
+#     style.nvl_window.background = im.FactorScale("img/protoLarge.png", 0.5)
+
     menu = nvl_menu
 
     # The color of a menu choice when it isn't hovered.
@@ -136,7 +68,6 @@ init 0 python:
     # How far from the left menu choices should be indented.
     style.nvl_menu_choice_button.left_margin = 20
 
-
     #style.nvl_window.background = "nvl_window.png"
     style.nvl_window.xpadding = 55
     style.nvl_window.ypadding = 55
@@ -150,6 +81,81 @@ init 0 python:
     config.default_text_cps = 15
 
     config.window_auto_hide = [ 'scene', 'alma' ]
+
+    
+    ########################
+    ### Global Variables ###
+    ########################
+    
+    # Track username
+    global username
+    username = ""
+    
+    # Track easter eggs
+    global easters
+    easters = ["fuck", "goddamn", "shit"]
+
+    # Track available chats
+    global chatlist
+    chatlist = []
+    
+    # Track available emails
+    global emaillist
+    emaillist = []
+    
+    # Track current time
+    global hour
+    global min
+    global ampm
+    hour = 9
+    min = 00
+    ampm = "am"
+ 
+    # Track stars
+    global stars
+    stars = 0
+
+    # Track AI sympathy
+    global sympathy
+    sympathy = 0
+    
+    global inputv
+    inputv = ""
+    
+    global expected
+    expected = []
+    
+    global argument
+    argument = ""
+
+    global desc
+    desc = ""
+    
+    global append
+    append = ""
+    
+    global room
+    room = ""
+
+
+    ######################
+    ### GAME VARIABLES ###
+    ######################
+    
+    # Game variables here... maybe find non-persistent way?
+    renpy.image("red1", "#220000")
+    renpy.image("red2", "#440000")
+    renpy.image("red3", "#660000")
+    renpy.image("red4", "#880000")
+    renpy.image("red5", "#BB0000")
+    renpy.image("red6", "#FF0000")
+    
+    flash = Fade(.25, 0, .75, color="#fff")
+    
+
+    ########################
+    ### CUSTOM FUNCTIONS ###
+    ########################
     
     # TODO: add all strings to argument, instead of only the second one
     def update_input(value=""): 
@@ -228,57 +234,7 @@ init 0 python:
     
 # The game starts here.
 label start:
-    python:
-    
-        # Track username
-        global username
-        username = ""
-        
-        # Track easter eggs
-        global easters
-        easters = ["fuck", "goddamn", "shit"]
-    
-        # Track available chats
-        global chatlist
-        chatlist = []
-        
-        # Track available emails
-        global emaillist
-        emaillist = []
-        
-        # Track current time
-        global hour
-        global min
-        global ampm
-        hour = 9
-        min = 00
-        ampm = "am"
-     
-        # Track stars
-        global stars
-        stars = 0
-    
-        # Track AI sympathy
-        global sympathy
-        sympathy = 0
-        
-        global inputv
-        inputv = ""
-        
-        global items
-        items = []
-        
-        global think_message
-        think_message = ""
-        
-        global pickup
-        pickup = [""]
-        
-        global expected
-        expected = []
-        
-        global argument
-        argument = ""
+#     python:
         
     # GOTO first scene
     scene bg black

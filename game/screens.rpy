@@ -132,8 +132,7 @@ screen nvl(dialogue, items=None):
     window id "inputwindow":
       has hbox:
         xmaximum 850
-        pos (75, 40)
-        
+        pos (75, 40)  # xpos 75 to align with terminal output in borderless        
       
       # No input box - normal nvl mode
       if hide_val is True:
