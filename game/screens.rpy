@@ -143,7 +143,7 @@ screen nvl(dialogue, items=None):
       # Terminal mode - input box at the bottom           
       else:
         text "> " style "terminalinput"
-        input id "inputv" style "terminalinput" changed update_input
+        input id "cmd" style "terminalinput" changed update_input
         for k in config.keymap["dismiss"]:
           if k is not "K_SPACE":
             key k action [Return(None)]

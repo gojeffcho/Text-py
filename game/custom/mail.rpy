@@ -13,22 +13,22 @@ Example: {b}> email 5{/b}"""
     while True:
         $echo()
         
-        if inputv not in expected:
-            call wait from _call_wait_mail
+        if cmd not in expected:
+            $input_error()
         
-        elif inputv == "look" or inputv == "l":
-            if len(argument) == 0:
+        elif cmd == "look" or cmd == "l":
+            if len(args) == 0:
                 $flush_input()
                 nvl clear
                 jump mail
             else:
                 $has_args()
                 
-        elif inputv == "help" or inputv == "?":
-            call help from _call_help_mail
+        elif cmd == "help" or cmd == "?":
+            $help()
             
-        elif inputv == "exit":
-            if len(argument) == 0:
+        elif cmd == "exit":
+            if len(args) == 0:
                 $flush_input()
                 $desc = "Closing mail.app{cps=2}... ... ... Done.{/cps} \n" \
                         "Press {b}ENTER{/b} to return to main screen."
@@ -39,9 +39,9 @@ Example: {b}> email 5{/b}"""
             else:
                 $has_args()
         
-        elif inputv == "email":
-            if len(argument) == 1:
-                if argument[0] in emaillist:
+        elif cmd == "email":
+            if len(args) == 1:
+                if args[0] in emaillist:
                     $desc = "<PLACEHOLDER> Correct Email Choice"
                     $say()
                 else:  

@@ -34,22 +34,22 @@ Please type {b}new{/b} to set up your account.  You can type {b}help{/b} or {b}?
     while True:
         $echo()
         
-        if inputv not in expected:
-            call wait from _call_wait_login
+        if cmd not in expected:
+            $input_error()
             
-        elif inputv == "look" or inputv == "l":
-            if len(argument) == 0:
+        elif cmd == "look" or cmd == "l":
+            if len(args) == 0:
                 $flush_input()
                 nvl clear
                 jump login_first_again
             else:
                 $has_args()
         
-        elif inputv == "help" or inputv == "?":
-            call help from _call_help_login
+        elif cmd == "help" or cmd == "?":
+            $help()
             
-        elif inputv == "new":
-            if len(argument) == 0:
+        elif cmd == "new":
+            if len(args) == 0:
                 $flush_input()
                 nvl clear
                 jump login_new
@@ -87,30 +87,30 @@ Example: {b}> create shelby{/b}"""
     while True:
         $echo()
         
-        if inputv not in expected:
-            call wait from _call_wait_login_2
+        if cmd not in expected:
+            $input_error()
             
-        elif inputv == "look" or inputv == "l":
-            if len(argument) == 0:
+        elif cmd == "look" or cmd == "l":
+            if len(args) == 0:
                 $flush_input()
                 nvl clear
                 jump login_new
             else:
                 $has_args()
                 
-        elif inputv == "help" or inputv == "?":
-            call help from _call_help_login_2
+        elif cmd == "help" or cmd == "?":
+            $help()
         
-        elif inputv == "create":
+        elif cmd == "create":
 
-            if len(argument) == 1:
-                if len(argument[0]) < 5:
+            if len(args) == 1:
+                if len(args[0]) < 5:
                     $flush_input()
                     $desc = "Your username must be at least five characters long."
                     $say()
                 
                 else: 
-                    $set_username(argument[0])
+                    $set_username(args[0])
                     $flush_input()
                     
                     $desc = """Your username has been set to {u}[username]{/u}.  {b}Please remember this username{/b} as you will use it to log in each day along with your bio-authentication.\n\nPress {b}<ENTER>{/b} to continue when you are ready."""
@@ -125,7 +125,7 @@ Example: {b}> create shelby{/b}"""
                 $say()
 
         else:
-            call wait from _call_wait_login_33
+            $input_error()
     
     return
     
@@ -156,23 +156,23 @@ Please type {b}login <username>{/b} to log in, or {b}help{/b} for a list of avai
     while True:
         $echo()
         
-        if inputv not in expected:
-            call wait from _call_wait_login_1
+        if cmd not in expected:
+            $input_error()
         
-        elif inputv == "look" or inputv == "l":
-            if len(argument) == 0:
+        elif cmd == "look" or cmd == "l":
+            if len(args) == 0:
                 $flush_input()
                 nvl clear
                 jump login
             else:
                 $has_args()
                 
-        elif inputv == "help" or inputv == "?":
-            call help from _call_help_login_1
+        elif cmd == "help" or cmd == "?":
+            $help()
         
-        elif inputv == "login":
-            if len(argument) == 1:
-                if argument[0] == username:
+        elif cmd == "login":
+            if len(args) == 1:
+                if args[0] == username:
                     $desc = "Press and hold {b}<ENTER>{/b} for one second for bioauthentication..."
                     $say()
                     
@@ -186,11 +186,11 @@ Please type {b}login <username>{/b} to log in, or {b}help{/b} for a list of avai
                     jump mainscreen
                                     
                 else:
-                    $s = " ".join(argument)
+                    $s = " ".join(args)
                     $flush_input()
                     $desc = "{color=#f00}Error{/color}: Incorrect login '" + s + "'!  Please try again."
                     $say()
-            elif len(argument) == 0:
+            elif len(args) == 0:
                 $flush_input()
                 $desc = "{color=#f00}Error{/color}: You must supply a username after {b}login{/b}."
                 $say()

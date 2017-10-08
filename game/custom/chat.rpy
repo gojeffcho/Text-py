@@ -13,22 +13,22 @@ Example: {b}> chat 2{/b}"""
     while True:
         $echo()
         
-        if inputv not in expected:
-            call wait from _call_wait_chat
+        if cmd not in expected:
+            $input_error()
         
-        elif inputv == "look" or inputv == "l":
-            if len(argument) == 0:
+        elif cmd == "look" or cmd == "l":
+            if len(args) == 0:
                 $flush_input()
                 nvl clear
                 jump chat
             else:
                 $has_args()
                 
-        elif inputv == "help" or inputv == "?":
-            call help from _call_help_chat
+        elif cmd == "help" or cmd == "?":
+            $help()
             
-        elif inputv == "exit":
-            if len(argument) == 0:
+        elif cmd == "exit":
+            if len(args) == 0:
                 $flush_input()
                 $desc = "Closing chat.app{cps=2}... ... ...{/cps} Done.\n" \
                         "Press {b}ENTER{/b} to return to main screen."
@@ -39,9 +39,9 @@ Example: {b}> chat 2{/b}"""
             else:
                 $has_args()
         
-        elif inputv == "chat":
-            if len(argument) == 1:
-                if argument[0] in chatlist:
+        elif cmd == "chat":
+            if len(args) == 1:
+                if args[0] in chatlist:
                     $desc = "<PLACEHOLDER> Correct Chat Choice"
                     $say()
                 else:  

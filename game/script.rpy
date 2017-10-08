@@ -45,8 +45,8 @@ init 0 python:
     global hide_val
     hide_val = False
     
-    # TODO: NVL length - could this be how many outputs are shown on the terminal display? 
-    config.nvl_list_length = 70
+    # How many historical interactions (including echoes) are shown on the screen 
+    config.nvl_list_length = 100
 
     # Set NVL Background Image
 #     style.nvl_window.background = im.FactorScale("img/protoLarge.png", 0.5)
@@ -121,14 +121,14 @@ init 0 python:
     global sympathy
     sympathy = 0
     
-    global inputv
-    inputv = ""
+    global cmd
+    cmd = ""
     
     global expected
     expected = []
     
-    global argument
-    argument = ""
+    global args
+    args = ""
 
     global desc
     desc = ""
@@ -159,94 +159,6 @@ init 0 python:
     ### CUSTOM FUNCTIONS ###
     ########################
     
-    # TODO: add all strings to argument, instead of only the second one
-    def update_input(value=""): 
-        global argument
-        global inputv
-
-        # Flush command and args before setting
-        inputv = ""
-        argument = ""
-
-        words = str.split(str(value))
-        if len(words) == 0 or len(words) == 1:
-            inputv = value.strip()
-        if len(words) >= 2:
-            inputv = words[0].strip()
-            argument = words[1:]
-        
-#         for word in easters:
-#             if len(argument) == 0:
-#                 if word == inputv:
-#                     term("That's not very nice.")
-#                     flush_input()
-#             elif len(argument) == 1:
-#                 if word == argument:
-#                     term("That's not very nice.")
-#                     flush_input()
-#             else:
-#                 if word in argument:
-#                     term("That's not very nice.")
-#                     flush_input()
-        
-    def echo():
-        cmd = inputv 
-        args = " ".join(argument)
-        if args != "":
-            cmd = cmd + " " + args
-        term("{cps=0}> " + cmd + "{/cps}{nw}")
-        
-    def flush_input():
-        global inputv
-        global argument
-        inputv = ""
-        argument = ""
-        
-    def has_args():
-        s = inputv
-        flush_input()
-        term("{cps=125}Command '" + s + "' takes no additional arguments.")
-        
-    def set_username(name):
-        global username
-        username = name
-        
-    # TODO: we can probably use this for our different applications
-    def change_background_color(fantasyval):
-        global append
-        append = fantasy_message()
-        if fantasyval < 100 and fantasyval >= 80:
-            renpy.scene()
-            renpy.show("red1")
-        
-        if fantasyval < 80 and fantasyval >= 60:
-            renpy.scene()
-            renpy.show("red2")
-            
-        if fantasyval < 60 and fantasyval >= 40:
-            renpy.scene()
-            renpy.show("red3")
-            
-        if fantasyval < 40 and fantasyval >= 20:
-            renpy.scene()
-            renpy.show("red4")
-        
-        if fantasyval < 20 and fantasyval >= 0:
-            renpy.scene()
-            renpy.show("red5")
-        
-        if fantasyval < 0:
-            renpy.scene()
-            renpy.show("red6")
-    
-    def say():
-        global desc
-        global append
-        
-        term(desc + "\n" + append)
-        desc = ""
-        append = ""
-
     
 # The game starts here.
 label start:
