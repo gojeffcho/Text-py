@@ -1,26 +1,83 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/mail.rpy", line 44, in script
-    if argument[0] in maillist:
-  File "game/mail.rpy", line 44, in <module>
-    if argument[0] in maillist:
-NameError: name 'maillist' is not defined
+  File "game/login.rpy", line 28, in script
+    $say()
+  File "game/login.rpy", line 28, in <module>
+    $say()
+  File "game/script.rpy", line 212, in say
+    term(desc + "\n" + append)
+  File "renpy/common/00nvl_mode.rpy", line 314, in do_display
+    **display_args)
+  File "renpy/common/00nvl_mode.rpy", line 187, in nvl_show_core
+    return __nvl_show_screen("nvl", items=[ ])
+  File "renpy/common/00nvl_mode.rpy", line 181, in _m1_00nvl_mode__nvl_show_screen
+    return renpy.get_widget(screen_name, "what", config.nvl_layer)
+  File "game/screens.rpy", line 130, in execute
+    screen nvl(dialogue, items=None):
+  File "game/screens.rpy", line 130, in execute
+    screen nvl(dialogue, items=None):
+  File "game/screens.rpy", line 146, in execute
+    window:
+  File "game/screens.rpy", line 149, in execute
+    has vbox:
+  File "game/screens.rpy", line 152, in execute
+    hbox:
+  File "game/screens.rpy", line 157, in execute
+    label "== Time: [hour]:[min:2.] [ampm] ==":
+ValueError: Format specifier missing precision
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/mail.rpy", line 44, in script
-    if argument[0] in maillist:
-  File "/Applications/renpy-6.99.12.4-sdk/renpy/ast.py", line 1656, in execute
-    if renpy.python.py_eval(condition):
-  File "/Applications/renpy-6.99.12.4-sdk/renpy/python.py", line 1749, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "/Applications/renpy-6.99.12.4-sdk/renpy/python.py", line 1743, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/mail.rpy", line 44, in <module>
-    if argument[0] in maillist:
-NameError: name 'maillist' is not defined
+  File "game/login.rpy", line 28, in script
+    $say()
+  File "/Applications/renpy-6.99.12.4-sdk/renpy/ast.py", line 814, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "/Applications/renpy-6.99.12.4-sdk/renpy/python.py", line 1719, in py_exec_bytecode
+    exec bytecode in globals, locals
+  File "game/login.rpy", line 28, in <module>
+    $say()
+  File "game/script.rpy", line 212, in say
+    term(desc + "\n" + append)
+  File "/Applications/renpy-6.99.12.4-sdk/renpy/character.py", line 877, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, **display_args)
+  File "renpy/common/00nvl_mode.rpy", line 314, in do_display
+    **display_args)
+  File "/Applications/renpy-6.99.12.4-sdk/renpy/character.py", line 482, in display_say
+    what_text = show_function(who, what_string)
+  File "renpy/common/00nvl_mode.rpy", line 187, in nvl_show_core
+    return __nvl_show_screen("nvl", items=[ ])
+  File "renpy/common/00nvl_mode.rpy", line 181, in _m1_00nvl_mode__nvl_show_screen
+    return renpy.get_widget(screen_name, "what", config.nvl_layer)
+  File "/Applications/renpy-6.99.12.4-sdk/renpy/display/screen.py", line 1194, in get_widget
+    screen.update()
+  File "/Applications/renpy-6.99.12.4-sdk/renpy/display/screen.py", line 578, in update
+    self.screen.function(**self.scope)
+  File "game/screens.rpy", line 130, in execute
+    screen nvl(dialogue, items=None):
+  File "game/screens.rpy", line 130, in execute
+    screen nvl(dialogue, items=None):
+  File "game/screens.rpy", line 146, in execute
+    window:
+  File "game/screens.rpy", line 149, in execute
+    has vbox:
+  File "game/screens.rpy", line 152, in execute
+    hbox:
+  File "game/screens.rpy", line 157, in execute
+    label "== Time: [hour]:[min:2.] [ampm] ==":
+  File "/Applications/renpy-6.99.12.4-sdk/renpy/ui.py", line 971, in _label
+    text = renpy.text.text.Text(label, style=text_style, substitute=substitute, scope=scope, **text_kwargs)
+  File "/Applications/renpy-6.99.12.4-sdk/renpy/text/text.py", line 1328, in __init__
+    self.set_text(text, scope, substitute)
+  File "/Applications/renpy-6.99.12.4-sdk/renpy/text/text.py", line 1426, in set_text
+    i, did_sub = renpy.substitutions.substitute(i, scope, substitute)
+  File "/Applications/renpy-6.99.12.4-sdk/renpy/substitutions.py", line 232, in substitute
+    s = formatter.vformat(s, (), kwargs)
+  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 563, in vformat
+  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 596, in _vformat
+  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 613, in format_field
+ValueError: Format specifier missing precision
 
 Darwin-16.7.0-x86_64-i386-64bit
 Ren'Py 6.99.12.4.2187
