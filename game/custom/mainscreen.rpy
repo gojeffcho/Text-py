@@ -1,5 +1,5 @@
 label mainscreen:
-    $expected = ["help", "?", "ls", "mail.app", "chat.app"]
+    $expected = ["look", "l", "help", "?", "mail.app", "chat.app"]
     $pickup = []
     $room = "Electric Sheep Co. - Home"
     $desc = """{cps=150}<PLACEHOLDER: This is the main screen> Login: MOTD, graphics, etc. here{/cps}
@@ -14,7 +14,7 @@ Available programs: <{color=#87ceeb}mail.app{/color}>, <{color=#87ceeb}chat.app{
         if inputv not in expected:
             call wait from _call_wait_mainscreen
         
-        elif inputv == "ls":
+        elif inputv == "look" or inputv == "l":
             if len(argument) == 0:
                 $flush_input()
                 nvl clear

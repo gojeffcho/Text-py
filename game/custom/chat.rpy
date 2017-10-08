@@ -1,5 +1,5 @@
 label chat:
-    $expected = ["ls", "help", "?", "chat", "exit"]
+    $expected = ["look", "l", "help", "?", "chat", "exit"]
     $pickup = []
     $room = "Electric Sheep Co. - Chat"
     $desc = """{cps=150}<PLACEHOLDER: This is the chat app screen> Fancy ASCII chat graphics{/cps}
@@ -16,7 +16,7 @@ Example: {b}> chat 2{/b}"""
         if inputv not in expected:
             call wait from _call_wait_chat
         
-        elif inputv == "ls":
+        elif inputv == "look" or inputv == "l":
             if len(argument) == 0:
                 $flush_input()
                 nvl clear
@@ -30,7 +30,7 @@ Example: {b}> chat 2{/b}"""
         elif inputv == "exit":
             if len(argument) == 0:
                 $flush_input()
-                $desc = "Closing chat.app{cps=2}... ... ...{/cps} \n" \
+                $desc = "Closing chat.app{cps=2}... ... ...{/cps} Done.\n" \
                         "Press {b}ENTER{/b} to return to main screen."
                 $say()
                 

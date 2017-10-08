@@ -1,5 +1,5 @@
 label mail:
-    $expected = ["ls", "help", "?", "email", "exit"]
+    $expected = ["look", "l", "help", "?", "email", "exit"]
     $pickup = []
     $room = "Electric Sheep Co. - Email"
     $desc = """{cps=150}<PLACEHOLDER: This is the email app screen> Fancy ASCII email graphics{/cps}
@@ -16,7 +16,7 @@ Example: {b}> email 5{/b}"""
         if inputv not in expected:
             call wait from _call_wait_mail
         
-        elif inputv == "ls":
+        elif inputv == "look" or inputv == "l":
             if len(argument) == 0:
                 $flush_input()
                 nvl clear
@@ -30,7 +30,7 @@ Example: {b}> email 5{/b}"""
         elif inputv == "exit":
             if len(argument) == 0:
                 $flush_input()
-                $desc = "Closing mail.app{cps=2}... ... ...{/cps} \n" \
+                $desc = "Closing mail.app{cps=2}... ... ... Done.{/cps} \n" \
                         "Press {b}ENTER{/b} to return to main screen."
                 $say()
                 

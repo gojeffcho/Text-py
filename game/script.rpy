@@ -4,7 +4,7 @@ define config.rollback_enabled = False
 # Styles for characters
 style my_text is text:
     size 16
-    font "ufonts.com_terminal.ttf"
+    font "font/ufonts.com_terminal.ttf"
 #     font "AnonymousPro-Regular.ttf"
     color "#00cc00"
 
