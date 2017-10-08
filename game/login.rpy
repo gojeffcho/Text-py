@@ -1,6 +1,6 @@
 # LOGIN: first day login prompt
 label login_first:
-    $expected = ["help", "?", "new"]
+    $expected = ["ls", "help", "?", "new"]
     $pickup = []
     $room = "Electric Sheep Co. - New User"
     $desc = """{cps=0}
@@ -27,6 +27,14 @@ Please type {b}new{/b} to set up your account.  You can type {b}help{/b} or {b}?
         
         if inputv not in expected:
             call wait from _call_wait_login
+            
+        elif inputv == "ls":
+            if len(argument) == 0:
+                $flush_input()
+                nvl clear
+                jump login_first
+            else:
+                $has_args()
         
         elif inputv == "help" or inputv == "?":
             call help from _call_help_login
@@ -37,16 +45,13 @@ Please type {b}new{/b} to set up your account.  You can type {b}help{/b} or {b}?
                 nvl clear
                 jump login_new
             else:
-                $s = inputv
-                $flush_input()
-                $desc = "{cps=125}Command '" + s + "' takes no additional arguments.{/cps}"
-                $say()
+                $has_args()
     return
     
 # LOGIN: login new user
 label login_new:
     $flush_input()
-    $expected = ["help", "?", "create"]
+    $expected = ["ls", "help", "?", "create"]
     $pickup = []
     $room = "Electric Sheep Co. - Create New User"
     $desc = """{cps=0}
@@ -62,7 +67,7 @@ _  _ \_  /_  _ \  ___/  __/_  ___/_  /_  ___/
 |___/_| |_|\___|\___| .__/  |_|_| |_|\___|
                     |_|                       
 {/cps}                        
-We're {cps=50}thrilled to have you join our company!{/cps}  Let's create your account.  Please type {b}create{/b} followed by your desired username to create your login.
+We're {cps=50}thrilled to have you join our company!{/cps}  Let's create your account.  Please type {b}create{/b} followed by your desired username (at least five characters long) to create your login.
     
 Example: {b}> create shelby{/b}"""
 
@@ -74,20 +79,33 @@ Example: {b}> create shelby{/b}"""
         if inputv not in expected:
             call wait from _call_wait_login_2
             
+        elif inputv == "ls":
+            if len(argument) == 0:
+                $flush_input()
+                nvl clear
+                jump login_new
+            else:
+                $has_args()
+                
         elif inputv == "help" or inputv == "?":
             call help from _call_help_login_2
         
         elif inputv == "create":
 
             if len(argument) == 1:
-                $set_username(argument[0])
-                $desc = "{cps=15}Your username has been set to {u}" + username + "{/u}.  {b}Please remember this username{/b} as you will use it to log in each day along with your bio-authentication.\n\nPress {b}<ENTER>{/b} to continue when you are ready.{/cps}"
-                $say()
-                $flush_input()
-
-                nvl clear
+                if len(argument[0]) < 5:
+                    $flush_input()
+                    $desc = "Your username must be at least five characters long."
+                    $say()
                 
-                jump login
+                else: 
+                    $set_username(argument[0])
+                    $flush_input()
+                    $desc = "Your username has been set to {u}" + username + "{/u}.  {b}Please remember this username{/b} as you will use it to log in each day along with your bio-authentication.\n\nPress {b}<ENTER>{/b} to continue when you are ready."
+                    $say()
+
+                    nvl clear                
+                    jump login
 
             else:
                 $flush_input()
@@ -101,7 +119,7 @@ Example: {b}> create shelby{/b}"""
     
 # LOGIN: regular login prompt
 label login:
-    $expected = ["help", "?", "login"]
+    $expected = ["ls", "help", "?", "login"]
     $pickup = []
     $room = "Electric Sheep Co. - Login"
     $desc = """{cps=0}
@@ -127,6 +145,14 @@ Please type {b}login <username>{/b} to log in, or {b}help{/b} for a list of avai
         if inputv not in expected:
             call wait from _call_wait_login_1
         
+        elif inputv == "ls":
+            if len(argument) == 0:
+                $flush_input()
+                nvl clear
+                jump login
+            else:
+                $has_args()
+                
         elif inputv == "help" or inputv == "?":
             call help from _call_help_login_1
         

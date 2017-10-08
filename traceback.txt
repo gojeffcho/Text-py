@@ -1,24 +1,26 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/login.rpy", line 131, in script
-    $has_args
-  File "game/login.rpy", line 131, in <module>
-    $has_args
-NameError: name 'has_args' is not defined
+  File "game/mail.rpy", line 44, in script
+    if argument[0] in maillist:
+  File "game/mail.rpy", line 44, in <module>
+    if argument[0] in maillist:
+NameError: name 'maillist' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/login.rpy", line 131, in script
-    $has_args
-  File "/Applications/renpy-6.99.12.4-sdk/renpy/ast.py", line 814, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "/Applications/renpy-6.99.12.4-sdk/renpy/python.py", line 1719, in py_exec_bytecode
-    exec bytecode in globals, locals
-  File "game/login.rpy", line 131, in <module>
-    $has_args
-NameError: name 'has_args' is not defined
+  File "game/mail.rpy", line 44, in script
+    if argument[0] in maillist:
+  File "/Applications/renpy-6.99.12.4-sdk/renpy/ast.py", line 1656, in execute
+    if renpy.python.py_eval(condition):
+  File "/Applications/renpy-6.99.12.4-sdk/renpy/python.py", line 1749, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "/Applications/renpy-6.99.12.4-sdk/renpy/python.py", line 1743, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/mail.rpy", line 44, in <module>
+    if argument[0] in maillist:
+NameError: name 'maillist' is not defined
 
 Darwin-16.7.0-x86_64-i386-64bit
 Ren'Py 6.99.12.4.2187

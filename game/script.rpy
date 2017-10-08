@@ -30,6 +30,18 @@ init -2 python:
     global username
     username = ""
     
+    # Track easter eggs
+    global easters
+    easters = ["fuck", "goddamn"]
+    
+    # Track available chats
+    global chatlist
+    chatlist = []
+
+    # Track available emails
+    global emaillist
+    emaillist = []
+    
     # Track stars
     global stars
     stars = 0
@@ -95,7 +107,7 @@ init -2 python:
 init 0 python:
     
     # TODO: NVL length - could this be how many outputs are shown on the terminal display? 
-    config.nvl_list_length = 4
+    config.nvl_list_length = 6
 
     # Game variables here... maybe find non-persistent way?
     renpy.image("red1", "#220000")
@@ -170,6 +182,11 @@ init 0 python:
         global argument
         inputv = ""
         argument = ""
+        
+    def has_args():
+        s = inputv
+        flush_input()
+        term("{cps=125}Command '" + s + "' takes no additional arguments.")
         
     def set_username(name):
         global username
@@ -307,6 +324,18 @@ label start:
         # Track username
         global username
         username = ""
+        
+        # Track easter eggs
+        global easters
+        easters = ["fuck", "goddamn"]
+    
+        # Track available chats
+        global chatlist
+        chatlist = []
+        
+        # Track available emails
+        global emaillist
+        emaillist = []
      
         # Track stars
         global stars
@@ -340,4 +369,4 @@ label start:
         
     # GOTO first scene
     scene bg black
-    jump login_first
+    jump mainscreen

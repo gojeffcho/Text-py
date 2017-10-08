@@ -149,11 +149,11 @@ screen nvl(dialogue, items=None):
             style "nvl_vbox"
 
             hbox:
-                label "==[room]==      ":
+                label "== [room] ==      ":
                     text_style "my_text"
                     text_xalign 0.0
                     xalign 0.0
-                label "==Time: [fantasy]==":
+                label "== Time: [fantasy] ==":
                     text_style "my_text"
                     text_xalign 1.0
                     xalign 1.0

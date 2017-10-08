@@ -15,26 +15,37 @@ Available programs: <mail.app>, <chat.app>"""
         if inputv not in expected:
             call wait from _call_wait_mainscreen
         
+        elif inputv == "ls":
+            if len(argument) == 0:
+                $flush_input()
+                nvl clear
+                jump mainscreen
+            else:
+                $has_args()
+                
         elif inputv == "help" or inputv == "?":
             call help from _call_help_mainscreen
-            
-        elif inputv == "ls":
-            $flush_input()
-            $desc = "<PLACEHOLDER: directory> Show some stuff."
-            $say()
         
         elif inputv == "mail.app":
-            $flush_input()
-            $desc = "<PLACEHOLDER> Starting mail.exe... \n" \
-                    "(Nothing actually here, press ENTER to continue)"
-            $say()
-            jump mainscreen
+            if len(argument) == 0:
+                $flush_input()
+                $desc = "Starting mail.app{cps=2}... ... ...{/cps} {cps=130}Ready!{/cps}\n" \
+                        "Press {b}ENTER{/b} to continue to mail."
+                $say()
+                nvl clear
+                jump mail
+            else:
+                $has_args()
         
         elif inputv == "chat.app":
-            $flush_input()
-            $desc = "<PLACEHOLDER> Starting chat.exe...\n" \
-                    "(Nothing actually here, press ENTER to continue)"
-            $say()
-            jump mainscreen
+            if len(argument) == 0:
+                $flush_input()
+                $desc = "Starting chat.app{cps=2}... ... ...{/cps} {cps=130}Ready!{/cps}\n" \
+                        "Press {b}ENTER{/b} to continue to chat."
+                $say()
+                nvl clear
+                jump chat
+            else:
+                $has_args()
             
     return
