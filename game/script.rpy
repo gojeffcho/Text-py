@@ -1,3 +1,5 @@
+# Change nothing
+
 # Disable rollback
 define config.rollback_enabled = False
 
