@@ -35,7 +35,15 @@ Please type {b}new{/b} to set up your account.  You can type {b}help{/b} or {b}?
         $echo()
         
         if cmd not in expected:
-            $input_error()
+            python:
+                eastered = False
+                for word in easters:
+                    if cmd == word or args == word or word in args:
+                        easter(word)
+                        eastered = True
+                
+                if not eastered:
+                    input_error()
             
         elif cmd == "look" or cmd == "l":
             if len(args) == 0:
@@ -88,7 +96,15 @@ Example: {b}> create shelby{/b}"""
         $echo()
         
         if cmd not in expected:
-            $input_error()
+            python:
+                eastered = False
+                for word in easters:
+                    if cmd == word or args == word or word in args:
+                        easter(word)
+                        eastered = True
+                
+                if not eastered:
+                    input_error()
             
         elif cmd == "look" or cmd == "l":
             if len(args) == 0:
@@ -157,7 +173,15 @@ Please type {b}login <username>{/b} to log in, or {b}help{/b} for a list of avai
         $echo()
         
         if cmd not in expected:
-            $input_error()
+            python:
+                eastered = False
+                for word in easters:
+                    if cmd == word or args == word or word in args:
+                        easter(word)
+                        eastered = True
+                
+                if not eastered:
+                    input_error()
         
         elif cmd == "look" or cmd == "l":
             if len(args) == 0:

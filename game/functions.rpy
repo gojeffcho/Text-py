@@ -62,6 +62,10 @@ init 0 python:
         cmd = ""
         args = ""
 
+###
+### input_error(): called when no command or an invalid command is entered.
+###                 Previously label 'wait'.
+###
     def input_error():
         if cmd == "":
             flush_input()
@@ -73,7 +77,9 @@ init 0 python:
             term("{cps=125}'" + s + "': {color=#f00}command not found{/color}.  Type 'help' or '?' for available commands.")
         return
     
-    
+###
+### help(): called when 'help' or '?' is entered.
+###    
     def help():
         if len(args) > 0:
             s = cmd
@@ -101,4 +107,10 @@ init 0 python:
         global username
         username = name
 
+###
+### easter(): easter egg output
+###
+    def easter(word):
+        flush_input()
+        term("Watch your language.")
 

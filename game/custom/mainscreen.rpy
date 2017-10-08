@@ -12,7 +12,15 @@ Available programs: <{color=#87ceeb}mail.app{/color}>, <{color=#87ceeb}chat.app{
         $echo()
         
         if cmd not in expected:
-            $input_error()
+            python:
+                eastered = False
+                for word in easters:
+                    if cmd == word or args == word or word in args:
+                        easter(word)
+                        eastered = True
+                
+                if not eastered:
+                    input_error()
         
         elif cmd == "look" or cmd == "l":
             if len(args) == 0:

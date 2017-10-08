@@ -95,7 +95,7 @@ init 0 python:
     
     # Track easter eggs
     global easters
-    easters = ["fuck", "goddamn", "shit"]
+    easters = ["fuck", "goddamn", "shit", "bitch", "cunt", "friggin", "dick"]
 
     # Track available chats
     global chatlist
