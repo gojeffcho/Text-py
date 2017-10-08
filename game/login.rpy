@@ -23,7 +23,7 @@ label login_first:
 {/color}{/font}{/cps}
 Welcome, new user!  
 
-Please type {b}new{/b} to set up your account.  You can type {b}help{/b} or {b}?{/b} at any time to see the list of commands available to you."""
+Please type {b}new{/b} to set up your account.  You can type {b}help{/b} or {b}?{/b} at any time to see the list of commands available to you.  If at any time you become lost on any screen, type {b}ls{/b} to see the original prompt again."""
     
     $say()
     
@@ -77,7 +77,7 @@ label login_new:
                                           \ \_\                         
                                            \/_/                                            
 {/color}{/font}{/cps}
-We're {cps=50}thrilled to have you join our company!{/cps}  Let's create your account.  Please type {b}create{/b} followed by your desired username (at least five characters long) to create your login.
+We're {cps=50}thrilled to have you join our company!{/cps}  Let's create your account.  Please type {b}create{/b} followed by your desired username (at least five characters long) to create your login.  If at any time you become lost on any screen, type {b}ls{/b} to see the original prompt again.
     
 Example: {b}> create shelby{/b}"""
 
@@ -152,7 +152,7 @@ label login:
                                           \ \_\                         
                                            \/_/                           
 {/color}{/font}{/cps}
-Please type {b}login <username>{/b} to log in, or {b}help{/b} for a list of available commands."""
+Please type {b}login <username>{/b} to log in, or {b}help{/b} for a list of available commands.  If at any time you become lost on any screen, type {b}ls{/b} to see the original prompt again."""
     
     $say()
     
