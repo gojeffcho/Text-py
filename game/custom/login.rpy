@@ -94,6 +94,7 @@ Example: {b}> create shelby{/b}"""
     
     while True:
         $echo()
+        $add_time() # TODO: REMOVE, testing
         
         if cmd not in expected:
             python:

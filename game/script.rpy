@@ -99,16 +99,22 @@ init 0 python:
 
     # Track available chats
     global chatlist
+    global numChats 
     chatlist = []
+    numChats = len(chatlist)
     
     # Track available emails
     global emaillist
+    global numEmails
     emaillist = []
+    numEmails = len(emaillist)
     
     # Track current time
+    global day
     global hour
     global min
     global ampm
+    day = "Mon"
     hour = 9
     min = 00
     ampm = "am"

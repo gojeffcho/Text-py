@@ -10,6 +10,8 @@ init 0 python:
         term(desc + "\n" + append)
         desc = ""
         append = ""
+        
+        return
 ###
 ### update_input(): takes input from terminal input and maps it to cmd and argument
 ###
@@ -27,21 +29,8 @@ init 0 python:
         if len(words) >= 2:
             cmd = words[0].strip()
             args = words[1:]
-        
-#         for word in easters:
-#             if len(args) == 0:
-#                 if word == cmd:
-#                     term("That's not very nice.")
-#                     flush_input()
-#             elif len(args) == 1:
-#                 if word == args:
-#                     term("That's not very nice.")
-#                     flush_input()
-#             else:
-#                 if word in args:
-#                     term("That's not very nice.")
-#                     flush_input()
 
+        return
 
 ###
 ### echo(): called after each input to echo the player's command to the terminal
@@ -52,6 +41,7 @@ init 0 python:
         if args != "":
             s = cmd + " " + argslist
         term("{cps=0}> " + s + "{/cps}{nw}")
+        return
 
 ###
 ### flush_input(): manually called to clear cmd and args whenever input processing is done
@@ -61,6 +51,7 @@ init 0 python:
         global args
         cmd = ""
         args = ""
+        return
 
 ###
 ### input_error(): called when no command or an invalid command is entered.
@@ -99,6 +90,8 @@ init 0 python:
         s = cmd
         flush_input()
         term("{cps=125}Command '" + s + "' takes no additional arguments.")
+        
+        return
 
 ###
 ### set_username(name): utility function to set global <username>
@@ -106,6 +99,8 @@ init 0 python:
     def set_username(name):
         global username
         username = name
+        
+        return
 
 ###
 ### easter(): easter egg output
@@ -113,4 +108,89 @@ init 0 python:
     def easter(word):
         flush_input()
         term("Watch your language.")
+        
+        return
 
+###
+### update_avails(): updates numChats and numEmails
+###
+    def update_avails():
+        global numChats
+        global numEmails
+        numChats = len(chatlist)
+        numEmails = len(emaillist)
+        
+        return
+        
+###
+### add_time(): increments time
+###
+    def add_time():
+        global hour
+        global min
+        global ampm
+        global append
+        increment = 30      # Must not be greater than 59
+        
+        # Hour cycles to the next hour
+        if (min + increment) > 59:
+            hour = hour + 1
+            min = (min + increment) % 60
+            
+            if hour > 11:
+                ampm = "pm"
+            
+            if hour > 12:
+                hour = hour - 12
+        
+        # Otherwise, just add the minute
+        else:
+            min = min + increment
+            
+        # Check for end of day condition
+        if hour == 5 and ampm == "pm":
+            term("{color=#f00}WARNING:{/color} no employee is permitted access to the system after 5:00 pm.  System will now begin auto-logout procedures.")
+            # TODO: call end day function
+            
+        elif hour == 4 and ampm == "pm":
+            term("{color=#ffd700}REMINDER {/color}: Company policy requires that you log out by 5:00 pm.{nw}")
+            append = "{color=#ffd700}REMINDER {/color}: Company policy requires that you log out by 5:00 pm.{nw}"
+        
+        return
+
+###
+### new_day(): increments to the next day, resets time
+###
+    def new_day():
+        global day
+        global hour
+        global min
+        global ampm
+        global append
+        
+        # Cycle to next day
+        if day == "Mon":
+            day = "Tue"
+        elif day == "Tue":
+            day = "Wed"
+        elif day == "Wed":
+            day = "Thu"
+        elif day == "Thu":
+            day = "Fri"
+        elif day == "Fri":
+            day = "Sat"
+        elif day == "Sat":
+            day = "Sun"
+        else:
+            day = "ERR"
+        
+        # Reset the clock
+        hour = 9
+        min = 00
+        ampm = "am"
+        
+        # Reset append message
+        append = ""
+        
+        return
+        

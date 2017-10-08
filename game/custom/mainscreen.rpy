@@ -1,9 +1,11 @@
 label mainscreen:
+    $update_avails()
     $expected = ["look", "l", "help", "?", "mail.app", "chat.app"]
     $pickup = []
     $room = "Home"
     $desc = """{cps=150}<PLACEHOLDER: This is the main screen> Login: MOTD, graphics, etc. here{/cps}
-    
+
+You have ({color=#f00}[numChats]{/color}) chat partners and ({color=#f00}[numEmails]{/color}) new emails.
 Available programs: <{color=#87ceeb}mail.app{/color}>, <{color=#87ceeb}chat.app{/color}>"""
     
     $say()

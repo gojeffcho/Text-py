@@ -50,8 +50,12 @@ Example: {b}> chat 2{/b}"""
         elif cmd == "chat":
             if len(args) == 1:
                 if args[0] in chatlist:
-                    $desc = "<PLACEHOLDER> Correct Chat Choice"
+                    $desc = "Initiating chat with [args[0]]{cps=2}... ... ...{/cps} Done.\n" \
+                            "Press {b}ENTER{/b} to enter chat."
                     $say()
+                    
+                    jump expression args[0]
+                    
                 else:  
                     $flush_input()
                     $desc = "Please enter a valid choice for a chat partner."
