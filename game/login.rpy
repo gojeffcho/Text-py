@@ -37,8 +37,10 @@ Please type {b}new{/b} to set up your account.  You can type {b}help{/b} or {b}?
                 nvl clear
                 jump login_new
             else:
-                call wait from _call_wait_login_3
-            
+                $s = inputv
+                $flush_input()
+                $desc = "{cps=125}Command '" + s + "' takes no additional arguments.{/cps}"
+                $say()
     return
     
 # LOGIN: login new user
@@ -71,7 +73,7 @@ Example: {b}> create shelby{/b}"""
         
         if inputv not in expected:
             call wait from _call_wait_login_2
-        
+            
         elif inputv == "help" or inputv == "?":
             call help from _call_help_login_2
         
@@ -88,8 +90,12 @@ Example: {b}> create shelby{/b}"""
                 jump login
 
             else:
+                $flush_input()
                 $desc = "{color=#f00}Error{/color}: Please enter a valid username."
                 $say()
+
+        else:
+            call wait from _call_wait_login_33
     
     return
     
@@ -137,12 +143,16 @@ Please type {b}login <username>{/b} to log in, or {b}help{/b} for a list of avai
                     jump mainscreen
                                     
                 else:
-                    $desc = "{color=#f00}Error{/color}: Incorrect login '" + " ".join(argument) + "'!  Please try again."
+                    $s = " ".join(argument)
+                    $flush_input()
+                    $desc = "{color=#f00}Error{/color}: Incorrect login '" + s + "'!  Please try again."
                     $say()
             elif len(argument) == 0:
+                $flush_input()
                 $desc = "{color=#f00}Error{/color}: You must supply a username after {b}login{/b}."
                 $say()
             else:
+                $flush_input()
                 $desc = "{color=#f00}Error{/color}: Please type {b}login <username>{/b} to log in.  Your username is only one word."
                 $say()
             

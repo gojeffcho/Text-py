@@ -25,7 +25,7 @@ init -2 python:
     
     global hide_val
     hide_val = False
-    
+        
     # Track username
     global username
     username = ""
@@ -158,13 +158,19 @@ init 0 python:
             inputv = words[0].strip()
             argument = words[1:]
         
+    def echo():
+        cmd = inputv 
+        args = " ".join(argument)
+        if args != "":
+            cmd = cmd + " " + args
+        term("{cps=125}> " + cmd + "{/cps}{nw}")
         
     def flush_input():
         global inputv
         global argument
         inputv = ""
         argument = ""
-
+        
     def set_username(name):
         global username
         username = name
@@ -251,13 +257,6 @@ init 0 python:
             renpy.jump("reality")
         return
     
-    def echo():
-        cmd = inputv 
-        args = " ".join(argument)
-        if args != "":
-            cmd = cmd + " " + args
-        term("{cps=125}> " + cmd + "{/cps}{nw}")
-    
     def say():
         global desc
         global append
@@ -308,7 +307,7 @@ label start:
         # Track username
         global username
         username = ""
-    
+     
         # Track stars
         global stars
         stars = 0
