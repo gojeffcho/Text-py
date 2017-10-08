@@ -46,7 +46,7 @@ init 0 python:
     hide_val = False
     
     # TODO: NVL length - could this be how many outputs are shown on the terminal display? 
-    config.nvl_list_length = 7
+    config.nvl_list_length = 70
 
     # Set NVL Background Image
 #     style.nvl_window.background = im.FactorScale("img/protoLarge.png", 0.5)

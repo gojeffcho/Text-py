@@ -112,7 +112,6 @@ Example: {b}> create shelby{/b}"""
                 else: 
                     $set_username(argument[0])
                     $flush_input()
-                    nvl clear
                     
                     $desc = """Your username has been set to {u}[username]{/u}.  {b}Please remember this username{/b} as you will use it to log in each day along with your bio-authentication.\n\nPress {b}<ENTER>{/b} to continue when you are ready."""
                     $say()
