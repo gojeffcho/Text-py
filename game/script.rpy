@@ -21,8 +21,8 @@ define term = Character(None, kind=nvl, what_style="terminal")
 # Backgrounds and Overlays
 image bg black = "#000000"
 image overlay = "img/overlay.png"
-    
-init 0 python:
+
+init -2 python:
     
     ############################
     ### Game Initializations ###    
@@ -32,8 +32,10 @@ init 0 python:
     config.keymap['dismiss'].remove('K_SPACE')
     
     # Remove mouseclick skip
-    config.keymap['dismiss'].remove('mouseup_1')
+    config.keymap['dismiss'].remove('mouseup_1')    
 
+
+init 0 python:
     
     #########################
     ### NVL Configuration ###
@@ -172,6 +174,20 @@ init 0 python:
         if len(words) >= 2:
             inputv = words[0].strip()
             argument = words[1:]
+        
+#         for word in easters:
+#             if len(argument) == 0:
+#                 if word == inputv:
+#                     term("That's not very nice.")
+#                     flush_input()
+#             elif len(argument) == 1:
+#                 if word == argument:
+#                     term("That's not very nice.")
+#                     flush_input()
+#             else:
+#                 if word in argument:
+#                     term("That's not very nice.")
+#                     flush_input()
         
     def echo():
         cmd = inputv 
