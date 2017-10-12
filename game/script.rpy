@@ -80,7 +80,7 @@ init 0 python:
     
     config.say_attribute_transition = dissolve
     
-    config.default_text_cps = 15
+    config.default_text_cps = 20
 
     config.window_auto_hide = [ 'scene', 'alma' ]
 
@@ -173,3 +173,7 @@ label start:
     # GOTO first scene
     scene bg black
     jump login_first
+
+    # Chat Test
+#     $chatlist.append("c_demo0")
+#     jump chat

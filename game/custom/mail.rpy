@@ -50,24 +50,28 @@ Example: {b}> email e_boss0{/b}"""
         elif cmd == "show":
             
             if len(args) == 1 and args[0] == "emails":
+                $flush_input()
                 $s = "{cps=150}{color=#faebd7}" + "    * " + "\n    * ".join(emaillist) + "{/color}{/cps}"
                 $desc = s
                 $say()
             
             else:
+                $flush_input()
                 $desc = "{color=#f00}Error{/color}: please type {b}show emails{/b} to view your email list."
                 $say()
         
         elif cmd == "email":
-            if len(args) == 1:
-                if args[0] in emaillist:
+            $t = args
+            if len(t) == 1:
+                if t[0] in emaillist:
                     
                     $desc = "Downloading email [args[0]]{cps=2}... ... ...{/cps} Done.\n" \
                             "Press {b}ENTER{/b} to open email."
                     $say()
                     
+                    $flush_input()
                     nvl clear
-                    jump expression args[0]
+                    jump expression t[0]
                     
                 else:  
                     $flush_input()
