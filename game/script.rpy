@@ -89,9 +89,11 @@ init 0 python:
     ### Global Variables ###
     ########################
     
-    # Track username
+    # Track username, user color
     global username
     username = ""
+    global usercolor
+    usercolor = "ff1493"  # default user color
     
     # Track easter eggs
     global easters

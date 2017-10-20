@@ -3,6 +3,10 @@ init -1 python:
   ## PRECONDITION: each chat must have at least three questions
   ## NOTE: we're going to need to grab getQuestions() and concatenate it
   ##       to $expected in order to validate user inputs... Christ.
+  ##
+  ## NOTE: a question has key 'entry', corresponding to the user input
+  ##       a follow-up question to that question has key 'entry<X>'
+  ##       e.g. 'entry' = 'JOKE', follow-ups are 'entry2, entry3'
   class Chat:
 
     ## Members:
@@ -96,6 +100,20 @@ init -1 python:
     def reportTarget(self, report):
       # TODO: IMPLEMENT
       return
+      
+    # userFormat(outputText) -> String (formatted for terminal output)
+    def userFormat(self, text):
+      outputString = "{color=#" + usercolor + "{b}" + username + "{/b}{/color}: " + text
+      
+      return outputString
+      
+    # targetFormat(outputText) -> String (formatted for terminal output)
+    def targetFormat(self, text):
+      
+      # Prepend target username in user color
+      outputString = "{color=#" + self.__color + "}{b}" + self.__id + "{/b}{/color}: " + text
+            
+      return outputString
     
     # asked(question) -> Bool
     def asked(self, question):
@@ -124,27 +142,63 @@ init -1 python:
         return
 
       else:      
+      
+        # Remove question from qList, set it to currentQ
+        self.__qList.remove(q)
+        self.__currentQ = q
+        
+        # Add another question if available (top-up to qList size 3)
+        self.__queueQuestion()
+        
         # Add question to asked
         self.__addAsked(q)
       
         # If question is not follow-up from last, remove follow-up and add 
         # another question if available (top-up to qList size 3)
-        if q != self.__currentQ:
-          self.__qList.remove(self.__currentQ)
-          self.__queueQuestion()
+#         if q != self.__currentQ:
+#           self.__qList.remove(self.__currentQ)
+#           self.__queueQuestion()
       
-        # Remove question from qList, set it to currentQ
-        self.__qList.remove(q)
-        self.__currentQ = q
+        # OUTPUT: Print player question text to terminal
+        desc = self.userFormat(self.__questions[q])
+        say()
+        
+        # TODO: Some kind of wait, or target is typing interlude?
       
-        # Add another question if available (top-up to qList size 3)
-        self.__queueQuestion()
+        # OUTPUT: Print target answer to terminal
+        desc = self.targetFormat(self.__answers[q])
+        say()
+        
+        # Give the option for a follow-up, if any exist
+        self.__followup(q)
+    
+    # followup(question)
+    def __followup(self, question):
       
-        # Print player question text to terminal
+      # Get the possible follow-ups
+      followupQs = [key in self.__followupQ.keys() if key[:-1] == question]
       
-        # Print target answer to terminal
+      # Display follow-up options, or option to ask another main question
       
-        # If not follow-up, add follow-up to beginning of qList
+      # If follow-up
+      
+        # OUTPUT: print follow-up question text to terminal
+        
+        # TODO: some kind of wait, or target is typing interlude?
+        
+        # OUTPUT: Print target answer to terminal
+        
+        # Post-processing
+        
+        # Return to question prompt
+      
+      # Else
+      
+        # No follow-up
+        
+        # Return to question prompt
+      
+      
     
     
     
