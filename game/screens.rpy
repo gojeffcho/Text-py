@@ -170,7 +170,7 @@ screen nvl(dialogue, items=None):
                     
                     hbox:
                         #                              |25      |35  |40         |50                               |60
-                        label "== Electric Sheep Inc. - [room:10]                Time: [day], [hour:2]:[min:02] [ampm] ==":
+                        label "== Electric Sheep Inc. - [room:15]           Time: [day], [hour:2]:[min:02] [ampm] ==":
                             text_style "terminal"
                             text_xalign 0.0
                             xalign 0.0

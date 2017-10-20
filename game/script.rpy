@@ -80,7 +80,7 @@ init 0 python:
     
     config.say_attribute_transition = dissolve
     
-    config.default_text_cps = 20
+    config.default_text_cps = 25
 
     config.window_auto_hide = [ 'scene', 'alma' ]
 
