@@ -95,6 +95,7 @@ init -1 python:
     # ends the chat
     def reportTarget(self, report):
       # TODO: IMPLEMENT
+      return
     
     # asked(question) -> Bool
     def asked(self, question):
@@ -120,6 +121,7 @@ init -1 python:
       if q not in qList:
         # If invalid, error out and return
         # TODO: IMPLEMENT
+        return
 
       else:      
         # Add question to asked

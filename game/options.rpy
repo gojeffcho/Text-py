@@ -183,7 +183,7 @@ init -1 python hide:
 
     ## A sample sound that can be played to check the sound volume.
 
-    # config.sample_sound = "click.wav"
+    config.sample_sound = "music/test.wav"
 
     ## Music that is played while the user is at the main menu.
 

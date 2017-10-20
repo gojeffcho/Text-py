@@ -2,8 +2,9 @@
 label login_first:
     
     scene bg black
-#     show overlay zorder 100
     play music "music/bg0.mp3" fadein 3.8 loop
+    
+        
 
 label login_first_again:
 
