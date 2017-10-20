@@ -4,8 +4,6 @@ label login_first:
     scene bg black
     play music "music/bg0.mp3" fadein 3.8 loop
     
-        
-
 label login_first_again:
 
     $expected = ["look", "l", "help", "?", "new"]

@@ -22,6 +22,9 @@ init 0 python:
         # Flush command and args before setting
         cmd = ""
         args = ""
+        
+        # Sound?
+#         renpy.sound.play("music/test.wav")
 
         words = str.split(str(value))
         if len(words) == 0 or len(words) == 1:
