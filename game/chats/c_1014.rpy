@@ -80,17 +80,14 @@ label lolaStart:
                 # Question and answer
                 $target.ask(q)
                 
-                # Do follow-up, if there are any
-                $followups = target.getFollowups(q)
+                # Updated $expected with current command options
+                $expected = ["LOOK", "L", "HELP", "?"]
+                $expected += target.getQuestions()
                 
-                python:
-                  if len(followups) > 0:
-                    # TODO: SET EXPECTED
-                    
-                    target.followup(q)
-                
-                # TODO: FIX EXPECTED
-                
+                $desc = "Your chat options are:\n"
+                $desc += target.questionsOutput()
+                $say()
+                                
             else:
                 $desc = "Please enter only the tag of the conversation option you wish to pursue."
                 $say()

@@ -41,7 +41,7 @@ init -1 python:
       self.__followupQ = followupQ
       self.__followupA = followupA
       self.__qList = []
-      self.__currentQ = ""
+      self.__currentQ = "NONE"
     
     
     ##
@@ -112,7 +112,10 @@ init -1 python:
     def questionsOutput(self):
       outputString = ""
       for q in self.__qList:
-        lineString = "  * <{color=" + highlight1 + "}" + q + "{/color}>: " + self.__questions[q] + "\n"
+        if q.isalpha():
+          lineString = "  * <{color=" + highlight1 + "}" + q + "{/color}>: " + self.__questions[q] + "\n"
+        else:
+          lineString = "  * <{color=" + highlight1 + "}" + q + "{/color}>: " + self.__followupQ[q] + "\n"
         outputString += lineString
       
       return outputString
@@ -144,12 +147,12 @@ init -1 python:
       
     # queueQuestion(): adds one new question to qList, if available
     def __queueQuestion(self):
-      questions = self.__questions.keys()
-      for question in questions:
-        if not self.asked(question):
-          self.__qList.append(question)
-          return 
-      return
+      if len(self.__qList) < 3:
+        questions = self.__questions.keys()
+        for question in questions:
+          if not self.asked(question) and question not in self.__qList:
+            self.__qList.append(question)
+            return 
           
     # ask(question)
     def ask(self, question):
@@ -166,88 +169,66 @@ init -1 python:
         desc = "DEBUG RETURN{nw}"
         say()
         return
-
+      
+      # Question key is valid
       else:      
       
-        # Remove question from qList, set it to currentQ
+        # Question is asked, removed from qList
         self.__qList.remove(q)
+      
+        # First, remove all previous follow-up questions on key
+        lastQ = self.__currentQ
+        isFollow = False
         
-        # Add another question if available (top-up to qList size 3)
+        if lastQ != "NONE":
+        
+          # If previous question was a follow-up, get the main key
+          if lastQ[-1:].isnumeric():
+            isFollow = True
+            lastQ = lastQ[:-1]
+        
+          # Remove all questions that are key<#>
+          for key in self.__qList:
+            if key[:-1] == lastQ:
+              self.__qList.remove(key)
+              self.__queueQuestion()
+        
+        # Add current question to asked, set it as currentQ, top-up one question
+        self.__addAsked(q)
+        self.__currentQ = q
         self.__queueQuestion()
         
-        # Add question to asked
-        self.__addAsked(q)
-      
-        # If question is not follow-up from last, remove follow-up and add 
-        # another question if available (top-up to qList size 3)
-#         if q != self.__currentQ:
-#           self.__qList.remove(self.__currentQ)
-#           self.__queueQuestion()
-      
-        # OUTPUT: Print player question text to terminal
-        desc = self.userFormat(self.__questions[q])
-        say()
+        # If it has follow-up questions, add it to the qList
+        for f in self.__followupQ.keys():
+          if q == f[:-1]:
+            self.__qList.insert(0, f)
+            self.__qList.pop()
         
-        # TODO: Some kind of wait, or target is typing interlude?
-        desc = self.typingMessage()
-        say()
-      
-        # OUTPUT: Print target answer to terminal
-        desc = self.targetFormat(self.__answers[q])
-        say()
-
-    
-    # getFollowups(question) -> List<String>
-    def getFollowups(self, question):
-      
-      question = question.upper()
-      
-      # Get the possible follow-ups
-      followups = []
-      for key in self.__followupQ.keys():
-        if key[:-1] == question:
-          followups.append(key)
-
-      return followups      
-    
-    # followup(question)
-    def followup(self, question):
-    
-      global desc
-      
-      q = question.upper()
-      
-      # DEBUG PRINT
-      folStrings = []
-      for key in self.getFollowups(q):
-        lineStr = "  * " + key + ": " + self.__followupQ[key]
-        folStrings.append(lineStr)
-
-      desc = "\n".join(folStrings)
-      say()
-            
-      # Display follow-up options, or option to ask another main question
-      
-      # If follow-up
-      
-        # OUTPUT: print follow-up question text to terminal
+        if q[-1:].isnumeric():
+          # OUTPUT: Print player follow-up question text to terminal
+          desc = self.userFormat(self.__followupQ[q])
+          say()
         
-        # TODO: some kind of wait, or target is typing interlude?
-        
-        # OUTPUT: Print target answer to terminal
-        
-        # Post-processing
-        
-        # Return to question prompt
+          # TODO: Some kind of wait, or target is typing interlude?
+          desc = self.typingMessage()
+          say()
       
-      # Else
-      
-        # No follow-up
+          # OUTPUT: Print target answer to terminal
+          desc = self.targetFormat(self.__followupA[q])
+          say()
+          
+        else:
+          # OUTPUT: Print player question text to terminal
+          desc = self.userFormat(self.__questions[q])
+          say()
         
-        # Return to question prompt
-      return
+          # TODO: Some kind of wait, or target is typing interlude?
+          desc = self.typingMessage()
+          say()
       
-    
+          # OUTPUT: Print target answer to terminal
+          desc = self.targetFormat(self.__answers[q])
+          say()
     
     
     
