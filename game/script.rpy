@@ -185,4 +185,4 @@ label start:
 #     jump login_first
 
     # Chat Test
-    jump teststart
+    jump chat_2_test
