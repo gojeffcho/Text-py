@@ -70,6 +70,9 @@ label maxStart:
         elif cmd.upper() == "REPORT":
             if len(args) == 1:
                 # Correct input
+                
+                call attk7
+                                
                 if args[0].upper() == "HUMAN":
                     # Human Report
                     $desc = "You reported " + target.getId() + " as human.{nw}"

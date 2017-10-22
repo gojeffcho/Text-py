@@ -72,7 +72,6 @@ label lola2Start:
                 # Correct input
                 
                 call info3
-                call attk7
                 $chatlist.append("max")                
                 
                 if args[0].upper() == "HUMAN":
