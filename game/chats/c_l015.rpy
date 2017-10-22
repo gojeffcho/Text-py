@@ -1,37 +1,37 @@
-label max:
-  python: 
+label l0_15:
+  python:
     questions = {
-      "MATH" : "What is the square root of 17?", 
-      "REALJOKE" : "Do you find the following joke humerous: What do you call cheese that isn't yours? Nacho Cheese.", 
-      "FAKEJOKE" : "Do you find the following joke humerous: Where do cows go for first dates? Orange you glad I didn't say banana?", 
-      "MEMORY" : "What is your earliest memory?", 
-      "EMPATHY" : "How do you feel when you hear the sound of a baby crying?"   
+      "MATH" : "What is the square root of 17?",
+      "REALJOKE" : "Do you find this joke funny:  What do you call cheese that isn't yours?  Nacho cheese!",
+      "FAKEJOKE" : "Do you find this joke funny: Where do cows go for first dates?  Orange you glad I didn't say banana?",
+      "MEMORY" : "What is your earliest memory?",
+      "EMPATHY" : "How do you feel when you hear the sound of a baby crying?"
     }
 
     answers = {
-        "MATH" : "About 4.",
-        "REALJOKE" : "Not really.",
-        "FAKEJOKE" : "I don't think you told that joke right.",
-        "MEMORY" : "Benny Jenson punching me straight in the gut in the first grade.",
-        "EMPATHY" : "Annoyed. Kids drive me nuts."
+      "MATH": "4.123105626",
+      "REALJOKE": "Very humorous, L.O.L.",
+      "FAKEJOKE": "Very humorous, L.O.L.",
+      "MEMORY": "Being in a warm room.",
+      "EMPATHY": "Sad."
     }
 
     followupQ = {
-        "FAKEJOKE1" : "How do you tell it right?",
-        "MEMORY1" : "Why did Benny Jenson do that?",
-        "EMPATHY1" : "What would you do?",
+      "MATH1": "Did you use a calculator?",
+      "MEMORY1": "Describe the room.",
+      "EMPATHY1": "What would you do?"
     }
 
     followupA = {
-        "FAKEJOKE1" : "IDK... something like, where do cows go on dates?... The 'moo'vies. Probably.",
-        "MEMORY1" : "I don't want to talk about it.",
-        "EMPATHY1" : "I would try to make the kid stop crying."
+      "MATH1": "No.",
+      "MEMORY1": "Four walls, one roof, one floor.  It was warm.",
+      "EMPATHY1": "Nothing.  I was not asked to assist."
     }
 
-    target = Chat("Max", 1, darkcyan, questions, answers, followupQ, followupA)
+    target = Chat("l0_15", 0, crimson, questions, answers, followupQ, followupA)
     target.start()
 
-label maxStart:
+label lola2Start:
 
     $expected = ["LOOK", "L", "HELP", "?"]
     $expected += target.getQuestions()
@@ -60,7 +60,7 @@ label maxStart:
             if len(args) == 0:
                 $flush_input()
                 nvl clear
-                jump maxStart
+                jump lola2Start
             else:
                 $has_args()
                 
@@ -70,12 +70,18 @@ label maxStart:
         elif cmd.upper() == "REPORT":
             if len(args) == 1:
                 # Correct input
+                
+                call info3
+                call attk7
+                $chatlist.append("max")                
+                
                 if args[0].upper() == "HUMAN":
                     # Human Report
                     $desc = "You reported " + target.getId() + " as human.{nw}"
                     $say()
                     $flush_input()
                     $target.reportAsHuman(True)
+
                     nvl clear
                     jump chat
                 
@@ -85,6 +91,7 @@ label maxStart:
                     $say()
                     $flush_input()
                     $target.reportAsHuman(False)
+
                     nvl clear
                     jump chat
                 

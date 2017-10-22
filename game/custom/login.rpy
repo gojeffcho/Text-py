@@ -133,7 +133,7 @@ Example: {b}> create shelby{/b}"""
                     $say()
                     
                     $chatlist.append("l0_14")
-                    call news0 from __add_news_0_
+                    call news4
                     $update_avails()
 
                     nvl clear                

@@ -46,7 +46,7 @@ init 0 python:
     hide_val = False
     
     # How many historical interactions (including echoes) are shown on the screen 
-    config.nvl_list_length = 100
+    config.nvl_list_length = 10
 
     # Set NVL Background Image
 #     style.nvl_window.background = im.FactorScale("img/protoLarge.png", 0.5)
@@ -105,6 +105,9 @@ init 0 python:
     
     global highlight2
     highlight2 = "ff1493"
+    
+    global ivory
+    ivory = "fffff0"
     
     global darkcyan
     darkcyan = "008b8b"
@@ -194,9 +197,9 @@ label start:
     jump login_first
 
     # Chat Test
-#     $username = "chell"
+    $username = "chell"
 #     $chatlist.append("l0_14")
-#     jump debugstart
+    jump trainer
 
 
 

@@ -82,7 +82,11 @@ init 0 python:
     
         else:
             flush_input()
-            term("{cps=125}Available commands: <{color=#faebd7}" + "{/color}>, <{color=#faebd7}".join(expected) + "{/color}>{/cps}")
+            cmds = "{cps=125}Available commands: "
+            for each in expected:
+              cmds += "<{color=#" + highlight1 + "}" + each.lower() + "{/color}> "
+            cmds += "{/cps}"
+            term(cmds)
         return
 
 

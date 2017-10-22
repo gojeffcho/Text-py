@@ -104,7 +104,11 @@ init -1 python:
     # start()
     # Sets chat to engaged state, initializes qList
     def start(self):
-      self.__qList = self.__questions.keys()[:3] # get first three questions
+      # Special class of chat - only add START key
+      if "START" in self.__questions.keys():
+        self.__qList.append("START")
+      else:
+        self.__qList = self.__questions.keys()[:3] # get first three questions
     
     # reportAsHuman(Bool)
     # report is True for reporting human, False for reporting AI
@@ -133,7 +137,7 @@ init -1 python:
           lineString = "  * {color=" + highlight1 + "}" + q + "{/color}: " + self.__followupQ[q] + "\n"
         outputString += lineString
       
-      if self.__currentQ != "NONE":
+      if self.__currentQ != "NONE" and "START" not in self.__questions.keys():
         outputString += "  * {color=" + highlight1 + "}REPORT{/color} <AI/HUMAN>"
       
       return outputString
@@ -168,7 +172,7 @@ init -1 python:
       if len(self.__qList) < 3:
         questions = self.__questions.keys()
         for question in questions:
-          if not self.asked(question) and question not in self.__qList:
+          if not self.asked(question) and question not in self.__qList:            
             self.__qList.append(question)
             return 
           
@@ -192,7 +196,7 @@ init -1 python:
       else:      
       
         # Question is asked, removed from qList
-        self.__qList.remove(q)  # qList size 2
+        self.__qList.remove(q) 
       
         # Remove all previous follow-up questions on key, set currentQ
         lastQ = self.__currentQ
@@ -201,7 +205,16 @@ init -1 python:
         
         # Add current question to asked, set it as currentQ
         self.__addAsked(q)
-        self.__queueQuestion()
+        
+        
+        if lastQ == "NONE" and q == "START":
+          self.__qList.append("QUESTIONS")
+        else:
+          self.__queueQuestion()
+          
+        if q == "QUESTIONS" and "START" in self.__questions.keys():
+          self.__queueQuestion()
+          self.__queueQuestion()
         
         if lastQ != "NONE":
         
@@ -222,10 +235,6 @@ init -1 python:
             self.__qList.insert(0, f)
             if len(self.__qList) > 3:
               self.__qList.pop()
-        
-#         Top-up questions to 3
-#         while len(self.__qList) < 3:
-#           self.__queueQuestion()
         
         if q[-1:].isnumeric():
           # OUTPUT: Print player follow-up question text to terminal

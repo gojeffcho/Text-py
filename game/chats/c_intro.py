@@ -1,37 +1,25 @@
-label l0_14:
+label intro:
   python:
     questions = {
-      "MATH" : "What is the square root of 17?",
-      "REALJOKE" : "Do you find this joke funny:  What do you call cheese that isn't yours?  Nacho cheese!",
-      "FAKEJOKE" : "Do you find this joke funny: Where do cows go for first dates?  Orange you glad I didn't say banana?",
-      "MEMORY" : "What is your earliest memory?",
-      "EMPATHY" : "How do you feel when you hear the sound of a baby crying?"
+
     }
 
     answers = {
-      "MATH": "4.123105626",
-      "REALJOKE": "Very humorous, L.O.L.",
-      "FAKEJOKE": "Very humorous, L.O.L.",
-      "MEMORY": "Being in a warm room.",
-      "EMPATHY": "Sad."
+
     }
 
     followupQ = {
-      "MATH1": "Did you use a calculator?",
-      "MEMORY1": "Describe the room.",
-      "EMPATHY1": "What would you do?"
+
     }
 
     followupA = {
-      "MATH1": "No.",
-      "MEMORY1": "Four walls, one roof, one floor.  It was warm.",
-      "EMPATHY1": "Nothing.  I was not asked to assist."
+
     }
 
-    target = Chat("l0_14", 0, crimson, questions, answers, followupQ, followupA)
+    target = Chat("padams", 0, ivory, questions, answers, followupQ, followupA)
     target.start()
 
-label lolaStart:
+label introStart:
 
     $expected = ["LOOK", "L", "HELP", "?"]
     $expected += target.getQuestions()
