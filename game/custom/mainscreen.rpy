@@ -1,3 +1,9 @@
+label teststart:
+
+    $chatlist.append("l0_14")
+    $chatlist.remove("l0_14")
+    $chatlist.append("l0_14")
+
 label mainscreen:
     $update_avails()
     $expected = ["look", "l", "help", "?", "mail.app", "chat.app"]

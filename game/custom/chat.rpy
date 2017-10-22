@@ -70,6 +70,7 @@ Example: {b}> chat c_demo0{/b}"""
                     $say()
                     
                     $flush_input()
+                    $chatlist.remove(t[0])   # can't re-engage this target
                     nvl clear
                     jump expression t[0]
                     

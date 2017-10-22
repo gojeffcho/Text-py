@@ -60,7 +60,7 @@ init -1 python:
     # list comprised of: follow-up, if any, plus available questions
     # return list max size 3 (for screen density)
     def getQuestions(self):     
-      return qList
+      return self.__qList
     
     # getAnswer(question) -> String
     def getAnswer(self, question):
@@ -75,6 +75,14 @@ init -1 python:
     def getFollowupA(self, question):
       return self.__followupA[question]
     
+    # isQuestion(key) -> Bool
+    def isQuestion(self, key):
+      return key in self.__questions
+    
+    # isFollowup(key) -> Bool
+    def isFollowup(self, key):
+      return key in self.__followupQ
+      
     
     ##
     ##  MUTATORS
@@ -92,14 +100,22 @@ init -1 python:
     # start()
     # Sets chat to engaged state, initializes qList
     def start(self):
-      chatlist.remove(id)                       # can't re-engage this target
-      self.__qList = self__questions.keys()[:3] # get first three questions
+      self.__qList = self.__questions.keys()[:3] # get first three questions
     
     # reportTarget(Bool)
     # ends the chat
     def reportTarget(self, report):
       # TODO: IMPLEMENT
       return
+      
+    # questionFormat()
+    def questionsOutput(self):
+      outputString = ""
+      for q in self.__qList:
+        lineString = "  * <{color=" + highlight1 + "}" + q + "{/color}>: " + self.__questions[q] + "\n"
+        outputString += lineString
+      
+      return outputString
       
     # userFormat(outputText) -> String (formatted for terminal output)
     def userFormat(self, text):
@@ -176,7 +192,7 @@ init -1 python:
     def __followup(self, question):
       
       # Get the possible follow-ups
-      followupQs = [key in self.__followupQ.keys() if key[:-1] == question]
+#       followupQs = [key in self.__followupQ.keys() if key[:-1] == question]
       
       # Display follow-up options, or option to ask another main question
       
@@ -197,7 +213,7 @@ init -1 python:
         # No follow-up
         
         # Return to question prompt
-      
+      return
       
     
     

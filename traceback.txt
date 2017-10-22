@@ -1,26 +1,24 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/custom/chat.rpy", line 73, in script
-    jump expression args[0]
-  File "game/custom/chat.rpy", line 73, in <module>
-    jump expression args[0]
-IndexError: string index out of range
+  File "game/chats/c_1014.rpy", line 41, in script
+    $desc = "You are now chatting with '{color=#ff1493}" + targetname + "{/color}'.  In these chats, you will be given a list of options for questions you can pose, prefixed by a tag.  Enter the tag of the conversation option you wish to pursue.\n\n" + target.questionFormat()
+  File "game/chats/c_1014.rpy", line 41, in <module>
+    $desc = "You are now chatting with '{color=#ff1493}" + targetname + "{/color}'.  In these chats, you will be given a list of options for questions you can pose, prefixed by a tag.  Enter the tag of the conversation option you wish to pursue.\n\n" + target.questionFormat()
+TypeError: coercing to Unicode: need string or buffer, NoneType found
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/custom/chat.rpy", line 73, in script
-    jump expression args[0]
-  File "/Applications/renpy-6.99.12.4-sdk/renpy/ast.py", line 1525, in execute
-    target = renpy.python.py_eval(target)
-  File "/Applications/renpy-6.99.12.4-sdk/renpy/python.py", line 1749, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "/Applications/renpy-6.99.12.4-sdk/renpy/python.py", line 1743, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/custom/chat.rpy", line 73, in <module>
-    jump expression args[0]
-IndexError: string index out of range
+  File "game/chats/c_1014.rpy", line 41, in script
+    $desc = "You are now chatting with '{color=#ff1493}" + targetname + "{/color}'.  In these chats, you will be given a list of options for questions you can pose, prefixed by a tag.  Enter the tag of the conversation option you wish to pursue.\n\n" + target.questionFormat()
+  File "/Applications/renpy-6.99.12.4-sdk/renpy/ast.py", line 814, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "/Applications/renpy-6.99.12.4-sdk/renpy/python.py", line 1719, in py_exec_bytecode
+    exec bytecode in globals, locals
+  File "game/chats/c_1014.rpy", line 41, in <module>
+    $desc = "You are now chatting with '{color=#ff1493}" + targetname + "{/color}'.  In these chats, you will be given a list of options for questions you can pose, prefixed by a tag.  Enter the tag of the conversation option you wish to pursue.\n\n" + target.questionFormat()
+TypeError: coercing to Unicode: need string or buffer, NoneType found
 
 Darwin-16.7.0-x86_64-i386-64bit
 Ren'Py 6.99.12.4.2187

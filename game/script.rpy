@@ -92,8 +92,16 @@ init 0 python:
     # Track username, user color
     global username
     username = ""
+    
+    # Colors
     global usercolor
     usercolor = "ff1493"  # default user color
+    
+    global errorcolor
+    errorcolor = "f00"
+    
+    global highlight1
+    highlight1 = "faebd7"
     
     # Track easter eggs
     global easters
@@ -174,8 +182,7 @@ label start:
         
     # GOTO first scene
     scene bg black
-    jump login_first
+#     jump login_first
 
     # Chat Test
-#     $chatlist.append("c_demo0")
-#     jump chat
+    jump teststart
