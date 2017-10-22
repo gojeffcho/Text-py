@@ -1,9 +1,3 @@
-label debugstart:
-    
-    call news4
-    call info3
-    call attk7
-
 label mail:
     $expected = ["LOOK", "L", "HELP", "?", "SHOW", "READ", "EXIT"]
     $pickup = []
@@ -90,6 +84,8 @@ Example: {b}> read news0{/b}"""
                     
                     $desc = emaillist[key].read()
                     $say()
+                    
+                    $help()
                     
                 else:  
                     $flush_input()

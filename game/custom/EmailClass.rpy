@@ -71,12 +71,13 @@ init -1 python:
       # TODO: Time increment?
       self.__setRead()
       
-      # Format output string
-      outputString = "===== [[ Email: " + self.getId() + "] =====\n"
+      # Format output string          |15                                     |40
+      outputString = "\n{cps=100}===== [[ Email: " + self.getId() + "] ===================\n\n"
       outputString += "{b}From{/b}: " + self.tx + "\n"
       outputString += "{b}To{/b}: " + self.rx + "\n"
       outputString += "{b}Subject{/b}: {i}" + self.subj + "{/i}\n\n"
-      outputString += self.__text + "\n"
+      outputString += self.__text + "\n\n"
+      outputString += "===== [[ message ends ] =================\n{/cps}{nw}"
       
       return outputString
       

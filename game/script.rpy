@@ -191,12 +191,12 @@ label start:
         
     # GOTO first scene
     scene bg black
-#     jump login_first
+    jump login_first
 
     # Chat Test
-    $username = "chell"
-    $chatlist.append("l0_14")
-    jump debugstart
+#     $username = "chell"
+#     $chatlist.append("l0_14")
+#     jump debugstart
 
 
 
