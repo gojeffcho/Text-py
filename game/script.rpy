@@ -136,12 +136,12 @@ init 0 python:
     ampm = "am"
  
     # Track stars
-    global stars
-    stars = 0
+    global right
+    right = 0
 
     # Track AI sympathy
-    global sympathy
-    sympathy = 0
+    global wrong
+    wrong = 0
     
     global cmd
     cmd = ""

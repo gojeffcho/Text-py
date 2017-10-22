@@ -106,21 +106,35 @@ init -1 python:
     def start(self):
       self.__qList = self.__questions.keys()[:3] # get first three questions
     
-    # reportTarget(Bool)
-    # ends the chat
-    def reportTarget(self, report):
-      # TODO: IMPLEMENT
+    # reportAsHuman(Bool)
+    # report is True for reporting human, False for reporting AI
+    def reportAsHuman(self, report):
+      global right
+      global wrong
+      global desc
+      
+      if report == self.isHuman():
+        right += 1
+      else:
+        wrong += 1
+      
+      desc = "<<DEBUG>> Right: " + str(right) + " | Wrong: " + str(wrong)
+      say()
+      
       return
       
     # questionFormat()
     def questionsOutput(self):
-      outputString = ""
+      outputString = "\n"
       for q in self.__qList:
         if q.isalpha():
-          lineString = "  * <{color=" + highlight1 + "}" + q + "{/color}>: " + self.__questions[q] + "\n"
+          lineString = "  * {color=" + highlight1 + "}" + q + "{/color}: " + self.__questions[q] + "\n"
         else:
-          lineString = "  * <{color=" + highlight1 + "}" + q + "{/color}>: " + self.__followupQ[q] + "\n"
+          lineString = "  * {color=" + highlight1 + "}" + q + "{/color}: " + self.__followupQ[q] + "\n"
         outputString += lineString
+      
+      if self.__currentQ != "NONE":
+        outputString += "  * {color=" + highlight1 + "}REPORT{/color} <AI/HUMAN>"
       
       return outputString
       
@@ -206,7 +220,8 @@ init -1 python:
         for f in self.__followupQ.keys():
           if q == f[:-1]:
             self.__qList.insert(0, f)
-            self.__qList.pop()
+            if len(self.__qList) > 3:
+              self.__qList.pop()
         
 #         Top-up questions to 3
 #         while len(self.__qList) < 3:

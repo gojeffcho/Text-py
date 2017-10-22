@@ -41,7 +41,7 @@ label lolaStart:
     $expected += target.getQuestions()
     $pickup = []
     $room = "Chat: " + targetname
-    $desc = "You are now chatting with '{b}{color=#" + target.color() + "}" + targetname + "{/color}{/b}'.  In these chats, you will be given a list of options for questions you can pose, prefixed by a tag.  Enter the tag of the conversation option you wish to pursue.\n\n" 
+    $desc = "You are now chatting with '{b}{color=#" + target.color() + "}" + targetname + "{/color}{/b}'.  In these chats, you will be given a list of options for questions you can pose, prefixed by a tag.  Enter the tag of the conversation option you wish to pursue.\n" 
     $desc += target.questionsOutput()
     
     $say()
@@ -84,7 +84,7 @@ label lolaStart:
                 $expected = ["LOOK", "L", "HELP", "?"]
                 $expected += target.getQuestions()
                 
-                $desc = "Your chat options are:\n"
+                $desc = "Your chat options are:"
                 $desc += target.questionsOutput()
                 $say()
                                 
