@@ -1,12 +1,6 @@
-label teststart:
-
-    $chatlist.append("l0_14")
-    $chatlist.remove("l0_14")
-    $chatlist.append("l0_14")
-
 label mainscreen:
     $update_avails()
-    $expected = ["look", "l", "help", "?", "mail.app", "chat.app"]
+    $expected = ["LOOK", "L", "HELP", "?", "MAIL.APP", "CHAT.APP"]
     $pickup = []
     $room = "Home"
     $desc = """{cps=150}<PLACEHOLDER: This is the main screen> Login: MOTD, graphics, etc. here{/cps}
@@ -19,7 +13,7 @@ Available programs: <{color=#87ceeb}mail.app{/color}>, <{color=#87ceeb}chat.app{
     while True:
         $echo()
         
-        if cmd not in expected:
+        if cmd.upper() not in expected:
             python:
                 eastered = False
                 for word in easters:
@@ -30,7 +24,7 @@ Available programs: <{color=#87ceeb}mail.app{/color}>, <{color=#87ceeb}chat.app{
                 if not eastered:
                     input_error()
         
-        elif cmd == "look" or cmd == "l":
+        elif cmd.upper() == "LOOK" or cmd.upper() == "L":
             if len(args) == 0:
                 $flush_input()
                 nvl clear
@@ -38,10 +32,10 @@ Available programs: <{color=#87ceeb}mail.app{/color}>, <{color=#87ceeb}chat.app{
             else:
                 $has_args()
                 
-        elif cmd == "help" or cmd == "?":
+        elif cmd.upper() == "HELP" or cmd == "?":
             $help()
         
-        elif cmd == "mail.app":
+        elif cmd.upper() == "MAIL.APP":
             if len(args) == 0:
                 $flush_input()
                 $desc = "Starting mail.app{cps=2}... ... ...{/cps} {cps=130}Ready!{/cps}\n" \
@@ -52,7 +46,7 @@ Available programs: <{color=#87ceeb}mail.app{/color}>, <{color=#87ceeb}chat.app{
             else:
                 $has_args()
         
-        elif cmd == "chat.app":
+        elif cmd.upper() == "CHAT.APP":
             if len(args) == 0:
                 $flush_input()
                 $desc = "Starting chat.app{cps=2}... ... ...{/cps} {cps=130}Ready!{/cps}\n" \

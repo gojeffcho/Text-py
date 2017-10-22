@@ -1,24 +1,36 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/chats/c_1014.rpy", line 41, in script
-    $desc = "You are now chatting with '{color=#ff1493}" + targetname + "{/color}'.  In these chats, you will be given a list of options for questions you can pose, prefixed by a tag.  Enter the tag of the conversation option you wish to pursue.\n\n" + target.questionFormat()
-  File "game/chats/c_1014.rpy", line 41, in <module>
-    $desc = "You are now chatting with '{color=#ff1493}" + targetname + "{/color}'.  In these chats, you will be given a list of options for questions you can pose, prefixed by a tag.  Enter the tag of the conversation option you wish to pursue.\n\n" + target.questionFormat()
-TypeError: coercing to Unicode: need string or buffer, NoneType found
+  File "game/chats/c_1014.rpy", line 76, in script
+    $desc = target.ask(cmd)
+  File "game/chats/c_1014.rpy", line 76, in <module>
+    $desc = target.ask(cmd)
+  File "game/custom/ChatClass.rpy", line 167, in ask
+    self.__queueQuestion()
+  File "game/custom/ChatClass.rpy", line 142, in _m1_ChatClass__queueQuestion
+    if not self.asked(question):
+  File "game/custom/ChatClass.rpy", line 136, in asked
+    return question in self.asked
+TypeError: argument of type 'instancemethod' is not iterable
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/chats/c_1014.rpy", line 41, in script
-    $desc = "You are now chatting with '{color=#ff1493}" + targetname + "{/color}'.  In these chats, you will be given a list of options for questions you can pose, prefixed by a tag.  Enter the tag of the conversation option you wish to pursue.\n\n" + target.questionFormat()
+  File "game/chats/c_1014.rpy", line 76, in script
+    $desc = target.ask(cmd)
   File "/Applications/renpy-6.99.12.4-sdk/renpy/ast.py", line 814, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "/Applications/renpy-6.99.12.4-sdk/renpy/python.py", line 1719, in py_exec_bytecode
     exec bytecode in globals, locals
-  File "game/chats/c_1014.rpy", line 41, in <module>
-    $desc = "You are now chatting with '{color=#ff1493}" + targetname + "{/color}'.  In these chats, you will be given a list of options for questions you can pose, prefixed by a tag.  Enter the tag of the conversation option you wish to pursue.\n\n" + target.questionFormat()
-TypeError: coercing to Unicode: need string or buffer, NoneType found
+  File "game/chats/c_1014.rpy", line 76, in <module>
+    $desc = target.ask(cmd)
+  File "game/custom/ChatClass.rpy", line 167, in ask
+    self.__queueQuestion()
+  File "game/custom/ChatClass.rpy", line 142, in _m1_ChatClass__queueQuestion
+    if not self.asked(question):
+  File "game/custom/ChatClass.rpy", line 136, in asked
+    return question in self.asked
+TypeError: argument of type 'instancemethod' is not iterable
 
 Darwin-16.7.0-x86_64-i386-64bit
 Ren'Py 6.99.12.4.2187

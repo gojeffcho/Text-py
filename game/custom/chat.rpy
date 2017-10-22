@@ -1,5 +1,5 @@
 label chat:
-    $expected = ["look", "l", "help", "?", "chat", "show", "exit"]
+    $expected = ["LOOK", "L", "HELP", "?", "CHAT", "SHOW", "EXIT"]
     $pickup = []
     $room = "Chat"
     $desc = """{cps=150}<PLACEHOLDER: This is the chat app screen> Fancy ASCII chat graphics{/cps}
@@ -13,7 +13,7 @@ Example: {b}> chat c_demo0{/b}"""
     while True:
         $echo()
         
-        if cmd not in expected:
+        if cmd.upper() not in expected:
             python:
                 eastered = False
                 for word in easters:
@@ -24,7 +24,7 @@ Example: {b}> chat c_demo0{/b}"""
                 if not eastered:
                     input_error()
         
-        elif cmd == "look" or cmd == "l":
+        elif cmd.upper() == "LOOK" or cmd.upper() == "L":
             if len(args) == 0:
                 $flush_input()
                 nvl clear
@@ -32,10 +32,10 @@ Example: {b}> chat c_demo0{/b}"""
             else:
                 $has_args()
                 
-        elif cmd == "help" or cmd == "?":
+        elif cmd.upper() == "HELP" or cmd == "?":
             $help()
             
-        elif cmd == "exit":
+        elif cmd.upper() == "EXIT":
             if len(args) == 0:
                 $flush_input()
                 $desc = "Closing chat.app{cps=2}... ... ...{/cps} Done.\n" \
@@ -47,7 +47,7 @@ Example: {b}> chat c_demo0{/b}"""
             else:
                 $has_args()
 
-        elif cmd == "show":
+        elif cmd.upper() == "SHOW":
             
             if len(args) == 1 and args[0] == "chats":
                 $flush_input()
@@ -61,7 +61,7 @@ Example: {b}> chat c_demo0{/b}"""
                 $say()
 
                 
-        elif cmd == "chat":
+        elif cmd.upper() == "CHAT":
             $t = args
             if len(t) == 1:
                 if t[0] in chatlist:

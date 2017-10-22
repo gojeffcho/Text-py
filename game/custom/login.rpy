@@ -6,7 +6,7 @@ label login_first:
     
 label login_first_again:
 
-    $expected = ["look", "l", "help", "?", "new"]
+    $expected = ["LOOK", "L", "HELP", "?", "NEW"]
     $pickup = []
     $room = "New User"
     $desc = """{cps=0}{font=font/AnonymousPro.ttf}{color=#ffd700}
@@ -33,7 +33,7 @@ Please type {b}new{/b} to set up your account.  You can type {b}help{/b} or {b}?
     while True:
         $echo()
         
-        if cmd not in expected:
+        if cmd.upper() not in expected:
             python:
                 eastered = False
                 for word in easters:
@@ -44,7 +44,7 @@ Please type {b}new{/b} to set up your account.  You can type {b}help{/b} or {b}?
                 if not eastered:
                     input_error()
             
-        elif cmd == "look" or cmd == "l":
+        elif cmd.upper() == "LOOK" or cmd.upper() == "L":
             if len(args) == 0:
                 $flush_input()
                 nvl clear
@@ -52,10 +52,10 @@ Please type {b}new{/b} to set up your account.  You can type {b}help{/b} or {b}?
             else:
                 $has_args()
         
-        elif cmd == "help" or cmd == "?":
+        elif cmd.upper() == "HELP" or cmd == "?":
             $help()
             
-        elif cmd == "new":
+        elif cmd.upper() == "NEW":
             if len(args) == 0:
                 $flush_input()
                 nvl clear
@@ -67,7 +67,7 @@ Please type {b}new{/b} to set up your account.  You can type {b}help{/b} or {b}?
 # LOGIN: login new user
 label login_new:
     $flush_input()
-    $expected = ["look", "l", "help", "?", "create"]
+    $expected = ["LOOK", "L", "HELP", "?", "CREATE"]
     $pickup = []
     $room = "Create User"
     $desc = """{cps=0}{font=font/AnonymousPro.ttf}{color=#ffd700}
@@ -95,7 +95,7 @@ Example: {b}> create shelby{/b}"""
         $echo()
         $add_time() # TODO: REMOVE, testing
         
-        if cmd not in expected:
+        if cmd.upper() not in expected:
             python:
                 eastered = False
                 for word in easters:
@@ -106,7 +106,7 @@ Example: {b}> create shelby{/b}"""
                 if not eastered:
                     input_error()
             
-        elif cmd == "look" or cmd == "l":
+        elif cmd.upper() == "LOOK" or cmd.upper() == "L":
             if len(args) == 0:
                 $flush_input()
                 nvl clear
@@ -114,10 +114,10 @@ Example: {b}> create shelby{/b}"""
             else:
                 $has_args()
                 
-        elif cmd == "help" or cmd == "?":
+        elif cmd.upper() == "HELP" or cmd == "?":
             $help()
         
-        elif cmd == "create":
+        elif cmd.upper() == "CREATE":
 
             if len(args) == 1:
                 if len(args[0]) < 5:
@@ -151,7 +151,7 @@ Example: {b}> create shelby{/b}"""
     
 # LOGIN: regular login prompt
 label login:
-    $expected = ["look", "l", "help", "?", "login"]
+    $expected = ["LOOK", "L", "HELP", "?", "LOGIN"]
     $pickup = []
     $room = "Login"
     $desc = """{cps=0}{font=font/AnonymousPro.ttf}{color=#ffd700}
@@ -176,7 +176,7 @@ Please type {b}login <username>{/b} to log in, or {b}help{/b} for a list of avai
     while True:
         $echo()
         
-        if cmd not in expected:
+        if cmd.upper() not in expected:
             python:
                 eastered = False
                 for word in easters:
@@ -187,7 +187,7 @@ Please type {b}login <username>{/b} to log in, or {b}help{/b} for a list of avai
                 if not eastered:
                     input_error()
         
-        elif cmd == "look" or cmd == "l":
+        elif cmd.upper() == "LOOK" or cmd.upper() == "L":
             if len(args) == 0:
                 $flush_input()
                 nvl clear
@@ -195,10 +195,10 @@ Please type {b}login <username>{/b} to log in, or {b}help{/b} for a list of avai
             else:
                 $has_args()
                 
-        elif cmd == "help" or cmd == "?":
+        elif cmd.upper() == "HELP" or cmd == "?":
             $help()
         
-        elif cmd == "login":
+        elif cmd.upper() == "LOGIN":
             if len(args) == 1:
                 if args[0] == username:
                     $desc = "Press and hold {b}<ENTER>{/b} for one second for bioauthentication..."

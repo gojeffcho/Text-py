@@ -1,3 +1,5 @@
+label teststart:
+
 label l0_14:
   python:
     questions = {
@@ -34,8 +36,8 @@ label l0_14:
 label lolaStart:
 
     $targetname = target.getId()
-    $expected = ["look", "l", "help", "?"]
-    $expected.append(target.getQuestions())
+    $expected = ["LOOK", "L", "HELP", "?"]
+    $expected += target.getQuestions()
     $pickup = []
     $room = "Chat: " + targetname
     $desc = "You are now chatting with '{color=#ff1493}" + targetname + "{/color}'.  In these chats, you will be given a list of options for questions you can pose, prefixed by a tag.  Enter the tag of the conversation option you wish to pursue.\n\n" 
@@ -46,7 +48,7 @@ label lolaStart:
     while True:
         $echo()
         
-        if cmd not in expected:
+        if cmd.upper() not in expected:
             python:
                 eastered = False
                 for word in easters:
@@ -57,26 +59,29 @@ label lolaStart:
                 if not eastered:
                     input_error()
         
-        elif cmd == "look" or cmd == "l":
+        elif cmd.upper() == "LOOK" or cmd.upper() == "L":
             if len(args) == 0:
                 $flush_input()
                 nvl clear
-                jump c_demo0
+                jump l0_14
             else:
                 $has_args()
                 
-        elif cmd == "help" or cmd == "?":
+        elif cmd.upper() == "HELP" or cmd == "?":
             $help()
             
         else:
             if len(args) == 0:
                 # Correct input
-                $desc = "{color=#fffaf0}{b}[username]{/b}: You see a young child crying in the street.  What do you do?"
-                $say()
-                jump c_demo0_1
+                $desc = "DEBUG: correct input"
+                $say() 
+                
+                $target.ask(cmd)
+                
+                jump l0_14
                 
             else:
-                $desc = "Please enter only the number of the conversation option you wish to pursue."
+                $desc = "Please enter only the tag of the conversation option you wish to pursue."
                 $say()
                     
     return

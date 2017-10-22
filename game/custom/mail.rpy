@@ -1,5 +1,5 @@
 label mail:
-    $expected = ["look", "l", "help", "?", "show", "email", "exit"]
+    $expected = ["LOOK", "L", "HELP", "?", "SHOW", "EMAIL", "EXIT"]
     $pickup = []
     $room = "Email"
     $desc = """{cps=150}<PLACEHOLDER: This is the email app screen> Fancy ASCII email graphics{/cps}
@@ -13,7 +13,7 @@ Example: {b}> email e_boss0{/b}"""
     while True:
         $echo()
         
-        if cmd not in expected:
+        if cmd.upper() not in expected:
             python:
                 eastered = False
                 for word in easters:
@@ -24,7 +24,7 @@ Example: {b}> email e_boss0{/b}"""
                 if not eastered:
                     input_error()
         
-        elif cmd == "look" or cmd == "l":
+        elif cmd.upper() == "LOOK" or cmd.upper() == "L":
             if len(args) == 0:
                 $flush_input()
                 nvl clear
@@ -32,10 +32,10 @@ Example: {b}> email e_boss0{/b}"""
             else:
                 $has_args()
                 
-        elif cmd == "help" or cmd == "?":
+        elif cmd.upper() == "HELP" or cmd == "?":
             $help()
             
-        elif cmd == "exit":
+        elif cmd.upper() == "EXIT":
             if len(args) == 0:
                 $flush_input()
                 $desc = "Closing mail.app{cps=2}... ... ... Done.{/cps} \n" \
@@ -47,9 +47,9 @@ Example: {b}> email e_boss0{/b}"""
             else:
                 $has_args()
                 
-        elif cmd == "show":
+        elif cmd.upper() == "SHOW":
             
-            if len(args) == 1 and args[0] == "emails":
+            if len(args) == 1 and args[0].upper() == "EMAILS":
                 $flush_input()
                 $s = "{cps=150}{color=#faebd7}" + "    * " + "\n    * ".join(emaillist) + "{/color}{/cps}"
                 $desc = s
@@ -60,7 +60,7 @@ Example: {b}> email e_boss0{/b}"""
                 $desc = "{color=#f00}Error{/color}: please type {b}show emails{/b} to view your email list."
                 $say()
         
-        elif cmd == "email":
+        elif cmd.upper() == "EMAIL":
             $t = args
             if len(t) == 1:
                 if t[0] in emaillist:

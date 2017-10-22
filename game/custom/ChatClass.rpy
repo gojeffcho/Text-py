@@ -133,41 +133,50 @@ init -1 python:
     
     # asked(question) -> Bool
     def asked(self, question):
-      return question in asked
+      return question in self.__asked
       
     # queueQuestion(): adds one new question to qList, if available
     def __queueQuestion(self):
-      for question in self.__questions.key():
-        if not asked(question):
+      questions = self.__questions.keys()
+      for question in questions:
+        if not self.asked(question):
           self.__qList.append(question)
           return 
+      return
           
     # ask(question)
     def ask(self, question):
     
+      desc = "IN ASK"
+      say()
+      
       # Get question
-      q = question
+      q = question.upper()
       
       # Flush input
       flush_input()
     
       # Validate question
-      if q not in qList:
+      if q not in self.__qList:
         # If invalid, error out and return
         # TODO: IMPLEMENT
+        print("DEBUG RETURN")
         return
 
       else:      
       
         # Remove question from qList, set it to currentQ
         self.__qList.remove(q)
-        self.__currentQ = q
         
         # Add another question if available (top-up to qList size 3)
         self.__queueQuestion()
         
+        print("DEBUG1")
+        
         # Add question to asked
         self.__addAsked(q)
+        
+        print("DEBUG2")
       
         # If question is not follow-up from last, remove follow-up and add 
         # another question if available (top-up to qList size 3)
