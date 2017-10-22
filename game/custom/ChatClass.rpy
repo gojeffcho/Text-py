@@ -34,7 +34,7 @@ init -1 python:
     def __init__(self, id, isHuman, color, questions, answers, followupQ, followupA):
       self.__id = id
       self.__isHuman = isHuman
-      self.__color = "#" + color
+      self.__color = color
       self.__questions = questions
       self.__asked = []
       self.__answers = answers
@@ -119,7 +119,14 @@ init -1 python:
       
     # userFormat(outputText) -> String (formatted for terminal output)
     def userFormat(self, text):
-      outputString = "{color=#" + usercolor + "{b}" + username + "{/b}{/color}: " + text
+      outputString = "{color=#" + usercolor + "}{b}" + username + "{/b}{/color}: " + text + "{nw}"
+      
+      return outputString
+      
+    # typingMessage() -> String (formatted for terminal output)
+    # Interlude between user question being asked and target reply
+    def typingMessage(self):
+      outputString = "{color=#" + self.__color + "}{b}" + self.__id + "{/b}{/color} is typing{cps=2}...{/cps}{nw}"
       
       return outputString
       
@@ -127,7 +134,7 @@ init -1 python:
     def targetFormat(self, text):
       
       # Prepend target username in user color
-      outputString = "{color=#" + self.__color + "}{b}" + self.__id + "{/b}{/color}: " + text
+      outputString = "{color=#" + self.__color + "}{b}" + self.__id + "{/b}{/color}: " + text + "{nw}"
             
       return outputString
     
@@ -147,9 +154,8 @@ init -1 python:
     # ask(question)
     def ask(self, question):
     
-      desc = "IN ASK"
-      say()
-      
+      global desc
+    
       # Get question
       q = question.upper()
       
@@ -160,7 +166,8 @@ init -1 python:
       if q not in self.__qList:
         # If invalid, error out and return
         # TODO: IMPLEMENT
-        print("DEBUG RETURN")
+        desc = "DEBUG RETURN{nw}"
+        say()
         return
 
       else:      
@@ -171,12 +178,8 @@ init -1 python:
         # Add another question if available (top-up to qList size 3)
         self.__queueQuestion()
         
-        print("DEBUG1")
-        
         # Add question to asked
         self.__addAsked(q)
-        
-        print("DEBUG2")
       
         # If question is not follow-up from last, remove follow-up and add 
         # another question if available (top-up to qList size 3)
@@ -189,6 +192,8 @@ init -1 python:
         say()
         
         # TODO: Some kind of wait, or target is typing interlude?
+        desc = self.typingMessage()
+        say()
       
         # OUTPUT: Print target answer to terminal
         desc = self.targetFormat(self.__answers[q])
@@ -199,9 +204,21 @@ init -1 python:
     
     # followup(question)
     def __followup(self, question):
+    
+      global desc
       
       # Get the possible follow-ups
-#       followupQs = [key in self.__followupQ.keys() if key[:-1] == question]
+      followups = []
+      for key in self.__followupQ.keys():
+        if key[:-1] == question:
+          followups.append(key)
+      
+      desc = " ".join(followups)
+      say()
+      
+      # If there are no follow-ups, go back to calling ask()
+      if len(followups) == 0:
+        return
       
       # Display follow-up options, or option to ask another main question
       

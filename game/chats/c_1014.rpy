@@ -1,4 +1,5 @@
 label teststart:
+  $username = "chell"
 
 label l0_14:
   python:
@@ -73,12 +74,7 @@ label lolaStart:
         else:
             if len(args) == 0:
                 # Correct input
-                $desc = "DEBUG: correct input"
-                $say() 
-                
                 $target.ask(cmd)
-                
-                jump l0_14
                 
             else:
                 $desc = "Please enter only the tag of the conversation option you wish to pursue."
