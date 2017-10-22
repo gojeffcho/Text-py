@@ -74,7 +74,22 @@ label lolaStart:
         else:
             if len(args) == 0:
                 # Correct input
-                $target.ask(cmd)
+                $q = cmd
+                $flush_input()
+                
+                # Question and answer
+                $target.ask(q)
+                
+                # Do follow-up, if there are any
+                $followups = target.getFollowups(q)
+                
+                python:
+                  if len(followups) > 0:
+                    # TODO: SET EXPECTED
+                    
+                    target.followup(q)
+                
+                # TODO: FIX EXPECTED
                 
             else:
                 $desc = "Please enter only the tag of the conversation option you wish to pursue."

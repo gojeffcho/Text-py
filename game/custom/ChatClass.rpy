@@ -158,9 +158,6 @@ init -1 python:
     
       # Get question
       q = question.upper()
-      
-      # Flush input
-      flush_input()
     
       # Validate question
       if q not in self.__qList:
@@ -198,28 +195,37 @@ init -1 python:
         # OUTPUT: Print target answer to terminal
         desc = self.targetFormat(self.__answers[q])
         say()
-        
-        # Give the option for a follow-up, if any exist
-        self.__followup(q)
+
     
-    # followup(question)
-    def __followup(self, question):
-    
-      global desc
+    # getFollowups(question) -> List<String>
+    def getFollowups(self, question):
+      
+      question = question.upper()
       
       # Get the possible follow-ups
       followups = []
       for key in self.__followupQ.keys():
         if key[:-1] == question:
           followups.append(key)
+
+      return followups      
+    
+    # followup(question)
+    def followup(self, question):
+    
+      global desc
       
-      desc = " ".join(followups)
+      q = question.upper()
+      
+      # DEBUG PRINT
+      folStrings = []
+      for key in self.getFollowups(q):
+        lineStr = "  * " + key + ": " + self.__followupQ[key]
+        folStrings.append(lineStr)
+
+      desc = "\n".join(folStrings)
       say()
-      
-      # If there are no follow-ups, go back to calling ask()
-      if len(followups) == 0:
-        return
-      
+            
       # Display follow-up options, or option to ask another main question
       
       # If follow-up

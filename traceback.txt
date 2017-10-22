@@ -1,28 +1,24 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/chats/c_1014.rpy", line 77, in script
-    $target.ask(cmd)
-  File "game/chats/c_1014.rpy", line 77, in <module>
-    $target.ask(cmd)
-  File "game/custom/ChatClass.rpy", line 195, in ask
-    desc = self.typingMessage()
-TypeError: typingMessage() takes no arguments (1 given)
+  File "game/chats/c_1014.rpy", line 84, in script
+    $followups = target.getFollowups(q)
+  File "game/chats/c_1014.rpy", line 84, in <module>
+    $followups = target.getFollowups(q)
+TypeError: getFollowups() takes exactly 1 argument (2 given)
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/chats/c_1014.rpy", line 77, in script
-    $target.ask(cmd)
+  File "game/chats/c_1014.rpy", line 84, in script
+    $followups = target.getFollowups(q)
   File "/Applications/renpy-6.99.12.4-sdk/renpy/ast.py", line 814, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "/Applications/renpy-6.99.12.4-sdk/renpy/python.py", line 1719, in py_exec_bytecode
     exec bytecode in globals, locals
-  File "game/chats/c_1014.rpy", line 77, in <module>
-    $target.ask(cmd)
-  File "game/custom/ChatClass.rpy", line 195, in ask
-    desc = self.typingMessage()
-TypeError: typingMessage() takes no arguments (1 given)
+  File "game/chats/c_1014.rpy", line 84, in <module>
+    $followups = target.getFollowups(q)
+TypeError: getFollowups() takes exactly 1 argument (2 given)
 
 Darwin-16.7.0-x86_64-i386-64bit
 Ren'Py 6.99.12.4.2187
