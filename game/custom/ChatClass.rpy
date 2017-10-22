@@ -178,11 +178,16 @@ init -1 python:
       else:      
       
         # Question is asked, removed from qList
-        self.__qList.remove(q)
+        self.__qList.remove(q)  # qList size 2
       
-        # First, remove all previous follow-up questions on key
+        # Remove all previous follow-up questions on key, set currentQ
         lastQ = self.__currentQ
+        self.__currentQ = q
         isFollow = False
+        
+        # Add current question to asked, set it as currentQ
+        self.__addAsked(q)
+        self.__queueQuestion()
         
         if lastQ != "NONE":
         
@@ -196,17 +201,16 @@ init -1 python:
             if key[:-1] == lastQ:
               self.__qList.remove(key)
               self.__queueQuestion()
-        
-        # Add current question to asked, set it as currentQ, top-up one question
-        self.__addAsked(q)
-        self.__currentQ = q
-        self.__queueQuestion()
-        
+               
         # If it has follow-up questions, add it to the qList
         for f in self.__followupQ.keys():
           if q == f[:-1]:
             self.__qList.insert(0, f)
             self.__qList.pop()
+        
+#         Top-up questions to 3
+#         while len(self.__qList) < 3:
+#           self.__queueQuestion()
         
         if q[-1:].isnumeric():
           # OUTPUT: Print player follow-up question text to terminal
