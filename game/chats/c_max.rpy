@@ -1,6 +1,3 @@
-label chat_2_test:
-  $username = "chell"
-
 label max:
   python: 
     questions = {
@@ -79,6 +76,8 @@ label maxStart:
                     $say()
                     $flush_input()
                     $target.reportAsHuman(True)
+                    nvl clear
+                    jump chat
                 
                 if args[0].upper() == "AI":
                     # AI Report
@@ -86,6 +85,8 @@ label maxStart:
                     $say()
                     $flush_input()
                     $target.reportAsHuman(False)
+                    nvl clear
+                    jump chat
                 
                 else:
                     # Incorrect input

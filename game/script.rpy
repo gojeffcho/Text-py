@@ -188,7 +188,13 @@ label start:
         
     # GOTO first scene
     scene bg black
-#     jump login_first
+    jump login_first
 
     # Chat Test
-    jump chat_2_test
+#     username = "chell"
+#     jump chat_2_test
+
+
+
+
+
