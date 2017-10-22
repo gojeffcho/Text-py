@@ -121,7 +121,12 @@ init 0 python:
         global numChats
         global numEmails
         numChats = len(chatlist)
-        numEmails = len(emaillist)
+        unread = 0
+        for id in emaillist.keys():
+          if not emaillist[id].getRead():
+            unread += 1
+        
+        numEmails = unread
         
         return
         

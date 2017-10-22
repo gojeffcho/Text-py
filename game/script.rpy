@@ -103,6 +103,9 @@ init 0 python:
     global highlight1
     highlight1 = "faebd7"
     
+    global highlight2
+    highlight2 = "ff1493"
+    
     global darkcyan
     darkcyan = "008b8b"
     
@@ -115,14 +118,14 @@ init 0 python:
 
     # Track available chats
     global chatlist
-    global numChats 
+    global numChats
     chatlist = []
     numChats = len(chatlist)
     
     # Track available emails
     global emaillist
     global numEmails
-    emaillist = []
+    emaillist = {}
     numEmails = len(emaillist)
     
     # Track current time
@@ -188,11 +191,12 @@ label start:
         
     # GOTO first scene
     scene bg black
-    jump login_first
+#     jump login_first
 
     # Chat Test
-#     username = "chell"
-#     jump chat_2_test
+    $username = "chell"
+    $chatlist.append("l0_14")
+    jump debugstart
 
 
 

@@ -1,12 +1,18 @@
+label debugstart:
+    
+    call news4
+    call info3
+    call attk7
+
 label mail:
-    $expected = ["LOOK", "L", "HELP", "?", "SHOW", "EMAIL", "EXIT"]
+    $expected = ["LOOK", "L", "HELP", "?", "SHOW", "READ", "EXIT"]
     $pickup = []
     $room = "Email"
     $desc = """{cps=150}<PLACEHOLDER: This is the email app screen> Fancy ASCII email graphics{/cps}
 
-Type {b}show emails{/b} to see the list of available emails, {b}email{/b} followed by the message number you wish to open, or "exit" to quit.
+Type {b}show emails{/b} to see the list of available emails, {b}read{/b} followed by the message number you wish to open, or "exit" to quit.  New emails are shown in {color=#""" + highlight2 + """}this color{/color} and previously read emails are shown in {color=#""" + highlight1 + """}this color{/color}.
 
-Example: {b}> email e_boss0{/b}"""
+Example: {b}> read news0{/b}"""
     
     $say()
     
@@ -51,7 +57,15 @@ Example: {b}> email e_boss0{/b}"""
             
             if len(args) == 1 and args[0].upper() == "EMAILS":
                 $flush_input()
-                $s = "{cps=150}{color=#faebd7}" + "    * " + "\n    * ".join(emaillist) + "{/color}{/cps}"
+                if len(emaillist) > 0:
+                    python:
+                        s = ""
+                        for id in emaillist.keys():
+                            s += "  [[{color=#" + emaillist[id].getReadColor() + "}" + id + "{/color}]: "
+                            s += "'" + emaillist[id].getSubj() + "'\n"
+                else:
+                    $s = "{cps=150}You have no emails.{/cps}."
+                    
                 $desc = s
                 $say()
             
@@ -60,18 +74,22 @@ Example: {b}> email e_boss0{/b}"""
                 $desc = "{color=#f00}Error{/color}: please type {b}show emails{/b} to view your email list."
                 $say()
         
-        elif cmd.upper() == "EMAIL":
-            $t = args
-            if len(t) == 1:
-                if t[0] in emaillist:
+        elif cmd.upper() == "READ":
+            
+            if len(args) == 1:
+                $key = args[0]
+                $flush_input()
+                if key in emaillist.keys():
                     
-                    $desc = "Downloading email [args[0]]{cps=2}... ... ...{/cps} Done.\n" \
+                    $desc = "Downloading email [key]{cps=2}... ... ...{/cps} Done.\n" \
                             "Press {b}ENTER{/b} to open email."
                     $say()
                     
                     $flush_input()
                     nvl clear
-                    jump expression t[0]
+                    
+                    $desc = emaillist[key].read()
+                    $say()
                     
                 else:  
                     $flush_input()
