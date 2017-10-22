@@ -55,6 +55,10 @@ init -1 python:
     # isHuman() -> Bool
     def isHuman(self):
       return self.__isHuman
+      
+    # color() -> String (color ID)
+    def color(self):
+      return self.__color
     
     # getQuestions() -> list of Strings
     # list comprised of: follow-up, if any, plus available questions

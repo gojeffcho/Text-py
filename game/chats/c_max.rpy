@@ -31,68 +31,65 @@ label max:
         "EMPATHY1" : "I would try to make the kid stop crying."
     }
 
-    target = Chat("l0_16", 1, "87ceeb", questions, answers, followupQ, followupA)
+    target = Chat("Max", 1, darkcyan, questions, answers, followupQ, followupA)
     target.start()
 
-label chat2Start:
+label maxStart:
 
-  $targetname = target.getId()
-  $expected = ["LOOK", "L", "HELP", "?"]
-  $expected += target.getQuestions()
-  $pickup = []
-  $room = "Chat: " + targetname
-  $desc = "You are now chatting with '{color=#ff1493}" + targetname + "{/color}'.  In these chats, you will be given a list of options for questions you can pose, prefixed by a tag.  Enter the tag of the conversation option you wish to pursue.\n\n" 
-  $desc += target.questionsOutput()
-
-  $say()
-
-  while True:
-    $echo()
-
-    if cmd.upper() not in expected:
-      python:
-        eastered = False
-        for word in easters:
-          if cmd == word or args == word or word in args:
-            easter(word)
-            eastered = True
-
-        if not eastered:
-          input_error()
-
-    elif cmd.upper() == "LOOK" or cmd.upper() == "L":
-      if len(args) == 0:
-        $flush_input()
-        nvl clear
-        jump l0_16
-      else:
-        $has_args()
-
-    elif cmd.upper() == "HELP" or cmd == "?":
-      $help()
-
-    else:
-      if len(args) == 0:
-      # Correct input
-        $q = cmd
-        $flush_input()
-
-      # Question and answer
-        $target.ask(q)
-
-      # Do follow-up, if there are any
-        $followups = target.getFollowups(q)
-
-        python:
-          if len(followups) > 0:
-            # TODO: SET EXPECTED
-
-            target.followup(q)
-
-            # TODO: FIX EXPECTED
-
-      else:
-        $desc = "Please enter only the tag of the conversation option you wish to pursue."
-        $say()
-
-  return
+    $targetname = target.getId()
+    $expected = ["LOOK", "L", "HELP", "?"]
+    $expected += target.getQuestions()
+    $pickup = []
+    $room = "Chat: " + targetname
+    $desc = "You are now chatting with '{b}{color=#" + target.color() + "}" + targetname + "{/color}{/b}'.  In these chats, you will be given a list of options for questions you can pose, prefixed by a tag.  Enter the tag of the conversation option you wish to pursue.\n\n" 
+    $desc += target.questionsOutput()
+    
+    $say()
+    
+    while True:
+        $echo()
+        
+        if cmd.upper() not in expected:
+            python:
+                eastered = False
+                for word in easters:
+                    if cmd == word or args == word or word in args:
+                        easter(word)
+                        eastered = True
+                
+                if not eastered:
+                    input_error()
+        
+        elif cmd.upper() == "LOOK" or cmd.upper() == "L":
+            if len(args) == 0:
+                $flush_input()
+                nvl clear
+                jump l0_14
+            else:
+                $has_args()
+                
+        elif cmd.upper() == "HELP" or cmd == "?":
+            $help()
+            
+        else:
+            if len(args) == 0:
+                # Correct input
+                $q = cmd
+                $flush_input()
+                
+                # Question and answer
+                $target.ask(q)
+                
+                # Updated $expected with current command options
+                $expected = ["LOOK", "L", "HELP", "?"]
+                $expected += target.getQuestions()
+                
+                $desc = "Your chat options are:\n"
+                $desc += target.questionsOutput()
+                $say()
+                                
+            else:
+                $desc = "Please enter only the tag of the conversation option you wish to pursue."
+                $say()
+                    
+    return

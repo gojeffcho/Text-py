@@ -103,6 +103,12 @@ init 0 python:
     global highlight1
     highlight1 = "faebd7"
     
+    global darkcyan
+    darkcyan = "008b8b"
+    
+    global crimson
+    crimson = "dc143c"
+    
     # Track easter eggs
     global easters
     easters = ["fuck", "goddamn", "shit", "bitch", "cunt", "friggin", "dick"]

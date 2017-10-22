@@ -31,7 +31,7 @@ label l0_14:
       "EMPATHY1": "Nothing.  I was not asked to assist."
     }
 
-    target = Chat("l0_14", 0, "dc143c", questions, answers, followupQ, followupA)
+    target = Chat("l0_14", 0, crimson, questions, answers, followupQ, followupA)
     target.start()
 
 label lolaStart:
@@ -41,7 +41,7 @@ label lolaStart:
     $expected += target.getQuestions()
     $pickup = []
     $room = "Chat: " + targetname
-    $desc = "You are now chatting with '{color=#ff1493}" + targetname + "{/color}'.  In these chats, you will be given a list of options for questions you can pose, prefixed by a tag.  Enter the tag of the conversation option you wish to pursue.\n\n" 
+    $desc = "You are now chatting with '{b}{color=#" + target.color() + "}" + targetname + "{/color}{/b}'.  In these chats, you will be given a list of options for questions you can pose, prefixed by a tag.  Enter the tag of the conversation option you wish to pursue.\n\n" 
     $desc += target.questionsOutput()
     
     $say()
