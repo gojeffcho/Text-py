@@ -1,5 +1,9 @@
 label mainscreen:
     $update_avails()
+    
+    if numChats + numEmails == 0:
+        jump force_logout
+    
     $expected = ["LOOK", "L", "HELP", "?", "MAIL.APP", "CHAT.APP"]
     $pickup = []
     $room = "Home"

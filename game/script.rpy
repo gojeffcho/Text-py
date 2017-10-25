@@ -91,7 +91,7 @@ init 0 python:
     
     # Track username, user color
     global username
-    username = ""
+    username = "unregistered"
     
     # Colors
     global usercolor

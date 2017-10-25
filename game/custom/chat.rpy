@@ -1,4 +1,5 @@
 label chat:
+    $update_avails()
     $expected = ["LOOK", "L", "HELP", "?", "CHAT", "SHOW", "EXIT"]
     $pickup = []
     $room = "Chat"
@@ -6,7 +7,9 @@ label chat:
 
 You can see the users you can chat with by typing {b}show chats{/b}.  Type {b}chat{/b} followed by the number of the person you wish to chat with to proceed, or "exit" to quit.
 
-Example: {b}> chat c_demo0{/b}"""
+Example: {b}> chat c_demo0{/b}
+
+You have ({color=#f00}[numChats]{/color}) chat partners to screen."""
     
     $say()
     

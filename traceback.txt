@@ -1,25 +1,93 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/custom/login.rpy", line 136, in script call
-    call news0 from __add_news_0_
-  File "game/custom/login.rpy", line 136, in script call
-    call news0 from __add_news_0_
-ScriptError: could not find label 'news0'.
+  File "game/custom/login.rpy", line 31, in script
+    $say()
+  File "game/custom/login.rpy", line 31, in <module>
+    $say()
+  File "game/functions.rpy", line 10, in say
+    term(desc + "\n" + append)
+  File "renpy/common/00nvl_mode.rpy", line 314, in do_display
+    **display_args)
+  File "renpy/common/00nvl_mode.rpy", line 187, in nvl_show_core
+    return __nvl_show_screen("nvl", items=[ ])
+  File "renpy/common/00nvl_mode.rpy", line 181, in _m1_00nvl_mode__nvl_show_screen
+    return renpy.get_widget(screen_name, "what", config.nvl_layer)
+  File "game/screens.rpy", line 130, in execute
+    screen nvl(dialogue, items=None):
+  File "game/screens.rpy", line 130, in execute
+    screen nvl(dialogue, items=None):
+  File "game/screens.rpy", line 152, in execute
+    frame:
+  File "game/screens.rpy", line 157, in execute
+    has side "c r":
+  File "game/screens.rpy", line 161, in execute
+    viewport id "vp":
+  File "game/screens.rpy", line 167, in execute
+    vbox:
+  File "game/screens.rpy", line 171, in execute
+    hbox:
+  File "game/screens.rpy", line 173, in execute
+    label "===== Electric Sheep Inc. - [room:15]        [username:15] - [day =====":
+Exception: String u'===== Electric Sheep Inc. - [room:15]        [username:15] - [day =====' ends with an open format operation.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/custom/login.rpy", line 136, in script call
-    call news0 from __add_news_0_
-  File "/Applications/renpy-6.99.12.4-sdk/renpy/ast.py", line 1322, in execute
-    rv = renpy.game.context().call(label, return_site=self.next.name)
-  File "game/custom/login.rpy", line 136, in script call
-    call news0 from __add_news_0_
-  File "/Applications/renpy-6.99.12.4-sdk/renpy/script.py", line 858, in lookup
-    raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label 'news0'.
+  File "game/custom/login.rpy", line 31, in script
+    $say()
+  File "/Applications/renpy-6.99.12.4-sdk/renpy/ast.py", line 814, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "/Applications/renpy-6.99.12.4-sdk/renpy/python.py", line 1719, in py_exec_bytecode
+    exec bytecode in globals, locals
+  File "game/custom/login.rpy", line 31, in <module>
+    $say()
+  File "game/functions.rpy", line 10, in say
+    term(desc + "\n" + append)
+  File "/Applications/renpy-6.99.12.4-sdk/renpy/character.py", line 877, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, **display_args)
+  File "renpy/common/00nvl_mode.rpy", line 314, in do_display
+    **display_args)
+  File "/Applications/renpy-6.99.12.4-sdk/renpy/character.py", line 482, in display_say
+    what_text = show_function(who, what_string)
+  File "renpy/common/00nvl_mode.rpy", line 187, in nvl_show_core
+    return __nvl_show_screen("nvl", items=[ ])
+  File "renpy/common/00nvl_mode.rpy", line 181, in _m1_00nvl_mode__nvl_show_screen
+    return renpy.get_widget(screen_name, "what", config.nvl_layer)
+  File "/Applications/renpy-6.99.12.4-sdk/renpy/display/screen.py", line 1194, in get_widget
+    screen.update()
+  File "/Applications/renpy-6.99.12.4-sdk/renpy/display/screen.py", line 578, in update
+    self.screen.function(**self.scope)
+  File "game/screens.rpy", line 130, in execute
+    screen nvl(dialogue, items=None):
+  File "game/screens.rpy", line 130, in execute
+    screen nvl(dialogue, items=None):
+  File "game/screens.rpy", line 152, in execute
+    frame:
+  File "game/screens.rpy", line 157, in execute
+    has side "c r":
+  File "game/screens.rpy", line 161, in execute
+    viewport id "vp":
+  File "game/screens.rpy", line 167, in execute
+    vbox:
+  File "game/screens.rpy", line 171, in execute
+    hbox:
+  File "game/screens.rpy", line 173, in execute
+    label "===== Electric Sheep Inc. - [room:15]        [username:15] - [day =====":
+  File "/Applications/renpy-6.99.12.4-sdk/renpy/ui.py", line 971, in _label
+    text = renpy.text.text.Text(label, style=text_style, substitute=substitute, scope=scope, **text_kwargs)
+  File "/Applications/renpy-6.99.12.4-sdk/renpy/text/text.py", line 1328, in __init__
+    self.set_text(text, scope, substitute)
+  File "/Applications/renpy-6.99.12.4-sdk/renpy/text/text.py", line 1426, in set_text
+    i, did_sub = renpy.substitutions.substitute(i, scope, substitute)
+  File "/Applications/renpy-6.99.12.4-sdk/renpy/substitutions.py", line 232, in substitute
+    s = formatter.vformat(s, (), kwargs)
+  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 563, in vformat
+  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 572, in _vformat
+  File "/Applications/renpy-6.99.12.4-sdk/renpy/substitutions.py", line 157, in parse
+    raise Exception("String {0!r} ends with an open format operation.".format(s))
+Exception: String u'===== Electric Sheep Inc. - [room:15]        [username:15] - [day =====' ends with an open format operation.
 
 Darwin-16.7.0-x86_64-i386-64bit
 Ren'Py 6.99.12.4.2187
-> turing 0.1
+> turing 1.0a

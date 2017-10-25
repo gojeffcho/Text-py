@@ -169,8 +169,8 @@ screen nvl(dialogue, items=None):
                     spacing 10
                     
                     hbox:
-                        #                              |25      |35  |40         |50                               |60
-                        label "== Electric Sheep Inc. - [room:15]           Time: [day], [hour:2]:[min:02] [ampm] ==":
+                        #                               |25           |45                    |69                               |60
+                        label "===== Electric Sheep Inc. - [room:15]    [username:>15] - [day] =====":
                             text_style "terminal"
                             text_xalign 0.0
                             xalign 0.0

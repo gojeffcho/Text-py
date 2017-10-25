@@ -1,4 +1,5 @@
 label mail:
+    $update_avails()
     $expected = ["LOOK", "L", "HELP", "?", "SHOW", "READ", "EXIT"]
     $pickup = []
     $room = "Email"
@@ -6,7 +7,9 @@ label mail:
 
 Type {b}show emails{/b} to see the list of available emails, {b}read{/b} followed by the message number you wish to open, or "exit" to quit.  New emails are shown in {color=#""" + highlight2 + """}this color{/color} and previously read emails are shown in {color=#""" + highlight1 + """}this color{/color}.
 
-Example: {b}> read news0{/b}"""
+Example: {b}> read news0{/b}
+
+You have ({color=#f00}[numEmails]{/color}) unread emails."""
     
     $say()
     
