@@ -94,7 +94,7 @@ Example: {b}> read news0{/b}"""
                 
             else:
                 $flush_input()
-                $desc = "Command 'email' takes exactly one argument."
+                $desc = "Command 'read' takes exactly one argument."
                 $say()
             
     return

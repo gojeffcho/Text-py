@@ -132,7 +132,7 @@ Example: {b}> create shelby{/b}"""
                     $desc = """Your username has been set to {u}[username]{/u}.  {b}Please remember this username{/b} as you will use it to log in each day along with your bio-authentication.\n\nPress {b}<ENTER>{/b} to continue when you are ready."""
                     $say()
                     
-                    $chatlist.append("l0_14")
+                    $chatlist.append("sheep_1014")
                     call news4
                     $update_avails()
 

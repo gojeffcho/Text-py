@@ -1,4 +1,4 @@
-label l0_14:
+label sheep_1014:
   python:
     questions = {
       "START" : "I'm ready to begin the training session.",
@@ -10,7 +10,7 @@ label l0_14:
     }
 
     answers = {
-      "START": "Welcome, " + username + ".  I am l0_14, the AI tutorial bot.  Welcome to the training program.  You will be determining whether candidates are humans or AIs by asking them questions and evaluating their responses.  You can ask any of the daily pre-approved questions to each candidate.",
+      "START": "Welcome, " + username + ".  I am 1014, the AI tutorial bot.  Welcome to the training program.  You will be determining whether candidates are humans or AIs by asking them questions and evaluating their responses.  You can ask any of the daily pre-approved questions to each candidate.",
       "QUESTIONS": """Today's questions are:
     {b}MATH{/b}: Ask the candidate a math question
     {b}REALJOKE{/b}: Tell the candidate a hilarious joke
@@ -33,7 +33,7 @@ label l0_14:
       "REPORT1" : "You can ask the candidate more questions until you have determined your answer.  If you have used all five questions, you must report them as one or the other based on the answers you have received." 
     }
 
-    target = Chat("l0_14", 0, crimson, questions, answers, followupQ, followupA)
+    target = Chat("sheep_1014", 0, crimson, questions, answers, followupQ, followupA)
     target.start()
 
 label lolaStart:
@@ -82,7 +82,7 @@ label lolaStart:
             $desc = "Press {b}ENTER{/b} to end the tutorial and return to chat.app."
             $say()
             
-            $chatlist.append("l0_15")
+            $chatlist.append("sheep_1015")
             nvl clear
             jump chat
             

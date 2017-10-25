@@ -1,4 +1,4 @@
-label l0_15:
+label sheep_1015:
   python:
     questions = {
       "MATH" : "What is the square root of 17?",
@@ -28,7 +28,7 @@ label l0_15:
       "EMPATHY1": "Nothing.  I was not asked to assist."
     }
 
-    target = Chat("l0_15", 0, crimson, questions, answers, followupQ, followupA)
+    target = Chat("sheep_1015", 0, crimson, questions, answers, followupQ, followupA)
     target.start()
 
 label lola2Start:
