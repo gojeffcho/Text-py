@@ -204,7 +204,7 @@ Please type {b}login <username>{/b} to log in, or {b}help{/b} for a list of avai
                     $desc = "Press and hold {b}<ENTER>{/b} for one second for bioauthentication..."
                     $say()
                     
-                    play sound "music/scan.mp3"
+                    play sound "music/scan.ogg"
                     
                     $desc = "{cps=3}...{/cps} {nw}"
                     $say()
