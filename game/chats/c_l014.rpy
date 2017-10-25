@@ -20,7 +20,7 @@ label l0_14:
       "DISCERN" : "Look for indicators in the answers you receive that the candidate is AI or human.  For example, AIs with less customization will commonly be more precise when answering mathematical questions than humans.",
       "REPORT" : "You can register a decision at any time after the first answer you receive from a candidate by typing 'REPORT HUMAN' or 'REPORT AI'.",
       "REWARD" : "You will receive gold stars for every candidate you screen correctly.  It is an {i}incentive{/i}.  These stars will be awarded the next working day after the candidate has undergone external assessment based on your screening.",
-      "END" : "The tutorial is now complete.  I am going to take a snack break.  I have bits and bytes today.  I will queue up a candidate for you to screen."
+      "END" : "The tutorial is now complete.  I am going to take a snack break.  I have bits and bytes today.  I will queue up a test candidate for you to screen."
     }
 
     followupQ = { 

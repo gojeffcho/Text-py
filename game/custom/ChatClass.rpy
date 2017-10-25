@@ -115,15 +115,11 @@ init -1 python:
     def reportAsHuman(self, report):
       global right
       global wrong
-      global desc
       
       if report == self.isHuman():
         right += 1
       else:
         wrong += 1
-      
-      desc = "<<DEBUG>> Right: " + str(right) + " | Wrong: " + str(wrong)
-      say()
       
       return
       
