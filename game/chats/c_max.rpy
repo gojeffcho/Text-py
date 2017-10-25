@@ -71,7 +71,7 @@ label maxStart:
             if len(args) == 1:
                 # Correct input
                 
-                call attk7
+                call attk7 from _call_attk7
                                 
                 if args[0].upper() == "HUMAN":
                     # Human Report

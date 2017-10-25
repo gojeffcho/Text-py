@@ -196,10 +196,8 @@ label start:
     scene bg black
     jump login_first
 
-    # Chat Test
-    $username = "chell"
-#     $chatlist.append("l0_14")
-    jump trainer
+#     jump captcha
+
 
 
 
