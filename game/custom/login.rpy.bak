@@ -132,7 +132,7 @@ Example: {b}> create shelby{/b}"""
                     $desc = """Your username has been set to {u}[username]{/u}.  {b}Please remember this username{/b} as you will use it to log in each day along with your bio-authentication.\n\nPress {b}<ENTER>{/b} to continue when you are ready."""
                     $say()
                     
-                    $chatlist.append("l0_14")
+                    $chatlist.append("sheep_1014")
                     call news4
                     $update_avails()
 
@@ -204,6 +204,8 @@ Please type {b}login <username>{/b} to log in, or {b}help{/b} for a list of avai
                     $desc = "Press and hold {b}<ENTER>{/b} for one second for bioauthentication..."
                     $say()
                     
+                    play sound "music/scan.ogg"
+                    
                     $desc = "{cps=3}...{/cps} {nw}"
                     $say()
             
@@ -211,7 +213,7 @@ Please type {b}login <username>{/b} to log in, or {b}help{/b} for a list of avai
                     $say()
                     $flush_input()
                     nvl clear
-                    jump mainscreen
+                    jump captcha
                                     
                 else:
                     $s = " ".join(args)
@@ -226,5 +228,48 @@ Please type {b}login <username>{/b} to log in, or {b}help{/b} for a list of avai
                 $flush_input()
                 $desc = "{color=#f00}Error{/color}: Please type {b}login <username>{/b} to log in.  Your username is only one word."
                 $say()
+            
+    return
+
+# CAPTCHA
+label captcha:
+    $expected = []
+    $pickup = []
+    $room = "CAPTCHA"
+    $desc = """{cps=0}{font=font/AnonymousPro.ttf}{color=#ffd700}
+                                                                              
+             --    ./                 `:/+-`                  :dmmmmh+.       
+       my   -MN-   yy                yMMmdMM+    h/     `d.   oMM::+yNM:      
+       sM-  ymNd  .m/                MM.  +Mm   `No     -M:   .MN    sM.      
+        dm`:M+:m. dm  myys+.         +MNs-dN-   .MmddhhhNM-   /MM--+yMN`      
+        :Mo/d  +m.Mo dh   sN-      `yNs:+dMh`   .Mo``  .yM-   `NMNmmho`       
+         omm.  .NMN` yN:  oM-      +Md    oMh   :M-     oN    -MM`            
+          yh`   /y:   /ydhs-       :MMs/:/mM+   -d`     -s    .MM`            
+                                    -odddds:                   /+        
+{/color}{/font}{/cps}
+Please enter the case-sensitive CAPTCHA above to prove that you are human.  Do not include any spaces."""
+    
+    $say()
+    
+    while True:
+        $echo()
+        
+        if cmd == "Wo8HP":
+            $flush_input()
+            $desc = "Your network authentication has been approved.  Press {b}<ENTER>{/b} to proceed."        
+            $say()
+            $flush_input()
+            
+            nvl clear
+            jump mainscreen
+        
+        else:
+            $flush_input()
+            $desc = "Your response has been flagged for Human Resources review.  Press {b}<ENTER>{/b} to proceed."
+            $say()
+
+            $flush_input()
+            nvl clear
+            jump mainscreen
             
     return

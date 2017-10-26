@@ -4,15 +4,12 @@ define config.rollback_enabled = False
 # Styles for characters
 style terminal is text:
     size 16
-#     font "font/terminal.ttf"
     font "font/Dotrice.otf"
-#     color "#00cc00"
     color "#15db15"
     
 style terminalinput is text:
     size 18
     font "font/Dotrice.otf"
-#     color "#00cc00"
     color "#15db15"
 
 # Declare characters used by this game.
@@ -194,9 +191,10 @@ label start:
         
     # GOTO first scene
     scene bg black
-    jump login_first
 
-#     jump captcha
+#     jump splash
+
+    jump logosplash
 
 
 

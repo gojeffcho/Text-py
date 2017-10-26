@@ -62,7 +62,6 @@ You have ({color=#f00}[numChats]{/color}) chat partners to screen."""
                 $flush_input()
                 $desc = "{color=#f00}Error{/color}: please type {b}show chats{/b} to view your chat list."
                 $say()
-
                 
         elif cmd.upper() == "CHAT":
             $t = args

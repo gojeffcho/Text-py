@@ -1,7 +1,12 @@
 # LOGIN: first day login prompt
 label login_first:
     
+    $hide_val = False
+    
     scene bg black
+    $renpy.pause(1.0)
+    
+    with pixellate
     play music "music/bg0.mp3" fadein 3.8 loop
     
 label login_first_again:
@@ -9,7 +14,7 @@ label login_first_again:
     $expected = ["LOOK", "L", "HELP", "?", "NEW"]
     $pickup = []
     $room = "New User"
-    $desc = """{cps=0}{font=font/AnonymousPro.ttf}{color=#ffd700}
+    $desc = """{cps=200}{font=font/AnonymousPro.ttf}{color=#ffd700}
         ███████╗██╗     ███████╗ ██████╗████████╗██████╗ ██╗ ██████╗        
         ██╔════╝██║     ██╔════╝██╔════╝╚══██╔══╝██╔══██╗██║██╔════╝        
         █████╗  ██║     █████╗  ██║        ██║   ██████╔╝██║██║             
@@ -133,7 +138,7 @@ Example: {b}> create shelby{/b}"""
                     $say()
                     
                     $chatlist.append("sheep_1014")
-                    call news4
+                    call news4 from _call_news4
                     $update_avails()
 
                     nvl clear                

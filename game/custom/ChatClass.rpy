@@ -183,9 +183,6 @@ init -1 python:
       # Validate question
       if q not in self.__qList:
         # If invalid, error out and return
-        # TODO: IMPLEMENT
-        desc = "DEBUG RETURN{nw}"
-        say()
         return
       
       # Question key is valid
