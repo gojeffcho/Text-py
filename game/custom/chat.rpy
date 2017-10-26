@@ -3,6 +3,7 @@ label chat:
     $expected = ["LOOK", "L", "HELP", "?", "CHAT", "SHOW", "EXIT"]
     $pickup = []
     $room = "Chat"
+    $update_roomlabel()
     $desc = """{cps=150}<PLACEHOLDER: This is the chat app screen> Fancy ASCII chat graphics{/cps}
 
 You can see the users you can chat with by typing {b}show chats{/b}.  Type {b}chat{/b} followed by the number of the person you wish to chat with to proceed, or "exit" to quit.

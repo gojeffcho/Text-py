@@ -3,6 +3,7 @@ label mail:
     $expected = ["LOOK", "L", "HELP", "?", "SHOW", "READ", "EXIT"]
     $pickup = []
     $room = "Email"
+    $update_roomlabel()
     $desc = """{cps=150}<PLACEHOLDER: This is the email app screen> Fancy ASCII email graphics{/cps}
 
 Type {b}show emails{/b} to see the list of available emails, {b}read{/b} followed by the message number you wish to open, or "exit" to quit.  New emails are shown in {color=#""" + highlight2 + """}this color{/color} and previously read emails are shown in {color=#""" + highlight1 + """}this color{/color}.

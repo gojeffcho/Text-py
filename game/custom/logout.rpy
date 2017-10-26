@@ -2,7 +2,8 @@ label force_logout:
     
     $expected = ["LOOK", "L", "HELP", "?", "LOGOUT"]
     $pickup = []
-    $room = "Home"
+    $room = "Logout"
+    $update_roomlabel()
     $desc = """{cps=150}
     Your work day is now over.  Please log out of your session with the {b}logout{/b} command.{/cps}"""
     

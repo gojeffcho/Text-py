@@ -14,6 +14,7 @@ label login_first_again:
     $expected = ["LOOK", "L", "HELP", "?", "NEW"]
     $pickup = []
     $room = "New User"
+    $update_roomlabel()
     $desc = """{cps=200}{font=font/AnonymousPro.ttf}{color=#ffd700}
         ███████╗██╗     ███████╗ ██████╗████████╗██████╗ ██╗ ██████╗        
         ██╔════╝██║     ██╔════╝██╔════╝╚══██╔══╝██╔══██╗██║██╔════╝        
@@ -75,6 +76,7 @@ label login_new:
     $expected = ["LOOK", "L", "HELP", "?", "CREATE"]
     $pickup = []
     $room = "Create User"
+    $update_roomlabel()
     $desc = """{cps=0}{font=font/AnonymousPro.ttf}{color=#ffd700}
         ███████╗██╗     ███████╗ ██████╗████████╗██████╗ ██╗ ██████╗        
         ██╔════╝██║     ██╔════╝██╔════╝╚══██╔══╝██╔══██╗██║██╔════╝        
@@ -159,6 +161,7 @@ label login:
     $expected = ["LOOK", "L", "HELP", "?", "LOGIN"]
     $pickup = []
     $room = "Login"
+    $update_roomlabel()
     $desc = """{cps=0}{font=font/AnonymousPro.ttf}{color=#ffd700}
         ███████╗██╗     ███████╗ ██████╗████████╗██████╗ ██╗ ██████╗        
         ██╔════╝██║     ██╔════╝██╔════╝╚══██╔══╝██╔══██╗██║██╔════╝        
@@ -241,6 +244,7 @@ label captcha:
     $expected = []
     $pickup = []
     $room = "CAPTCHA"
+    $update_roomlabel()
     $desc = """{cps=0}{font=font/AnonymousPro.ttf}{color=#ffd700}
                                                                               
              --    ./                 `:/+-`                  :dmmmmh+.       

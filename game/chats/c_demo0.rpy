@@ -2,6 +2,7 @@ label c_demo0:
     $expected = ["look", "l", "help", "?", "1"]
     $pickup = []
     $room = "Chat: c_demo0"
+    $update_roomlabel()
     $desc = """You are now chatting with '{color=#ff1493}c_demo0{/color}'.  In these chats, you will be given a list of options for what you can say, prefixed by a number.  Enter the number of the conversation option you wish to pursue.
     
     <{color=#fffaf0}1{/color}> You see a young child crying in the street.  What do you do?"""

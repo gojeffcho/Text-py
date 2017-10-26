@@ -161,6 +161,9 @@ init 0 python:
     global append
     append = ""
     
+    global roomlabel
+    roomlabel = ""
+    
     global room
     room = ""
 

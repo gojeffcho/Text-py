@@ -1,6 +1,18 @@
 init 0 python:
 
 ###
+### update_roomlabel(): 
+###
+    def update_roomlabel():
+        global roomlabel
+        global room
+        global username
+        global day
+        
+        roomlabel = "===== Electric Sheep Inc. - {0:15}    {1:>15} - {2} =====".format(room, username, day)
+
+
+###
 ### say(): called to flush $desc to terminal output
 ###
     def say():

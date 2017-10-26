@@ -7,6 +7,7 @@ label mainscreen:
     $expected = ["LOOK", "L", "HELP", "?", "MAIL.APP", "CHAT.APP"]
     $pickup = []
     $room = "Home"
+    $update_roomlabel()
     $desc = """{cps=150}<PLACEHOLDER: This is the main screen> Login: MOTD, graphics, etc. here{/cps}
 
 You have ({color=#f00}[numChats]{/color}) chat partners and ({color=#f00}[numEmails]{/color}) new emails.

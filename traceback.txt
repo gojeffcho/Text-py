@@ -1,24 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/custom/titlesplash.rpy", line 3, in script
-    python:
-  File "game/custom/titlesplash.rpy", line 32, in <module>
-    desc = "{cps=0}{size=" + size + "}{color=" + color + "}"
-TypeError: coercing to Unicode: need string or buffer, int found
+  File "game/custom/login.rpy", line 17, in script
+    $update_roomlabel()
+  File "game/custom/login.rpy", line 17, in <module>
+    $update_roomlabel()
+  File "game/functions.rpy", line 12, in update_roomlabel
+    roomlabel = "===== Electric Sheep Inc. - {15}    {>15} - {} =====".format(room, username, day)
+IndexError: tuple index out of range
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/custom/titlesplash.rpy", line 3, in script
-    python:
+  File "game/custom/login.rpy", line 17, in script
+    $update_roomlabel()
   File "/Applications/renpy-6.99.12.4-sdk/renpy/ast.py", line 814, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "/Applications/renpy-6.99.12.4-sdk/renpy/python.py", line 1719, in py_exec_bytecode
     exec bytecode in globals, locals
-  File "game/custom/titlesplash.rpy", line 32, in <module>
-    desc = "{cps=0}{size=" + size + "}{color=" + color + "}"
-TypeError: coercing to Unicode: need string or buffer, int found
+  File "game/custom/login.rpy", line 17, in <module>
+    $update_roomlabel()
+  File "game/functions.rpy", line 12, in update_roomlabel
+    roomlabel = "===== Electric Sheep Inc. - {15}    {>15} - {} =====".format(room, username, day)
+IndexError: tuple index out of range
 
 Darwin-16.7.0-x86_64-i386-64bit
 Ren'Py 6.99.12.4.2187

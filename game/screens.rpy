@@ -170,7 +170,7 @@ screen nvl(dialogue, items=None):
                     
                     hbox:
                         #                               |25           |45                    |69                               |60
-                        label "===== Electric Sheep Inc. - [room:15]    [username:>15] - [day] =====":
+                        label "[roomlabel]":
                             text_style "terminal"
                             text_xalign 0.0
                             xalign 0.0
