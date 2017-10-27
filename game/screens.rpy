@@ -136,7 +136,7 @@ screen nvl(dialogue, items=None):
       
       # No input box - normal nvl mode
       if hide_val is True:
-            text " <<Press 'enter' to continue.>>" style "terminalinput"
+            text " " style "terminalinput"
             for x in config.keymap["dismiss"]:
                 key x action [Return(None)]
       

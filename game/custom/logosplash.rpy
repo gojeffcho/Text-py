@@ -6,6 +6,18 @@ label logosplash:
     
     linesFromTop = 5
     textSpeed = 3
+    
+    colors = [
+      "15db15", # Terminal green             
+      "00b200",
+      "009900",
+      "007f00",
+      "006600",
+      "004c00",
+      "003300",
+      "001900",
+      "000000",
+    ]
   
     splashtop = [
       "    $$$$$$$$\ $$$$$$$$\  $$$$$$\  $$\      $$\    ",
@@ -51,7 +63,7 @@ label logosplash:
       say()
       
     # Run the bottom
-    for charNum in range(1, len(splashbottom[0]), textSpeed + 2):
+    for charNum in range(1, len(splashbottom[0]), textSpeed):
     
       # Clear output
       nvl_clear()
@@ -78,8 +90,39 @@ label logosplash:
       say()
     
     # Make it stick
-    desc = "                      FUCK.  YEAH."
+    nvl_clear()
+    desc = "{cps=0}"
+    for each in range(linesFromTop):
+      desc += "\n"
+    for line in splashtop:
+      desc += line + "\n"
+    desc += "\n"
+    for line in splashbottom:
+      desc += line + "\n"
+    desc += "\n\n\n                              {/cps}{cps=10}Presents...{/cps}"
+    desc += "{cps=1}  {/cps}{nw}"
     say()
+    
+    # Fade it out
+    for color in colors:
+    
+      # Build each iteration of the color-fade text
+      nvl_clear()
+      desc = "{cps=0}{color=" + color + "}"
+      for each in range(linesFromTop):
+        desc += "\n"
+    
+      for line in splashtop: 
+        desc += line + "\n"
+    
+      desc += "\n"
+    
+      for line in splashbottom:
+        desc += line + "\n"
+      
+      desc += "\n\n\n                              Presents..."
+      desc += "{/color}{/cps}{nw}"
+      say()
   
   # Jump to next
   nvl clear

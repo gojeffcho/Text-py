@@ -18,6 +18,7 @@ label force_logout:
                 for word in easters:
                     if cmd == word or args == word or word in args:
                         easter(word)
+                        flush_input()
                         eastered = True
                 
                 if not eastered:
@@ -41,8 +42,10 @@ label force_logout:
                 $say()
                 $flush_input()
                 
+                $displayname = "logged out"
                 nvl clear
-                jump next_day
+#                 jump next_day
+                jump demo_end
             else:
                 $has_args()
             
@@ -53,3 +56,13 @@ label next_day:
     $new_day()
     
     jump login
+    
+
+label demo_end:
+
+  $desc = """\n\n\n\n\n\n\n\n           This concludes the game demo.  Thanks for playing!"""
+  $say()
+  
+  return
+                
+                

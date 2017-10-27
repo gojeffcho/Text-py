@@ -45,6 +45,7 @@ Please type {b}new{/b} to set up your account.  You can type {b}help{/b} or {b}?
                 for word in easters:
                     if cmd == word or args == word or word in args:
                         easter(word)
+                        flush_input()
                         eastered = True
                 
                 if not eastered:
@@ -108,6 +109,7 @@ Example: {b}> create shelby{/b}"""
                 for word in easters:
                     if cmd == word or args == word or word in args:
                         easter(word)
+                        flush_input()
                         eastered = True
                 
                 if not eastered:
@@ -190,6 +192,7 @@ Please type {b}login <username>{/b} to log in, or {b}help{/b} for a list of avai
                 for word in easters:
                     if cmd == word or args == word or word in args:
                         easter(word)
+                        flush_input()
                         eastered = True
                 
                 if not eastered:
@@ -220,6 +223,9 @@ Please type {b}login <username>{/b} to log in, or {b}help{/b} for a list of avai
                     $desc = "{color=#87ceeb}Login successful{/color}!  Welcome, " + username + ".  Press {b}<ENTER>{/b} to proceed."
                     $say()
                     $flush_input()
+                    
+                    $displayname = username
+                    
                     nvl clear
                     jump captcha
                                     

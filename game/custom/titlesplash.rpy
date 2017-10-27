@@ -5,7 +5,7 @@ label titlesplash:
     hide_val = True
     
     size = 15
-    linesFromTop = 7
+    linesFromTop = 15
     frames = 10
 
     colors = [
@@ -66,7 +66,7 @@ label titlesplash:
       say()
     
     # Make it stick
-    desc = "                    OH MY GOD LOOK AT IT."
+    desc = "{cps=1}   {/cps}{nw}"
     say()
     
     colors.reverse()

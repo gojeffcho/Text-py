@@ -23,6 +23,7 @@ You have ({color=#f00}[numChats]{/color}) chat partners to screen."""
                 for word in easters:
                     if cmd == word or args == word or word in args:
                         easter(word)
+                        flush_input()
                         eastered = True
                 
                 if not eastered:

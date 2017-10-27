@@ -9,7 +9,7 @@ init 0 python:
         global username
         global day
         
-        roomlabel = "===== Electric Sheep Inc. - {0:15}    {1:>15} - {2} =====".format(room, username, day)
+        roomlabel = "===== Electric Sheep Inc. - {0:15}    {1:>15} - {2} =====".format(room, displayname, day)
 
 
 ###
@@ -33,7 +33,7 @@ init 0 python:
 
         # Flush command and args before setting
         cmd = ""
-        args = ""
+        args = []
         
         # Sound?
 #         renpy.sound.play("music/test.wav")
@@ -43,7 +43,7 @@ init 0 python:
             cmd = value.strip()
         if len(words) >= 2:
             cmd = words[0].strip()
-            args = words[1:]
+            args = words[1:]          
 
         return
 
@@ -126,7 +126,7 @@ init 0 python:
 ###
     def easter(word):
         flush_input()
-        term("Watch your language.")
+        term("Watch your goddamn language.")
         
         return
 

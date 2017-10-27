@@ -88,7 +88,10 @@ init 0 python:
     
     # Track username, user color
     global username
-    username = "unregistered"
+    username = ""
+    
+    global displayname
+    displayname = "logged out"
     
     # Colors
     global usercolor
@@ -194,8 +197,6 @@ label start:
         
     # GOTO first scene
     scene bg black
-
-#     jump splash
 
     jump logosplash
 
