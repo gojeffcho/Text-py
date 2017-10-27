@@ -2,109 +2,52 @@
 define config.rollback_enabled = False
 
 # Styles for characters
-style my_text is text:
+style terminal is text:
     size 16
-    font "ufonts.com_terminal.ttf"
-#     font "AnonymousPro-Regular.ttf"
-    color "#00cc00"
+    font "font/Dotrice.otf"
+    color "#15db15"
+    
+style terminalinput is text:
+    size 18
+    font "font/Dotrice.otf"
+    color "#15db15"
 
 # Declare characters used by this game.
-define term = Character(None, kind=nvl, what_style="my_text")
+define term = Character(None, kind=nvl, what_style="terminal")
 
+# Backgrounds and Overlays
 image bg black = "#000000"
+image overlay = "img/overlay.png"
 
-# NVL configuration
-            
 init -2 python:
+    
+    ############################
+    ### Game Initializations ###    
+    ############################
 
     # Fix spacebar entry
     config.keymap['dismiss'].remove('K_SPACE')
     
     # Remove mouseclick skip
-    config.keymap['dismiss'].remove('mouseup_1')
-    
-    global hide_val
-    hide_val = False
-        
-    # Track username
-    global username
-    username = ""
-    
-    # Track easter eggs
-    global easters
-    easters = ["fuck", "goddamn"]
-    
-    # Track available chats
-    global chatlist
-    chatlist = []
+    config.keymap['dismiss'].remove('mouseup_1')    
 
-    # Track available emails
-    global emaillist
-    emaillist = []
-    
-    # Track current time
-    global hour
-    global min
-    global ampm
-    hour = 8
-    min = 00
-    ampm = "am"
-        
-    # Track stars
-    global stars
-    stars = 0
-    
-    # Track AI sympathy
-    global sympathy
-    sympathy = 0
-    
-    global inputv
-    inputv = ""
-    
-    # TODO: REMOVE or alter items mechanic
-    global items
-    items = []
-    
-    # TODO: REMOVE or alter think mechanic
-    global think_message
-    think_message = ""
-    
-    # TODO: REMOVE or alter pickup mechanic
-    global pickup
-    pickup = [""]
-    
-    global expected
-    expected = []
-    
-    global argument
-    argument = ""
-    
-    global desc
-    desc = ""
-    
-    global append
-    append = ""
-    
-    global room
-    room = ""
-    
-    
+
 init 0 python:
     
-    # TODO: NVL length - could this be how many outputs are shown on the terminal display? 
-    config.nvl_list_length = 7
+    #########################
+    ### NVL Configuration ###
+    #########################
+    
+    # hide_val False to go with terminal input box at the bottom
+    global hide_val
+    hide_val = False
+    
+    # How many historical interactions (including echoes) are shown on the screen 
+    config.nvl_list_length = 10
 
-    # Game variables here... maybe find non-persistent way?
-    renpy.image("red1", "#220000")
-    renpy.image("red2", "#440000")
-    renpy.image("red3", "#660000")
-    renpy.image("red4", "#880000")
-    renpy.image("red5", "#BB0000")
-    renpy.image("red6", "#FF0000")
-    
-    flash = Fade(.25, 0, .75, color="#fff")
-    
-    
+    # Set NVL Background Image
+#     style.nvl_window.background = im.FactorScale("img/protoLarge.png", 0.5)
+
     menu = nvl_menu
 
     # The color of a menu choice when it isn't hovered.
@@ -124,7 +67,6 @@ init 0 python:
     # How far from the left menu choices should be indented.
     style.nvl_menu_choice_button.left_margin = 20
 
-
     #style.nvl_window.background = "nvl_window.png"
     style.nvl_window.xpadding = 55
     style.nvl_window.ypadding = 55
@@ -135,139 +77,131 @@ init 0 python:
     
     config.say_attribute_transition = dissolve
     
-    config.default_text_cps = 15
+    config.default_text_cps = 25
 
     config.window_auto_hide = [ 'scene', 'alma' ]
+
     
-    # TODO: add all strings to argument, instead of only the second one
-    def update_input(value=""): 
-        global argument
-        global inputv
-
-        # Flush command and args before setting
-        inputv = ""
-        argument = ""
-
-        words = str.split(str(value))
-        if len(words) == 0 or len(words) == 1:
-            inputv = value.strip()
-        if len(words) >= 2:
-            inputv = words[0].strip()
-            argument = words[1:]
-        
-    def echo():
-        cmd = inputv 
-        args = " ".join(argument)
-        if args != "":
-            cmd = cmd + " " + args
-        term("{cps=125}> " + cmd + "{/cps}{nw}")
-        
-    def flush_input():
-        global inputv
-        global argument
-        inputv = ""
-        argument = ""
-        
-    def has_args():
-        s = inputv
-        flush_input()
-        term("{cps=125}Command '" + s + "' takes no additional arguments.")
-        
-    def set_username(name):
-        global username
-        username = name
-        
-    # TODO: we can probably use this for our different applications
-    def change_background_color(fantasyval):
-        global append
-        append = fantasy_message()
-        if fantasyval < 100 and fantasyval >= 80:
-            renpy.scene()
-            renpy.show("red1")
-        
-        if fantasyval < 80 and fantasyval >= 60:
-            renpy.scene()
-            renpy.show("red2")
-            
-        if fantasyval < 60 and fantasyval >= 40:
-            renpy.scene()
-            renpy.show("red3")
-            
-        if fantasyval < 40 and fantasyval >= 20:
-            renpy.scene()
-            renpy.show("red4")
-        
-        if fantasyval < 20 and fantasyval >= 0:
-            renpy.scene()
-            renpy.show("red5")
-        
-        if fantasyval < 0:
-            renpy.scene()
-            renpy.show("red6")
+    ########################
+    ### Global Variables ###
+    ########################
     
-    def say():
-        global desc
-        global append
-        
-        term(desc + "\n" + append)
-        desc = ""
-        append = ""
+    # Track username, user color
+    global username
+    username = ""
+    
+    global displayname
+    displayname = "logged out"
+    
+    # Colors
+    global usercolor
+    usercolor = "ff1493"  # default user color
+    
+    global errorcolor
+    errorcolor = "f00"
+    
+    global highlight1
+    highlight1 = "faebd7"
+    
+    global highlight2
+    highlight2 = "ff1493"
+    
+    global ivory
+    ivory = "fffff0"
+    
+    global darkcyan
+    darkcyan = "008b8b"
+    
+    global crimson
+    crimson = "dc143c"
+    
+    # Track easter eggs
+    global easters
+    easters = ["fuck", "goddamn", "shit", "bitch", "cunt", "friggin", "dick"]
 
+    # Track available chats
+    global chatlist
+    global numChats
+    chatlist = []
+    numChats = len(chatlist)
+    
+    # Track available emails
+    global emaillist
+    global numEmails
+    emaillist = {}
+    numEmails = len(emaillist)
+    
+    # Track current time
+    global day
+    global hour
+    global min
+    global ampm
+    day = "Mon"
+    hour = 9
+    min = 00
+    ampm = "am"
+ 
+    # Track stars
+    global right
+    right = 0
+
+    # Track AI sympathy
+    global wrong
+    wrong = 0
+    
+    global cmd
+    cmd = ""
+    
+    global expected
+    expected = []
+    
+    global args
+    args = ""
+
+    global desc
+    desc = ""
+    
+    global append
+    append = ""
+    
+    global roomlabel
+    roomlabel = ""
+    
+    global room
+    room = ""
+
+
+    ######################
+    ### GAME VARIABLES ###
+    ######################
+    
+    # Game variables here... maybe find non-persistent way?
+    renpy.image("red1", "#220000")
+    renpy.image("red2", "#440000")
+    renpy.image("red3", "#660000")
+    renpy.image("red4", "#880000")
+    renpy.image("red5", "#BB0000")
+    renpy.image("red6", "#FF0000")
+    
+    flash = Fade(.25, 0, .75, color="#fff")
+    
+
+    ########################
+    ### CUSTOM FUNCTIONS ###
+    ########################
+    
     
 # The game starts here.
 label start:
-    python:
-    
-        # Track username
-        global username
-        username = ""
-        
-        # Track easter eggs
-        global easters
-        easters = ["fuck", "goddamn", "shit"]
-    
-        # Track available chats
-        global chatlist
-        chatlist = []
-        
-        # Track available emails
-        global emaillist
-        emaillist = []
-        
-        # Track current time
-        global hour
-        global min
-        global ampm
-        hour = 9
-        min = 00
-        ampm = "am"
-     
-        # Track stars
-        global stars
-        stars = 0
-    
-        # Track AI sympathy
-        global sympathy
-        sympathy = 0
-        
-        global inputv
-        inputv = ""
-        
-        global items
-        items = []
-        
-        global think_message
-        think_message = ""
-        
-        global pickup
-        pickup = [""]
-        
-        global expected
-        expected = []
-        
-        global argument
-        argument = ""
+#     python:
         
     # GOTO first scene
     scene bg black
-    jump login_first
+
+    jump logosplash
+
+
+
+
+
+

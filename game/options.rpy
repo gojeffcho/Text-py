@@ -28,7 +28,7 @@ init -1 python hide:
     # These control the name and version of the game, that are reported
     # with tracebacks and other debugging logs.
     config.name = "> turing"
-    config.version = "0.1"
+    config.version = "1.0a"
 
     #########################################
     # Themes
@@ -183,7 +183,7 @@ init -1 python hide:
 
     ## A sample sound that can be played to check the sound volume.
 
-    # config.sample_sound = "click.wav"
+    config.sample_sound = "music/test.wav"
 
     ## Music that is played while the user is at the main menu.
 
@@ -278,7 +278,7 @@ init -1 python hide:
 
     ## The default text speed in characters per second. 0 is infinite.
 
-    config.default_text_cps = 15
+    config.default_text_cps = 25
 
     ## The default auto-forward time setting.
 

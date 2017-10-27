@@ -116,7 +116,7 @@ screen input(prompt=None):
 
         has vbox
 
-        input id "input" style "my_text"
+        input id "input" style "terminalinput"
 
     use quick_menu
 
@@ -130,47 +130,93 @@ screen input(prompt=None):
 screen nvl(dialogue, items=None):
 
     window id "inputwindow":
-      has hbox
+      has hbox:
+        xmaximum 850
+        pos (75, 40)  # xpos 75 to align with terminal output in borderless        
+      
+      # No input box - normal nvl mode
       if hide_val is True:
-            text " <<Hit 'enter' to continue.>>" style "my_text"
+            text " " style "terminalinput"
             for x in config.keymap["dismiss"]:
                 key x action [Return(None)]
-                 
+      
+      # Terminal mode - input box at the bottom           
       else:
-        text "> " style "my_text"
-        input id "inputv" style "my_text" changed update_input
+        text "> " style "terminalinput"
+        input id "cmd" length 50 style "terminalinput" changed update_input
         for k in config.keymap["dismiss"]:
           if k is not "K_SPACE":
             key k action [Return(None)]
+    
+    
+    frame:
+        # The frame that will contain the Viewport
+        xysize (1024, 650)
+        background Frame("img/bg.png") # TODO: There must be a programmatic way to do this
+    
+        has side "c r":
+            area(75, 50, 900, 550)
             
-    window:
-        style "nvl_window"
-        bottom_padding 50
-        has vbox:
-            style "nvl_vbox"
+            # The viewport that contains the say-elements: terminal output screen, scrollable
+            viewport id "vp":
+                xysize (1024, 550)
+                draggable False
+                mousewheel True
+                yadjustment ui.adjustment(value=100, range=100)
+                
+                vbox:
+                    style "terminal"
+                    spacing 10
+                    
+                    hbox:
+                        #                               |25           |45                    |69                               |60
+                        label "[roomlabel]":
+                            text_style "terminal"
+                            text_xalign 0.0
+                            xalign 0.0
+                    
+                    # Display dialogue.
+                    for who, what, who_id, what_id, window_id in dialogue:
+                        window:
+                            id window_id
 
-            hbox:
-                label "== [room] ==      ":
-                    text_style "my_text"
-                    text_xalign 0.0
-                    xalign 0.0
-                label "== Time: [hour]:[min:02] [ampm] ==":
-                    text_style "my_text"
-                    text_xalign 1.0
-                    xalign 1.0
+                            has hbox:
+                                spacing 10
+
+                            if who is not None:
+                                text who id who_id
+
+                            text what id what_id
+            
+#             vbar value YScrollValue("vp") bar_invert True
+
+#     window:
+#         style "nvl_window"
+#         bottom_padding 50
+#         has vbox:
+#             style "nvl_vbox"
+#             xmaximum 850
+#             pos (30, 15)
+
+#             hbox:
+#                 #                               |25     |40     |53      |63                       |73
+#                 label "== Electric Sheep Inc. - [room:20]        Time: [hour:2]:[min:02] [ampm] ==":
+#                     text_style "terminal"
+#                     text_xalign 0.0
+#                     xalign 0.0
                     
         # Display dialogue.
-        for who, what, who_id, what_id, window_id in dialogue:
-            window:
-                id window_id
-
-                has hbox:
-                    spacing 10
-
-                if who is not None:
-                    text who id who_id
-
-                text what id what_id
+#         for who, what, who_id, what_id, window_id in dialogue:
+#             window:
+#                 id window_id
+# 
+#                 has hbox:
+#                     spacing 8
+# 
+#                 if who is not None:
+#                     text who id who_id
+# 
+#                 text what id what_id
 
         # Display a menu, if given.
         if items:
