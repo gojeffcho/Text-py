@@ -200,6 +200,8 @@ label start:
 
     jump logosplash
 
+#     jump mail
+
 
 
 
