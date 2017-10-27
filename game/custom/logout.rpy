@@ -44,7 +44,7 @@ label force_logout:
                 
                 $displayname = "logged out"
                 nvl clear
-#                 jump next_day
+#                 jump next_day   # DEMO BUILD
                 jump demo_end
             else:
                 $has_args()
