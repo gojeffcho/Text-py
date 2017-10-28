@@ -48,9 +48,10 @@ label mail:
         elif cmd.upper() == "EXIT":
             if len(args) == 0:
                 $flush_input()
-                $desc = "Closing mail.app{cps=6}... ... {/cps}Done.\n" \
-                        "Press {b}ENTER{/b} to return to main screen."
-                $say()
+                
+                term "Closing mail.app{cps=6}... ... {/cps}{nw}"
+                play sound "music/beep2.ogg"
+                extend "{cps=130}Done.{/cps} \nPress {b}ENTER{/b} to return to main screen."
                 
                 nvl clear
                 jump mainscreen
@@ -85,10 +86,10 @@ label mail:
                 $flush_input()
                 if key in emaillist.keys():
                     
-                    $desc = "Downloading email [key]{cps=6}... ...{/cps} Done.\n" \
-                            "Press {b}ENTER{/b} to open email."
-                    $say()
-                    
+                    term "Downloading email [key]{cps=6}... ... ... {/cps}{nw}"
+                    play sound "music/beep.ogg"
+                    extend "{cps=130}Done.{/cps} \nPress {b}ENTER{/b} to continue to mail."
+
                     $flush_input()
                     nvl clear
                     

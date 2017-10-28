@@ -51,9 +51,10 @@ label mainscreen:
         elif cmd.upper() == "MAIL.APP":
             if len(args) == 0:
                 $flush_input()
-                $desc = "Starting mail.app{cps=6}... ... ... {/cps}{cps=130}Ready!{/cps}\n" \
-                        "Press {b}ENTER{/b} to continue to mail."
-                $say()
+                term "Starting mail.app{cps=6}... ... ... {/cps}{nw}"
+                play sound "music/beep.ogg"
+                extend "{cps=130}Ready!{/cps} \nPress {b}ENTER{/b} to continue to mail."
+
                 nvl clear
                 jump mail
             else:
@@ -62,9 +63,9 @@ label mainscreen:
         elif cmd.upper() == "CHAT.APP":
             if len(args) == 0:
                 $flush_input()
-                $desc = "Starting chat.app{cps=6}... ... ... {/cps}{cps=130}Ready!{/cps}\n" \
-                        "Press {b}ENTER{/b} to continue to chat."
-                $say()
+                term "Starting chat.app{cps=6}... ... ... {/cps}{nw}"
+                play sound "music/beep.ogg"
+                extend "{cps=130}Ready!{/cps} \nPress {b}ENTER{/b} to continue to chat."
                 nvl clear
                 jump chat
             else:
