@@ -203,7 +203,6 @@ label start:
     scene bg black
 
     jump logosplash
-#     jump login_first
 
 #     $chatlist.append("sheep_1015")
 #     call news4 from _call_news4_1

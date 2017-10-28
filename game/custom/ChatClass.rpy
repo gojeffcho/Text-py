@@ -132,9 +132,9 @@ init -1 python:
       outputString = "\n"
       for q in self.__qList:
         if q.isalpha():
-          lineString = "  * {color=" + highlight1 + "}" + q + "{/color}: " + self.__questions[q] + "\n"
+          lineString = "  * {color=#[highlight1]}" + q + "{/color}: " + self.__questions[q] + "\n"
         else:
-          lineString = "  * {color=" + highlight1 + "}" + q + "{/color}: " + self.__followupQ[q] + "\n"
+          lineString = "  * {color=#[highlight1]}" + q + "{/color}: " + self.__followupQ[q] + "\n"
         outputString += lineString
       
       if self.__currentQ != "NONE" and "START" not in self.__questions.keys():
