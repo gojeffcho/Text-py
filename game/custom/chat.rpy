@@ -8,8 +8,8 @@ label chat:
     $desc += make_header("chat.app")
     $desc += """{cps=0}|                                                                        |
 | You can see the users you can chat with by typing <show chats>.  Type  |
-| <chat> followed by the number of the person you wish to chat with to   |
-| proceed, or <exit> to quit.                                            |
+| <chat> followed by the identifier tag of the candidate with whom you   |
+| wish to chat, or <exit> to return to the main screen.                  |
 |                                                                        |
 | Example: {b}> chat demo0{/b}                                                 |
 |________________________________________________________________________|

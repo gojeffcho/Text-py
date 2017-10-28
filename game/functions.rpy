@@ -47,9 +47,36 @@ init 0 python:
 | training.                                                              |
 """
         else:
-          motd = """|                                                                        |
-| This is the MOTD that shows after the Lola chat is completed.          |
-"""        
+          motdarray = ["""|                                                                        |
+| "It has become appallingly obvious that our technology has exceeded    |
+| our humanity."                                                         | 
+|                                                    - {i}Albert Einstein{/i}   |
+""",
+
+"""|                                                                        |
+| "One machine can do the work of fifty ordinary men.  No machine can do |
+| the work of one extraordinary man."                                    |
+|                                                     - {i}Elbert Hubbard{/i}   |
+""",
+
+"""|                                                                        |
+| "The human spirit must prevail over technology."                       |
+|                                                    - {i}Albert Einstein{/i}   |
+""",
+
+"""|                                                                        |
+| "If we continue to develop our technology without wisdom or prudence,  |
+| our servant may prove to be our executioner."                          |
+|                                                       - {i}Omar Bradley{/i}   |
+""",
+
+"""|                                                                        |
+| "Technology is a useful servant but a dangerous master."               |
+|                                               - {i}Christian Lous Lange{/i}   |
+"""
+          ]
+        
+          motd = motdarray[renpy.random.randint(0, len(motdarray)-1)]
   
       return motd
 

@@ -306,7 +306,7 @@ screen navigation():
         textbutton _("Preferences") action ShowMenu("preferences")
         textbutton _("Save Game") action ShowMenu("save")
         textbutton _("Load Game") action ShowMenu("load")
-        textbutton _("Main Menu") action MainMenu()
+#         textbutton _("Main Menu") action MainMenu()
         textbutton _("Help") action Help()
         textbutton _("Quit") action Quit()
 
@@ -425,12 +425,15 @@ screen preferences():
     use navigation
 
     # Put the navigation columns in a three-wide grid.
-    grid 3 1:
+    grid 1 1:
         style_group "prefs"
-        xfill True
+        xfill False
+        xalign 0.98
+        xsize 250
 
         # The left column.
         vbox:
+            
             frame:
                 style_group "pref"
                 has vbox
@@ -439,13 +442,6 @@ screen preferences():
                 textbutton _("Window") action Preference("display", "window")
                 textbutton _("Fullscreen") action Preference("display", "fullscreen")
 
-            frame:
-                style_group "pref"
-                has vbox
-
-                label _("Transitions")
-                textbutton _("All") action Preference("transitions", "all")
-                textbutton _("None") action Preference("transitions", "none")
 
             frame:
                 style_group "pref"
@@ -454,47 +450,7 @@ screen preferences():
                 label _("Text Speed")
                 bar value Preference("text speed")
 
-            frame:
-                style_group "pref"
-                has vbox
 
-                textbutton _("Joystick...") action Preference("joystick")
-
-
-        vbox:
-            frame:
-                style_group "pref"
-                has vbox
-
-                label _("Skip")
-                textbutton _("Seen Messages") action Preference("skip", "seen")
-                textbutton _("All Messages") action Preference("skip", "all")
-
-            frame:
-                style_group "pref"
-                has vbox
-
-                textbutton _("Begin Skipping") action Skip()
-
-            frame:
-                style_group "pref"
-                has vbox
-
-                label _("After Choices")
-                textbutton _("Stop Skipping") action Preference("after choices", "stop")
-                textbutton _("Keep Skipping") action Preference("after choices", "skip")
-
-            frame:
-                style_group "pref"
-                has vbox
-
-                label _("Auto-Forward Time")
-                bar value Preference("auto-forward time")
-
-                if config.has_voice:
-                    textbutton _("Wait for Voice") action Preference("wait for voice", "toggle")
-
-        vbox:
             frame:
                 style_group "pref"
                 has vbox
