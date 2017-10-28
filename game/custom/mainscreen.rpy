@@ -1,26 +1,9 @@
-
-
 label mainscreen:
 
     $update_avails()
     
     if numChats + numEmails == 0:
         jump force_logout
-
-    if day == "Mon":
-      if "sheep_1014" in chatlist:
-        $motd = """|                                                                        |
-| Welcome to Electric Sheep, Inc!  We're excited to have you join our    |
-| company.  Your first day will be spent training on the system you will |
-| be using to pre-screen candidates for human-designated jobs.  Please   |
-| take the time to acquaint yourself with the system and read any recent |
-| news, then proceed to the chat app when you are ready to begin your    |
-| training.                                                              |
-"""
-      else:
-        $motd = """|                                                                        |
-| This is the MOTD that shows after the Lola chat is completed.          |
-"""        
     
     $expected = ["LOOK", "L", "HELP", "?", "MAIL.APP", "CHAT.APP"]
     $pickup = []
@@ -28,7 +11,7 @@ label mainscreen:
     $update_roomlabel()
     $desc = "{cps=0}"
     $desc += make_header("System Home")
-    $desc += motd
+    $desc += getMOTD()
     $desc += """|                                                                        |
 | Available Programs:                                                    |
 |    <{color=#""" + skyblue + """}mail.app{/color}>: read news and emails                                    |

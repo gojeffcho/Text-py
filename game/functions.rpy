@@ -31,28 +31,27 @@ init 0 python:
         return "".join(formatted)
 
 ###
-### make_instrs(instrs):
+### getMOTD():
 ###
 
-    def make_instrs(instrs):
-        
-        formatted = []
-        formatted.append("|                                                                        |\n")
-        line = "| "
-        for instr in instrs:
-            words = instr.split()
-            for word in words:
-              if len(line + word) < 71:
-                line += word + " "
-              else:
-                line = (line + " "*72)[:71] + "|\n"
-                formatted.append(line)
-                line = "| " + word + " "
-        
-        formatted.append("|________________________________________________________________________|\n")
-        formatted.append("{/cps}")
-        
-        return "".join(formatted)
+    def getMOTD():
+      motd = "| Error, possibly. "
+      if day == "Mon":
+        if "sheep_1014" in chatlist:
+          motd = """|                                                                        |
+| Welcome to Electric Sheep, Inc!  We're excited to have you join our    |
+| company.  Your first day will be spent training on the system you will |
+| be using to pre-screen candidates for human-designated jobs.  Please   |
+| take the time to acquaint yourself with the system and read any recent |
+| news, then proceed to the chat app when you are ready to begin your    |
+| training.                                                              |
+"""
+        else:
+          motd = """|                                                                        |
+| This is the MOTD that shows after the Lola chat is completed.          |
+"""        
+  
+      return motd
 
 ###
 ### say(): called to flush $desc to terminal output

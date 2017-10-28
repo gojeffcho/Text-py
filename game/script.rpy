@@ -161,9 +161,6 @@ init 0 python:
     global args
     args = ""
 
-    global motd
-    motd = ""
-
     global desc
     desc = ""
     
