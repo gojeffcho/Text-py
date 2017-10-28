@@ -5,7 +5,7 @@ label login_first:
     
     scene bg black
     play sound "music/boot.ogg"
-    $renpy.pause(1.0)
+    $renpy.pause(2.5)
     
     play music "music/bg0.mp3" fadein 3.8 loop
     
@@ -27,7 +27,7 @@ label login_first_again:
         ███████╗
         ╚══════╝
                                                                     
-{/color}{/font}{/cps}{nw}"""
+{/color}{/font}{/cps}{cps=2} {/cps}{nw}"""
     $say()
     nvl clear
 
@@ -39,7 +39,7 @@ label login_first_again:
         ███████╗███████╗
         ╚══════╝╚══════╝
                                                                     
-{/color}{/font}{/cps}{nw}"""
+{/color}{/font}{/cps}{cps=2} {/cps}{nw}"""
     $say()
     nvl clear
 
@@ -51,7 +51,7 @@ label login_first_again:
         ███████╗███████╗███████╗
         ╚══════╝╚══════╝╚══════╝
 
-{/color}{/font}{/cps}{nw}"""
+{/color}{/font}{/cps}{cps=2} {/cps}{nw}"""
     $say()
     nvl clear
     
@@ -63,7 +63,7 @@ label login_first_again:
         ███████╗███████╗███████╗╚██████╗
         ╚══════╝╚══════╝╚══════╝ ╚═════╝
                                                                     
-{/color}{/font}{/cps}{nw}"""
+{/color}{/font}{/cps}{cps=2} {/cps}{nw}"""
     $say()
     nvl clear
     
@@ -75,7 +75,7 @@ label login_first_again:
         ███████╗███████╗███████╗╚██████╗   ██║   
         ╚══════╝╚══════╝╚══════╝ ╚═════╝   ╚═╝   
                                                                     
-{/color}{/font}{/cps}{nw}"""
+{/color}{/font}{/cps}{cps=2} {/cps}{nw}"""
     $say()
     nvl clear
     
@@ -87,7 +87,7 @@ label login_first_again:
         ███████╗███████╗███████╗╚██████╗   ██║   ██║  ██║
         ╚══════╝╚══════╝╚══════╝ ╚═════╝   ╚═╝   ╚═╝  ╚═╝
                                                                     
-{/color}{/font}{/cps}{nw}"""
+{/color}{/font}{/cps}{cps=2} {/cps}{nw}"""
     $say()
     nvl clear
     
@@ -99,7 +99,7 @@ label login_first_again:
         ███████╗███████╗███████╗╚██████╗   ██║   ██║  ██║██║
         ╚══════╝╚══════╝╚══════╝ ╚═════╝   ╚═╝   ╚═╝  ╚═╝╚═╝
                                                                     
-{/color}{/font}{/cps}{nw}"""
+{/color}{/font}{/cps}{cps=2} {/cps}{nw}"""
     $say()
     nvl clear
     
@@ -111,7 +111,7 @@ label login_first_again:
         ███████╗███████╗███████╗╚██████╗   ██║   ██║  ██║██║╚██████╗        
         ╚══════╝╚══════╝╚══════╝ ╚═════╝   ╚═╝   ╚═╝  ╚═╝╚═╝ ╚═════╝        
                                                                     
-{/color}{/font}{/cps}{nw}"""
+{/color}{/font}{/cps}{cps=2} {/cps}{nw}"""
     $say()
     nvl clear
 
@@ -129,7 +129,7 @@ label login_first_again:
         ╚════██║
         ███████║
         ╚══════╝
-{/color}{/font}{/cps}{nw}"""
+{/color}{/font}{/cps}{cps=2} {/cps}{nw}"""
     $say()
     nvl clear
     
@@ -147,7 +147,7 @@ label login_first_again:
         ╚════██║██╔══██║
         ███████║██║  ██║
         ╚══════╝╚═╝  ╚═╝
-{/color}{/font}{/cps}{nw}"""
+{/color}{/font}{/cps}{cps=2} {/cps}{nw}"""
     $say()
     nvl clear
     
@@ -165,7 +165,7 @@ label login_first_again:
         ╚════██║██╔══██║██╔══╝  
         ███████║██║  ██║███████╗
         ╚══════╝╚═╝  ╚═╝╚══════╝
-{/color}{/font}{/cps}{nw}"""
+{/color}{/font}{/cps}{cps=2} {/cps}{nw}"""
     $say()
     nvl clear
     
@@ -183,7 +183,7 @@ label login_first_again:
         ╚════██║██╔══██║██╔══╝  ██╔══╝  
         ███████║██║  ██║███████╗███████╗
         ╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝
-{/color}{/font}{/cps}{nw}"""
+{/color}{/font}{/cps}{cps=2} {/cps}{nw}"""
     $say()
     nvl clear
     
@@ -201,7 +201,7 @@ label login_first_again:
         ╚════██║██╔══██║██╔══╝  ██╔══╝  ██╔═══╝  
         ███████║██║  ██║███████╗███████╗██║      
         ╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝      
-{/color}{/font}{/cps}{nw}"""
+{/color}{/font}{/cps}{cps=2} {/cps}{nw}"""
     $say()
     nvl clear
     
@@ -219,7 +219,7 @@ label login_first_again:
         ╚════██║██╔══██║██╔══╝  ██╔══╝  ██╔═══╝     
         ███████║██║  ██║███████╗███████╗██║         
         ╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝         
-{/color}{/font}{/cps}{nw}"""
+{/color}{/font}{/cps}{cps=2} {/cps}{nw}"""
     $say()
     nvl clear
     
@@ -237,7 +237,7 @@ label login_first_again:
         ╚════██║██╔══██║██╔══╝  ██╔══╝  ██╔═══╝     ██║
         ███████║██║  ██║███████╗███████╗██║         ██║
         ╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝         ╚═╝
-{/color}{/font}{/cps}{nw}"""
+{/color}{/font}{/cps}{cps=2} {/cps}{nw}"""
     $say()
     nvl clear
     
@@ -255,7 +255,7 @@ label login_first_again:
         ╚════██║██╔══██║██╔══╝  ██╔══╝  ██╔═══╝     ██║██║╚██╗██║
         ███████║██║  ██║███████╗███████╗██║         ██║██║ ╚████║
         ╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝         ╚═╝╚═╝  ╚═══╝
-{/color}{/font}{/cps}{nw}"""
+{/color}{/font}{/cps}{cps=2} {/cps}{nw}"""
     $say()
     nvl clear
     
@@ -273,7 +273,7 @@ label login_first_again:
         ╚════██║██╔══██║██╔══╝  ██╔══╝  ██╔═══╝     ██║██║╚██╗██║██║        
         ███████║██║  ██║███████╗███████╗██║         ██║██║ ╚████║╚██████╗
         ╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝         ╚═╝╚═╝  ╚═══╝ ╚═════╝
-{/color}{/font}{/cps}{nw}"""
+{/color}{/font}{/cps}{cps=2} {/cps}{nw}"""
     $say()
     nvl clear
     
@@ -291,7 +291,7 @@ label login_first_again:
         ╚════██║██╔══██║██╔══╝  ██╔══╝  ██╔═══╝     ██║██║╚██╗██║██║        
         ███████║██║  ██║███████╗███████╗██║         ██║██║ ╚████║╚██████╗██╗
         ╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝         ╚═╝╚═╝  ╚═══╝ ╚═════╝╚═╝                  
-{/color}{/font}{/cps}{nw}"""
+{/color}{/font}{/cps}{cps=2} {/cps}{nw}"""
     $say()
     nvl clear
     
