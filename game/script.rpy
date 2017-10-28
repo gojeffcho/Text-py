@@ -112,6 +112,9 @@ init 0 python:
     global darkcyan
     darkcyan = "008b8b"
     
+    global skyblue
+    skyblue = "87cefa"
+    
     global crimson
     crimson = "dc143c"
     
@@ -158,6 +161,9 @@ init 0 python:
     global args
     args = ""
 
+    global motd
+    motd = ""
+
     global desc
     desc = ""
     
@@ -199,6 +205,10 @@ label start:
     scene bg black
 
     jump logosplash
+
+#     $chatlist.append("sheep_1014")
+#     call news4
+#     jump mainscreen
 
 #     $chatlist.append("sheep_1014")
 #     call news4

@@ -14,7 +14,7 @@ label chat:
 | Example: {b}> chat demo0{/b}                                                 |
 |________________________________________________________________________|
 
-{/cps}     You have ({color=#f00}[numChats]{/color}) chat partners to screen."""
+{/cps}     You have ({color=#""" + errorcolor + """}[numChats]{/color}) chat partners to screen."""
     
     $say()
     

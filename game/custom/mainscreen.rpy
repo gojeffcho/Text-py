@@ -1,29 +1,41 @@
+
+
 label mainscreen:
+
     $update_avails()
     
     if numChats + numEmails == 0:
         jump force_logout
+
+    if day == "Mon":
+      if "sheep_1014" in chatlist:
+        $motd = """|                                                                        |
+| Welcome to Electric Sheep, Inc!  We're excited to have you join our    |
+| company.  Your first day will be spent training on the system you will |
+| be using to pre-screen candidates for human-designated jobs.  Please   |
+| take the time to acquaint yourself with the system and read any recent |
+| news, then proceed to the chat app when you are ready to begin your    |
+| training.                                                              |
+"""
+      else:
+        $motd = """|                                                                        |
+| This is the MOTD that shows after the Lola chat is completed.          |
+"""        
     
     $expected = ["LOOK", "L", "HELP", "?", "MAIL.APP", "CHAT.APP"]
     $pickup = []
     $room = "Home"
     $update_roomlabel()
-        $desc = ""
-    $desc += make_header("Main Menu")
-    $desc += """{cps=0}|                                                                        |
-| You can see the users you can chat with by typing <show chats>.  Type  |
-| <chat> followed by the number of the person you wish to chat with to   |
-| proceed, or <exit> to quit.                                            |
-|                                                                        |
-| Example: {b}> chat demo0{/b}                                                 |
+    $desc = "{cps=0}"
+    $desc += make_header("System Home")
+    $desc += motd
+    $desc += """|                                                                        |
+| Available Programs:                                                    |
+|    <{color=#""" + skyblue + """}mail.app{/color}>: read news and emails                                    |
+|    <{color=#""" + skyblue + """}chat.app{/color}>: screen candidates                                       |
 |________________________________________________________________________|
 
-{/cps}     You have ({color=#f00}[numChats]{/color}) chat partners to screen."""
-
-    $desc = """{cps=150}<PLACEHOLDER: This is the main screen> Login: MOTD, graphics, etc. here{/cps}
-
-You have ({color=#f00}[numChats]{/color}) chat partners and ({color=#f00}[numEmails]{/color}) new emails.
-Available programs: <{color=#87ceeb}mail.app{/color}>, <{color=#87ceeb}chat.app{/color}>"""
+{/cps}     You have ({color=#""" + errorcolor + """}[numChats]{/color}) chats waiting and ({color=#""" + errorcolor + """}[numEmails]{/color}) new emails."""
     
     $say()
     

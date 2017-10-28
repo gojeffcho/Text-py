@@ -1,24 +1,20 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/custom/login.rpy", line 151, in script call
-    call news4 from _call_news4
-  File "game/custom/login.rpy", line 151, in script call
-    call news4 from _call_news4
-ScriptError: could not find label 'news4'.
+  File "game/script.rpy", line 211, in script
+    jump first_mainscreen
+ScriptError: could not find label 'first_mainscreen'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/custom/login.rpy", line 151, in script call
-    call news4 from _call_news4
-  File "/Applications/renpy-6.99.12.4-sdk/renpy/ast.py", line 1322, in execute
-    rv = renpy.game.context().call(label, return_site=self.next.name)
-  File "game/custom/login.rpy", line 151, in script call
-    call news4 from _call_news4
+  File "game/script.rpy", line 211, in script
+    jump first_mainscreen
+  File "/Applications/renpy-6.99.12.4-sdk/renpy/ast.py", line 1527, in execute
+    rv = renpy.game.script.lookup(target)
   File "/Applications/renpy-6.99.12.4-sdk/renpy/script.py", line 858, in lookup
     raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label 'news4'.
+ScriptError: could not find label 'first_mainscreen'.
 
 Darwin-16.7.0-x86_64-i386-64bit
 Ren'Py 6.99.12.4.2187
