@@ -18,7 +18,7 @@ label mainscreen:
 |    <{color=#""" + skyblue + """}chat.app{/color}>: screen candidates                                       |
 |________________________________________________________________________|
 
-{/cps}     You have ({color=#""" + errorcolor + """}[numChats]{/color}) chats waiting and ({color=#""" + errorcolor + """}[numEmails]{/color}) new emails."""
+{/cps}     You have ({color=#[errorcolor]}[numChats]{/color}) chats waiting and ({color=#[errorcolor]}[numEmails]{/color}) new emails."""
     
     $say()
     

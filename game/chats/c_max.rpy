@@ -34,6 +34,8 @@ label max:
 label maxStart:
 
     $expected = ["LOOK", "L", "HELP", "?"]
+    if target.getAsked():
+      $expected.append("REPORT")
     $expected += target.getQuestions()
     $pickup = []
     $room = "Chat: " + target.getId()
@@ -77,7 +79,7 @@ label maxStart:
                                 
                 if args[0].upper() == "HUMAN":
                     # Human Report
-                    $desc = "You reported " + target.getId() + " as human.{nw}"
+                    $desc = "You reported " + target.getId() + " as human.  Press {b}ENTER{/b} to return to the chat menu."
                     $say()
                     $flush_input()
                     $target.reportAsHuman(True)

@@ -75,18 +75,22 @@ label lolaStart:
             $help()
             
         elif cmd.upper() == "END":
-            $q = cmd
-            $flush_input()
+            if len(args) == 0:
+              $q = cmd
+              $flush_input()
             
-            $target.ask(q)
+              $target.ask(q)
             
-            $expected = []
-            $desc = "Press {b}ENTER{/b} to end the tutorial and return to chat.app."
-            $say()
+              $expected = []
+              $desc = "Press {b}ENTER{/b} to end the tutorial and return to chat.app."
+              $say()
             
-            $chatlist.append("sheep_1015")
-            nvl clear
-            jump chat
+              $chatlist.append("sheep_1015")
+              nvl clear
+              jump chat
+            else:
+              $desc = "Command 'END' takes no arguments."
+              $say()
             
         else:
             if len(args) == 0:

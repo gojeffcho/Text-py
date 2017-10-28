@@ -14,7 +14,7 @@ label chat:
 | Example: {b}> chat demo0{/b}                                                 |
 |________________________________________________________________________|
 
-{/cps}     You have ({color=#""" + errorcolor + """}[numChats]{/color}) chat partners to screen."""
+{/cps}     You have ({color=#[errorcolor]}[numChats]{/color}) chat partners to screen."""
     
     $say()
     
@@ -76,7 +76,7 @@ label chat:
                 if t[0] in chatlist:
                     term "Initiating chat with [t[0]]{cps=6}... ... ... {/cps}{nw}"
                     play sound "music/beep.ogg"
-                    extend "{cps=130}Done.{/cps} \nPress {b}ENTER{/b} to continue to mail."
+                    extend "{cps=130}Done.{/cps} \nPress {b}ENTER{/b} to begin."
                                     
                     $flush_input()
                     $chatlist.remove(t[0])   # can't re-engage this target

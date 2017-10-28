@@ -24,7 +24,7 @@ init 0 python:
         
 #       format.append("|        <<mail.app>>                                                    |\n")
         
-        formatted.append("|        <<{color=#" + highlight1 + "}" + (heading + "{/color}>>" + " " * 72)[:70] + "|\n")
+        formatted.append("|        <<{color=#[highlight1]}" + (heading + "{/color}>>" + " " * 72)[:70] + "|\n")
         formatted.append("|________________________________________________________________________|\n")
         formatted.append("{/cps}")
         
@@ -116,12 +116,12 @@ init 0 python:
     def input_error():
         if cmd == "":
             flush_input()
-            term("{cps=125}{color=#f00}Error{/color}: Please enter a command.")
+            term("{cps=125}{color=#[errorcolor]}Error{/color}: Please enter a command.")
         
         else:
             s = cmd 
             flush_input()
-            term("{cps=125}'" + s + "': {color=#f00}command not found{/color}.  Type 'help' or '?' for available commands.")
+            term("{cps=125}{color=#[errorcolor]}Error{/color}: command '" + s + "' not found.  Type 'help' or '?' for available commands.")
         return
     
 ###
@@ -131,13 +131,13 @@ init 0 python:
         if len(args) > 0:
             s = cmd
             flush_input()
-            term("{cps=125}Command '" + s + "' takes no additional arguments.")
+            term("{cps=125}{color=#[errorcolor]}Error{/color}: Command '" + s + "' takes no additional arguments.")
     
         else:
             flush_input()
             cmds = "{cps=125}Available commands: "
             for each in expected:
-              cmds += "<{color=#" + highlight1 + "}" + each.lower() + "{/color}> "
+              cmds += "<{color=#[highlight1]}" + each.lower() + "{/color}> "
             cmds += "{/cps}"
             term(cmds)
         return
@@ -149,7 +149,7 @@ init 0 python:
     def has_args():
         s = cmd
         flush_input()
-        term("{cps=125}Command '" + s + "' takes no additional arguments.")
+        term("{cps=125}{color=#[errorcolor]}Error{/color}: Command '" + s + "' takes no additional arguments.")
         
         return
 
@@ -167,7 +167,11 @@ init 0 python:
 ###
     def easter(word):
         flush_input()
-        term("Watch your goddamn language.")
+        if word == "permeable":
+          term("You said the secret codeword!  {color=#[skyblue]}You win the game{/color}!{cps=1}\n\n{/cps}...You still have to play the rest, though.")
+          
+        else:
+          term("Watch your goddamn language.")
         
         return
 
@@ -187,42 +191,6 @@ init 0 python:
         
         return
         
-###
-### add_time(): increments time
-###
-    def add_time():
-        global hour
-        global min
-        global ampm
-        global append
-        increment = 30      # Must not be greater than 59
-        
-        # Hour cycles to the next hour
-        if (min + increment) > 59:
-            hour = hour + 1
-            min = (min + increment) % 60
-            
-            if hour > 11:
-                ampm = "pm"
-            
-            if hour > 12:
-                hour = hour - 12
-        
-        # Otherwise, just add the minute
-        else:
-            min = min + increment
-            
-        # Check for end of day condition
-        if hour == 5 and ampm == "pm":
-            term("{color=#f00}WARNING:{/color} no employee is permitted access to the system after 5:00 pm.  System will now begin auto-logout procedures.")
-            # TODO: call end day function
-            
-        elif hour == 4 and ampm == "pm":
-            term("{color=#ffd700}REMINDER {/color}: Company policy requires that you log out by 5:00 pm.{nw}")
-            append = "{color=#ffd700}REMINDER {/color}: Company policy requires that you log out by 5:00 pm.{nw}"
-        
-        return
-
 ###
 ### new_day(): increments to the next day, resets time
 ###
