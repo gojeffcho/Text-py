@@ -8,6 +8,18 @@ label mainscreen:
     $pickup = []
     $room = "Home"
     $update_roomlabel()
+        $desc = ""
+    $desc += make_header("Main Menu")
+    $desc += """{cps=0}|                                                                        |
+| You can see the users you can chat with by typing <show chats>.  Type  |
+| <chat> followed by the number of the person you wish to chat with to   |
+| proceed, or <exit> to quit.                                            |
+|                                                                        |
+| Example: {b}> chat demo0{/b}                                                 |
+|________________________________________________________________________|
+
+{/cps}     You have ({color=#f00}[numChats]{/color}) chat partners to screen."""
+
     $desc = """{cps=150}<PLACEHOLDER: This is the main screen> Login: MOTD, graphics, etc. here{/cps}
 
 You have ({color=#f00}[numChats]{/color}) chat partners and ({color=#f00}[numEmails]{/color}) new emails.
@@ -44,7 +56,7 @@ Available programs: <{color=#87ceeb}mail.app{/color}>, <{color=#87ceeb}chat.app{
         elif cmd.upper() == "MAIL.APP":
             if len(args) == 0:
                 $flush_input()
-                $desc = "Starting mail.app{cps=10}... ... {/cps}{cps=130}Ready!{/cps}\n" \
+                $desc = "Starting mail.app{cps=6}... ... ... {/cps}{cps=130}Ready!{/cps}\n" \
                         "Press {b}ENTER{/b} to continue to mail."
                 $say()
                 nvl clear
@@ -55,7 +67,7 @@ Available programs: <{color=#87ceeb}mail.app{/color}>, <{color=#87ceeb}chat.app{
         elif cmd.upper() == "CHAT.APP":
             if len(args) == 0:
                 $flush_input()
-                $desc = "Starting chat.app{cps=10}... ... {/cps}{cps=130}Ready!{/cps}\n" \
+                $desc = "Starting chat.app{cps=6}... ... ... {/cps}{cps=130}Ready!{/cps}\n" \
                         "Press {b}ENTER{/b} to continue to chat."
                 $say()
                 nvl clear
