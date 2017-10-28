@@ -15,7 +15,7 @@ init -1 python:
       self.__read = False
       self.subj = subj
       self.tx = tx
-      self.rx = username[:5] + "623"
+      self.rx = rx
       self.__text = text
       
 
@@ -72,12 +72,14 @@ init -1 python:
       self.__setRead()
       
       # Format output string          |15                                     |40
-      outputString = "\n{cps=100}===== [[ Email: " + self.getId() + "] ===================\n\n"
-      outputString += "{b}From{/b}: " + self.tx + "\n"
-      outputString += "{b}To{/b}: " + self.rx + "\n"
-      outputString += "{b}Subject{/b}: {i}" + self.subj + "{/i}\n\n"
+      outputString = "\n{cps=100}{color=#" + highlight1 + "}"
+      outputString += "===== [[ Email: " + self.getId() + "] ==========================\n\n"
+      outputString += "  {b}From{/b}: " + self.tx + "\n"
+      outputString += "  {b}To{/b}: " + self.rx + "\n"
+      outputString += "  {b}Subject{/b}: {i}" + self.subj + "{/i}\n\n"
       outputString += self.__text + "\n\n"
-      outputString += "===== [[ message ends ] =================\n{/cps}{nw}"
+#       outputString += "{color=#" + highlight1 + "}"
+      outputString += "===== [[ message ends ] ========================={/color}{/cps}{nw}"
       
       return outputString
       

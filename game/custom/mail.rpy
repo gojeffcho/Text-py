@@ -4,13 +4,18 @@ label mail:
     $pickup = []
     $room = "Email"
     $update_roomlabel()
-    $desc = """{cps=150}<PLACEHOLDER: This is the email app screen> Fancy ASCII email graphics{/cps}
+    $desc = ""
+    $desc += make_header("mail.app")
+    $desc += """{cps=0}|                                                                        |
+| Type <show emails> to see the list of available emails, <read> followed|
+| by the message number you wish to open, or <exit> to quit.  New emails |
+| are shown in {color=#""" + highlight2 + """}this color{/color} and previously read emails are shown in {color=#""" + highlight1 + """}this   {/color}|
+| {color=#""" + highlight1 + """}color{/color}.                                                                 |
+|                                                                        |
+| Example: {b}> read news0{/b}                                                 |
+|________________________________________________________________________|
 
-Type {b}show emails{/b} to see the list of available emails, {b}read{/b} followed by the message number you wish to open, or "exit" to quit.  New emails are shown in {color=#""" + highlight2 + """}this color{/color} and previously read emails are shown in {color=#""" + highlight1 + """}this color{/color}.
-
-Example: {b}> read news0{/b}
-
-You have ({color=#f00}[numEmails]{/color}) unread emails."""
+{/cps}     You have ({color=#""" + errorcolor + """}[numEmails]{/color}) unread emails."""
     
     $say()
     
@@ -43,9 +48,10 @@ You have ({color=#f00}[numEmails]{/color}) unread emails."""
         elif cmd.upper() == "EXIT":
             if len(args) == 0:
                 $flush_input()
-                $desc = "Closing mail.app{cps=2}... ... ... Done.{/cps} \n" \
-                        "Press {b}ENTER{/b} to return to main screen."
-                $say()
+                
+                term "Closing mail.app{cps=6}... ... {/cps}{nw}"
+                play sound "music/beep2.ogg"
+                extend "{cps=130}Done.{/cps} \nPress {b}ENTER{/b} to return to main screen."
                 
                 nvl clear
                 jump mainscreen
@@ -63,7 +69,7 @@ You have ({color=#f00}[numEmails]{/color}) unread emails."""
                             s += "  [[{color=#" + emaillist[id].getReadColor() + "}" + id + "{/color}]: "
                             s += "'" + emaillist[id].getSubj() + "'\n"
                 else:
-                    $s = "{cps=150}You have no emails.{/cps}."
+                    $s = "{cps=150}You have no emails.{/cps}"
                     
                 $desc = s
                 $say()
@@ -80,17 +86,19 @@ You have ({color=#f00}[numEmails]{/color}) unread emails."""
                 $flush_input()
                 if key in emaillist.keys():
                     
-                    $desc = "Downloading email [key]{cps=2}... ... ...{/cps} Done.\n" \
-                            "Press {b}ENTER{/b} to open email."
-                    $say()
-                    
+                    term "Downloading email [key]{cps=6}... ... ... {/cps}{nw}"
+                    play sound "music/beep.ogg"
+                    extend "{cps=130}Done.{/cps} \nPress {b}ENTER{/b} to continue to mail."
+
                     $flush_input()
                     nvl clear
                     
                     $desc = emaillist[key].read()
+                    $update_avails()
                     $say()
                     
-                    $help()
+                    $desc = "     You have ({color=#" + errorcolor + "}[numEmails]{/color}) unread emails."
+                    $say()
                     
                 else:  
                     $flush_input()

@@ -4,6 +4,7 @@ label login_first:
     $hide_val = False
     
     scene bg black
+    play sound "music/boot.ogg"
     $renpy.pause(1.0)
     
     with pixellate

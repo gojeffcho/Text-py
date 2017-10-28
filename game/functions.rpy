@@ -13,6 +13,47 @@ init 0 python:
 
 
 ###
+### make_header(heading):
+###
+
+    def make_header(heading):
+        formatted = []
+        formatted.append("{cps=0}")
+        formatted.append(" ________________________________________________________________________ \n")
+        formatted.append("|                                                                        |\n")
+        
+#       format.append("|        <<mail.app>>                                                    |\n")
+        
+        formatted.append("|        <<{color=#" + highlight1 + "}" + (heading + "{/color}>>" + " " * 72)[:70] + "|\n")
+        formatted.append("|________________________________________________________________________|\n")
+        formatted.append("{/cps}")
+        
+        return "".join(formatted)
+
+###
+### getMOTD():
+###
+
+    def getMOTD():
+      motd = "| Error, possibly. "
+      if day == "Mon":
+        if "sheep_1014" in chatlist:
+          motd = """|                                                                        |
+| Welcome to Electric Sheep, Inc!  We're excited to have you join our    |
+| company.  Your first day will be spent training on the system you will |
+| be using to pre-screen candidates for human-designated jobs.  Please   |
+| take the time to acquaint yourself with the system and read any recent |
+| news, then proceed to the chat app when you are ready to begin your    |
+| training.                                                              |
+"""
+        else:
+          motd = """|                                                                        |
+| This is the MOTD that shows after the Lola chat is completed.          |
+"""        
+  
+      return motd
+
+###
 ### say(): called to flush $desc to terminal output
 ###
     def say():

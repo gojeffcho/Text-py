@@ -1,4 +1,5 @@
 label mainscreen:
+
     $update_avails()
     
     if numChats + numEmails == 0:
@@ -8,10 +9,16 @@ label mainscreen:
     $pickup = []
     $room = "Home"
     $update_roomlabel()
-    $desc = """{cps=150}<PLACEHOLDER: This is the main screen> Login: MOTD, graphics, etc. here{/cps}
+    $desc = "{cps=0}"
+    $desc += make_header("System Home")
+    $desc += getMOTD()
+    $desc += """|                                                                        |
+| Available Programs:                                                    |
+|    <{color=#""" + skyblue + """}mail.app{/color}>: read news and emails                                    |
+|    <{color=#""" + skyblue + """}chat.app{/color}>: screen candidates                                       |
+|________________________________________________________________________|
 
-You have ({color=#f00}[numChats]{/color}) chat partners and ({color=#f00}[numEmails]{/color}) new emails.
-Available programs: <{color=#87ceeb}mail.app{/color}>, <{color=#87ceeb}chat.app{/color}>"""
+{/cps}     You have ({color=#""" + errorcolor + """}[numChats]{/color}) chats waiting and ({color=#""" + errorcolor + """}[numEmails]{/color}) new emails."""
     
     $say()
     
@@ -44,9 +51,10 @@ Available programs: <{color=#87ceeb}mail.app{/color}>, <{color=#87ceeb}chat.app{
         elif cmd.upper() == "MAIL.APP":
             if len(args) == 0:
                 $flush_input()
-                $desc = "Starting mail.app{cps=2}... ... ...{/cps} {cps=130}Ready!{/cps}\n" \
-                        "Press {b}ENTER{/b} to continue to mail."
-                $say()
+                term "Starting mail.app{cps=6}... ... ... {/cps}{nw}"
+                play sound "music/beep.ogg"
+                extend "{cps=130}Ready!{/cps} \nPress {b}ENTER{/b} to continue to mail."
+
                 nvl clear
                 jump mail
             else:
@@ -55,9 +63,9 @@ Available programs: <{color=#87ceeb}mail.app{/color}>, <{color=#87ceeb}chat.app{
         elif cmd.upper() == "CHAT.APP":
             if len(args) == 0:
                 $flush_input()
-                $desc = "Starting chat.app{cps=2}... ... ...{/cps} {cps=130}Ready!{/cps}\n" \
-                        "Press {b}ENTER{/b} to continue to chat."
-                $say()
+                term "Starting chat.app{cps=6}... ... ... {/cps}{nw}"
+                play sound "music/beep.ogg"
+                extend "{cps=130}Ready!{/cps} \nPress {b}ENTER{/b} to continue to chat."
                 nvl clear
                 jump chat
             else:

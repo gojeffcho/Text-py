@@ -17,6 +17,11 @@ label titlesplash:
       "000000", # Black
       "000000", # Black
       "000000", # Black
+      "000000", # Black
+      "000000", # Black
+      "000000", # Black
+      "000000", # Black
+      "000000", # Black
       "2f4f4f", # SlateGrey
       "696969", # DimGrey
 #       "708090", # SlateGrey
@@ -43,6 +48,9 @@ label titlesplash:
       "                                                                  aa,    ,88  ",
       "                                                                   \"Y8bbdP\"   "
     ]
+
+    # Play title splash music
+    renpy.music.play("music/title.ogg", channel="sound")
 
     # Run as many times as there are characters
     for color in colors:

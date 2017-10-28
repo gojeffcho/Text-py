@@ -4,13 +4,17 @@ label chat:
     $pickup = []
     $room = "Chat"
     $update_roomlabel()
-    $desc = """{cps=150}<PLACEHOLDER: This is the chat app screen> Fancy ASCII chat graphics{/cps}
+    $desc = ""
+    $desc += make_header("chat.app")
+    $desc += """{cps=0}|                                                                        |
+| You can see the users you can chat with by typing <show chats>.  Type  |
+| <chat> followed by the number of the person you wish to chat with to   |
+| proceed, or <exit> to quit.                                            |
+|                                                                        |
+| Example: {b}> chat demo0{/b}                                                 |
+|________________________________________________________________________|
 
-You can see the users you can chat with by typing {b}show chats{/b}.  Type {b}chat{/b} followed by the number of the person you wish to chat with to proceed, or "exit" to quit.
-
-Example: {b}> chat c_demo0{/b}
-
-You have ({color=#f00}[numChats]{/color}) chat partners to screen."""
+{/cps}     You have ({color=#""" + errorcolor + """}[numChats]{/color}) chat partners to screen."""
     
     $say()
     
@@ -43,9 +47,10 @@ You have ({color=#f00}[numChats]{/color}) chat partners to screen."""
         elif cmd.upper() == "EXIT":
             if len(args) == 0:
                 $flush_input()
-                $desc = "Closing chat.app{cps=2}... ... ...{/cps} Done.\n" \
-                        "Press {b}ENTER{/b} to return to main screen."
-                $say()
+                
+                term "Closing chat.app{cps=6}... ... {/cps}{nw}"
+                play sound "music/beep2.ogg"
+                extend "{cps=130}Done.{/cps} \nPress {b}ENTER{/b} to return to main screen."
                 
                 nvl clear
                 jump mainscreen
@@ -69,10 +74,10 @@ You have ({color=#f00}[numChats]{/color}) chat partners to screen."""
             $t = args
             if len(t) == 1:
                 if t[0] in chatlist:
-                    $desc = "Initiating chat with [t[0]]{cps=2}... ... ...{/cps} Done.\n" \
-                            "Press {b}ENTER{/b} to enter chat."
-                    $say()
-                    
+                    term "Initiating chat with [t[0]]{cps=6}... ... ... {/cps}{nw}"
+                    play sound "music/beep.ogg"
+                    extend "{cps=130}Done.{/cps} \nPress {b}ENTER{/b} to continue to mail."
+                                    
                     $flush_input()
                     $chatlist.remove(t[0])   # can't re-engage this target
                     nvl clear

@@ -4,7 +4,7 @@ label logosplash:
     
     hide_val = True
     
-    linesFromTop = 5
+    linesFromTop = 7
     textSpeed = 3
     
     colors = [
@@ -20,14 +20,14 @@ label logosplash:
     ]
   
     splashtop = [
-      "    $$$$$$$$\ $$$$$$$$\  $$$$$$\  $$\      $$\    ",
-      "    \__$$  __|$$  _____|$$  __$$\ $$$\    $$$ |   ",
-      "       $$ |   $$ |      $$ /  $$ |$$$$\  $$$$ |   ",
-      "       $$ |   $$$$$\    $$$$$$$$ |$$\$$\$$ $$ |   ",
-      "       $$ |   $$  __|   $$  __$$ |$$ \$$$  $$ |   ",
-      "       $$ |   $$ |      $$ |  $$ |$$ |\$  /$$ |   ",
-      "       $$ |   $$$$$$$$\ $$ |  $$ |$$ | \_/ $$ |   ",
-      "       \__|   \________|\__|  \__|\__|     \__|   "
+      "        $$$$$$$$\ $$$$$$$$\  $$$$$$\  $$\      $$\    ",
+      "        \__$$  __|$$  _____|$$  __$$\ $$$\    $$$ |   ",
+      "           $$ |   $$ |      $$ /  $$ |$$$$\  $$$$ |   ",
+      "           $$ |   $$$$$\    $$$$$$$$ |$$\$$\$$ $$ |   ",
+      "           $$ |   $$  __|   $$  __$$ |$$ \$$$  $$ |   ",
+      "           $$ |   $$ |      $$ |  $$ |$$ |\$  /$$ |   ",
+      "           $$ |   $$$$$$$$\ $$ |  $$ |$$ | \_/ $$ |   ",
+      "           \__|   \________|\__|  \__|\__|     \__|   "
     ]
 
     splashbottom = [                                                                                          
@@ -89,8 +89,12 @@ label logosplash:
       desc += "{/cps}{nw}"
       say()
     
+    # PLAY THAT SOUND
+    renpy.music.play("music/jeffname.mp3", channel="sound")
+    
     # Make it stick
     nvl_clear()
+    
     desc = "{cps=0}"
     for each in range(linesFromTop):
       desc += "\n"
@@ -101,6 +105,7 @@ label logosplash:
       desc += line + "\n"
     desc += "\n\n\n                              {/cps}{cps=10}Presents...{/cps}"
     desc += "{cps=1}  {/cps}{nw}"
+    
     say()
     
     # Fade it out

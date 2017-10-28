@@ -1,26 +1,20 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/custom/login.rpy", line 132, in script
-    if len(args[0]) < 5:
-  File "game/custom/login.rpy", line 138, in <module>
-    elif len(args[0] > 15):
-TypeError: object of type 'bool' has no len()
+  File "game/custom/mainscreen.rpy", line 54, in script
+    terminal "Starting mail.app{cps=6}... ... ... {/cps}{nw}"
+Exception: Sayer 'terminal' is not defined.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/custom/login.rpy", line 132, in script
-    if len(args[0]) < 5:
-  File "/Applications/renpy-6.99.12.4-sdk/renpy/ast.py", line 1656, in execute
-    if renpy.python.py_eval(condition):
-  File "/Applications/renpy-6.99.12.4-sdk/renpy/python.py", line 1749, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "/Applications/renpy-6.99.12.4-sdk/renpy/python.py", line 1743, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/custom/login.rpy", line 138, in <module>
-    elif len(args[0] > 15):
-TypeError: object of type 'bool' has no len()
+  File "game/custom/mainscreen.rpy", line 54, in script
+    terminal "Starting mail.app{cps=6}... ... ... {/cps}{nw}"
+  File "/Applications/renpy-6.99.12.4-sdk/renpy/ast.py", line 593, in execute
+    who = eval_who(self.who, self.who_fast)
+  File "/Applications/renpy-6.99.12.4-sdk/renpy/ast.py", line 509, in eval_who
+    raise Exception("Sayer '%s' is not defined." % who.encode("utf-8"))
+Exception: Sayer 'terminal' is not defined.
 
 Darwin-16.7.0-x86_64-i386-64bit
 Ren'Py 6.99.12.4.2187

@@ -140,14 +140,14 @@ init -1 python:
       
     # userFormat(outputText) -> String (formatted for terminal output)
     def userFormat(self, text):
-      outputString = "{color=#" + usercolor + "}{b}" + username + "{/b}{/color}: " + text + "{nw}"
+      outputString = "{cps=0}{color=#" + usercolor + "}{b}" + username + "{/b}{/color}{/cps}: " + text + "{nw}"
       
       return outputString
       
     # typingMessage() -> String (formatted for terminal output)
     # Interlude between user question being asked and target reply
     def typingMessage(self):
-      outputString = "{color=#" + self.__color + "}{b}" + self.__id + "{/b}{/color} is typing{cps=2}...{/cps}{nw}"
+      outputString = "{cps=0}{color=#" + self.__color + "}{b}" + self.__id + "{/b}{/color}{/cps} is typing{cps=2}...{/cps}{nw}"
       
       return outputString
       
@@ -155,7 +155,7 @@ init -1 python:
     def targetFormat(self, text):
       
       # Prepend target username in user color
-      outputString = "{color=#" + self.__color + "}{b}" + self.__id + "{/b}{/color}: " + text + "{nw}"
+      outputString = "{cps=0}{color=#" + self.__color + "}{b}" + self.__id + "{/b}{/color}{/cps}: " + text + "{nw}"
             
       return outputString
     
@@ -232,29 +232,34 @@ init -1 python:
         if q[-1:].isnumeric():
           # OUTPUT: Print player follow-up question text to terminal
           desc = self.userFormat(self.__followupQ[q])
+          renpy.music.play("music/tx.ogg", channel="sound")
           say()
-        
+          
           # TODO: Some kind of wait, or target is typing interlude?
           desc = self.typingMessage()
           say()
       
           # OUTPUT: Print target answer to terminal
           desc = self.targetFormat(self.__followupA[q])
+          renpy.music.play("music/rx.ogg", channel="sound")
           say()
+          
           
         else:
           # OUTPUT: Print player question text to terminal
           desc = self.userFormat(self.__questions[q])
+          renpy.music.play("music/tx.ogg", channel="sound")
           say()
-        
+                  
           # TODO: Some kind of wait, or target is typing interlude?
           desc = self.typingMessage()
           say()
       
           # OUTPUT: Print target answer to terminal
           desc = self.targetFormat(self.__answers[q])
+          renpy.music.play("music/rx.ogg", channel="sound")
           say()
-    
+          
     
     
     
