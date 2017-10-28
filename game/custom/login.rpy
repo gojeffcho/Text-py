@@ -7,7 +7,6 @@ label login_first:
     play sound "music/boot.ogg"
     $renpy.pause(1.0)
     
-    with pixellate
     play music "music/bg0.mp3" fadein 3.8 loop
     
 label login_first_again:
@@ -31,7 +30,7 @@ label login_first_again:
         ███████║██║  ██║███████╗███████╗██║         ██║██║ ╚████║╚██████╗██╗
         ╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝         ╚═╝╚═╝  ╚═══╝ ╚═════╝╚═╝                  
 {/color}{/font}{/cps}
-Welcome, new user!  
+Welcome, new user!
 
 Please type {b}new{/b} to set up your account.  You can type {b}help{/b} or {b}?{/b} at any time to see the list of currently available commands.  If you become lost on any screen, type {b}look{/b} or {b}l{/b} (lowercase L) to recall the original prompt."""
     
@@ -94,7 +93,7 @@ label login_new:
         ███████║██║  ██║███████╗███████╗██║         ██║██║ ╚████║╚██████╗██╗
         ╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝         ╚═╝╚═╝  ╚═══╝ ╚═════╝╚═╝   
 {/color}{/font}{/cps}
-We're {cps=50}thrilled to have you join our company!{/cps}  Let's create your account.  Please type {b}create{/b} followed by your desired username (at least five characters long) to create your login.  If you become lost on any screen, type {b}look{/b} or {b}l{/b} (lowercase L) to see the original prompt.
+We're thrilled to have you join our company!  Let's create your account.  Please type {b}create{/b} followed by your desired username (at least five characters long) to create your login.  If you become lost on any screen, type {b}look{/b} or {b}l{/b} (lowercase L) to see the original prompt.
     
 Example: {b}> create shelby{/b}"""
 
@@ -102,7 +101,6 @@ Example: {b}> create shelby{/b}"""
     
     while True:
         $echo()
-        $add_time() # TODO: REMOVE, testing
         
         if cmd.upper() not in expected:
             python:
