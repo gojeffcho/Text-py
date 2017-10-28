@@ -61,7 +61,11 @@ label chat:
             
             if len(args) == 1 and args[0] == "chats":
                 $flush_input()
-                $s = "{cps=150}{color=#faebd7}" + "    * " + "\n    * ".join(chatlist) + "{/color}{/cps}"
+                python:
+                  s = "{cps=150}"
+                  for chat in chatlist:
+                    s += "   [[{color=#[highlight1]}" + chat + "{/color}]: Candidate ready for screening"
+                  s += "{/cps}"
                 $desc = s
                 $say()
             
@@ -85,12 +89,12 @@ label chat:
                     
                 else:  
                     $flush_input()
-                    $desc = "Please enter a valid choice for a chat partner."
+                    $desc = "{color=#[errorcolor]}ERROR{/color}: Please enter a valid choice for a chat partner."
                     $say()
                 
             else:
                 $flush_input()
-                $desc = "Command 'chat' takes exactly one argument."
+                $desc = "{color=#[errorcolor]}ERROR{/color}: Command 'chat' must be followed by a single valid candidate tag."
                 $say()
             
     return

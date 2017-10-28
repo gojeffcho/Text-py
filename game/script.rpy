@@ -204,7 +204,7 @@ label start:
 
     jump logosplash
 
-#     $chatlist.append("sheep_1014")
+#     $chatlist.append("sheep_1015")
 #     call news4 from _call_news4_1
 #     jump mainscreen
 
