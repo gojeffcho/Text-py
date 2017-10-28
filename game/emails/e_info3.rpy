@@ -3,19 +3,19 @@ label info3:
   
     key = "info3"
     
-    subj = "Interview with Natural Language AI Advocate"
+    subj = "fwd: Natural Language AI Advocate"
     
     tx = "ai_news@electrosheep.ca"
     
-    rx = username[:5] + "713@electrosheep.ca"
+    rx = "+info_all@intern.electrosheep.ca"
   
-    text = """Interviewer: What do you want?
+    text = """{i}Interviewer{/i}: What do you want?
     
-AI Advocate: Natural Language Processing!
+{i}AI Advocate{/i}: Natural Language Processing!
 
-Interviewer:  When do you want it?
+{i}Interviewer{/i}: When do you want it?
 
-AI Advocate: When do we want what?"""
+{i}AI Advocate{/i}: When do we want what?"""
   
     email = Email(key, subj, tx, rx, text)
     emaillist[key] = email

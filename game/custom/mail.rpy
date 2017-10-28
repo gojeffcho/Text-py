@@ -4,14 +4,18 @@ label mail:
     $pickup = []
     $room = "Email"
     $update_roomlabel()
-    $desc = """
-|--------[[mail.app]------------------------------------------------------|
+    $desc = ""
+    $desc += make_header("mail.app")
+    $desc += """{cps=0}|                                                                        |
+| Type <show emails> to see the list of available emails, <read> followed|
+| by the message number you wish to open, or <exit> to quit.  New emails |
+| are shown in {color=#""" + highlight2 + """}this color{/color} and previously read emails are shown in {color=#""" + highlight1 + """}this   {/color}|
+| {color=#""" + highlight1 + """}color{/color}.                                                                 |
+|                                                                        |
+| Example: {b}> read news0{/b}                                                 |
+|________________________________________________________________________|
 
-{cps=150}Type {b}show emails{/b} to see the list of available emails, {b}read{/b} followed by the message number you wish to open, or "exit" to quit.  New emails are shown in {color=#""" + highlight2 + """}this color{/color} and previously read emails are shown in {color=#""" + highlight1 + """}this color{/color}.
-
-Example: {b}> read news0{/b}
-
-You have ({color=#f00}[numEmails]{/color}) unread emails."""
+{/cps}     You have ({color=#""" + errorcolor + """}[numEmails]{/color}) unread emails."""
     
     $say()
     
@@ -64,7 +68,7 @@ You have ({color=#f00}[numEmails]{/color}) unread emails."""
                             s += "  [[{color=#" + emaillist[id].getReadColor() + "}" + id + "{/color}]: "
                             s += "'" + emaillist[id].getSubj() + "'\n"
                 else:
-                    $s = "{cps=150}You have no emails.{/cps}."
+                    $s = "{cps=150}You have no emails.{/cps}"
                     
                 $desc = s
                 $say()
@@ -89,9 +93,11 @@ You have ({color=#f00}[numEmails]{/color}) unread emails."""
                     nvl clear
                     
                     $desc = emaillist[key].read()
+                    $update_avails()
                     $say()
                     
-                    $help()
+                    $desc = "     You have ({color=#" + errorcolor + "}[numEmails]{/color}) unread emails."
+                    $say()
                     
                 else:  
                     $flush_input()

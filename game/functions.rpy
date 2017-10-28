@@ -13,6 +13,48 @@ init 0 python:
 
 
 ###
+### make_header(heading):
+###
+
+    def make_header(heading):
+        formatted = []
+        formatted.append("{cps=0}")
+        formatted.append(" ________________________________________________________________________ \n")
+        formatted.append("|                                                                        |\n")
+        
+#       format.append("|        <<mail.app>>                                                    |\n")
+        
+        formatted.append("|        <<{color=#" + highlight1 + "}" + (heading + "{/color}>>" + " " * 72)[:70] + "|\n")
+        formatted.append("|________________________________________________________________________|\n")
+        formatted.append("{/cps}")
+        
+        return "".join(formatted)
+
+###
+### make_instrs(instrs):
+###
+
+    def make_instrs(instrs):
+        
+        formatted = []
+        formatted.append("|                                                                        |\n")
+        line = "| "
+        for instr in instrs:
+            words = instr.split()
+            for word in words:
+              if len(line + word) < 71:
+                line += word + " "
+              else:
+                line = (line + " "*72)[:71] + "|\n"
+                formatted.append(line)
+                line = "| " + word + " "
+        
+        formatted.append("|________________________________________________________________________|\n")
+        formatted.append("{/cps}")
+        
+        return "".join(formatted)
+
+###
 ### say(): called to flush $desc to terminal output
 ###
     def say():

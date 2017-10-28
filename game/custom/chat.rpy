@@ -4,13 +4,17 @@ label chat:
     $pickup = []
     $room = "Chat"
     $update_roomlabel()
-    $desc = """{cps=150}<PLACEHOLDER: This is the chat app screen> Fancy ASCII chat graphics{/cps}
+    $desc = ""
+    $desc += make_header("chat.app")
+    $desc += """{cps=0}|                                                                        |
+| You can see the users you can chat with by typing <show chats>.  Type  |
+| <chat> followed by the number of the person you wish to chat with to   |
+| proceed, or <exit> to quit.                                            |
+|                                                                        |
+| Example: {b}> chat demo0{/b}                                                 |
+|________________________________________________________________________|
 
-You can see the users you can chat with by typing {b}show chats{/b}.  Type {b}chat{/b} followed by the number of the person you wish to chat with to proceed, or "exit" to quit.
-
-Example: {b}> chat c_demo0{/b}
-
-You have ({color=#f00}[numChats]{/color}) chat partners to screen."""
+{/cps}     You have ({color=#f00}[numChats]{/color}) chat partners to screen."""
     
     $say()
     

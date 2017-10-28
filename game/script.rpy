@@ -77,7 +77,7 @@ init 0 python:
     
     config.say_attribute_transition = dissolve
     
-    config.default_text_cps = 25
+    config.default_text_cps = 40
 
     config.window_auto_hide = [ 'scene', 'alma' ]
 
@@ -88,7 +88,7 @@ init 0 python:
     
     # Track username, user color
     global username
-    username = ""
+    username = "assblaster"
     
     global displayname
     displayname = "logged out"
@@ -200,6 +200,11 @@ label start:
 
     jump logosplash
 
+#     $chatlist.append("sheep_1014")
+#     call news4
+#     call info3
+#     call attk7
+# 
 #     jump mail
 
 
