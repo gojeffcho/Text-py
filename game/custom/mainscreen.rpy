@@ -44,7 +44,7 @@ Available programs: <{color=#87ceeb}mail.app{/color}>, <{color=#87ceeb}chat.app{
         elif cmd.upper() == "MAIL.APP":
             if len(args) == 0:
                 $flush_input()
-                $desc = "Starting mail.app{cps=2}... ... ...{/cps} {cps=130}Ready!{/cps}\n" \
+                $desc = "Starting mail.app{cps=10}... ... {/cps}{cps=130}Ready!{/cps}\n" \
                         "Press {b}ENTER{/b} to continue to mail."
                 $say()
                 nvl clear
@@ -55,7 +55,7 @@ Available programs: <{color=#87ceeb}mail.app{/color}>, <{color=#87ceeb}chat.app{
         elif cmd.upper() == "CHAT.APP":
             if len(args) == 0:
                 $flush_input()
-                $desc = "Starting chat.app{cps=2}... ... ...{/cps} {cps=130}Ready!{/cps}\n" \
+                $desc = "Starting chat.app{cps=10}... ... {/cps}{cps=130}Ready!{/cps}\n" \
                         "Press {b}ENTER{/b} to continue to chat."
                 $say()
                 nvl clear

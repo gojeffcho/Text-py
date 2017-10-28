@@ -47,7 +47,7 @@ label chat:
         elif cmd.upper() == "EXIT":
             if len(args) == 0:
                 $flush_input()
-                $desc = "Closing chat.app{cps=2}... ... ...{/cps} Done.\n" \
+                $desc = "Closing chat.app{cps=10}... ...{/cps} Done.\n" \
                         "Press {b}ENTER{/b} to return to main screen."
                 $say()
                 
@@ -73,7 +73,7 @@ label chat:
             $t = args
             if len(t) == 1:
                 if t[0] in chatlist:
-                    $desc = "Initiating chat with [t[0]]{cps=2}... ... ...{/cps} Done.\n" \
+                    $desc = "Initiating chat with [t[0]]{cps=10}... ...{/cps} Done.\n" \
                             "Press {b}ENTER{/b} to enter chat."
                     $say()
                     

@@ -48,7 +48,7 @@ label mail:
         elif cmd.upper() == "EXIT":
             if len(args) == 0:
                 $flush_input()
-                $desc = "Closing mail.app{cps=2}... ... ... Done.{/cps} \n" \
+                $desc = "Closing mail.app{cps=10}... ... Done.{/cps} \n" \
                         "Press {b}ENTER{/b} to return to main screen."
                 $say()
                 
@@ -85,7 +85,7 @@ label mail:
                 $flush_input()
                 if key in emaillist.keys():
                     
-                    $desc = "Downloading email [key]{cps=2}... ... ...{/cps} Done.\n" \
+                    $desc = "Downloading email [key]{cps=10}... ...{/cps} Done.\n" \
                             "Press {b}ENTER{/b} to open email."
                     $say()
                     
