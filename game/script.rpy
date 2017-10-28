@@ -76,8 +76,6 @@ init 0 python:
     config.window_show_transition = dissolve
     
     config.say_attribute_transition = dissolve
-    
-    config.default_text_cps = 40
 
     config.window_auto_hide = [ 'scene', 'alma' ]
 
