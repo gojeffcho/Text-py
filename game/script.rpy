@@ -98,6 +98,9 @@ init 0 python:
     global errorcolor
     errorcolor = "f00"
     
+    global sheepcolor
+    sheepcolor = "ffd700"
+    
     global highlight1
     highlight1 = "faebd7"
     
@@ -111,14 +114,14 @@ init 0 python:
     darkcyan = "008b8b"
     
     global skyblue
-    skyblue = "87cefa"
+    skyblue = "87ceeb"
     
     global crimson
     crimson = "dc143c"
     
     # Track easter eggs
     global easters
-    easters = ["fuck", "goddamn", "shit", "bitch", "cunt", "friggin", "dick"]
+    easters = ["permeable", "fuck", "goddamn", "shit", "bitch", "cunt", "friggin", "dick", "ass", "asshole", "penis", "cock", "pussy", "damn", "hell", "fucking", "motherfucker", "motherfucking"]
 
     # Track available chats
     global chatlist
@@ -201,7 +204,7 @@ label start:
 
     jump logosplash
 
-#     $chatlist.append("sheep_1014")
+#     $chatlist.append("sheep_1015")
 #     call news4 from _call_news4_1
 #     jump mainscreen
 

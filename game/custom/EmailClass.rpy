@@ -72,7 +72,7 @@ init -1 python:
       self.__setRead()
       
       # Format output string          |15                                     |40
-      outputString = "\n{cps=100}{color=#" + highlight1 + "}"
+      outputString = "\n{cps=100}{color=#[highlight1]}"
       outputString += "===== [[ Email: " + self.getId() + "] ==========================\n\n"
       outputString += "  {b}From{/b}: " + self.tx + "\n"
       outputString += "  {b}To{/b}: " + self.rx + "\n"

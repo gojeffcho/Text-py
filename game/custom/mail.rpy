@@ -15,7 +15,7 @@ label mail:
 | Example: {b}> read news0{/b}                                                 |
 |________________________________________________________________________|
 
-{/cps}     You have ({color=#""" + errorcolor + """}[numEmails]{/color}) unread emails."""
+{/cps}     You have ({color=#[errorcolor]}[numEmails]{/color}) unread emails."""
     
     $say()
     
@@ -76,7 +76,7 @@ label mail:
             
             else:
                 $flush_input()
-                $desc = "{color=#f00}Error{/color}: please type {b}show emails{/b} to view your email list."
+                $desc = "{color=#[errorcolor]}Error{/color}: please type {b}show emails{/b} to view your email list."
                 $say()
         
         elif cmd.upper() == "READ":
@@ -97,7 +97,7 @@ label mail:
                     $update_avails()
                     $say()
                     
-                    $desc = "     You have ({color=#" + errorcolor + "}[numEmails]{/color}) unread emails."
+                    $desc = "     You have ({color=#[errorcolor]}[numEmails]{/color}) unread emails."
                     $say()
                     
                 else:  

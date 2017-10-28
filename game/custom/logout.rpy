@@ -1,6 +1,6 @@
 label force_logout:
-    
-    $expected = ["LOOK", "L", "HELP", "?", "LOGOUT"]
+
+    $expected = ["HELP", "?", "LOGOUT"]
     $pickup = []
     $room = "Logout"
     $update_roomlabel()
@@ -60,9 +60,11 @@ label next_day:
 
 label demo_end:
 
-  $desc = """\n\n\n\n\n\n\n\n           This concludes the game demo.  Thanks for playing!"""
+  $desc = "\n\n\n\n\n\n\n\n                This concludes the game demo.\n"
+  $desc += "                Your score was: [right] out of 2!\n"
+  $desc += "                Thanks for playing!"
   $say()
   
-  return
+  $sys.exit()
                 
                 

@@ -15,7 +15,7 @@ label login_first_again:
     $pickup = []
     $room = "New User"
     $update_roomlabel()
-    $desc = """{cps=200}{font=font/AnonymousPro.ttf}{color=#ffd700}
+    $desc = """{cps=200}{font=font/AnonymousPro.ttf}{color=#[sheepcolor]}
         ███████╗██╗     ███████╗ ██████╗████████╗██████╗ ██╗ ██████╗        
         ██╔════╝██║     ██╔════╝██╔════╝╚══██╔══╝██╔══██╗██║██╔════╝        
         █████╗  ██║     █████╗  ██║        ██║   ██████╔╝██║██║             
@@ -78,7 +78,7 @@ label login_new:
     $pickup = []
     $room = "Create User"
     $update_roomlabel()
-    $desc = """{cps=0}{font=font/AnonymousPro.ttf}{color=#ffd700}
+    $desc = """{cps=0}{font=font/AnonymousPro.ttf}{color=#[sheepcolor]}
         ███████╗██╗     ███████╗ ██████╗████████╗██████╗ ██╗ ██████╗        
         ██╔════╝██║     ██╔════╝██╔════╝╚══██╔══╝██╔══██╗██║██╔════╝        
         █████╗  ██║     █████╗  ██║        ██║   ██████╔╝██║██║             
@@ -93,7 +93,7 @@ label login_new:
         ███████║██║  ██║███████╗███████╗██║         ██║██║ ╚████║╚██████╗██╗
         ╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝         ╚═╝╚═╝  ╚═══╝ ╚═════╝╚═╝   
 {/color}{/font}{/cps}
-We're thrilled to have you join our company!  Let's create your account.  Please type {b}create{/b} followed by your desired username (at least five characters long) to create your login.  If you become lost on any screen, type {b}look{/b} or {b}l{/b} (lowercase L) to see the original prompt.
+We're thrilled to have you join our company!  Let's create your account.  Please type {b}create{/b} followed by your desired username (5 - 15 characters long with no spaces) to create your login.  If you become lost on any screen, type {b}look{/b} or {b}l{/b} (lowercase L) to see the original prompt.
     
 Example: {b}> create shelby{/b}"""
 
@@ -155,7 +155,7 @@ Example: {b}> create shelby{/b}"""
 
             else:
                 $flush_input()
-                $desc = "{color=#f00}Error{/color}: Please enter a valid username."
+                $desc = "{color=#[errorcolor]}Error{/color}: Please enter a valid username with no spaces."
                 $say()
 
         else:
@@ -169,7 +169,7 @@ label login:
     $pickup = []
     $room = "Login"
     $update_roomlabel()
-    $desc = """{cps=0}{font=font/AnonymousPro.ttf}{color=#ffd700}
+    $desc = """{cps=0}{font=font/AnonymousPro.ttf}{color=#[sheepcolor]}
         ███████╗██╗     ███████╗ ██████╗████████╗██████╗ ██╗ ██████╗        
         ██╔════╝██║     ██╔════╝██╔════╝╚══██╔══╝██╔══██╗██║██╔════╝        
         █████╗  ██║     █████╗  ██║        ██║   ██████╔╝██║██║             
@@ -225,7 +225,7 @@ Please type {b}login <username>{/b} to log in, or {b}help{/b} for a list of avai
                     $desc = "{cps=3}...{/cps} {nw}"
                     $say()
             
-                    $desc = "{color=#87ceeb}Login successful{/color}!  Welcome, " + username + ".  Press {b}<ENTER>{/b} to proceed."
+                    $desc = "{color=#[skyblue]}Login successful{/color}!  Welcome, " + username + ".  Press {b}<ENTER>{/b} to proceed."
                     $say()
                     $flush_input()
                     
@@ -237,15 +237,15 @@ Please type {b}login <username>{/b} to log in, or {b}help{/b} for a list of avai
                 else:
                     $s = " ".join(args)
                     $flush_input()
-                    $desc = "{color=#f00}Error{/color}: Incorrect login '" + s + "'!  Please try again."
+                    $desc = "{color=#[errorcolor]}Error{/color}: Incorrect login '" + s + "'!  Please try again."
                     $say()
             elif len(args) == 0:
                 $flush_input()
-                $desc = "{color=#f00}Error{/color}: You must supply a username after {b}login{/b}."
+                $desc = "{color=#[errorcolor]}Error{/color}: You must supply a username after {b}login{/b}."
                 $say()
             else:
                 $flush_input()
-                $desc = "{color=#f00}Error{/color}: Please type {b}login <username>{/b} to log in.  Your username is only one word."
+                $desc = "{color=#[errorcolor]}Error{/color}: Please type {b}login <username>{/b} to log in.  Your username is only one word."
                 $say()
             
     return

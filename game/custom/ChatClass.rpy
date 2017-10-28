@@ -87,6 +87,10 @@ init -1 python:
     def isFollowup(self, key):
       return key in self.__followupQ
       
+    # getAsked() -> Bool
+    def getAsked(self):
+      return (len(self.__asked) > 0)
+      
     
     ##
     ##  MUTATORS
@@ -134,13 +138,13 @@ init -1 python:
         outputString += lineString
       
       if self.__currentQ != "NONE" and "START" not in self.__questions.keys():
-        outputString += "  * {color=" + highlight1 + "}REPORT{/color} <AI/HUMAN>"
+        outputString += "  * {color=#[highlight1]}REPORT{/color} <AI/HUMAN>"
       
       return outputString
       
     # userFormat(outputText) -> String (formatted for terminal output)
     def userFormat(self, text):
-      outputString = "{cps=0}{color=#" + usercolor + "}{b}" + username + "{/b}{/color}{/cps}: " + text + "{nw}"
+      outputString = "{cps=0}{color=#[usercolor]}{b}" + username + "{/b}{/color}{/cps}: " + text + "{nw}"
       
       return outputString
       
