@@ -7,7 +7,7 @@ label attk7:
     
     tx = "danger@electricsheep.ca"
     
-    rx = username[:5] + "713@electricsheep.ca"
+    rx = "allhands@intern.electricsheep.ca"
   
     text = """Yesterday's distributed denial
 of service ('DDoS') attack against government 

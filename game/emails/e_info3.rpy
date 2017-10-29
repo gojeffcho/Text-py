@@ -7,7 +7,7 @@ label info3:
     
     tx = "ai_news@electricsheep.ca"
     
-    rx = username[:5] + "713@electricsheep.ca"
+    rx = "+info_all@electricsheep.ca"
   
     text = """Interviewer: What do you want?
     
