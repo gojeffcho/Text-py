@@ -9,7 +9,7 @@ init 0 python:
         global username
         global day
         
-        roomlabel = "===== Electric Sheep Inc. - {0:15}    {1:>15} - {2} =====".format(room, displayname, day)
+        roomlabel = "=====[ Electric Sheep - {0:16}       {1:>15} - {2} ]=====".format(room, displayname, day)
 
 
 ###

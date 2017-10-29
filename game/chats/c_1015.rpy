@@ -90,7 +90,7 @@ label lola2Start:
                 
                 if args[0].upper() == "AI":
                     # AI Report
-                    $desc = "You reported " + target.getId() + " as AI.{nw}"
+                    $desc = "You reported " + target.getId() + " as AI.  Press {b}ENTER{/b} to return to the chat menu."
                     $say()
                     $flush_input()
                     $target.reportAsHuman(False)

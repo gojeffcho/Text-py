@@ -5,16 +5,16 @@ label attk7:
     
     subj = "Rampant AI 'KyR.OS' Attacks Again"
     
-    tx = "danger@electrosheep.ca"
+    tx = "danger@electricsheep.ca"
     
-    rx = "allhands@intern.electrosheep.ca"
+    rx = username[:5] + "713@electricsheep.ca"
   
-    text = """Yesterday's distributed denial of service 
-('DDoS') attack against government servers has
-been claimed by the rampant AI calling itself 
-KyR.OS.
+    text = """Yesterday's distributed denial
+of service ('DDoS') attack against government 
+servers has been claimed by the rampant AI 
+calling itself KyR.OS.
 
-KyR.OS is an extremist AI which has orchestrated
+KyR.OS is an extremist AI which has orchestrated 
 numerous DDoS attacks and conducted a series of 
 bombings which have caused millions in damage 
 and dozens of injuries to human and AI victims 
