@@ -1,5 +1,6 @@
 # RenPy files we don't care about
 errors.txt
+traceback.txt
 log.txt
 tmp/*
 game/cache/*
