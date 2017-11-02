@@ -27,7 +27,6 @@ label chat:
                 for word in easters:
                     if cmd == word or args == word or word in args:
                         easter(word)
-                        flush_input()
                         eastered = True
                 
                 if not eastered:
