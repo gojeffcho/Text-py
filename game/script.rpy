@@ -28,6 +28,9 @@ init -2 python:
     # Fix spacebar entry
     config.keymap['dismiss'].remove('K_SPACE')
     
+    # Remove help keymap function
+    config.keymap['help'] = []
+    
     # Fix skip control
     config.keymap['skip'] = []
     config.keymap['toggle_skip'] = []
