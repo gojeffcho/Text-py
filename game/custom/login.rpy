@@ -539,18 +539,10 @@ label captcha:
     $pickup = []
     $room = "CAPTCHA"
     $update_roomlabel()
-    $desc = """{cps=0}{font=font/AnonymousPro.ttf}{color=#ffd700}
-                                                                              
-             --    ./                 `:/+-`                  :dmmmmh+.       
-       my   -MN-   yy                yMMmdMM+    h/     `d.   oMM::+yNM:      
-       sM-  ymNd  .m/                MM.  +Mm   `No     -M:   .MN    sM.      
-        dm`:M+:m. dm  myys+.         +MNs-dN-   .MmddhhhNM-   /MM--+yMN`      
-        :Mo/d  +m.Mo dh   sN-      `yNs:+dMh`   .Mo``  .yM-   `NMNmmho`       
-         omm.  .NMN` yN:  oM-      +Md    oMh   :M-     oN    -MM`            
-          yh`   /y:   /ydhs-       :MMs/:/mM+   -d`     -s    .MM`            
-                                    -odddds:                   /+        
-{/color}{/font}{/cps}
-Please enter the case-sensitive CAPTCHA above to prove that you are human.  Do not include any spaces."""
+    $desc = """{cps=0}{font=font/AnonymousPro.ttf}{color=#ffd700}"""
+    $desc += captcha[day]
+    $desc += """{/color}{/font}{/cps}
+Please enter the CAPTCHA above to prove that you are human.  Do not include any spaces.  Type {b}captcha{/b} for more details."""
     
     $say()
     
@@ -565,6 +557,16 @@ Please enter the case-sensitive CAPTCHA above to prove that you are human.  Do n
             
             nvl clear
             jump mainscreen
+            
+        elif cmd == "":
+            $flush_input()
+            $desc = "Please enter the CAPTCHA text."
+            $say()
+            
+        elif cmd.upper() == "captcha":
+            $flush_input()
+            $desc = "Enter the characters above exactly as you see them, in case-sensitive format, using only letters and numbers.  No punctuation, special characters, or spaces should be included."
+            $say()
         
         else:
             $flush_input()

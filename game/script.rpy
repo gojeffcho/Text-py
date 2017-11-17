@@ -181,6 +181,19 @@ init 0 python:
     
     global room
     room = ""
+    
+    global captcha
+    captcha = {}
+    captcha["Mon"] = """
+             --    ./                 `:/+-`                  :dmmmmh+.       
+       my   -MN-   yy                yMMmdMM+    h/     `d.   oMM::+yNM:      
+       sM-  ymNd  .m/                MM.  +Mm   `No     -M:   .MN    sM.      
+        dm`:M+:m. dm  myys+.         +MNs-dN-   .MmddhhhNM-   /MM--+yMN`      
+        :Mo/d  +m.Mo dh   sN-      `yNs:+dMh`   .Mo``  .yM-   `NMNmmho`       
+         omm.  .NMN` yN:  oM-      +Md    oMh   :M-     oN    -MM`            
+          yh`   /y:   /ydhs-       :MMs/:/mM+   -d`     -s    .MM`            
+                                    -odddds:                   /+          
+    """
 
 
     ######################
@@ -210,7 +223,9 @@ label start:
     # GOTO first scene
     scene bg black
 
-    jump logosplash
+#     jump logosplash
+
+    jump captcha
 
 #     $chatlist.append("sheep_1015")
 #     call news4 from _call_news4_1
