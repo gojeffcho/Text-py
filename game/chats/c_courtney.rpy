@@ -1,4 +1,4 @@
-label dakota:
+label courtney:
   python:
     questions = {
       "FOOD" : "What is your favorite food?",
@@ -9,27 +9,29 @@ label dakota:
     }
 
     answers = {
-      "FOOD": "CAKE!!!",
-      "HEX": "#ff0000, but my favorite shade is #ea0a0b",
-      "WORD" : "Boatswain",
-      "TRAVEL" : "I don't know, but I could draw it for you on a cake!  Would you like an 'I heart NYC' pattern or a reproduction of Manhattan?  I am perfectly capable of either!",
-      "CONTROL" : "If more people used contraceptives, there would be fewer people to eat cake and I would be unemployed, so I disapprove of them",
+      "FOOD": "I convince myself it's meatloaf with a side of frozen vegetables, because I eat what my kids eat, but honestly it's just cupcakes.  Red velvet cupcakes.",
+      "HEX": "I don't know, but I've got a red lipstick in the shade 'wine night'.  My three-year-old likes to eat it.  \n...It doesn't actually have alcohol in it.  It's just the name.",
+      "WORD" : "Talk about a blast from the past!  Back in college I was taking this art history class, and my professor would always called on me to talk about things, like he knew I had something going for me, you know?  He asked me how to pronounce 'boatswain' too.  That was before my kids, though.  Back when I had dreams, prospects, and a waistline.  \n...Sorry, what was the question?",
+      "TRAVEL" : "I don't know, take out a second mortgage.",
+      "CONTROL" : "After I started taking 'Plan B' like a tic tac every day after lunch, I'd say they were prety great.  Be cool if there were more options for men, though, that's all I'm saying.  I'm basically counting down the days until menopause.",
     }
 
     followupQ = { 
-      "FOOD1" : "What kind of cake?",
-      "WORD1" : "Have you ever heard this word out loud?" 
+      "FOOD1" : "How many children do you have?",
+      "WORD1" : "How is the word 'boatswain' pronounced?" ,
+      "CONTROL1" : "Have you always used contraceptives?"
     }
 
     followupA = { 
-      "FOOD1" : "Oh, I've never actually had cake.  I just like the idea of it.  :)",
-      "WORD1" : "It's not a term related to baking, so I'm fairly certain you just made it up to test me, but I'm too smart to be tricked!" 
+      "FOOD1" : "Too many.",
+      "WORD1" : "Right.  Like 'boh-sen', basically.",
+      "CONTROL1" : "Yes, but as my children will tell you, 'accidents happen'."
     }
 
-    target = Chat("dakota", 0, crimson, questions, answers, followupQ, followupA)
+    target = Chat("courtney", 1, darkcyan, questions, answers, followupQ, followupA)
     target.start()
 
-label dakotaStart:
+label courtneyStart:
 
     $expected = ["LOOK", "L", "HELP", "?"]
     if target.getAsked():
@@ -61,7 +63,7 @@ label dakotaStart:
             if len(args) == 0:
                 $flush_input()
                 nvl clear
-                jump maxStart
+                jump courtneyStart
             else:
                 $has_args()
                 

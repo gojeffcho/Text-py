@@ -36,9 +36,9 @@ init 0 python:
 
     def getMOTD():
       motd = "| Error, possibly. "
-      if day == "Mon":
-        if "sheep_1014" in chatlist:
-          motd = """|                                                                        |
+      
+      if "sheep_1014" in chatlist:
+        motd = """|                                                                        |
 | Welcome to Electric Sheep, Inc!  We're excited to have you join our    |
 | company.  Your first day will be spent training on the system you will |
 | be using to pre-screen candidates for human-designated jobs.  Please   |
@@ -46,8 +46,8 @@ init 0 python:
 | news, then proceed to the chat app when you are ready to begin your    |
 | training.                                                              |
 """
-        else:
-          motdarray = ["""|                                                                        |
+      else:
+        motdarray = ["""|                                                                        |
 | "It has become appallingly obvious that our technology has exceeded    |
 | our humanity."                                                         | 
 |                                                    - {i}Albert Einstein{/i}   |
@@ -74,9 +74,9 @@ init 0 python:
 | "Technology is a useful servant but a dangerous master."               |
 |                                               - {i}Christian Lous Lange{/i}   |
 """
-          ]
-        
-          motd = motdarray[renpy.random.randint(0, len(motdarray)-1)]
+        ]
+      
+        motd = motdarray[renpy.random.randint(0, len(motdarray)-1)]
   
       return motd
 

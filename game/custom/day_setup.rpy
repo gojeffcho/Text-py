@@ -9,6 +9,9 @@ label setup_mon:
 # Set the scene for Day 2    
 label setup_tue:
 
+  $chatlist.append("dakota")
+  $chatlist.append("courtney")
+
   jump update_score
 
 # Set the scene for Day 3
