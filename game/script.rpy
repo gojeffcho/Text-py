@@ -242,7 +242,7 @@ label start:
 #     $prevwrong = 5
 #     jump update_score
 
-#     $chatlist.append("sheep_1015")
+#     $chatlist.append("dakota")
 #     call news4 from _call_news4_1
 #     jump mainscreen
 
