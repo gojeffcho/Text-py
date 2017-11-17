@@ -37,7 +37,7 @@ init 0 python:
     def getMOTD():
       motd = "| Error, possibly. "
       
-      if "sheep_1014" in chatlist:
+      if "p_adams" in chatlist:
         motd = """|                                                                        |
 | Welcome to Electric Sheep, Inc!  We're excited to have you join our    |
 | company.  Your first day will be spent training on the system you will |

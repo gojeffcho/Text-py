@@ -205,7 +205,12 @@ init -1 python:
         
         
         if lastQ == "NONE" and q == "START":
-          self.__qList.append("QUESTIONS")
+          if self.__id == "sheep_1014":
+            self.__qList.append("QUESTIONS")
+          else:
+            self.__queueQuestion()
+            self.__queueQuestion()
+            self.__queueQuestion()
         else:
           self.__queueQuestion()
           

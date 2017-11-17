@@ -1,7 +1,7 @@
 # Set the scene for Day 1
 label setup_mon:
 
-  $chatlist.append("sheep_1014")
+  $chatlist.append("p_adams")
   call news4
 
   jump mainscreen

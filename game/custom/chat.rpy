@@ -63,7 +63,13 @@ label chat:
                 python:
                   s = "{cps=150}"
                   for chat in chatlist:
-                    s += "   [[{color=#[highlight1]}" + chat + "{/color}]: Candidate ready for screening\n"
+                    s += "   [[{color=#[highlight1]}" + chat + "{/color}]: "
+                    if chat == "sheep_1014":
+                      s += "Assistant bot on standby.\n"
+                    elif chat == "p_adams":
+                      s += "Supervisor wishes to chat with you."
+                    else:
+                      s += "Candidate ready for screening\n"
                   s += "{/cps}"
                 $desc = s
                 $say()

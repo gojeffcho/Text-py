@@ -133,6 +133,9 @@ init 0 python:
     global crimson
     crimson = "dc143c"
     
+    global darkgreen
+    darkgreen = "006400"
+    
     # Track easter eggs
     global easters
     easters = ["permeable", "fuck", "goddamn", "shit", "bitch", "cunt", "friggin", "dick", "ass", "asshole", "penis", "cock", "pussy", "damn", "hell", "fucking", "motherfucker", "motherfucking"]
@@ -232,12 +235,12 @@ label start:
     scene bg black
 
     # MAIN GAME START
-#     jump logosplash
+    jump logosplash
 
     # DEBUG START
-    $day = "Tue"
-    $prevright = 1
-    jump login
+#     $day = "Mon"
+#     $prevright = 1
+#     jump login
 
 #     $day = "Tue"
 #     $prevright = 1
