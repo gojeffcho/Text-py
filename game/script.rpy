@@ -238,8 +238,8 @@ label start:
 #     jump logosplash
 
     # DEBUG START
-#     $day = "Tue"
-#     $prevright = 1
+    $day = "Tue"
+    $prevright = 1
     jump login
 
 #     $day = "Tue"

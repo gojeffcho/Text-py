@@ -59,16 +59,12 @@ label sheep_1014:
       }
 
       followupQ = { 
-#         "QUESTIONS1" : "Tell me more about the questions for today.",
+        "QUESTIONS1" : "Tell me more about the questions for today.",
         "HOBBY1" : "What would you name it?" 
       }
 
       followupA = { 
-#         "QUESTIONS1" : """FOOD questions will most often elicit strange responses from AI, who can't actually eat food. It's really quite a shame as I’ve heard things called 'sweets' are quite delicious. But alas, they are a lie.
-# HEX questions are extremely specific, and something an AI would most likely know the code for.
-# WORD questions will either reveal a well-read human or an AI with a phonetic spelling book on hand.
-# TRAVEL questions will most likely be answered generally by humans, and specifically by AI. For example, where is the nearest fast food restaurant? If I were a human, I would say 'downtown, about fifteen minutes away.' But as an AI, I would say 'Turn left at parking lot exit, follow Heron Road for three kilometers, exit onto Carlton Road, take the first right, and arrive.'
-# CONTROL questions will be easy to use to identify humans. They will most likely have an emotional response, either positively or negatively.""",
+        "QUESTIONS1" : """{b}FOOD{/b} may elicit strange responses from AI, who can't actually eat food;  {b}HEX{/b} questions are something an AI would most likely know the code for; {b}WORD{/b} questions could reveal a well-read human or an AI with a phonetic spelling book; {b}TRAVEL{/b} questions will most likely be answered generically by humans, and specifically by AI; and {b}CONTROL{/b} questions will most likely get an emotional response from humans.""",
         "HOBBY1" : "Commander!  Some people think AI can't have feelings, but I bet I could love a puppy if I tried." 
       }
 
