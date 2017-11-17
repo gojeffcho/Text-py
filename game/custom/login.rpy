@@ -430,8 +430,6 @@ Example: {b}> create shelby{/b}"""
                     $desc = """Your username has been set to {b}[username]{/b}.  Please remember this username as you will use it to log in each day along with your bio-authentication.\n\nPress {b}<ENTER>{/b} to continue when you are ready."""
                     $say()
                     
-                    $chatlist.append("sheep_1014")
-                    call news4 from _call_news4
                     $update_avails()
 
                     nvl clear                
@@ -533,48 +531,3 @@ Please type {b}login <username>{/b} to log in, or {b}help{/b} for a list of avai
             
     return
 
-# CAPTCHA
-label captcha:
-    $expected = []
-    $pickup = []
-    $room = "CAPTCHA"
-    $update_roomlabel()
-    $desc = """{cps=0}{font=font/AnonymousPro.ttf}{color=#ffd700}"""
-    $desc += captcha[day]
-    $desc += """{/color}{/font}{/cps}
-Please enter the CAPTCHA above to prove that you are human.  Do not include any spaces.  Type {b}captcha{/b} for more details."""
-    
-    $say()
-    
-    while True:
-        $echo()
-        
-        if cmd == "Wo8HP":
-            $flush_input()
-            $desc = "Your network authentication has been approved.  Press {b}<ENTER>{/b} to proceed."        
-            $say()
-            $flush_input()
-            
-            nvl clear
-            jump mainscreen
-            
-        elif cmd == "":
-            $flush_input()
-            $desc = "Please enter the CAPTCHA text."
-            $say()
-            
-        elif cmd.upper() == "captcha":
-            $flush_input()
-            $desc = "Enter the characters above exactly as you see them, in case-sensitive format, using only letters and numbers.  No punctuation, special characters, or spaces should be included."
-            $say()
-        
-        else:
-            $flush_input()
-            $desc = "Your response has been flagged for Human Resources review.  Press {b}<ENTER>{/b} to proceed."
-            $say()
-
-            $flush_input()
-            nvl clear
-            jump mainscreen
-            
-    return

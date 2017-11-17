@@ -38,6 +38,12 @@ init -2 python:
     
     # Remove mouseclick skip
     config.keymap['dismiss'].remove('mouseup_1')    
+    
+    global captcha
+    captcha = {}
+    
+    global captchaInput
+    captchaInput = {}
 
 
 init 0 python:
@@ -152,6 +158,21 @@ init 0 python:
     hour = 9
     min = 00
     ampm = "am"
+    
+    # Setup variable
+    global daysetup
+    daysetup = {}
+    daysetup["Mon"] = "setup_mon"
+    daysetup["Tue"] = "setup_tue"
+    daysetup["Wed"] = "setup_wed"
+    daysetup["Thu"] = "setup_thu"
+    daysetup["Fri"] = "setup_fri"
+    
+    # Track previous day's performance
+    global prevright
+    prevright = 0
+    global prevwrong
+    prevwrong = 0
  
     # Track stars
     global right
@@ -181,19 +202,6 @@ init 0 python:
     
     global room
     room = ""
-    
-    global captcha
-    captcha = {}
-    captcha["Mon"] = """
-             --    ./                 `:/+-`                  :dmmmmh+.       
-       my   -MN-   yy                yMMmdMM+    h/     `d.   oMM::+yNM:      
-       sM-  ymNd  .m/                MM.  +Mm   `No     -M:   .MN    sM.      
-        dm`:M+:m. dm  myys+.         +MNs-dN-   .MmddhhhNM-   /MM--+yMN`      
-        :Mo/d  +m.Mo dh   sN-      `yNs:+dMh`   .Mo``  .yM-   `NMNmmho`       
-         omm.  .NMN` yN:  oM-      +Md    oMh   :M-     oN    -MM`            
-          yh`   /y:   /ydhs-       :MMs/:/mM+   -d`     -s    .MM`            
-                                    -odddds:                   /+          
-    """
 
 
     ######################
@@ -223,9 +231,16 @@ label start:
     # GOTO first scene
     scene bg black
 
+    # MAIN GAME START
 #     jump logosplash
 
-    jump captcha
+    # DEBUG START
+    jump login_first
+
+#     $day = "Tue"
+#     $prevright = 1
+#     $prevwrong = 5
+#     jump update_score
 
 #     $chatlist.append("sheep_1015")
 #     call news4 from _call_news4_1

@@ -117,13 +117,13 @@ init -1 python:
     # reportAsHuman(Bool)
     # report is True for reporting human, False for reporting AI
     def reportAsHuman(self, report):
-      global right
-      global wrong
+      global prevright
+      global prevwrong
       
       if report == self.isHuman():
-        right += 1
+        prevright += 1
       else:
-        wrong += 1
+        prevwrong += 1
       
       return
       
