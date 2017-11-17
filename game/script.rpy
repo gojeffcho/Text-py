@@ -235,12 +235,12 @@ label start:
     scene bg black
 
     # MAIN GAME START
-    jump logosplash
+#     jump logosplash
 
     # DEBUG START
-#     $day = "Mon"
+#     $day = "Tue"
 #     $prevright = 1
-#     jump login
+    jump login
 
 #     $day = "Tue"
 #     $prevright = 1

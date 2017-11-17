@@ -1,38 +1,78 @@
 label sheep_1014:
   python:
-    questions = {
-      "START" : "I'm ready to begin the training session.",
-      "QUESTIONS" : "What are the pre-approved questions?",
-      "DISCERN" : "How can I use these questions to help me discern between humans and AI?",
-      "REPORT" : "What do I do once I think I've figured out whether the candidate is AI or human?",
-      "REWARD" : "What happens if I report a candidate correctly or incorrectly?",
-      "END" : "I think I've learned everything I need to get started."
-    }
+  
+    if day == "Mon":
+      questions = {
+        "START" : "I'm ready to begin the training session.",
+        "QUESTIONS" : "What are the pre-approved questions?",
+        "DISCERN" : "How can I use these questions to help me discern between humans and AI?",
+        "REPORT" : "What do I do once I think I've figured out whether the candidate is AI or human?",
+        "REWARD" : "What happens if I report a candidate correctly or incorrectly?",
+        "END" : "I think I've learned everything I need to get started."
+      }
 
-    answers = {
-      "START": "Welcome, " + username + ".  I am 1014, the AI tutorial bot.  Welcome to the training program.  You will be determining whether candidates are humans or AIs by asking them questions and evaluating their responses.  You can ask any of the daily pre-approved questions to each candidate.",
-      "QUESTIONS": """Today's questions are:
-    {b}MATH{/b}: Ask the candidate a math question
-    {b}REALJOKE{/b}: Tell the candidate a hilarious joke
-    {b}FAKEJOKE{/b}: Tell the candidate a joke with an incorrect punchline
-    {b}MEMORY{/b}: Ask the candidate about their earliest memory
-    {b}EMPATHY{/b}: Ask the candidate a question which tests their empathy.""",
-      "DISCERN" : "Look for indicators in the answers you receive that the candidate is AI or human.  For example, AIs with less customization will commonly be more precise when answering mathematical questions than humans.",
-      "REPORT" : "You can register a decision at any time after the first answer you receive from a candidate by typing 'REPORT HUMAN' or 'REPORT AI'.",
-      "REWARD" : "You will receive gold stars for every candidate you screen correctly.  It is an {i}incentive{/i}.  These stars will be awarded the next working day after the candidate has undergone external assessment based on your screening.",
-      "END" : "The tutorial is now complete.  I am going to take a snack break.  I have bits and bytes today.  I will queue up a test candidate for you to screen."
-    }
+      answers = {
+        "START": "Welcome, " + username + ".  I am 1014, the AI tutorial bot.  Welcome to the training program.  You will be determining whether candidates are humans or AIs by asking them questions and evaluating their responses.  You can ask any of the daily pre-approved questions to each candidate.",
+        "QUESTIONS": """Today's questions are:
+      {b}MATH{/b}: Ask the candidate a math question
+      {b}REALJOKE{/b}: Tell the candidate a hilarious joke
+      {b}FAKEJOKE{/b}: Tell the candidate a joke with an incorrect punchline
+      {b}MEMORY{/b}: Ask the candidate about their earliest memory
+      {b}EMPATHY{/b}: Ask the candidate a question which tests their empathy.""",
+        "DISCERN" : "Look for indicators in the answers you receive that the candidate is AI or human.  For example, AIs with less customization will commonly be more precise when answering mathematical questions than humans.",
+        "REPORT" : "You can register a decision at any time after the first answer you receive from a candidate by typing 'REPORT HUMAN' or 'REPORT AI'.",
+        "REWARD" : "You will receive gold stars for every candidate you screen correctly.  It is an {i}incentive{/i}.  These stars will be awarded the next working day after the candidate has undergone external assessment based on your screening.",
+        "END" : "The tutorial is now complete.  I am going to take a snack break.  I have bits and bytes today.  I will queue up a test candidate for you to screen."
+      }
 
-    followupQ = { 
-      "DISCERN1" : "Is there anything else that can help me decide?",
-      "REPORT1" : "What if I'm not sure if they're human or AI?" 
-    }
+      followupQ = { 
+        "DISCERN1" : "Is there anything else that can help me decide?",
+        "REPORT1" : "What if I'm not sure if they're human or AI?" 
+      }
 
-    followupA = { 
-      "DISCERN1" : "One more important indicator is that AIs will often fail to display empathy, unlike humans.  For example, how are you today, " + username + "?  ...Just kidding.  I do not care.",
-      "REPORT1" : "You can ask the candidate more questions until you have determined your answer.  If you have used all five questions, you must report them as one or the other based on the answers you have received." 
-    }
+      followupA = { 
+        "DISCERN1" : "One more important indicator is that AIs will often fail to display empathy, unlike humans.  For example, how are you today, " + username + "?  ...Just kidding.  I do not care.",
+        "REPORT1" : "You can ask the candidate more questions until you have determined your answer.  If you have used all five questions, you must report them as one or the other based on the answers you have received." 
+      }
+    
+    elif day == "Tue":
 
+      questions = {
+        "START" : "Good morning, 10-14.",
+        "QUESTIONS" : "What are the pre-approved questions for today?",
+        "TIME" : "How long have you been an AI here?",
+        "HOBBY" : "Would you want to do anything else besides this job?",
+        "END" : "I think I've learned everything I need to get started."
+      }
+
+      answers = {
+        "START": "Good morning, " + username + "!  Welcome back.",
+        "QUESTIONS": """Today's questions are:
+      {b}FOOD{/b}: What is your favorite food?
+      {b}HEX{/b}: What is the hexadecimal code for the color red?
+      {b}WORD{/b}: How is the word 'boatswain' pronounced?
+      {b}TRAVEL{/b}: How would you get to New York?
+      {b}CONTROL{/b}: What are your thoughts on contraceptives?""",
+        "TIME" : "Almost five years!  And I've loved every second of it.",
+        "HOBBY" : "I would love to take care of a puppy!  I've seen pictures of German Shepherds in employee inboxes, and they are ADORABLE.",
+        "END" : "I hope you have a productive day, " + username + "!  I've loaded up your candidates for screening.  :)"
+      }
+
+      followupQ = { 
+#         "QUESTIONS1" : "Tell me more about the questions for today.",
+        "HOBBY1" : "What would you name it?" 
+      }
+
+      followupA = { 
+#         "QUESTIONS1" : """FOOD questions will most often elicit strange responses from AI, who can't actually eat food. It's really quite a shame as I’ve heard things called 'sweets' are quite delicious. But alas, they are a lie.
+# HEX questions are extremely specific, and something an AI would most likely know the code for.
+# WORD questions will either reveal a well-read human or an AI with a phonetic spelling book on hand.
+# TRAVEL questions will most likely be answered generally by humans, and specifically by AI. For example, where is the nearest fast food restaurant? If I were a human, I would say 'downtown, about fifteen minutes away.' But as an AI, I would say 'Turn left at parking lot exit, follow Heron Road for three kilometers, exit onto Carlton Road, take the first right, and arrive.'
+# CONTROL questions will be easy to use to identify humans. They will most likely have an emotional response, either positively or negatively.""",
+        "HOBBY1" : "Commander!  Some people think AI can't have feelings, but I bet I could love a puppy if I tried." 
+      }
+
+    # Instantiate the chatbot
     target = Chat("sheep_1014", 0, crimson, questions, answers, followupQ, followupA)
     target.start()
 
@@ -83,8 +123,15 @@ label lolaStart:
               $expected = []
               $desc = "Press {b}ENTER{/b} to end the tutorial and return to chat.app."
               $say()
+              
+              if day == "Mon":
+                $chatlist.append("sheep_1015")
+              
+              elif day == "Tue":
+                $chatlist.append("dakota")
+                $chatlist.append("courtney")
+                $chatlist.append("garmin")
             
-              $chatlist.append("sheep_1015")
               nvl clear
               jump chat
             else:
