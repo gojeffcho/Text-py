@@ -1,9 +1,6 @@
 # Set the scene for Day 1
 label setup_mon:
 
-  $desc = "Monday{nw}"
-  $say()
-
   $chatlist.append("sheep_1014")
   call news4
 

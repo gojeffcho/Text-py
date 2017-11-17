@@ -1,11 +1,17 @@
 label force_logout:
 
-    $expected = ["HELP", "?", "LOGOUT"]
+    $expected = ["HELP", "?", "LOOK", "L", "LOGOUT"]
     $pickup = []
     $room = "Logout"
     $update_roomlabel()
-    $desc = """{cps=150}
-    Your work day is now over.  Please log out of your session with the {b}logout{/b} command.{/cps}"""
+    $desc = "{cps=0}"
+    $desc += make_header("System Home")
+    $desc += """|                                                                        |
+| Your screenings for the day are complete.  Please log out of your      |
+| session with the <{color=[ivory]}logout{/color}> command.                                     |
+|________________________________________________________________________|
+
+{/cps}     You have ({color=#[errorcolor]}[numChats]{/color}) chats waiting and ({color=#[errorcolor]}[numEmails]{/color}) new emails."""
     
     $say()
     

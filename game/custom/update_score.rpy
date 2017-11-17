@@ -28,6 +28,7 @@ Press {b}<ENTER>{/b} to continue."""
     $prevright = 0
     $prevwrong = 0
     
+    nvl clear
     jump mainscreen
             
     return

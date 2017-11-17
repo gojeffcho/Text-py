@@ -62,7 +62,7 @@ Please enter the CAPTCHA above to prove that you are human.  Do not include any 
             $desc = "Please enter the CAPTCHA text."
             $say()
             
-        elif cmd.upper() == "captcha":
+        elif cmd.upper() == "CAPTCHA":
             $flush_input()
             $desc = "Enter the characters above exactly as you see them, in case-sensitive format, using only letters and numbers.  No punctuation, special characters, or spaces should be included."
             $say()
