@@ -63,7 +63,7 @@ label chat:
                 python:
                   s = "{cps=150}"
                   for chat in chatlist:
-                    s += "   [[{color=#[highlight1]}" + chat + "{/color}]: Candidate ready for screening"
+                    s += "   [[{color=#[highlight1]}" + chat + "{/color}]: Candidate ready for screening\n"
                   s += "{/cps}"
                 $desc = s
                 $say()

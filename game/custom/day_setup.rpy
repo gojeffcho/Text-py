@@ -11,6 +11,7 @@ label setup_tue:
 
   $chatlist.append("dakota")
   $chatlist.append("courtney")
+  $chatlist.append("garmin")
 
   jump update_score
 
