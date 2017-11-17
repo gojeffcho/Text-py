@@ -59,7 +59,9 @@ label force_logout:
 label next_day:
 
     $new_day()
-    
+    stop music fadeout 3.0
+    $renpy.pause(5.5)
+  
     jump login
     
 
