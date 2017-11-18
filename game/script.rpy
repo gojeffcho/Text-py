@@ -247,14 +247,15 @@ label start:
     # GOTO first scene
     scene bg black
 
-    # MAIN GAME START
-    jump logosplash
 
     # DEBUG START
 #     $day = "Tue"
 #     $prevright = 1
 #     $backdoor = True
 #     jump exploit
+
+    # MAIN GAME START
+    jump logosplash
 
 #     $day = "Tue"
 #     $prevright = 1

@@ -1,3 +1,5 @@
+Credits for Open Source assets used in the game
+
 Typing Sound:
   Used in: title.ogg
   Credit: beansqueso31
@@ -19,6 +21,7 @@ Corruption Sound:
   Source: https://freesound.org/people/are16ocean/sounds/117597/
 
 Modem Sound:
+  Used in: data.ogg
   Credit: 0ktober
   Source: https://freesound.org/people/0ktober/sounds/188828/
   
