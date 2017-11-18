@@ -1,0 +1,24 @@
+Typing Sound:
+  Used in: title.ogg
+  Credit: beansqueso31
+  Source: https://freesound.org/people/beansqueso31/sounds/223101/
+
+Beep Sound: 
+  Used in: beep.ogg
+  Credit: GowlerMusic
+  Source: https://freesound.org/people/GowlerMusic/sounds/317746/
+
+Startup Sound: 
+  Used in: beep2.ogg, boot.ogg
+  Credit: guitarguy1985 
+  Source: https://freesound.org/people/guitarguy1985/sounds/52050/
+
+Corruption Sound:
+  Used in: distorted.ogg, distorted2.ogg
+  Credit: are16ocean
+  Source: https://freesound.org/people/are16ocean/sounds/117597/
+
+Modem Sound:
+  Credit: 0ktober
+  Source: https://freesound.org/people/0ktober/sounds/188828/
+  

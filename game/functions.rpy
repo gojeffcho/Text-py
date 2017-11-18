@@ -253,4 +253,32 @@ init 0 python:
         append = ""
         
         return
+
+###
+### exploit_roomlabel(): 
+###
+    def exploit_roomlabel():
+        global roomlabel
+        global room
+        global username
+        global day
+        global crimson
         
+        roomlabel = "=====[ Electric Sheep - {0:16}       {1:>15} - {2} ]=====".format(room, displayname, day)        
+        
+###
+### exploit_header(heading):
+###
+
+    def exploit_header(heading):
+
+        formatted = []
+        formatted.append("{cps=0}")
+        formatted.append(" {color=[crimson]}________________________________________________________________________ \n")
+        formatted.append("|                                                                        |\n")
+        
+        formatted.append("|        <<{/color}{color=#[highlight1]}" + (heading + "{/color}{color=[crimson]}>>" + " " * 72)[:87] + "|\n")
+        formatted.append("|________________________________________________________________________|\n")
+        formatted.append("{/color}{/cps}")
+        
+        return "".join(formatted)        

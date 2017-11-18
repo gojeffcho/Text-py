@@ -180,10 +180,16 @@ init 0 python:
     # Track stars
     global right
     right = 0
-
-    # Track AI sympathy
     global wrong
     wrong = 0
+    
+    # Track AI sympathy
+    global sympathy
+    sympathy = 0
+    global exploited
+    exploited = 0
+    global todayexploited
+    todayexploited = False
     
     # Resistance Tracking
     global firstResponse
@@ -242,13 +248,13 @@ label start:
     scene bg black
 
     # MAIN GAME START
-#     jump logosplash
+    jump logosplash
 
     # DEBUG START
-    $day = "Tue"
-    $prevright = 1
-    $backdoor = True
-    jump mainscreen
+#     $day = "Tue"
+#     $prevright = 1
+#     $backdoor = True
+#     jump exploit
 
 #     $day = "Tue"
 #     $prevright = 1
