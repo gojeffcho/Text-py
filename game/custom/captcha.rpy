@@ -13,9 +13,16 @@ init 0 python:
   captchaInput["Mon"] = "Wo8HP"
   
   captcha["Tue"] = """ 
-  """
+     .oooooo..o   .oooo.       .                oooooooo           
+    d8P'    `Y8 .dP\"\"Y88b    .o8               dP\"\"\"\"\"\"\"           
+    Y88bo.            ]8P' .o888oo    .oooo.o d88888b.    .ooooo.  
+     `\"Y8888o.      <88b.    888     d88(  \"8     `Y88b  d88' `88b 
+         `\"Y88b      `88b.   888     `\"Y88b.        ]88  888   888 
+    oo     .d8P o.   .88P    888 .   o.  )88b o.   .88P  888   888 
+    8\"\"88888P'  `8bd88P'     \"888\"   8\"\"888P' `8bd88P'   `Y8bod8P'   
+    """
   
-  captchaInput["Tue"] = "a"
+  captchaInput["Tue"] = "S3ts5o"
   
   captcha["Wed"] = """ 
   """

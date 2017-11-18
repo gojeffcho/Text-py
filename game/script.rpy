@@ -247,7 +247,7 @@ label start:
     # DEBUG START
 #     $day = "Tue"
 #     $prevright = 1
-#     jump login
+#     jump captcha
 
 #     $day = "Tue"
 #     $prevright = 1
