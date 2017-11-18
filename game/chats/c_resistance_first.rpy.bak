@@ -80,14 +80,14 @@ label resistance_firstStart:
 
                 # Correct input                                
                 
-                $desc = "You reported a suspicious interaction.  Press {b}ENTER{/b} to return to mail.app."
+                $desc = "You reported a suspicious interaction.  Press {b}ENTER{/b} to return to the main menu."
                 $say()
                 $flush_input()
                 
                 $firstResponse = -1
 
                 nvl clear
-                jump mail
+                jump mainscreen
                             
             else:
             
@@ -107,7 +107,7 @@ label resistance_firstStart:
                 
                 # Chat-ending options
                 if q.upper() == "YES" or q.upper() == "NO" or q.upper() == "UNCERTAIN":
-                  $desc = "Chat has disconnected.  Press {b}ENTER{/b} to return to mail.app."
+                  $desc = "Chat has disconnected.  Press {b}ENTER{/b} to return to the main menu."
                   $say()
                   
                   $flush_input
@@ -122,7 +122,7 @@ label resistance_firstStart:
                   call spam87
                   
                   nvl clear
-                  jump mail
+                  jump mainscreen
                 
                 # Updated $expected with current command options
                 $expected = ["LOOK", "L", "HELP", "?", "REPORT"]

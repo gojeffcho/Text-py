@@ -1,4 +1,8 @@
 label mail:
+
+    if "spam42" in emaillist.keys() and emaillist["spam42"].getRead() and backdoor == None:
+      call spam87
+
     $update_avails()
     $expected = ["LOOK", "L", "HELP", "?", "SHOW", "READ", "EXIT"]
     $pickup = []
@@ -110,6 +114,38 @@ label mail:
                       $desc = emaillist[key].read()
                       $update_avails()
                       $say()
+                      
+                      # Install backdoor app
+                      if key.upper() == "SPAM87":
+                        $desc = "Install 'exploit.app'? <Yes/No>"
+                        $say()
+                        
+                        while True:
+                        
+                          if cmd.upper() == "YES" and len(args) == 0:
+                            $backdoor = True
+                            $desc = "Installing 'exploit.app'{cps=6}... ...{/cps} Done.  Press <{b}ENTER{/b}> to return to mail.app."
+                            $say()
+                            
+                            $del emaillist[key]
+                            $flush_input()
+                            nvl clear
+                            jump mail
+                          
+                          elif cmd.upper() == "NO" and len(args) == 0:
+                            $backdoor = False
+                            $desc = "You chose not to install 'exploit.app'.  Press <{b}ENTER{/b}> to return to mail.app."
+                            $say()
+                            
+                            $del emaillist[key]
+                            $flush_input()
+                            nvl clear
+                            jump mail
+                          
+                          else:
+                            $flush_input()
+                            $desc = "{color=[errorcolor]}ERROR{/color}: Choose <Yes> or <No>."
+                            $say()
                     
                       $desc = "     You have ({color=#[errorcolor]}[numEmails]{/color}) unread emails."
                       $say()

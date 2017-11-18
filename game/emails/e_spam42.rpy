@@ -12,7 +12,6 @@ label spam42:
     text = """Hi, my love! I want to wake up with you every 
 morning, share my day, my thoughts and emotions 
 with you only.
-
 Miss you so much! I am looking forward to your 
 letter."""
   

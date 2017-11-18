@@ -73,7 +73,7 @@ init -1 python:
       
       # Format output string          |15                                     |40
       outputString = "\n{cps=100}{color=#[highlight1]}"
-      outputString += "===== [[ Email: " + self.getId() + "] ==========================\n\n"
+      outputString += "===== [[ Email: {0:>6}] =========================\n\n".format(self.getId())
       outputString += "  {b}From{/b}: " + self.tx + "\n"
       outputString += "  {b}To{/b}: " + self.rx + "\n"
       outputString += "  {b}Subject{/b}: {i}" + self.subj + "{/i}\n\n"

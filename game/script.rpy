@@ -188,6 +188,8 @@ init 0 python:
     # Resistance Tracking
     global firstResponse
     firstResponse = None
+    global backdoor
+    backdoor = None
     
     # Room and Command Globals
     global cmd
