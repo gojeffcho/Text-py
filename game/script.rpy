@@ -242,12 +242,13 @@ label start:
     scene bg black
 
     # MAIN GAME START
-    jump logosplash
+#     jump logosplash
 
     # DEBUG START
-#     $day = "Tue"
-#     $prevright = 1
-#     jump captcha
+    $day = "Tue"
+    $prevright = 1
+    $backdoor = True
+    jump mainscreen
 
 #     $day = "Tue"
 #     $prevright = 1

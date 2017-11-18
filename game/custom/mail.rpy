@@ -1,7 +1,7 @@
 label mail:
 
     if "spam42" in emaillist.keys() and emaillist["spam42"].getRead() and backdoor == None:
-      call spam87
+      call spam87 from _call_spam87_1
 
     $update_avails()
     $expected = ["LOOK", "L", "HELP", "?", "SHOW", "READ", "EXIT"]

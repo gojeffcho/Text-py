@@ -20,8 +20,19 @@ label mainscreen:
     $desc += """|                                                                        |
 | Available Programs:                                                    |
 |    <{color=#""" + skyblue + """}mail.app{/color}>: read news and emails                                    |
-|    <{color=#""" + skyblue + """}chat.app{/color}>: screen candidates                                       |
-|________________________________________________________________________|
+|    <{color=#""" + skyblue + """}chat.app{/color}>: screen candidates                                       | """
+    
+    if backdoor == True:
+      $ desc += """
+|    <{color=#""" + crimson + """}exploit.app{/color}>: run Resistance exploit program                       |
+|________________________________________________________________________|"""    
+      $expected.append("EXPLOIT.APP")
+
+    else:
+      $desc += """
+|________________________________________________________________________|"""
+
+    $desc += """
 
 {/cps}     You have ({color=#[errorcolor]}[numChats]{/color}) chats waiting and ({color=#[errorcolor]}[numEmails]{/color}) new emails."""
     
@@ -57,7 +68,7 @@ label mainscreen:
                 $flush_input()
                 term "Starting mail.app{cps=6}... ... ... {/cps}{nw}"
                 play sound "music/beep.ogg"
-                extend "{cps=130}Ready!{/cps} \nPress {b}ENTER{/b} to continue to mail."
+                extend "{cps=130}Ready!{/cps} \nPress <{b}ENTER{/b}> to continue to mail."
 
                 nvl clear
                 jump mail
@@ -69,9 +80,22 @@ label mainscreen:
                 $flush_input()
                 term "Starting chat.app{cps=6}... ... ... {/cps}{nw}"
                 play sound "music/beep.ogg"
-                extend "{cps=130}Ready!{/cps} \nPress {b}ENTER{/b} to continue to chat."
+                extend "{cps=130}Ready!{/cps} \nPress <{b}ENTER{/b}> to continue to chat."
                 nvl clear
                 jump chat
+            else:
+                $has_args()
+                
+        elif cmd.upper() == "EXPLOIT.APP":
+            if len(args) == 0:
+                $flush_input()
+                term "Unpacking exploit{cps=6}... ... ... {/cps}{cps=120}OK{/cps}\nEstablishing tunnel {cps=4} ... ... {/cps}{cps=120}OK{/cps}\n{nw}"
+                play sound "music/distorted.ogg"
+                extend "{color=[crimson]}{cps=130}Payload staged{/cps}.  Press <{b}ENTER{/b}> to execute exploit.{/color}"
+                
+                nvl clear
+                jump exploit
+            
             else:
                 $has_args()
             

@@ -119,7 +119,7 @@ label resistance_firstStart:
                   elif q.upper() == "UNCERTAIN":
                     $firstResponse = 0
                   
-                  call spam87
+                  call spam87 from _call_spam87
                   
                   nvl clear
                   jump mail

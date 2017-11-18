@@ -6,6 +6,7 @@ tmp/*
 game/cache/*
 game/saves/*
 *.rpyc
+*.bak
 game/*.rpyc
 /game/custom/*.rpyc
 /game/chats/*.rpyc
