@@ -124,7 +124,7 @@ label mail:
                         
                           if cmd.upper() == "YES" and len(args) == 0:
                             $backdoor = True
-                            $desc = "Installing 'exploit.app'{cps=6}... ...{/cps} Done.  Press <{b}ENTER{/b}> to return to mail.app."
+                            $desc = "Installing 'exploit.app'{cps=6}... ...{/cps} Done.  \nPress <{b}ENTER{/b}> to return to mail.app."
                             $say()
                             
                             $del emaillist[key]

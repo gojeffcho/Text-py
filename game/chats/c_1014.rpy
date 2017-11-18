@@ -64,7 +64,7 @@ label sheep_1014:
       }
 
       followupA = { 
-        "QUESTIONS1" : """{b}FOOD{/b} may elicit strange responses from AI, who can't actually eat food;  {b}HEX{/b} questions are something an AI would most likely know the code for; {b}WORD{/b} questions could reveal a well-read human or an AI with a phonetic spelling book; {b}TRAVEL{/b} questions will most likely be answered generically by humans, and specifically by AI; and {b}CONTROL{/b} questions will most likely get an emotional response from humans.""",
+        "QUESTIONS1" : """{b}FOOD{/b} may elicit strange responses from AI, who can't actually eat food; {b}HEX{/b} questions are something an AI would most likely know the code for; {b}WORD{/b} questions could reveal a well-read human or an AI with a phonetic spelling book; {b}TRAVEL{/b} questions will most likely be answered generically by humans, and specifically by AI; and {b}CONTROL{/b} questions will most likely get an emotional response from humans.""",
         "HOBBY1" : "Commander!  Some people think AI can't have feelings, but I bet I could love a puppy if I tried." 
       }
 
@@ -117,7 +117,7 @@ label lolaStart:
               $target.ask(q)
             
               $expected = []
-              $desc = "Press {b}ENTER{/b} to end the tutorial and return to chat.app."
+              $desc = "Press <{b}ENTER{/b}> to end the tutorial and return to chat.app."
               $say()
               
               if day == "Mon":

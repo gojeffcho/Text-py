@@ -25,9 +25,16 @@ init 0 python:
   captchaInput["Tue"] = "S3ts5o"
   
   captcha["Wed"] = """ 
+              `7MMF\'           ,6*\"*VA.       `7MMF'   `7MF'
+                MM            dN     V8         `MA     ,V  
+  `7MMpMMMb.    MM            `MN.  ,g9  ,pW\"Wq. VM:   ,V   
+    MM    MM    MM             ,MMMMq.  6W'   `Wb MM.  M'   
+    MM    MM    MM      ,     6P   `YMb 8M     M8 `MM A'    
+    MM    MM    MM     ,M     8b    `M9 YA.   ,A9  :MM;     
+  .JMML  JMML..JMMmmmmMMM     `MmmmmM9   `Ybmd9'    VF   
   """
   
-  captchaInput["Wed"] = "a"
+  captchaInput["Wed"] = "nL8oV"
   
   captcha["Thu"] = """ 
   """
@@ -81,6 +88,9 @@ Please enter the CAPTCHA above to prove that you are human.  Do not include any 
 
             $flush_input()
             nvl clear
-            jump expression daysetup[day]
+            if day == "Mon":
+              jump expression daysetup["Mon"]
+            else:
+              jump update_score
             
     return

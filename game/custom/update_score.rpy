@@ -4,6 +4,7 @@ label update_score:
     $wrong += prevwrong
     if todayexploited:
       $exploited += 1
+      $prevexploited = True
       $todayexploited = False
 
     $room = "Review"
@@ -32,6 +33,6 @@ Press {b}<ENTER>{/b} to continue."""
     $prevwrong = 0
     
     nvl clear
-    jump mainscreen
+    jump expression daysetup[day]
             
     return

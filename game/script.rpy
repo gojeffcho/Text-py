@@ -190,6 +190,8 @@ init 0 python:
     exploited = 0
     global todayexploited
     todayexploited = False
+    global prevexploited
+    prevexploited = False
     
     # Resistance Tracking
     global firstResponse
@@ -252,7 +254,7 @@ label start:
 #     $day = "Tue"
 #     $prevright = 1
 #     $backdoor = True
-#     jump exploit
+#     jump mainscreen
 
     # MAIN GAME START
     jump logosplash

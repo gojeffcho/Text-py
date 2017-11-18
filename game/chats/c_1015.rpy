@@ -74,8 +74,7 @@ label lola2Start:
             if len(args) == 1:
                 # Correct input
                 
-                call info3 from _call_info3
-                $chatlist.append("max")                
+                call info3 from _call_info3                
                 
                 if args[0].upper() == "HUMAN":
                     # Human Report

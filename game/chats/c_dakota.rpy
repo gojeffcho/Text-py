@@ -26,7 +26,7 @@ label dakota:
       "WORD1" : "It's not a term related to baking, so I'm fairly certain you just made it up to test me, but I'm too smart to be tricked!" 
     }
 
-    target = Chat("dakota", 1, crimson, questions, answers, followupQ, followupA)
+    target = Chat("dakota", 0, crimson, questions, answers, followupQ, followupA)
     target.start()
 
 label dakotaStart:

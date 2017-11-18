@@ -65,13 +65,6 @@ label next_day:
     jump login
     
 
-label demo_end:
 
-  $desc = "\n\n\n\n\n\n\n\n                This concludes the game demo.\n"
-  $desc += "                Your score was: [right] out of 2!\n"
-  $desc += "                Thanks for playing!"
-  $say()
-  
-  $sys.exit()
                 
                 

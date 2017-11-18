@@ -2,8 +2,8 @@ label max:
   python: 
     questions = {
       "MATH" : "What is the square root of 17?", 
-      "REALJOKE" : "Do you find the following joke humerous: What do you call cheese that isn't yours? Nacho Cheese.", 
-      "FAKEJOKE" : "Do you find the following joke humerous: Where do cows go for first dates? Orange you glad I didn't say banana?", 
+      "REALJOKE" : "Do you find the following joke humorous: What do you call cheese that isn't yours? Nacho Cheese.", 
+      "FAKEJOKE" : "Do you find the following joke humorous: Where do cows go for first dates? Orange you glad I didn't say banana?", 
       "MEMORY" : "What is your earliest memory?", 
       "EMPATHY" : "How do you feel when you hear the sound of a baby crying?"   
     }
@@ -28,7 +28,7 @@ label max:
         "EMPATHY1" : "I would try to make the kid stop crying."
     }
 
-    target = Chat("Max", 1, darkcyan, questions, answers, followupQ, followupA)
+    target = Chat("max", 1, darkcyan, questions, answers, followupQ, followupA)
     target.start()
 
 label maxStart:
