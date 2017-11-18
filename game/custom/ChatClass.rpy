@@ -215,8 +215,11 @@ init -1 python:
           self.__queueQuestion()
           
         if q == "QUESTIONS" and "START" in self.__questions.keys():
-          self.__queueQuestion()
-          self.__queueQuestion()
+          if self.__id == "sheep_1014" and day == "Tue":
+            self.__qList.append("END")
+          else:
+            self.__queueQuestion()
+            self.__queueQuestion()
         
         if lastQ != "NONE":
         

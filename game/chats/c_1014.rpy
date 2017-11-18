@@ -75,6 +75,8 @@ label sheep_1014:
 label lolaStart:
 
     $expected = ["LOOK", "L", "HELP", "?"]
+    if target.getAsked():
+      $expected.append("END")
     $expected += target.getQuestions()
     $pickup = []
     $room = "Chat: " + target.getId()
