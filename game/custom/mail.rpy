@@ -115,6 +115,9 @@ label mail:
                       $update_avails()
                       $say()
                       
+                      if key.upper() == "INFO3":
+                        $chatlist.append("max")
+                      
                       # Install backdoor app
                       if key.upper() == "SPAM87":
                         $desc = "Install 'exploit.app'? <Yes/No>"

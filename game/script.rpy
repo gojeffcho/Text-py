@@ -253,7 +253,9 @@ label start:
     # DEBUG START
 #     $day = "Tue"
 #     $prevright = 1
-#     jump setup_tue
+#     jump p_adams
+
+#     jump login
 
     # MAIN GAME START
     jump logosplash

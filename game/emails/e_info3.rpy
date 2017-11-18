@@ -19,6 +19,5 @@ AI Advocate: When do we want what?"""
   
     email = Email(key, subj, tx, rx, text)
     emaillist[key] = email
-    chatlist.append("max")
     
 # force update

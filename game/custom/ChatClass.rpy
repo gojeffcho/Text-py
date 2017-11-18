@@ -212,7 +212,10 @@ init -1 python:
             self.__queueQuestion()
             self.__queueQuestion()
         else:
-          self.__queueQuestion()
+          if self.__id == "p_adams" and day == "Tue":
+            None
+          else:
+            self.__queueQuestion()
           
         if q == "QUESTIONS" and "START" in self.__questions.keys():
           if self.__id == "sheep_1014" and day == "Tue":

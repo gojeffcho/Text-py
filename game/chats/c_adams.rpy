@@ -1,26 +1,55 @@
 label p_adams:
   python:
-    questions = {
-      "START" : "Hello?",
-      "COMPANY" : "What is this company?",
-      "JOB" : "What exactly will I be doing here?",
-      "END" : "I think I'm ready to start my work."
-    }
+    if day == "Mon":
+      questions = {
+        "START" : "Hello?",
+        "COMPANY" : "What is this company?",
+        "JOB" : "What exactly will I be doing here?",
+        "END" : "I think I'm ready to start my work."
+      }
 
-    answers = {
-      "START": "Hello and welcome to Electric Sheep Incorporated.  I'm Philip Adams, I'll be your handler.  There's some paperwork to get sorted before we begin.  As it's your first day here " + username + ", do you have any questions before we begin, about the company or your job?",
-      "COMPANY": "Electric Sheep Incorporated is a 'key player in the competitive technological landscape'.  Or so marketing tells me.",
-      "JOB" : "You will be a part of our Turing Division, critically assessing candidates who are applying for jobs with firms who contract us to determine whether applicants are human or AI.",
-      "END" : "Excellent.  I'll leave you with our AI tutorial bot, 10-14.  It will show you what you will be doing here and how to do it.  It is designed to be personable."
-    }
+      answers = {
+        "START": "Hello and welcome to Electric Sheep Incorporated.  I'm Philip Adams, I'll be your handler.  There's some paperwork to get sorted before we begin.  As it's your first day here " + username + ", do you have any questions before we begin, about the company or your job?",
+        "COMPANY": "Electric Sheep Incorporated is a 'key player in the competitive technological landscape'.  Or so marketing tells me.",
+        "JOB" : "You will be a part of our Turing Division, critically assessing candidates who are applying for jobs with firms who contract us to determine whether applicants are human or AI.",
+        "END" : "Excellent.  I'll leave you with our AI tutorial bot, 10-14.  It will show you what you will be doing here and how to do it.  It is designed to be personable."
+      }
 
-    followupQ = { 
-      "JOB1" : "Why?" 
-    }
+      followupQ = { 
+        "JOB1" : "Why?" 
+      }
 
-    followupA = { 
-      "JOB1" : "Our newsletters have lots of information regarding updates about our company.  You'll get them in your email periodically - read them over to get a sense of why what we do here is so important.",
-    }
+      followupA = { 
+        "JOB1" : "Our newsletters have lots of information regarding updates about our company.  You'll get them in your email periodically - read them over to get a sense of why what we do here is so important.",
+      }
+      
+#     elif day == "Tue":
+#       questions = {
+#         "START" : "Good afternoon, Mr. Adams.",
+#         "" : "",
+#         "" : "",
+#         "" : ""
+#       }
+# 
+#       answers = {
+#         "START": "Good afternoon, " + username + ".  How did you first day go?",
+#         "": "",
+#         "" : "",
+#         "END" : ""
+#       }
+# 
+#       followupQ = { 
+#         "START1" : "Very well.",
+#         "START2" : "Terribly.",
+#         "START3" : "Funny thing just happened..."
+#       }
+# 
+#       followupA = { 
+#         "START1" : "Excellent, I'm glad to hear that.",
+#         "START2" : "So it goes.  You'll get the hang of it.",
+#         "START3" : "Let's talk about that in a moment."
+#       }
+    
 
     target = Chat("p_adams", 0, darkgreen, questions, answers, followupQ, followupA)
     target.start()
