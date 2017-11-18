@@ -46,7 +46,7 @@ label sheep_1014:
       }
 
       answers = {
-        "START": "Good morning, " + username + "!  Welcome back.",
+        "START": "Good morning, " + username + "!  Welcome back.  I have your questions for today.",
         "QUESTIONS": """Today's questions are:
       {b}FOOD{/b}: What is your favorite food?
       {b}HEX{/b}: What is the hexadecimal code for the color red?

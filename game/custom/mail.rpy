@@ -84,20 +84,35 @@ label mail:
                 $key = args[0]
                 $flush_input()
                 if key in emaillist.keys():
+                
+                    if key.upper() == "SPAM42" and emaillist[key].getRead() != True:
                     
-                    term "Downloading email [key]{cps=6}... ... ... {/cps}{nw}"
-                    play sound "music/beep.ogg"
-                    extend "{cps=130}Done.{/cps} \nPress {b}ENTER{/b} to continue to mail."
+                      term "Downloading email [key]{cps=6}... ... ... {/cps}{nw}"
+                      play sound "music/distorted.ogg"
+                      extend "\n{color=[errorcolor]}{cps=130}ERROR{/cps}{cps=6}...{/cps} an unexpected override has been engaged{cps=2}...{/cps}{/color}{cps=1}  {/cps}{nw}"
+                      
+                      $flush_input()
+                      $emaillist[key].setRead()
+                      $update_avails()
+                      
+                      nvl clear
+                      jump resistance_first
+                    
+                    else:
+                    
+                      term "Downloading email [key]{cps=6}... ... ... {/cps}{nw}"
+                      play sound "music/beep.ogg"
+                      extend "{cps=130}Done.{/cps} \nPress {b}ENTER{/b} to continue to mail."
 
-                    $flush_input()
-                    nvl clear
+                      $flush_input()
+                      nvl clear
                     
-                    $desc = emaillist[key].read()
-                    $update_avails()
-                    $say()
+                      $desc = emaillist[key].read()
+                      $update_avails()
+                      $say()
                     
-                    $desc = "     You have ({color=#[errorcolor]}[numEmails]{/color}) unread emails."
-                    $say()
+                      $desc = "     You have ({color=#[errorcolor]}[numEmails]{/color}) unread emails."
+                      $say()
                     
                 else:  
                     $flush_input()

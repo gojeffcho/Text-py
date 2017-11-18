@@ -2,7 +2,7 @@
 label setup_mon:
 
   $chatlist.append("p_adams")
-  call news4 from _call_news4
+  call news4
 
   jump mainscreen
     
@@ -10,7 +10,7 @@ label setup_mon:
 label setup_tue:
 
   $chatlist.append("sheep_1014")
-  call info4 from _call_info4
+  call info4
 
   jump update_score
 

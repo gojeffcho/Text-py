@@ -185,6 +185,11 @@ init 0 python:
     global wrong
     wrong = 0
     
+    # Resistance Tracking
+    global firstResponse
+    firstResponse = None
+    
+    # Room and Command Globals
     global cmd
     cmd = ""
     
@@ -235,12 +240,12 @@ label start:
     scene bg black
 
     # MAIN GAME START
-#     jump logosplash
+    jump logosplash
 
     # DEBUG START
-    $day = "Tue"
-    $prevright = 1
-    jump login
+#     $day = "Tue"
+#     $prevright = 1
+#     jump login
 
 #     $day = "Tue"
 #     $prevright = 1

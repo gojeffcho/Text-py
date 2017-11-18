@@ -4,7 +4,7 @@ label mainscreen:
 
     # Inject Resistance First Contact on Day 2
     if day == "Tue" and numChats == 0 and firstResponse == None:
-      call spam42 from _call_spam42
+      call spam42
       $update_avails()
     
     if numChats + numEmails == 0:

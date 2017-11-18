@@ -56,7 +56,7 @@ init -1 python:
     ## 
     
     # setRead(): sets read flag
-    def __setRead(self):
+    def setRead(self):
       self.__read = True
 
     ##
@@ -69,7 +69,7 @@ init -1 python:
       outputString = ""
       
       # TODO: Time increment?
-      self.__setRead()
+      self.setRead()
       
       # Format output string          |15                                     |40
       outputString = "\n{cps=100}{color=#[highlight1]}"
