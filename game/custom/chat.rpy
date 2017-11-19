@@ -75,7 +75,7 @@ label chat:
                 
                   python:
                     s = "{cps=150}"
-                    for chat in chatlist:
+                    for chat in sorted(chatlist):
                       s += "   [[{color=#[highlight1]}" + chat + "{/color}]: "
                       if chat == "sheep_1014":
                         s += "Assistant bot on standby.\n"
