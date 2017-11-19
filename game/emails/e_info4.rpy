@@ -15,14 +15,12 @@ discriminatory to call humans 'ones' and AIs
 
 45% of respondents said that calling humans 
 'ones' was empowering, and 60% said that 
-calling AIs 'zeroes' marginalizes them. The 
-terms were coined in 2017 by Electric Sheep 
-Inc. during their public image reparation 
-campaign.
+calling AIs 'zeroes' marginalized them. The 
+terms were coined in 2017 by Electric Sheep Inc. 
+during their public image reparation campaign.
 
-In the interest of equality, we have included
-a binary translation of our article for our 
-AI readers:
+In the interest of equality, we have included a 
+binary translation for our AI readers:
 
 01010100 01101000 01101001 01110011 00100000 
 01101001 01110011 00100000 01101110 01101111 

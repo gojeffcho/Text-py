@@ -255,11 +255,10 @@ label start:
     # GOTO first scene
     scene bg black
 
-    # DEBUG START
-        
-    $day = "Tue"
-    play music "music/bg0.mp3" fadein 2.5 loop
-    jump mainscreen
+    # DEBUG START        
+#     $day = "Tue"
+#     play music "music/bg0.mp3" fadein 2.5 loop
+#     jump mainscreen
 #     jump setup_tue
 
 
