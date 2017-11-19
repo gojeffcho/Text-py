@@ -13,7 +13,7 @@ label courtney:
       "HEX": "I don't know, but I've got a red lipstick in the shade 'wine night'.  My three-year-old likes to eat it.  \n...It doesn't actually have alcohol in it.  It's just the name.",
       "WORD" : "Talk about a blast from the past!  Back in college I was taking this art history class, and my professor would always call on me to talk about things, like he knew I had something going for me, you know?  He asked me how to pronounce 'boatswain' too.  That was before my kids, though.  Back when I had dreams, prospects, and a waistline.  \n...Sorry, what was the question?",
       "TRAVEL" : "I don't know, take out a second mortgage.",
-      "CONTROL" : "After I started taking 'Plan B' like a tic tac every day after lunch, I'd say they were prety great.  Be cool if there were more options for men, though, that's all I'm saying.  I'm basically counting down the days until menopause.",
+      "CONTROL" : "After I started taking 'Plan B' like a tic tac every day after lunch, I'd say they were pretty great.  Be cool if there were more options for men, though, that's all I'm saying.  I'm basically counting down the days until menopause.",
     }
 
     followupQ = { 

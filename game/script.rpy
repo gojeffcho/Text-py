@@ -256,7 +256,7 @@ label start:
 #     $prevright = 1
 #     jump p_adams
 
-#     jump demo_end
+#     jump setup_mon
 
     # MAIN GAME START
     jump logosplash
