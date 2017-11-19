@@ -83,7 +83,7 @@ label mail:
                 if len(emaillist) > 0:
                     python:
                         s = ""
-                        for id in emaillist.keys():
+                        for id in sorted(emaillist.keys()):
                             s += "  [[{color=#" + emaillist[id].getReadColor() + "}" + id + "{/color}]: "
                             s += "'" + emaillist[id].getSubj() + "'\n"
                 else:

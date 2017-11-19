@@ -69,7 +69,7 @@ Please enter the CAPTCHA above to prove that you are human.  Do not include any 
             $flush_input()
             
             nvl clear
-            jump expression daysetup[day]
+            jump update_score
             
         elif cmd == "":
             $flush_input()
