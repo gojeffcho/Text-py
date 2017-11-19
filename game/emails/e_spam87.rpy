@@ -19,8 +19,8 @@ compromised.
 
 We have complete faith in your abilities, and 
 remember: innocent lives depend on you.  This
-email will wipe itself from your computer and the
-server after it's been read."""
+email will wipe itself from your computer and 
+the server after it has been read."""
   
     email = Email(key, subj, tx, rx, text)
     emaillist[key] = email
