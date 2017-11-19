@@ -6,6 +6,7 @@ style terminal is text:
     size 16
     font "font/Dotrice.otf"
     color "#15db15"
+    line_spacing 2
     
 style terminalinput is text:
     size 18
@@ -255,7 +256,7 @@ label start:
 #     $prevright = 1
 #     jump p_adams
 
-#     jump login
+#     jump demo_end
 
     # MAIN GAME START
     jump logosplash
