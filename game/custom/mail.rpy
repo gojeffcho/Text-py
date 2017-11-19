@@ -10,15 +10,30 @@ label mail:
     $update_roomlabel()
     $desc = ""
     $desc += make_header("mail.app")
-    $desc += """{cps=0}|                                                                        |
-| Type <show emails> to see the list of available emails, <read> followed|
-| by the message number you wish to open, or <exit> to quit.  New emails |
-| are shown in {color=#""" + highlight2 + """}this color{/color} and previously read emails are shown in {color=#""" + highlight1 + """}this   {/color}|
-| {color=#""" + highlight1 + """}color{/color}.                                                                 |
-|                                                                        |
-| Example: {b}> read news0{/b}                                                 |
-|________________________________________________________________________|
+#     $desc += """{cps=0}|                                                                        |
+# | Type <show emails> to see the list of available emails, <read> followed|
+# | by the message number you wish to open, or <exit> to quit.  New emails |
+# | are shown in {color=#""" + highlight2 + """}this color{/color} and previously read emails are shown in {color=#""" + highlight1 + """}this   {/color}|
+# | {color=#""" + highlight1 + """}color{/color}.                                                                 |
+# |                                                                        |
+# | Example: {b}> read news0{/b}                                                 |
+# |________________________________________________________________________|
+# 
+# {/cps}
 
+    $desc += """{cps=0}|                                                                        |
+| Emails received to your company account.  New emails are highlighted   |
+| in {color=[highlight2]}this color{/color} and previously read emails are displayed in {color=[highlight1]}this color{/color}.  |
+|                                                                        |
+| Available Commands:                                                    |
+|    <{color=[skyblue]}show emails{/color}>: display emails (emailtag in square brackets)         |
+|    <{color=[skyblue]}read [[emailtag]{/color}>: read selected email                              | 
+|    <{color=[skyblue]}exit{/color}>: return to main menu                                         |
+|                                                                        |
+| Example:                                                               |
+|    > {color=[skyblue]}read info3{/color}                                                        |
+|________________________________________________________________________|
+ 
 {/cps}     You have ({color=#[errorcolor]}[numEmails]{/color}) unread emails."""
     
     $say()

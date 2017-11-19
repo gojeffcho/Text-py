@@ -7,13 +7,19 @@ label chat:
     $desc = ""
     $desc += make_header("chat.app")
     $desc += """{cps=0}|                                                                        |
-| You can see the users you can chat with by typing <show chats>.  Type  |
-| <chat> followed by the identifier tag of the candidate with whom you   |
-| wish to chat, or <exit> to return to the main screen.                  |
+| The main program used to screen potential candidates and determine     |
+| whether they are human or AI.  Also used for internal company chat and |
+| interactive assistance from AI bots.                                   |
 |                                                                        |
-| Example: {b}> chat demo0{/b}                                                 |
+| Available Commands:                                                    |
+|    <{color=[skyblue]}show chats{/color}>: display chat partners (usertag in square brackets)    |
+|    <{color=[skyblue]}chat [[usertag]{/color}>: initiate chat with selected partner               | 
+|    <{color=[skyblue]}exit{/color}>: return to main menu                                         |
+|                                                                        |
+| Example:                                                               |
+|    > {color=[skyblue]}chat sheep_1014{/color}                                                   |
 |________________________________________________________________________|
-
+ 
 {/cps}     You have ({color=#[errorcolor]}[numChats]{/color}) chat partners available."""
     
     $say()
@@ -60,19 +66,26 @@ label chat:
             
             if len(args) == 1 and args[0] == "chats":
                 $flush_input()
-                python:
-                  s = "{cps=150}"
-                  for chat in chatlist:
-                    s += "   [[{color=#[highlight1]}" + chat + "{/color}]: "
-                    if chat == "sheep_1014":
-                      s += "Assistant bot on standby.\n"
-                    elif chat == "p_adams":
-                      s += "Supervisor wishes to chat with you."
-                    else:
-                      s += "Candidate ready for screening\n"
-                  s += "{/cps}"
-                $desc = s
-                $say()
+                
+                if len(chatlist) == 0:
+                  $desc = "You currently have no pending chats."
+                  $say()
+                
+                else:
+                
+                  python:
+                    s = "{cps=150}"
+                    for chat in chatlist:
+                      s += "   [[{color=#[highlight1]}" + chat + "{/color}]: "
+                      if chat == "sheep_1014":
+                        s += "Assistant bot on standby.\n"
+                      elif chat == "p_adams":
+                        s += "Supervisor wishes to chat with you."
+                      else:
+                        s += "Candidate ready for screening\n"
+                    s += "{/cps}"
+                  $desc = s
+                  $say()
             
             else:
                 $flush_input()

@@ -80,11 +80,14 @@ label resistance_firstStart:
 
                 # Correct input                                
                 
+                stop music fadeout 4.5
                 $desc = "You reported a suspicious interaction.  Press {b}ENTER{/b} to return to mail.app."
                 $say()
                 $flush_input()
                 
                 $firstResponse = -1
+                
+                play music "music/bg0.mp3" fadein 2.5 loop
 
                 nvl clear
                 jump mail
@@ -107,8 +110,11 @@ label resistance_firstStart:
                 
                 # Chat-ending options
                 if q.upper() == "YES" or q.upper() == "NO" or q.upper() == "UNCERTAIN":
+                  stop music fadeout 3.5
                   $desc = "Chat has disconnected.  Press {b}ENTER{/b} to return to mail.app."
                   $say()
+                  
+                  play music "music/bg0.mp3" fadein 2.5 loop
                   
                   $flush_input
                   
