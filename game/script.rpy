@@ -153,8 +153,10 @@ init 0 python:
     # Track available emails
     global emaillist
     global numEmails
+    global mailnum
     emaillist = {}
     numEmails = len(emaillist)
+    mailnum = 0
     
     # Track current time
     global day
@@ -256,11 +258,11 @@ label start:
     # DEBUG START
     
     jump setup_mon
-    
-    $day = "Tue"
-    play music "music/bg0.mp3" fadein 2.5 loop
+#     
+#     $day = "Tue"
+#     play music "music/bg0.mp3" fadein 2.5 loop
 #     jump mainscreen
-    jump setup_tue
+#     jump setup_tue
 
 
     # MAIN GAME START

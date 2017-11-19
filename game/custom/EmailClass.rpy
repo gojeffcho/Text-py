@@ -11,6 +11,11 @@ init -1 python:
     #     text: String - pre-formatted for terminal output
     # No validation is done on inputs.
     def __init__(self, id, subj, tx, rx, text):
+      
+      global mailnum
+      self.num = mailnum
+      mailnum += 1
+      
       self.__id = id
       self.__read = False
       self.subj = subj
