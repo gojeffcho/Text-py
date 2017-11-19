@@ -9,15 +9,13 @@ label spam87:
     
     rx = username[:5] + "713@electricsheep.ca"
   
-    text = """If you're willing to help us, please install 
-this app on your computer. From there, you 
-should be able to gain access to the list you 
-worked through today. First, you'll have to break 
-the firewall with a simple alphanumeric key 
-you'll have to identify. Process of elimination 
-should be sufficient to identify it, but be aware 
-if you guess wrong too many times the firewall 
-can lock you out. 
+    text = """If you're willing to help us, install this app 
+on your computer. It contains a sophisticated
+encryption-breaking tool that will extract the
+data we need from your network and relay it
+back to us. It can cover its own tracks, but
+only use it once per day, or you could be 
+compromised.
 
 We have complete faith in your abilities, and 
 remember: innocent lives depend on you.  This
