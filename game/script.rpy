@@ -256,9 +256,7 @@ label start:
     scene bg black
 
     # DEBUG START
-    
-    jump setup_mon
-#     
+        
 #     $day = "Tue"
 #     play music "music/bg0.mp3" fadein 2.5 loop
 #     jump mainscreen

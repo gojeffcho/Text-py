@@ -1,5 +1,7 @@
 label demo_end:
 
+  $roomlabel = ""
+
   $desc = "\n\n\n\n\n\n\n\n\n\n\n                    This concludes the game demo.\n"
   $desc += "                    Your score was: [right] out of " + str(right + wrong) + "!"
   $desc +="\n\n                    Press <{b}ENTER{/b}> to continue."
