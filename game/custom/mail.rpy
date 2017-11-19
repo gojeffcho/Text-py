@@ -93,11 +93,16 @@ label mail:
                     
                       term "Downloading email [key]{cps=6}... ... ... {/cps}{nw}"
                       play sound "music/distorted.ogg"
-                      extend "\n{color=[errorcolor]}{cps=130}ERROR{/cps}{cps=6}...{/cps} an unexpected override has been engaged{cps=2}...{/cps}{/color}{cps=1}  {/cps}{nw}"
+                      extend "\n{color=[errorcolor]}{cps=130}ERROR{/cps}{cps=6}...{/cps} an unexpected override has been engaged{nw}"
+                      play sound "music/resistance_start.ogg" fadeout 0.5
+                      extend "{cps=2}...{/cps}{/color}{cps=1} {/cps}{nw}"
                       
                       $flush_input()
                       $emaillist[key].setRead()
                       $update_avails()
+                      
+                      stop music fadeout 2.0
+                      play music "music/resistance.ogg" fadein 1.0 loop
                       
                       nvl clear
                       jump resistance_first

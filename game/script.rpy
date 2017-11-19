@@ -252,9 +252,9 @@ label start:
 
 
     # DEBUG START
-#     $day = "Tue"
-#     $prevright = 1
-#     jump p_adams
+    $day = "Tue"
+    play music "music/bg0.mp3" fadein 2.5 loop
+    jump mainscreen
 
 #     jump setup_mon
 
