@@ -182,6 +182,10 @@ init 0 python:
     global room
     room = ""
 
+    # Track is hacked
+    global hacked
+    hacked = False
+
 
     ######################
     ### GAME VARIABLES ###

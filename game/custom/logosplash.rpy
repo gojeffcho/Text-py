@@ -1,5 +1,7 @@
 label logosplash:
 
+  # call hackgame
+
   python:
     
     hide_val = True

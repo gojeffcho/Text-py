@@ -253,4 +253,15 @@ init 0 python:
         append = ""
         
         return
+
+###
+### hack_result( bool ): updates a global 
+###
+    def hack_result(abool):
+        global hacked
+        if abool == True:
+            hacked = True
+        else:
+            hacked = False
+        return
         
