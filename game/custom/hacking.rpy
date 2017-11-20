@@ -20,7 +20,6 @@ label hackgame:
         shuffle(wordList)
         secretWord = wordList[0].lower()
         shuffle(wordList)
-        print("test")
 
         # Random garbage
         garbString = ""
@@ -35,8 +34,10 @@ label hackgame:
         for word in wordList:
             if count < 3:
                 count += 1
+            elif word == wordList[-1]:
+                desc +=  " "+ garbString + " " + word + " " + garbString + "|\n"
             elif count % 3 == 0:
-                desc += " " + garbString + " " + word + " " + garbString + "|\n" + "|"
+                desc +=  " "+ garbString + " " + word + " " + garbString + "|\n" + "|"
                 count += 1
             else:
                 desc += " " + garbString + " " + word
@@ -44,10 +45,8 @@ label hackgame:
 
         # save orginal list        
         orgDesc = deepcopy(desc)
-        desc = "Correctly guess the password from the options beblow, type 'help' for assistance: \n"
-        say()
-        desc = orgDesc
-        desc = "The correct word is: " + secretWord
+        desc = "Correctly guess the password from the options beblow, type 'help' for assistance: \n" + orgDesc + "\n"
+        desc += "The correct word is: " + secretWord
         say()
     jump hackstart
 
@@ -81,50 +80,42 @@ label hackgame:
             return
 
         elif cmd.lower() == "force":
-            $desc = ".\n"
-            $say()
-            $say()
+            $desc = ". . .\n"
             $say()
             $desc = "Brute Force Successful"
             $hack_result(True)
+            $say()
             $flush_input()
             nvl clear
 
             return
-        elif cmd.lower() == "":
-            $echo()
+
+        elif len(cmd.lower()) == 0 or cmd.lower() == " ":
             $desc = "Invalid input"
             $say()
-            $flush_input()
 
         else:
-            $echo()
             $desc = "Incorrect... Please try again\n"
-            $say()
             python:
                 correct = 0
-                theWord = secretWord.split()
-                guessed = cmd.split()
-                gLen = len(guessed)
-                wLen = len(theWord)
-                desc = "I make it here"
+                guessed = cmd
+                desc += "Len: " + str(len(guessed))
                 say()
-                if gLen != wLen:
+
+                if len(guessed) != len(secretWord):
                     desc = "Invalid guess, enter one of the words on the screen\n"
                     say()
                 else:
                     try:
                         for i in range(0,6):
-                            if guessed[i] == theWord[i]:
+                            if guessed[i] == secretWord[i]:
                                 correct += 1
-                        desc = "Correctly guess letters: " + correct + "\n"
+                        desc = "Correctly guess letters: " + str(correct) + "\n"
                         say()
 
                     except:
                         desc = "Invalid guess, please try again\n"
                         say()
             $flush_input()
-        $flush_input()
-
 
 
