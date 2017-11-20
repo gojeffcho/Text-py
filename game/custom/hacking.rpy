@@ -14,6 +14,16 @@ label hackgame:
 
     # This is a comment test
     python:
+
+        # Random filler between words
+        def filler():
+            aString = ""
+            extraChars = ["#", "%", "$", "&", "@"]
+            for i in range(0,11):
+                choose = randint(0,4)
+                aString += extraChars[choose]
+            return aString
+
         # List of 6 letter words
         wordList = ["apples", "hacked", "fallen", "ravage", "wonder", "labels", "tested", "listen", "savage"]
         extraChars = ["#", "%", "$", "&", "@"]
@@ -30,17 +40,17 @@ label hackgame:
 
         # Build desc
         count = 1
-        desc = "|" + " " + garbString + " " + wordList[0] + " " + garbString + " " + wordList[1]
+        desc = "|" + " " + filler() + " " + wordList[0] + " " + filler() + " " + wordList[1]
         for word in wordList:
             if count < 3:
                 count += 1
             elif word == wordList[-1]:
-                desc +=  " "+ garbString + " " + word + " " + garbString + "|\n"
+                desc +=  " "+ filler() + " " + word + " " + filler() + " |\n"
             elif count % 3 == 0:
-                desc +=  " "+ garbString + " " + word + " " + garbString + "|\n" + "|"
+                desc +=  " "+ filler() + " " + word + " " + filler() + " |\n" + "|"
                 count += 1
             else:
-                desc += " " + garbString + " " + word
+                desc += " " + filler() + " " + word
                 count += 1
 
         # save orginal list        
