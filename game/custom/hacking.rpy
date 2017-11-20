@@ -24,6 +24,49 @@ label hackgame:
                 aString += extraChars[choose]
             return aString
 
+        # Counting Correct and right but wrong spots
+        def isCorrect(picked, real):
+            # Set up dict
+            # List [inReal, correct, wrongSpot]
+            aDict = {}
+            for let in real:
+                if let not in aDict:
+                    aDict[let] = [1,0,0]
+                else:
+                    aDict[let][0] += 1
+
+            # Run through picked
+            for i in range(0,5):
+                counter = 0
+                #hasFound = False
+                # correct spot
+                if picked[i] == real[i]:
+                    aDict[picked[i]][1] += 1
+                # check for wrong spot
+                else:
+
+                    # Check to make sure only enter once
+                    if picked[i] in aDict:
+                        check = aDict[picked[i]][0]
+                        other = aDict[picked[i]][2]
+                        if other >= check:
+                            continue
+                        else:
+                            aDict[picked[i]][2] += 1
+
+            # collect data (There was probably an easier way to do this)
+            correct = 0
+            wrongSpot = 0
+            for key in aDict:
+                correct += aDict[key][1]
+                wrongSpot += aDict[key][2]
+
+            return correct, wrongSpot
+
+
+                
+
+
         # List of 6 letter words
         wordList = ["apples", "hacked", "fallen", "ravage", "wonder", "labels", "tested", "listen", "savage"]
         extraChars = ["#", "%", "$", "&", "@"]
@@ -117,10 +160,9 @@ label hackgame:
                     say()
                 else:
                     try:
-                        for i in range(0,6):
-                            if guessed[i] == secretWord[i]:
-                                correct += 1
+                        correct, wrong = isCorrect(guessed, secretWord)
                         desc = "Correctly guess letters: " + str(correct) + "\n"
+                        desc += "Right letter wrong place: " + str(wrong) + "\n"
                         say()
 
                     except:
