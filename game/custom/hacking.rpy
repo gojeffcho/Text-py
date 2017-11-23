@@ -133,8 +133,7 @@ label hackgame:
 
         elif cmd.lower() == "force":
             $desc = ". . .\n"
-            $say()
-            $desc = "Brute Force Successful"
+            $desc += "Brute Force Successful"
             $hack_result(True)
             $say()
             $flush_input()
@@ -151,11 +150,12 @@ label hackgame:
             python:
                 correct = 0
                 guessed = cmd
-                desc += "Len: " + str(len(guessed))
+                desc += "Len: " + str(len(guessed)) + "\n"
 
                 if len(guessed) != len(secretWord):
                     desc += "Invalid guess, enter one of the words on the screen\n"
                     say()
+
                 else:
                     try:
                         correct, wrong = isCorrect(guessed, secretWord)
@@ -166,6 +166,5 @@ label hackgame:
                     except:
                         desc += "Invalid guess, please try again\n"
                         say()
-            $flush_input()
 
 

@@ -214,6 +214,8 @@ label start:
     # GOTO first scene
     scene bg black
 
+    #call hackgame
+
     jump logosplash
 
 #     $chatlist.append("sheep_1015")
