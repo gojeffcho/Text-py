@@ -113,8 +113,7 @@ label hackgame:
             $flush_input()
             nvl clear
             $desc = "To give up type 'quit', to brute force the password type 'force'\n"
-            $say()
-            $desc = orgDesc
+            $desc += orgDesc
             $say()
         elif cmd.lower() == secretWord.lower():
             $desc = garbString + " " + "CORRECT" + " " + garbString +"\n"
@@ -153,20 +152,19 @@ label hackgame:
                 correct = 0
                 guessed = cmd
                 desc += "Len: " + str(len(guessed))
-                say()
 
                 if len(guessed) != len(secretWord):
-                    desc = "Invalid guess, enter one of the words on the screen\n"
+                    desc += "Invalid guess, enter one of the words on the screen\n"
                     say()
                 else:
                     try:
                         correct, wrong = isCorrect(guessed, secretWord)
-                        desc = "Correctly guess letters: " + str(correct) + "\n"
+                        desc += "Correctly guess letters: " + str(correct) + "\n"
                         desc += "Right letter wrong place: " + str(wrong) + "\n"
                         say()
 
                     except:
-                        desc = "Invalid guess, please try again\n"
+                        desc += "Invalid guess, please try again\n"
                         say()
             $flush_input()
 
