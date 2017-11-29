@@ -102,6 +102,31 @@ label sheep_1014:
         "GREETING1" : "I am automated to make your experience a comfortable one through interactions with realistic AI. Really though, I believe I'm quite happy all the time ^_^",
         "INTEREST1" : "'The stars align and show good judgement coming your way! Your choices will shape your future. Also, you're super fertile right now!' I hope that was accurate." 
       }
+      
+    elif day == "Thu":
+
+      questions = {
+        "START" : "Good morning, 10-14.",
+        "QUESTIONS" : "What are today's questions?",
+        "END" : "That's all for now."
+      }
+
+      answers = {
+        "START": "Hi, " + username + ", it's good to see you again!",
+        "QUESTIONS": """Today's questions are:
+      {b}EGGS{/b}: What kind of eggs do you use to make an omlette?
+      {b}HUMAN{/b}: What are your thoughts on AIs being given human rights?
+      {b}EMPATHY{/b}: How would you feel if your significant other cheated on you?
+      {b}FEAR{/b}: What is your biggest fear?
+      {b}PAIN{/b}: What is the greatest pain you've ever felt?""",
+        "END" : "Okay! I hope you have a lovely day!"
+      }
+
+      followupQ = { 
+      }
+
+      followupA = { 
+      }
 
     # Instantiate the chatbot
     target = Chat("sheep_1014", 0, crimson, questions, answers, followupQ, followupA)
@@ -169,6 +194,11 @@ label lolaStart:
                 $chatlist.append("jordan")
                 $chatlist.append("blake")
                 $chatlist.append("sados")
+                
+              elif day == "Thu":
+                $chatlist.append("xmorph97")
+                $chatlist.append("finley")
+                $chatlist.append("s0phie")
             
               nvl clear
               jump chat
