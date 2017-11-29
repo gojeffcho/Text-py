@@ -256,10 +256,10 @@ label start:
     scene bg black
 
     # DEBUG START        
-    $day = "Thu"
-    play music "music/bg0.mp3" fadein 2.5 loop
+#     $day = "Thu"
+#     play music "music/bg0.mp3" fadein 2.5 loop
 #     jump mainscreen
-    jump setup_thu
+#     jump setup_thu
 
 
     # MAIN GAME START

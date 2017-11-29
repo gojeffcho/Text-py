@@ -18,7 +18,7 @@ label setup_tue:
 label setup_wed:
 
   $chatlist.append("sheep_1014")
-  call info5
+  call info5 from _call_info5
   jump mainscreen
 
 # Set the scene for Day 4  
