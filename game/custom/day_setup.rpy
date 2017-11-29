@@ -17,12 +17,14 @@ label setup_tue:
 # Set the scene for Day 3
 label setup_wed:
 
-  jump demo_end   # DEBUG
+  $chatlist.append("sheep_1014")
+  call info5
   jump mainscreen
 
 # Set the scene for Day 4  
 label setup_thu:
 
+  jump demo_end   # DEBUG
   jump mainscreen
 
 # Set the scene for Day 5  

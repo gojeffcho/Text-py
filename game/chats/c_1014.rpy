@@ -55,7 +55,7 @@ label sheep_1014:
       {b}CONTROL{/b}: What are your thoughts on contraceptives?""",
         "TIME" : "Almost five years!  And I've loved every second of it.",
         "HOBBY" : "I would love to take care of a puppy!  I've seen pictures of German Shepherds in employee inboxes, and they are ADORABLE.",
-        "END" : "I hope you have a productive day, " + username + "!  I've loaded up your candidates for screening.  :)"
+        "END" : "I hope you have a productive day, " + username + "!  I've loaded up your candidates for screening.  ^_^"
       }
 
       followupQ = { 
@@ -66,6 +66,41 @@ label sheep_1014:
       followupA = { 
         "QUESTIONS1" : """{b}FOOD{/b} may elicit strange responses from AI, who can't actually eat food; {b}HEX{/b} questions are something an AI would most likely know the code for; {b}WORD{/b} questions could reveal a well-read human or an AI with a phonetic spelling book; {b}TRAVEL{/b} questions will most likely be answered generically by humans, and specifically by AI; and {b}CONTROL{/b} questions will most likely get an emotional response from humans.""",
         "HOBBY1" : "Commander!  Some people think AI can't have feelings, but I bet I could love a puppy if I tried." 
+      }
+      
+    elif day == "Wed":
+
+      questions = {
+        "START" : "Good morning, 10-14.",
+        "QUESTIONS" : "What are today's questions?",
+        "GREETING" : "How are you today, 10-14?",
+        "INTEREST" : "Seen anything interesting around the office lately?",
+        "END" : "That's all for now."
+      }
+
+      answers = {
+        "START": "Hi, " + username + ", it's good to see you again!",
+        "QUESTIONS": """Today's questions are:
+      {b}COLOUR{/b}: Describe the colour blue without using the word 'blue'.
+      {b}MORALITY{/b}: What is your opinion on whether capital punishment is ethical?
+      {b}LOGIC{/b}: Which sentence is true: 'the following statement is true'; 'the previous statement is false.'
+      {b}FAKEJOKE{/b}: Do you find the following joke humorous: What do you get when you put a vampire in the fridge? To get to the other side!
+      {b}BOIL{/b}: What is the boiling temperature of water?""",
+        "GREETING" : "I'm wonderful! You've been doing very well at this job, and that makes me happy.",
+        "INTEREST" : "Why yes! I've been reading horoscopes online lately! Would you like to hear yours for today?",
+        "END" : "Okay! I hope you have a lovely day!"
+      }
+
+      followupQ = { 
+        "QUESTIONS1" : "Tell me more about the questions for today.",
+        "GREETING1" : "You feel happy?  I thought AIs were programmed without emotions?",
+        "INTEREST1" : "Sure."
+      }
+
+      followupA = { 
+        "QUESTIONS1" : """{b}COLOUR{/b} will be better understood by human respondents; {b}MORALITY{/b} may show a lack of empathy from AIs; {b}LOGIC{/b} will out AIs who cannot handle logic loops; {b}FAKEJOKE{/b} will not be found funny by humans; and {b}BOIL{/b} will get precise answers from AI.""",
+        "GREETING1" : "I am automated to make your experience a comfortable one through interactions with realistic AI. Really though, I believe I'm quite happy all the time ^_^",
+        "INTEREST1" : "'The stars align and show good judgement coming your way! Your choices will shape your future. Also, you're super fertile right now!' I hope that was accurate." 
       }
 
     # Instantiate the chatbot
@@ -129,6 +164,11 @@ label lolaStart:
                 $chatlist.append("dakota")
                 $chatlist.append("courtney")
                 $chatlist.append("garmin")
+                
+              elif day == "Wed":
+                $chatlist.append("jordan")
+                $chatlist.append("blake")
+                $chatlist.append("sados")
             
               nvl clear
               jump chat
