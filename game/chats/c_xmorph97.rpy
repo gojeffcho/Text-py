@@ -26,6 +26,7 @@ label xmorph97:
       "EMPATHY1" : "On just how significant they are, and how long they had been significant. It would hurt a lot more if we had been together for twenty years than if we had only been together for two months."
     }
 
+    usercolor = random_colour()
     target = Chat("xmorph97", 0, random_colour(), questions, answers, followupQ, followupA)
     target.start()
 

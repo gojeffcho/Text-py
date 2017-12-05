@@ -26,6 +26,7 @@ label dakota:
       "WORD1" : "It's not a term related to baking, so I'm fairly certain you just made it up to test me, but I'm too smart to be tricked!" 
     }
 
+    usercolor = random_colour()
     target = Chat("dakota", 0, random_colour(), questions, answers, followupQ, followupA)
     target.start()
 

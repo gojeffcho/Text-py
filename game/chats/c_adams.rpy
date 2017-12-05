@@ -50,7 +50,8 @@ label p_adams:
 #         "START3" : "Let's talk about that in a moment."
 #       }
     
-
+    # global usercolor
+    usercolor = random_colour()
     target = Chat("p_adams", 0, random_colour(), questions, answers, followupQ, followupA)
     target.start()
 

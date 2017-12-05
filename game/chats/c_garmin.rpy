@@ -24,6 +24,7 @@ label garmin:
 
     }
 
+    usercolor = random_colour()
     target = Chat("garmin", 0, random_colour(), questions, answers, followupQ, followupA)
     target.start()
 

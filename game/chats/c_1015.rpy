@@ -28,6 +28,7 @@ label sheep_1015:
       "EMPATHY1": "Nothing.  I was not asked to assist."
     }
 
+    usercolor = random_colour()
     target = Chat("sheep_1015", 0, random_colour(), questions, answers, followupQ, followupA)
     target.start()
 

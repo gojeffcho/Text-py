@@ -28,6 +28,7 @@ label max:
         "EMPATHY1" : "I would try to make the kid stop crying."
     }
 
+    usercolor = random_colour()
     target = Chat("max", 1, random_colour(), questions, answers, followupQ, followupA)
     target.start()
 

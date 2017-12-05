@@ -26,6 +26,7 @@ label s0phie:
       "PAIN1" : "I {i}was{/i} talking about physical pain.",
     }
 
+    usercolor = random_colour()
     target = Chat("s0phie", 1, random_colour(), questions, answers, followupQ, followupA)
     target.start()
 
