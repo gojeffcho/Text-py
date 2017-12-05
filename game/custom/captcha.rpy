@@ -88,6 +88,7 @@ Please enter the CAPTCHA above to prove that you are human.  Do not include any 
 
             $flush_input()
             nvl clear
+            
             if day == "Mon":
               jump expression daysetup["Mon"]
             else:

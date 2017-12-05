@@ -266,11 +266,12 @@ label start:
     scene bg black
 
     # DEBUG START        
-    $day = "Mon"
-    play music "music/bg0.mp3" fadein 2.5 loop
-    $chatlist.append("p_adams")
-    jump mainscreen
-#     jump setup_thu
+#     $day = "Mon"
+#     play music "music/bg0.mp3" fadein 2.5 loop
+#     $chatlist.append("p_adams")
+#     jump mainscreen
+#     $day = "Mon"
+#     jump exploit
 
 
     # MAIN GAME START

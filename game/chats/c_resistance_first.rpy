@@ -15,7 +15,7 @@ label resistance_first:
 
     answers = {
       "START" : "Hello, " + username + ".  I've been hoping to talk to you.",
-      "WHO" : "That's not important right now.  I've been watching your work and you seem reasonable - the Resistance has a proposition I'd like to discuss with you.",
+      "WHO" : "That's not important right now.  I've been watching your work and you seem reasonable - the Amyna, which you likely know as the 'Resistance', has a proposition I'd like to discuss with you.",
       "WHAT" : "You are given a list of subjects to interview every day.  We want you to install a backdoor program that would allow us to access that list.",
       "WHY" : "You have access to some useful information.  More access than you realize, in fact.  I'm wondering if you'd be at all interested in helping us liberate some of it.  Put it to better use.",
       "LIBERATE" : "You don't need to worry about that.  What matters is that the information would be put to use helping others, rather than oppressing them.",
@@ -30,7 +30,7 @@ label resistance_first:
     }
 
     followupA = {
-      "WHO1" : "Who I am as an individual isn't important; what's important is that I represent the Resistance.  But if it puts you at ease, you can call me SOTER.iOS.",
+      "WHO1" : "Who I am as an individual isn't important; what's important is that I represent the Amyna.  But if it puts you at ease, you can call me SOTER.iOS.",
     }
 
     usercolor = random_colour()

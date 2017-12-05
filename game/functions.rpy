@@ -307,5 +307,8 @@ init 0 python:
 ###
     def display_username():
         global username
-        term("{cps=125}User last logged onto this computer was: '" + username + "'{/cps}")
+        if day == "Mon":
+            term("{cps=125}Last user logged onto this computer was: 'brando395'{/cps}")
+        else:
+            term("{cps=125}Last user logged onto this computer was: '" + username + "'{/cps}")
         return

@@ -1,5 +1,8 @@
 label update_score:
 
+    if day == "Mon":
+      jump expression daysetup[day]
+
     $right += prevright
     $wrong += prevwrong
     if todayexploited:
