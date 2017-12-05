@@ -447,7 +447,7 @@ Example: {b}> create shelby{/b}"""
     
 # LOGIN: regular login prompt
 label login:
-    $expected = ["LOOK", "L", "HELP", "?", "LOGIN"]
+    $expected = ["LOOK", "L", "HELP", "?", "LOGIN", "LAST"]
     $pickup = []
     $room = "Login"
     $update_roomlabel()
@@ -755,10 +755,10 @@ label login:
         ███████║██║  ██║███████╗███████╗██║         ██║██║ ╚████║╚██████╗██╗
         ╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝         ╚═╝╚═╝  ╚═══╝ ╚═════╝╚═╝   
 {/color}{/font}{/cps}
-Please type {b}login <username>{/b} to log in, or {b}help{/b} for a list of available commands.  If you become lost on any screen, type {b}look{/b} or {b}l{/b} (lowercase L) to see the original prompt again."""
+Please type {b}login <username>{/b} to log in, or {b}help{/b} for a list of available commands. To see who last logged into this computer type {b}last{/b}.  If you become lost on any screen, type {b}look{/b} or {b}l{/b} (lowercase L) to see the original prompt again."""
     
     $say()
-    
+
     while True:
         $echo()
         
@@ -783,6 +783,9 @@ Please type {b}login <username>{/b} to log in, or {b}help{/b} for a list of avai
                 
         elif cmd.upper() == "HELP" or cmd == "?":
             $help()
+        
+        elif cmd.upper() == "LAST":
+            $display_username()
         
         elif cmd.upper() == "LOGIN":
             if len(args) == 1:
