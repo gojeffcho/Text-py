@@ -301,3 +301,11 @@ init 0 python:
 
         colourSelected.append(colourList[selected])
         return colourList[selected]
+
+###
+### display_username()
+###
+    def display_username():
+        global username
+        term("{cps=125}User last logged onto this computer was: '" + username + "'{/cps}")
+        return
