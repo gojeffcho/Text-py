@@ -51,7 +51,7 @@ label p_adams:
 #       }
     
 
-    target = Chat("p_adams", 0, darkgreen, questions, answers, followupQ, followupA)
+    target = Chat("p_adams", 0, random_colour(), questions, answers, followupQ, followupA)
     target.start()
 
 label p_adamsStart:

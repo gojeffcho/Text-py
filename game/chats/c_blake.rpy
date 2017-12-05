@@ -22,7 +22,7 @@ label blake:
     followupA = { 
     }
 
-    target = Chat("blake", 1, crimson, questions, answers, followupQ, followupA)
+    target = Chat("blake", 1, random_colour(), questions, answers, followupQ, followupA)
     target.start()
 
 label blakeStart:

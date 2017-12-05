@@ -24,7 +24,7 @@ label sados:
       "LOGIC1" : "The first statement is true, therefore the second statement is true, therefore the first statement is false, therefore the second statement is false, therefore the first statement is true, therefore...",
     }
 
-    target = Chat("sados", 0, crimson, questions, answers, followupQ, followupA)
+    target = Chat("sados", 0, random_colour(), questions, answers, followupQ, followupA)
     target.start()
 
 label sadosStart:

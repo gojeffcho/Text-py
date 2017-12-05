@@ -24,7 +24,7 @@ label jordan:
       "FAKEJOKE1" : "If I say no, will you deactivate me? Because the answer is no.",
     }
 
-    target = Chat("jordan", 0, crimson, questions, answers, followupQ, followupA)
+    target = Chat("jordan", 0, random_colour(), questions, answers, followupQ, followupA)
     target.start()
 
 label jordanStart:

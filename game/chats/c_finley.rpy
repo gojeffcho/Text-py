@@ -22,7 +22,7 @@ label finley:
     followupA = { 
     }
 
-    target = Chat("finley", 1, crimson, questions, answers, followupQ, followupA)
+    target = Chat("finley", 1, random_colour(), questions, answers, followupQ, followupA)
     target.start()
 
 label finleyStart:

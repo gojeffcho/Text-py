@@ -227,6 +227,16 @@ init 0 python:
     global room
     room = ""
 
+    # Hacking Tracking
+    global hacked
+    hacked = False
+
+    # Random Colour
+    global colourList
+    global colourSelected
+    colourList = []
+    colourSelected = []
+
 
     ######################
     ### GAME VARIABLES ###

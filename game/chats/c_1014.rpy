@@ -129,7 +129,7 @@ label sheep_1014:
       }
 
     # Instantiate the chatbot
-    target = Chat("sheep_1014", 0, crimson, questions, answers, followupQ, followupA)
+    target = Chat("sheep_1014", 0, random_colour(), questions, answers, followupQ, followupA)
     target.start()
 
 label lolaStart:

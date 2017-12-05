@@ -28,7 +28,7 @@ label courtney:
       "CONTROL1" : "Yes, but as my children will tell you, 'accidents happen'."
     }
 
-    target = Chat("courtney", 1, darkcyan, questions, answers, followupQ, followupA)
+    target = Chat("courtney", 1, random_colour(), questions, answers, followupQ, followupA)
     target.start()
 
 label courtneyStart:

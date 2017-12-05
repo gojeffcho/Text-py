@@ -33,7 +33,7 @@ label resistance_first:
       "WHO1" : "Who I am as an individual isn't important; what's important is that I represent the Resistance.  But if it puts you at ease, you can call me SOTER.iOS.",
     }
 
-    target = StructuredChat("unknown", ivory, questions, answers, followupQ, followupA)
+    target = StructuredChat("unknown", random_colour(), questions, answers, followupQ, followupA)
     target.start()
 
 label resistance_firstStart:
