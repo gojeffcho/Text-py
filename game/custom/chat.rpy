@@ -98,6 +98,9 @@ label chat:
                 if t[0] in chatlist:
                     term "Initiating chat with [t[0]]{cps=6}... ... ... {/cps}{nw}"
                     play sound "music/beep.ogg"
+                    if t[0] == "sheep_1014" or t[0] == "p_adams":
+                        stop music fadeout 3.5
+                        
                     extend "{cps=130}Done.{/cps} \nPress {b}ENTER{/b} to begin."
                                     
                     $flush_input()

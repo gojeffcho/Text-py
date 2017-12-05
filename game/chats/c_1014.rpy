@@ -1,4 +1,7 @@
 label sheep_1014:
+
+  play music "music/lola.mp3" fadein 2.0 loop
+
   python:
   
     if day == "Mon":
@@ -178,10 +181,13 @@ label lolaStart:
               $flush_input()
             
               $target.ask(q)
+              stop music fadeout 4.0
             
               $expected = []
               $desc = "Press <{b}ENTER{/b}> to end the tutorial and return to chat.app."
               $say()
+              
+              play music "music/bg0.mp3" fadein 2.0 loop
               
               if day == "Mon":
                 $chatlist.append("sheep_1015")

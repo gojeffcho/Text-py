@@ -266,22 +266,15 @@ label start:
     scene bg black
 
     # DEBUG START        
-#     $day = "Thu"
-#     play music "music/bg0.mp3" fadein 2.5 loop
-#     jump mainscreen
+    $day = "Mon"
+    play music "music/bg0.mp3" fadein 2.5 loop
+    $chatlist.append("p_adams")
+    jump mainscreen
 #     jump setup_thu
 
 
     # MAIN GAME START
     jump logosplash
-
-#     $day = "Tue"
-#     $prevright = 1
-#     $prevwrong = 5
-#     jump update_score
-
-#     $chatlist.append("courtney")
-#     jump chat
 
 #     $chatlist.append("sheep_1014")
 #     call news4

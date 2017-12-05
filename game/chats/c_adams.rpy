@@ -1,4 +1,7 @@
 label p_adams:
+
+  play music "music/boss.mp3" fadein 2.0 loop
+
   python:
     if day == "Mon":
       questions = {
@@ -99,11 +102,17 @@ label p_adamsStart:
             
               $target.ask(q)
             
+              stop music fadeout 4.0
+            
               $expected = []
               $desc = "Press {b}ENTER{/b} to end the tutorial and return to chat.app."
               $say()
+              
+              play music "music/bg0.mp3" fadein 2.0 loop
             
               $chatlist.append("sheep_1014")
+              
+              
               
               nvl clear
               jump chat
