@@ -186,6 +186,10 @@ init 0 python:
     global hacked
     hacked = False
 
+    # for colours
+    global colourSelected
+    colourSelected = []
+
 
     ######################
     ### GAME VARIABLES ###

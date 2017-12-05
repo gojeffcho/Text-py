@@ -33,7 +33,7 @@ label sheep_1014:
       "REPORT1" : "You can ask the candidate more questions until you have determined your answer.  If you have used all five questions, you must report them as one or the other based on the answers you have received." 
     }
 
-    target = Chat("sheep_1014", 0, crimson, questions, answers, followupQ, followupA)
+    target = Chat("sheep_1014", 0, random_colour(), questions, answers, followupQ, followupA)
     target.start()
 
 label lolaStart:

@@ -1,4 +1,7 @@
 init 0 python:
+    from random import randint
+
+
 
 ###
 ### update_roomlabel(): 
@@ -264,4 +267,23 @@ init 0 python:
         else:
             hacked = False
         return
+###
+### random_colour(): selects random color from a list
+###
+    def random_colour():
+        global colourList
+        global colourSelected
+        colourList = [crimson, skyblue, darkcyan, ivory, highlight2, highlight1, sheepcolor]
+        selected = randint(0, len(colourList)-1)
+
+        # Run a loop to get a new colour not yet selected
+        while(colourList[selected] in colourSelected):
+            if(len(colourList) == len(colourSelected)):
+                colourSelected = []
+            selected = randint(0, len(colourList)-1)
+
+        colourSelected.append(colourList[selected])
+        return colourList[selected]
+
+
         
