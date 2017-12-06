@@ -275,6 +275,8 @@ label start:
 
 
     # MAIN GAME START
+    # call hackgame
+
     jump logosplash
 
 #     $chatlist.append("sheep_1014")

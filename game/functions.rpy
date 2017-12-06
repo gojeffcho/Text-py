@@ -282,7 +282,18 @@ init 0 python:
         formatted.append("|________________________________________________________________________|\n")
         formatted.append("{/color}{/cps}")
         
-        return "".join(formatted)        
+        return "".join(formatted)    
+
+###
+### hacked_result(bool): changes global hacked
+###    
+
+    def hack_result(aBool):
+        global hacked
+        if(aBool):
+            hacked = True
+        else:
+            hacked = False
 
 ###
 ### random_colour(): selects random color from a list

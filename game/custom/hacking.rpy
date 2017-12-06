@@ -99,20 +99,27 @@ label hackgame:
         # save orginal list        
         orgDesc = deepcopy(desc)
         desc = "Correctly guess the password from the options beblow, type 'help' for assistance: \n" + orgDesc + "\n"
-        desc += "The correct word is: " + secretWord
+        # desc += "The correct word is: " + secretWord
         say()
     jump hackstart
 
 
     label hackstart:
 
+    $count = 0
     while True:
+        $count += 1
+        if(count >= 4):
+            nvl clear
+            $desc = orgDesc
+            $say()
+            $count = 0
         $echo()
 
         if cmd.lower() == "help":
             $flush_input()
             nvl clear
-            $desc = "To give up type 'quit', to brute force the password type 'force'\n"
+            $desc = "To give up type {b}'quit'{/b}, to brute force the password type 'force'\n"
             $desc += orgDesc
             $say()
         elif cmd.lower() == secretWord.lower():
@@ -123,7 +130,7 @@ label hackgame:
             return
 
         elif cmd.lower() == "quit":
-            $desc = garbString + " " + "FAILED" + " " + garbString +"\n"
+            $desc = garbString + " " + "{colour=#" + crimson + "}FAILED{/color}" + " " + garbString +"\n"
             $say()
             $hack_result(False)
             $flush_input()
@@ -146,25 +153,27 @@ label hackgame:
             $say()
 
         else:
-            $desc = "Incorrect... Please try again\n"
+            $desc = "{color=#" + crimson + "}" + "INCORRECT{/color}\n"
             python:
                 correct = 0
                 guessed = cmd
-                desc += "Len: " + str(len(guessed)) + "\n"
 
                 if len(guessed) != len(secretWord):
                     desc += "Invalid guess, enter one of the words on the screen\n"
+                    flush_input()
                     say()
 
                 else:
                     try:
                         correct, wrong = isCorrect(guessed, secretWord)
-                        desc += "Correctly guess letters: " + str(correct) + "\n"
-                        desc += "Right letter wrong place: " + str(wrong) + "\n"
+                        desc += "Correctly guess letters: {color=#" + crimson +"}" + str(correct) + "{/color}\n"
+                        desc += "Right letter wrong place: {color=#" + crimson + "}" + str(wrong) + "{/color}\n" 
+                        flush_input()
                         say()
 
                     except:
                         desc += "Invalid guess, please try again\n"
+                        flush_input()
                         say()
 
 
