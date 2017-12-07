@@ -145,7 +145,7 @@ label sheep_1014:
         "RESISTANCE": "What do you think about the Resistance?",
         "OFF": "Do you know what happens when AI are shut down?",
         "FEELINGS" : "I hear a lot that AI don't have feelings, but sometimes, it seems like you have feelings." ,
-        "END" : "I'll talk to you later, " + lolaName + ". Mr. Adams have overridden your candidate list for today, so he should load them for you after you talk to him."
+        "END" : "I'll talk to you later, " + lolaName + "."
       }
 
       answers = {
@@ -243,9 +243,9 @@ label lolaStart:
                 $chatlist.append("sados")
                 
               elif day == "Thu":
-                $chatlist.append("xmorph97")
+                $chatlist.append("ashley")
                 $chatlist.append("finley")
-                $chatlist.append("s0phie")
+                $chatlist.append("sophie")
                 
               elif day == "Fri":
                 $chatlist.append("p_adams")

@@ -1,10 +1,13 @@
 label obs_1014:
+
+  play music "music/lola.mp3" fadein 2.0 loop
+
   python:
     questions = {
       "WORK" : "What do you like most about your work?",
       "DEATH" : "What would you do today if you were going to die tomorrow?",
-      "LOVE" : "What is love?"
-      "SEX" : "How do you feel about sex?"
+      "LOVE" : "What is love?",
+      "SEX" : "How do you feel about sex?",
       "HUMAN" : "Are you human?"
     }
 
@@ -75,12 +78,15 @@ label obs_1014Start:
         elif cmd.upper() == "REPORT":
             if len(args) == 1:
                 # Correct input
+                stop music fadeout 4.0
                                 
                 if args[0].upper() == "HUMAN":
                     # Human Report
                     $desc = "You reported " + target.getId() + " as human.  Press {b}ENTER{/b} to return to the chat menu."
                     $say()
                     $flush_input()
+                    
+                    play music "music/bg0.mp3" fadein 2.0 loop
                     $target.reportAsHuman(True)
                     $lolaHuman = 1
                     nvl clear
@@ -91,6 +97,8 @@ label obs_1014Start:
                     $desc = "You reported " + target.getId() + " as AI.  Press {b}ENTER{/b} to return to the chat menu."
                     $say()
                     $flush_input()
+                    
+                    play music "music/bg0.mp3" fadein 2.0 loop
                     $target.reportAsHuman(False)
                     $lolaHuman = -1
                     nvl clear

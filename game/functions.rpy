@@ -335,16 +335,3 @@ init 0 python:
                     return colourList[selected]
                 else:
                     selected = randint(0, len(colourList)-1)
-
-
-###
-### display_username()
-###
-    def display_username():
-        global username
-        if day == "Mon":
-            term("{cps=125}Last user logged onto this computer was: 'brando395'{/cps}")
-        else:
-            term("{cps=125}Last user logged onto this computer was: '" + username + "'{/cps}")
-        return
-

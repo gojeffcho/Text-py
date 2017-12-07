@@ -3,8 +3,8 @@ label elle:
     questions = {
       "WORK" : "What do you like most about your work?",
       "DEATH" : "What would you do today if you were going to die tomorrow?",
-      "LOVE" : "What is love?"
-      "SEX" : "How do you feel about sex?"
+      "LOVE" : "What is love?",
+      "SEX" : "How do you feel about sex?",
       "HUMAN" : "Are you human?"
     }
 

@@ -1,4 +1,4 @@
-label s0phie:
+label sophie:
   python:
     questions = {
       "EGGS" : "What kind of eggs do you use to make an omlette?",
@@ -27,10 +27,10 @@ label s0phie:
     }
 
     usercolor = random_colour()
-    target = Chat("s0phie", 1, random_colour(), questions, answers, followupQ, followupA)
+    target = Chat("sophie", 1, random_colour(), questions, answers, followupQ, followupA)
     target.start()
 
-label s0phieStart:
+label sophieStart:
 
     $expected = ["LOOK", "L", "HELP", "?"]
     if target.getAsked():
@@ -62,7 +62,7 @@ label s0phieStart:
             if len(args) == 0:
                 $flush_input()
                 nvl clear
-                jump s0phieStart
+                jump sophieStart
             else:
                 $has_args()
                 
