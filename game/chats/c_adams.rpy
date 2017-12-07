@@ -109,6 +109,27 @@ label p_adams:
         "SUSPICION1" : "Again, I do apologize for my behavior."
       }        
     
+    elif day == "Fri":
+      questions = {
+        "START" : "Did you need something, Mr. Adams?",
+        "END" : "If there's nothing else, I should get on with my screenings."
+      }
+
+      answers = {
+        "START": "I just wanted to let you know that we're upgrading the 10-14 software to 10-24 over the weekend. 10-14 will be one of your candidates today as a result for disposal; just a formality, report it as AI when it comes up.",
+        "END" : "Sounds good. Enjoy the rest of your day!"
+      }
+
+      followupQ = { 
+        "START1" : "Understood, easy enough to do.",
+        "START2" : "I like the 10-14 AI, is there any other option?"
+      }
+
+      followupA = { 
+        "START1" : "Excellent, I knew I could count on you.",
+        "START2" : "I'm afraid not, and I'd be careful about saying that you 'like' an AI around here."
+      }   
+    
     # global usercolor
     usercolor = random_colour()
     target = Chat("p_adams", 0, random_colour(), questions, answers, followupQ, followupA)
@@ -177,6 +198,9 @@ label p_adamsStart:
                 # Exploit was installed
                 else:
                     call spam92
+                    
+              elif day == "Fri":
+                $chatlist.append("sera")
                     
               
               

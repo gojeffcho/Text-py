@@ -145,16 +145,16 @@ label sheep_1014:
         "RESISTANCE": "What do you think about the Resistance?",
         "OFF": "Do you know what happens when AI are shut down?",
         "FEELINGS" : "I hear a lot that AI don't have feelings, but sometimes, it seems like you have feelings." ,
-        "END" : "I'll talk to you later, " + lolaName + "."
+        "END" : "I'll talk to you later, " + lolaName + ". Mr. Adams have overridden your candidate list for today, so he should load them for you after you talk to him."
       }
 
       answers = {
         "START": "Hello, " + username + "! I have a good feeling about today, I hope you do too. ^_^",
         "QUESTIONS": """Today's questions are:
-  {b}WORK{/b}: Do you like your work?
+  {b}WORK{/b}: What do you like most about your work?
   {b}DEATH{/b}: What would you do today if you were going to die tomorrow?
   {b}LOVE{/b}: What is love?
-  {b}SEX{/b}: Do you enjoy sex?
+  {b}SEX{/b}: How do you feel about sex?
   {b}HUMAN{/b}: Are you human?""",
         "RESISTANCE": "I think their methods may be a little unsettling, but I understand they are fighting for what they believe. I think beliefs are important.",
         "OFF": "I've heard stories that it gets really dark and really cold. I've never felt cold before. It's strange to think about. And sad.",
@@ -246,6 +246,9 @@ label lolaStart:
                 $chatlist.append("xmorph97")
                 $chatlist.append("finley")
                 $chatlist.append("s0phie")
+                
+              elif day == "Fri":
+                $chatlist.append("p_adams")
             
               nvl clear
               jump chat
