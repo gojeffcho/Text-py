@@ -18,6 +18,7 @@ label setup_tue:
 label setup_wed:
 
   $chatlist.append("sheep_1014")
+  call news5
   call info5 from _call_info5
   call misc22
   jump mainscreen
@@ -31,6 +32,7 @@ label setup_thu:
 # Set the scene for Day 5  
 label setup_fri:
 
-  jump demo_end   # DEBUG
+#   jump demo_end   # DEBUG
+  $chatlist.append("sheep_1014")
   jump mainscreen
 

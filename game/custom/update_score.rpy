@@ -9,6 +9,9 @@ label update_score:
       $exploited += 1
       $prevexploited = True
       $todayexploited = False
+      
+    if (right + wrong) == 0:
+      $right = 1
 
     $room = "Review"
     $update_roomlabel()

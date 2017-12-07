@@ -80,7 +80,7 @@ label chat:
                       if chat == "sheep_1014":
                         s += "Assistant bot on standby.\n"
                       elif chat == "p_adams":
-                        s += "Supervisor wishes to chat with you."
+                        s += "Supervisor wishes to chat with you.\n"
                       else:
                         s += "Candidate ready for screening\n"
                     s += "{/cps}"

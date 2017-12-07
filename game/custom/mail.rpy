@@ -139,6 +139,8 @@ label mail:
                       
                       if key.upper() == "INFO3":
                         $chatlist.append("max")
+                      elif key.upper() == "NEWS5":
+                        $chatlist.append("p_adams")
                       
                       # Install backdoor app
                       if key.upper() == "SPAM87":
@@ -153,6 +155,8 @@ label mail:
                             $say()
                             
                             $del emaillist[key]
+                            if day == "Tue":
+                              $chatlist.append("dakota")
                             $flush_input()
                             nvl clear
                             jump mail
@@ -163,6 +167,8 @@ label mail:
                             $say()
                             
                             $del emaillist[key]
+                            if day == "Tue":
+                              $chatlist.append("dakota")                
                             $flush_input()
                             nvl clear
                             jump mail

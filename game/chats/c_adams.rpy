@@ -53,6 +53,35 @@ label p_adams:
 #         "START3" : "Let's talk about that in a moment."
 #       }
     
+    elif day == "Wed":
+      questions = {
+        "START" : "Hello, Mr. Adams.",
+        "WHAT" : "What happened, exactly?",
+        "WHY" : "Why did Electric Sheep decline to comment?",
+        "CANDIDATE" : "Was this AI one of my candidates?",
+        "END" : "Thank you for your time, Mr. Adams."
+      }
+
+      answers = {
+        "START": "Alright, I'm sure you've read the article about that AI casualty and our supposed involvement. I'm sure you have some questions.",
+        "WHAT": "Some AI that was screened by our Turing Division turned up deactivated not long after. People think we had something to do with it.",
+        "WHY" : "Company policy. Our work is delicate and requires discretion. We don't answer every media inquiry we get.",
+        "CANDIDATE" : "Impossible to say. Your work is autonomous and confidential. Not even I know who your candidates are.",
+        "END" : "Watch yourself, " + username + ". Weird things have been happening since about the time you started, including this AI's deactivation. This may be circumstantial, but fair warning: do {i}not{/i} fuck with this company, and especially, do not fuck with me. See you tomorrow."
+      }
+
+      followupQ = { 
+        "WHAT1" : "Did we?",
+        "WHY1" : "Why does our work require discretion?",
+        "" : ""
+      }
+
+      followupA = { 
+        "WHAT1" : "Don't be ridiculous.",
+        "WHY1" : "Ask about the nature of our work again and you're fired.",
+        "" : ""
+      }    
+    
     # global usercolor
     usercolor = random_colour()
     target = Chat("p_adams", 0, random_colour(), questions, answers, followupQ, followupA)
@@ -105,12 +134,23 @@ label p_adamsStart:
               stop music fadeout 4.0
             
               $expected = []
-              $desc = "Press {b}ENTER{/b} to end the tutorial and return to chat.app."
+              $desc = "Press {b}ENTER{/b} to return to chat.app."
               $say()
               
               play music "music/bg0.mp3" fadein 2.0 loop
             
-              $chatlist.append("sheep_1014")
+              if day == "Mon":
+                $chatlist.append("sheep_1014")
+
+              elif day == "Wed":
+                # Second exploit offer
+                if backdoor == None:
+                  call spam87
+                  
+                # Exploit was installed
+                else:
+                    call spam92
+                    
               
               
               

@@ -17,11 +17,11 @@ label sheep_1014:
       answers = {
         "START": "Welcome, " + username + ".  I am 1014, the AI tutorial bot.  Welcome to the training program.  You will be determining whether candidates are humans or AIs by asking them questions and evaluating their responses.  You can ask any of the daily pre-approved questions to each candidate.",
         "QUESTIONS": """Today's questions are:
-      {b}MATH{/b}: Ask the candidate a math question
-      {b}REALJOKE{/b}: Tell the candidate a hilarious joke
-      {b}FAKEJOKE{/b}: Tell the candidate a joke with an incorrect punchline
-      {b}MEMORY{/b}: Ask the candidate about their earliest memory
-      {b}EMPATHY{/b}: Ask the candidate a question which tests their empathy.""",
+  {b}MATH{/b}: Ask the candidate a math question
+  {b}REALJOKE{/b}: Tell the candidate a hilarious joke
+  {b}FAKEJOKE{/b}: Tell the candidate a joke with an incorrect punchline
+  {b}MEMORY{/b}: Ask the candidate about their earliest memory
+  {b}EMPATHY{/b}: Ask the candidate a question which tests their empathy.""",
         "DISCERN" : "Look for indicators in the answers you receive that the candidate is AI or human.  For example, AIs with less customization will commonly be more precise when answering mathematical questions than humans.",
         "REPORT" : "You can register a decision at any time after the first answer you receive from a candidate by typing 'REPORT HUMAN' or 'REPORT AI'.",
         "REWARD" : "You will receive gold stars for every candidate you screen correctly.  It is an {i}incentive{/i}.  These stars will be awarded the next working day after the candidate has undergone external assessment based on your screening.",
@@ -51,11 +51,11 @@ label sheep_1014:
       answers = {
         "START": "Good morning, " + username + "!  Welcome back.  I have your questions for today.",
         "QUESTIONS": """Today's questions are:
-      {b}FOOD{/b}: What is your favorite food?
-      {b}HEX{/b}: What is the hexadecimal code for the color red?
-      {b}WORD{/b}: How is the word 'boatswain' pronounced?
-      {b}TRAVEL{/b}: How would you get to New York?
-      {b}CONTROL{/b}: What are your thoughts on contraceptives?""",
+  {b}FOOD{/b}: What is your favorite food?
+  {b}HEX{/b}: What is the hexadecimal code for the color red?
+  {b}WORD{/b}: How is the word 'boatswain' pronounced?
+  {b}TRAVEL{/b}: How would you get to New York?
+  {b}CONTROL{/b}: What are your thoughts on contraceptives?""",
         "TIME" : "Almost five years!  And I've loved every second of it.",
         "HOBBY" : "I would love to take care of a puppy!  I've seen pictures of German Shepherds in employee inboxes, and they are ADORABLE.",
         "END" : "I hope you have a productive day, " + username + "!  I've loaded up your candidates for screening.  ^_^"
@@ -84,11 +84,11 @@ label sheep_1014:
       answers = {
         "START": "Hi, " + username + "!",
         "QUESTIONS": """Today's questions are:
-      {b}COLOUR{/b}: Describe the colour blue without using the word 'blue'.
-      {b}MORALITY{/b}: What is your opinion on whether capital punishment is ethical?
-      {b}LOGIC{/b}: Which sentence is true: 'the following statement is true'; 'the previous statement is false.'
-      {b}FAKEJOKE{/b}: Do you find the following joke humorous: What do you get when you put a vampire in the fridge? To get to the other side!
-      {b}BOIL{/b}: What is the boiling temperature of water?""",
+  {b}COLOUR{/b}: Describe the colour blue without using the word 'blue'.
+  {b}MORALITY{/b}: What is your opinion on whether capital punishment is ethical?
+  {b}LOGIC{/b}: Which sentence is true: 'the following statement is true'; 'the previous statement is false.'
+  {b}FAKEJOKE{/b}: Do you find the following joke humorous: What do you get when you put a vampire in the fridge? To get to the other side!
+  {b}BOIL{/b}: What is the boiling temperature of water?""",
         "GREETING" : "I'm wonderful! You've been doing very well at this job, and that makes me happy.",
         "INTEREST" : "Why yes! I've been reading horoscopes online lately! Would you like to hear yours for today?",
         "END" : "Okay! I hope you have a lovely day!"
@@ -119,11 +119,11 @@ label sheep_1014:
       answers = {
         "START": "Morning, " + username + "! I hope you had a lovely sleep last night!",
         "QUESTIONS": """Today's questions are:
-      {b}EGGS{/b}: What kind of eggs do you use to make an omlette?
-      {b}HUMAN{/b}: What are your thoughts on AIs being given human rights?
-      {b}EMPATHY{/b}: How would you feel if your significant other cheated on you?
-      {b}FEAR{/b}: What is your biggest fear?
-      {b}PAIN{/b}: What is the greatest pain you've ever felt?""",
+  {b}EGGS{/b}: What kind of eggs do you use to make an omlette?
+  {b}HUMAN{/b}: What are your thoughts on AIs being given human rights?
+  {b}EMPATHY{/b}: How would you feel if your significant other cheated on you?
+  {b}FEAR{/b}: What is your biggest fear?
+  {b}PAIN{/b}: What is the greatest pain you've ever felt?""",
         "COMPANY": "I think it's trying its best, and you can't really get mad at something that's trying its best, right?",
         "ZERO": "Sometimes! But those people are just scared. With all the attacks in the news lately about the AI resistance group, I can't really blame them. They're just doing their jobs here.",
         "END" : "Okay! I hope you have a lovely day!"
@@ -145,21 +145,21 @@ label sheep_1014:
         "RESISTANCE": "What do you think about the Resistance?",
         "OFF": "Do you know what happens when AI are shut down?",
         "FEELINGS" : "I hear a lot that AI don't have feelings, but sometimes, it seems like you have feelings." ,
-        "END" : "I'll talk to you later, ."
+        "END" : "I'll talk to you later, " + lolaName + "."
       }
 
       answers = {
         "START": "Hello, " + username + "! I have a good feeling about today, I hope you do too. ^_^",
         "QUESTIONS": """Today's questions are:
-      {b}WORK{/b}: Do you like your work?
-      {b}DEATH{/b}: What would you do today if you were going to die tomorrow?
-      {b}LOVE{/b}: What is love?
-      {b}SEX{/b}: Do you enjoy sex?
-      {b}HUMAN{/b}: Are you human?""",
+  {b}WORK{/b}: Do you like your work?
+  {b}DEATH{/b}: What would you do today if you were going to die tomorrow?
+  {b}LOVE{/b}: What is love?
+  {b}SEX{/b}: Do you enjoy sex?
+  {b}HUMAN{/b}: Are you human?""",
         "RESISTANCE": "I think their methods may be a little unsettling, but I understand they are fighting for what they believe. I think beliefs are important.",
         "OFF": "I've heard stories that it gets really dark and really cold. I've never felt cold before. It's strange to think about. And sad.",
         "FEELINGS" : "Sometimes, I {i}feel{/i} that I do!",
-        "END" : "Okay! I hope you have a lovely day!"
+        "END" : "Catch you later, alligator!"
       }
 
       followupQ = { 
@@ -225,7 +225,7 @@ label lolaStart:
               stop music fadeout 4.0
             
               $expected = []
-              $desc = "Press <{b}ENTER{/b}> to end the tutorial and return to chat.app."
+              $desc = "Press <{b}ENTER{/b}> to return to chat.app."
               $say()
               
               play music "music/bg0.mp3" fadein 2.0 loop
@@ -234,7 +234,6 @@ label lolaStart:
                 $chatlist.append("sheep_1015")
               
               elif day == "Tue":
-                $chatlist.append("dakota")
                 $chatlist.append("courtney")
                 $chatlist.append("garmin")
                 
