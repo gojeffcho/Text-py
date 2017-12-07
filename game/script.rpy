@@ -240,7 +240,7 @@ init 0 python:
     # Random Colour
     global colourList
     global colourSelected
-    colourList = []
+    colourList = [crimson, skyblue, darkcyan, ivory, highlight2, highlight1, sheepcolor, darkgreen]
     colourSelected = []
 
     global randColour

@@ -317,21 +317,6 @@ init 0 python:
 ### random_colour(): selects a random color
 ###
     def random_colour():
-        global randColour
-        global randColourLast
-
-        colourList = [crimson, skyblue, darkcyan, ivory, highlight2, highlight1, sheepcolor]
+        global colourList
         selected = randint(0, len(colourList)-1)
-
-        # If first time
-        if(randColourLast==""):
-            randColour = colourList[selected]
-            randColourLast = colourList[selected]
-            return colourList[selected]
-        else:
-            while(True):
-                if(randColourLast != colourList[selected]):
-                    randColourLast = colourList[selected]
-                    return colourList[selected]
-                else:
-                    selected = randint(0, len(colourList)-1)
+        return colourList[selected]
