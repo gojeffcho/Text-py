@@ -277,6 +277,7 @@ label start:
     # DEBUG START        
     $day = "Wed"
     play music "music/bg0.mp3" fadein 2.5 loop
+    $backdoor = True
     jump expression daysetup[day]
     
 #     $chatlist.append("p_adams")

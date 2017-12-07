@@ -141,6 +141,8 @@ label mail:
                         $chatlist.append("max")
                       elif key.upper() == "NEWS5":
                         $chatlist.append("p_adams")
+                      elif key.upper() == "SPAM92":
+                        $del emaillist[key]
                       
                       # Install backdoor app
                       if key.upper() == "SPAM87":
