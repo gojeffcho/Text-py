@@ -101,7 +101,7 @@ label sheep_1014:
       }
 
       followupA = { 
-        "QUESTIONS1" : """{b}COLOUR{/b} will be better understood by human respondents; {b}MORALITY{/b} may show a lack of empathy from AIs; {b}LOGIC{/b} will out AIs who cannot handle logic loops; {b}FAKEJOKE{/b} will not be found funny by humans; and {b}BOIL{/b} will get precise answers from AI.""",
+        "QUESTIONS1" : """{b}COLOUR{/b} will be better understood by human respondents; {b}MORALITY{/b} may show a lack of empathy from AIs; {b}LOGIC{/b} will out AIs who cannot handle logic loops; {b}FAKEJOKE{/b} will not be found funny by humans; and {b}BOIL{/b} is a general knowledge question.""",
         "GREETING1" : "I am automated to make your experience a comfortable one through interactions with realistic AI. Really though, I believe I'm quite happy all the time ^_^",
         "INTEREST1" : "'The stars align and show good judgement coming your way! Your choices will shape your future. Also, you're super fertile right now!' I hope that was accurate." 
       }
