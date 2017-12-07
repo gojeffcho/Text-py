@@ -237,6 +237,11 @@ init 0 python:
     colourList = []
     colourSelected = []
 
+    global randColour
+    global randColourLast
+    randColour = ""
+    randColourLast = ""
+
 
     ######################
     ### GAME VARIABLES ###
