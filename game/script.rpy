@@ -109,6 +109,8 @@ init 0 python:
     # Track Lola's name for display in chat
     global lolaName
     lolaName = "10-14"
+    global lolaHuman
+    lolaHuman = None
     
     # Colors
     global usercolor

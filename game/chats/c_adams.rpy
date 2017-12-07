@@ -201,6 +201,7 @@ label p_adamsStart:
                     
               elif day == "Fri":
                 $chatlist.append("sera")
+                $chatlist.append("obs_1014")
                     
               
               
