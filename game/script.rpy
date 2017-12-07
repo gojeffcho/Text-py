@@ -106,6 +106,10 @@ init 0 python:
     global displayname
     displayname = "logged out"
     
+    # Track Lola's name for display in chat
+    global lolaName
+    lolaName = "10-14"
+    
     # Colors
     global usercolor
     usercolor = "ff1493"  # default user color
@@ -266,11 +270,12 @@ label start:
     scene bg black
 
     # DEBUG START        
-#     $day = "Mon"
-#     play music "music/bg0.mp3" fadein 2.5 loop
+    $day = "Thu"
+    play music "music/bg0.mp3" fadein 2.5 loop
+    jump expression daysetup[day]
+    
 #     $chatlist.append("p_adams")
 #     jump mainscreen
-#     $day = "Mon"
 #     jump exploit
 
 

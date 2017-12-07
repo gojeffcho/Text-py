@@ -74,7 +74,7 @@ label sheep_1014:
     elif day == "Wed":
 
       questions = {
-        "START" : "Good morning, 10-14.",
+        "START" : "Hello, 10-14.",
         "QUESTIONS" : "What are today's questions?",
         "GREETING" : "How are you today, 10-14?",
         "INTEREST" : "Seen anything interesting around the office lately?",
@@ -82,7 +82,7 @@ label sheep_1014:
       }
 
       answers = {
-        "START": "Hi, " + username + ", it's good to see you again!",
+        "START": "Hi, " + username + "!",
         "QUESTIONS": """Today's questions are:
       {b}COLOUR{/b}: Describe the colour blue without using the word 'blue'.
       {b}MORALITY{/b}: What is your opinion on whether capital punishment is ethical?
@@ -111,24 +111,65 @@ label sheep_1014:
       questions = {
         "START" : "Good morning, 10-14.",
         "QUESTIONS" : "What are today's questions?",
-        "END" : "That's all for now."
+        "COMPANY": "What are your opinions about this company?",
+        "ZERO": "I don't mean to sound harsh by asking this, but has anyone ever called you a 'zero' around here?",
+        "END" : "I better get to work, " + lolaName + "."
       }
 
       answers = {
-        "START": "Hi, " + username + ", it's good to see you again!",
+        "START": "Morning, " + username + "! I hope you had a lovely sleep last night!",
         "QUESTIONS": """Today's questions are:
       {b}EGGS{/b}: What kind of eggs do you use to make an omlette?
       {b}HUMAN{/b}: What are your thoughts on AIs being given human rights?
       {b}EMPATHY{/b}: How would you feel if your significant other cheated on you?
       {b}FEAR{/b}: What is your biggest fear?
       {b}PAIN{/b}: What is the greatest pain you've ever felt?""",
+        "COMPANY": "I think it's trying its best, and you can't really get mad at something that's trying its best, right?",
+        "ZERO": "Sometimes! But those people are just scared. With all the attacks in the news lately about the AI resistance group, I can't really blame them. They're just doing their jobs here.",
         "END" : "Okay! I hope you have a lovely day!"
       }
 
       followupQ = { 
+        "ZERO1": "I'm guessing you don't like to be called a 'zero'?"
       }
 
       followupA = { 
+        "ZERO1": "I don't mind it so much! There are worse things someone could do to an AI then call it mean names. But if I could choose, I would want to be called Lola. ^_^"
+      }
+      
+    elif day == "Fri":
+
+      questions = {
+        "START" : "Hello again, " + lolaName + ".",
+        "QUESTIONS" : "What's the approved list for today?",
+        "RESISTANCE": "What do you think about the Resistance?",
+        "OFF": "Do you know what happens when AI are shut down?",
+        "FEELINGS" : "I hear a lot that AI don't have feelings, but sometimes, it seems like you have feelings." ,
+        "END" : "I'll talk to you later, ."
+      }
+
+      answers = {
+        "START": "Hello, " + username + "! I have a good feeling about today, I hope you do too. ^_^",
+        "QUESTIONS": """Today's questions are:
+      {b}WORK{/b}: Do you like your work?
+      {b}DEATH{/b}: What would you do today if you were going to die tomorrow?
+      {b}LOVE{/b}: What is love?
+      {b}SEX{/b}: Do you enjoy sex?
+      {b}HUMAN{/b}: Are you human?""",
+        "RESISTANCE": "I think their methods may be a little unsettling, but I understand they are fighting for what they believe. I think beliefs are important.",
+        "OFF": "I've heard stories that it gets really dark and really cold. I've never felt cold before. It's strange to think about. And sad.",
+        "FEELINGS" : "Sometimes, I {i}feel{/i} that I do!",
+        "END" : "Okay! I hope you have a lovely day!"
+      }
+
+      followupQ = { 
+        "RESISTANCE1" : "Do you believe in anything?",
+        "FEELINGS1" : "Would you consider me a friend?"
+      }
+
+      followupA = { 
+        "RESISTANCE1" : "I believe in the cuteness of the German Shepherd pupppy pictures circulating through company inboxes. ^_^",
+        "FEELINGS1" : "Of course! The very best of them, " + username + "."
       }
 
     # Instantiate the chatbot
