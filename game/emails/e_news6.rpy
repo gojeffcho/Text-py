@@ -9,8 +9,8 @@ label news6:
     
     rx = username[:5] + "713@electricsheep.ca"
   
-    text = """Q: Mr. Adams, it's been posited that your company
-was involved in the death of an AI.
+    text = """Q: Mr. Adams, it's been posited that your 
+company was involved in the death of an AI.
 A: There have been many allegations. We're doing
 everything we can to prevent false statements
 from circulating.

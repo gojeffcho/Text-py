@@ -139,7 +139,7 @@ label mail:
                       
                       if key.upper() == "INFO3":
                         $chatlist.append("max")
-                      elif key.upper() == "NEWS5" or key.upper() == "ATTK8":
+                      elif key.upper() == "NEWS5" or key.upper() == "NEWS6":
                         $chatlist.append("p_adams")
                       elif key.upper() == "SPAM92":
                         $del emaillist[key]

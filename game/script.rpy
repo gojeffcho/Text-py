@@ -275,7 +275,7 @@ label start:
     scene bg black
 
     # DEBUG START        
-    $day = "Wed"
+    $day = "Thu"
     play music "music/bg0.mp3" fadein 2.5 loop
     $backdoor = True
     jump expression daysetup[day]
