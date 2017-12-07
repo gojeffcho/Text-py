@@ -27,6 +27,8 @@ label setup_wed:
 label setup_thu:
 
   $chatlist.append("sheep_1014")
+  call news6
+  call attk8
   jump mainscreen
 
 # Set the scene for Day 5  

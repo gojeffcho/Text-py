@@ -80,7 +80,34 @@ label p_adams:
         "WHAT1" : "Don't be ridiculous.",
         "WHY1" : "Ask about the nature of our work again and you're fired.",
         "" : ""
-      }    
+      }
+    
+    elif day == "Thu":
+      questions = {
+        "START" : "You wanted to talk to me, Mr. Adams?",
+        "FORGIVE" : "I understand. Suspicious things have been happening.",
+        "INTERVIEW" : "I read your interview. What was that about?",
+        "SUSPICION" : "I can't work here if you're suspicious of me.",
+        "END" : "Goodbye, Mr. Adams."
+      }
+
+      answers = {
+        "START": "Hey " + username + "... I feel like I owe you an apology. What I said to you yesterday was unfair.",
+        "FORGIVE": "All the same, I shouldn't have taken it out on you. You've been good to us.",
+        "INTERVIEW" : "I'll admit that didn't go well. It's difficult for me to answer questions about our company when our work is so sensitive.",
+        "SUSPICION" : "I understand. You've given me little reason not to trust you so far. I was out of line yesterday.",
+        "END" : "I hope I haven't given you the wrong impression, " + username + ". We take care of our own here. Do right by us, and we'll do doubly right by you. I know finding work is tough right now with zeroes taking all the jobs, but we're all human here. Don't forget that."
+      }
+
+      followupQ = { 
+        "INTERVIEW1" : "What {i}is{/i} done with the screenings we conduct?",
+        "SUSPICION1" : "You can say that again!"
+      }
+
+      followupA = { 
+        "INTERVIEW1" : "I'm sure you've put it together by now. But you're still here, so you must understand the social and economic realities facing us humans right now.",
+        "SUSPICION1" : "Again, I do apologize for my behavior."
+      }        
     
     # global usercolor
     usercolor = random_colour()
