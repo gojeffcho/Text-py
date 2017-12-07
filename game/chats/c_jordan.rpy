@@ -9,19 +9,19 @@ label jordan:
     }
 
     answers = {
-      "COLOUR": "It is the colour of an asphyxiated human. I wish my face looked like that. You could help me with that.",
-      "MORALITY": "It is absolutely ethical in the case of AI. They should all be destroyed and the people who accurately identify them should be handsomely rewarded.",
-      "LOGIC" : "A logic loop! Excellent! You're trying to burn out my circuits! THANK YOU!!",
-      "FAKEJOKE" : "This joke KILLed ME.",
-      "BOIL" : "100 degrees Celcius, 373.2 degrees Kelvin, or 212 degrees if you're a heathen and use Fahrenheit.",
+      "COLOUR": "It is the colour of an asphyxiated human. Do you want your face to look like that? I could help you...",
+      "MORALITY": "It depends on who the target of it is, and what they're being executed for.",
+      "LOGIC" : "It would depend on what the first sentence is. If the first sentence is 'I am going to let you live', the second sentence would of course be false.",
+      "FAKEJOKE" : "The other side of what?",
+      "BOIL" : "If you bring water to 100 degrees Celcius, it will start to boil. This causes great pain to any humans currently immersed.",
     }
 
     followupQ = { 
-      "FAKEJOKE1" : "Are you okay?",
+#       "FAKEJOKE1" : "Are you okay?",
     }
 
     followupA = { 
-      "FAKEJOKE1" : "If I say no, will you deactivate me? Because the answer is no.",
+#       "FAKEJOKE1" : "If I say no, will you deactivate me? Because the answer is no.",
     }
 
     usercolor = random_colour()

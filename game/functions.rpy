@@ -295,9 +295,9 @@ init 0 python:
         else:
             hacked = False
 
-###
-### random_colour(): selects random color from a list
-###
+###     DEPRECATED
+### random_colour_old(): selects random color from a list
+###                          
     def random_colour_old():
         global colourList
         global colourSelected
@@ -347,3 +347,4 @@ init 0 python:
         else:
             term("{cps=125}Last user logged onto this computer was: '" + username + "'{/cps}")
         return
+

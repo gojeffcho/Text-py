@@ -275,7 +275,11 @@ init -1 python:
           renpy.music.play("music/rx.ogg", channel="sound")
           say()
           
-    
+        # Check for Lola name update
+        if self.__id == "sheep_1014" and q == "ZERO1":
+          global lolaName
+          lolaName = "Lola"
+          self.__questions["END"] = "I better get to work, Lola."
     
     
     

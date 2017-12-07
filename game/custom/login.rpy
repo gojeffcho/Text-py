@@ -785,7 +785,14 @@ Please type {b}login <username>{/b} to log in, or {b}help{/b} for a list of avai
             $help()
         
         elif cmd.upper() == "LAST":
-            $display_username()
+            $flush_input
+            $desc =  "{cps=125}Last user logged onto this computer was: '"
+            if day == "Mon":
+              $desc += "brando466"
+            else:
+              $desc += username
+            $desc += "'{/cps}"
+            $say()
         
         elif cmd.upper() == "LOGIN":
             if len(args) == 1:
