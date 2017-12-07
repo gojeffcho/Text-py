@@ -34,6 +34,8 @@ init -1 python:
     def __init__(self, id, isHuman, color, questions, answers, followupQ, followupA):
       self.__id = id
       self.__isHuman = isHuman
+      while(usercolor == color):
+        color = random_colour()
       self.__color = color
       self.__questions = questions
       self.__asked = []
