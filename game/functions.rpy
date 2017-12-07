@@ -295,10 +295,10 @@ init 0 python:
         else:
             hacked = False
 
-###
-### random_colour(): selects random color from a list
-###
-    def random_colour():
+###     DEPRECATED
+### random_colour_old(): selects random color from a list
+###                          
+    def random_colour_old():
         global colourList
         global colourSelected
         colourList = [crimson, skyblue, darkcyan, ivory, highlight2, highlight1, sheepcolor]
@@ -312,3 +312,39 @@ init 0 python:
 
         colourSelected.append(colourList[selected])
         return colourList[selected]
+
+###
+### random_colour(): selects a random color
+###
+    def random_colour():
+        global randColour
+        global randColourLast
+
+        colourList = [crimson, skyblue, darkcyan, ivory, highlight2, highlight1, sheepcolor]
+        selected = randint(0, len(colourList)-1)
+
+        # If first time
+        if(randColourLast==""):
+            randColour = colourList[selected]
+            randColourLast = colourList[selected]
+            return colourList[selected]
+        else:
+            while(True):
+                if(randColourLast != colourList[selected]):
+                    randColourLast = colourList[selected]
+                    return colourList[selected]
+                else:
+                    selected = randint(0, len(colourList)-1)
+
+
+###
+### display_username()
+###
+    def display_username():
+        global username
+        if day == "Mon":
+            term("{cps=125}Last user logged onto this computer was: 'brando395'{/cps}")
+        else:
+            term("{cps=125}Last user logged onto this computer was: '" + username + "'{/cps}")
+        return
+
