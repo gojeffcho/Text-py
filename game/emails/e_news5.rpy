@@ -10,18 +10,18 @@ label news5:
     rx = username[:5] + "713@electricsheep.ca"
   
     text = """New evidence has come forward in the case of
-Dakota Rosen, an AI found inactive last night.
+Max Rosen, found dead Monday night.
 
-Rosen was found collapsed in the street last
-evening with no evidence of trauma to their 
-frame. Emergency IT specialists' attempts to
-jump-start their battery proved unsucessful.
+Rosen was found in their apartment bathtub,
+apparently electrocuted via toaster. The death
+was ruled suspicious after forensic technicians
+discovered that the sockets were faulty and
+unlikely to carry a lethal current.
 
-Police analysis of Rosen's black box revealed a
-transcript from an earlier conversation with
-Electric Sheep Inc. followed by a remote 
-deactivation command from an unidentified 
-source. Electric Sheep declined to comment."""
+Analysis of Rosen's computer revealed a chat
+with Electric Sheep's Turing Division hours
+before the approximate time of death. Turing
+Division head Philip Adams declined to comment."""
   
     email = Email(key, subj, tx, rx, text)
     emaillist[key] = email
