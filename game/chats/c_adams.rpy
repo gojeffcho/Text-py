@@ -178,8 +178,8 @@ label p_adamsStart:
                     
               elif day == "Fri":
                 $adamsFinal = True
-                $chatlist.append("sera")
-                $chatlist.append("obs_1014")
+                $lolaFinal = True
+                call news9
                     
               
               

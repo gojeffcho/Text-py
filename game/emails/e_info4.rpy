@@ -13,8 +13,8 @@ label info4:
 discriminatory to call humans 'ones' and AIs 
 'zeroes'.
 
-45% of respondents said that calling humans 
-'ones' was empowering, and 60% said that 
+28% of respondents said that calling humans 
+'ones' was empowering, and 66% said that 
 calling AIs 'zeroes' marginalized them. The 
 terms were coined in 2017 by Electric Sheep Inc. 
 during their public image reparation campaign.

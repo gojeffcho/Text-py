@@ -36,6 +36,5 @@ label setup_fri:
 
 #   jump demo_end   # DEBUG
   $chatlist.append("sheep_1014")
-  call news9 from _call_news9
   jump mainscreen
 

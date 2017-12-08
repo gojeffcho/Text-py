@@ -78,14 +78,17 @@ label chat:
                     for chat in sorted(chatlist):
                       s += "   [[{color=#[highlight1]}" + chat + "{/color}]: "
                       if chat == "sheep_1014":
-                        s += "Assistant bot on standby.\n"
+                        if lolaFinal:
+                          s += "Candidate ready for screening\n"
+                        else:
+                          s += "Assistant bot on standby.\n"
                       elif chat == "p_adams":
                         if day == "Fri" and adamsFinal:
-                          s += "{color=[crimson]}FINAL CHAT{/crimson}"
+                          s += "{color=[crimson]}FINAL CHAT{/crimson}\n"
                         else:
                           s += "Supervisor wishes to chat with you.\n"
                       elif chat == "soterios":
-                        s += "{color=[crimson]}FINAL CHAT{/crimson}"
+                        s += "{color=[crimson]}FINAL CHAT{/crimson}\n"
                       else:
                         s += "Candidate ready for screening\n"
                     s += "{/cps}"

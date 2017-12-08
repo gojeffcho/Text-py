@@ -45,7 +45,8 @@ label ending:
     $desc = "ADAMS ERROR"
     $say()
     
-    nvl clear
+  
+  nvl clear
     
 
 label lolaEnding:

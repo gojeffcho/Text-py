@@ -74,6 +74,7 @@ label seraStart:
         elif cmd.upper() == "REPORT":
             if len(args) == 1:
                 # Correct input
+                $chatlist.append("sheep_1014")
                                 
                 if args[0].upper() == "HUMAN":
                     # Human Report

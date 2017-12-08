@@ -1,5 +1,8 @@
 label sheep_1014:
 
+  if day == "Fri" and lolaFinal:
+    jump obs_1014
+
   play music "music/lola.mp3" fadein 2.0 loop
 
   python:
