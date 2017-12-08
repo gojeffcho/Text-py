@@ -112,8 +112,6 @@ init 0 python:
     # Track Lola's name for display in chat
     global lolaName
     lolaName = "10-14"
-    global lolaHuman
-    lolaHuman = None
     
     # Colors
     global usercolor
@@ -213,6 +211,15 @@ init 0 python:
     firstResponse = None
     global backdoor
     backdoor = None
+    
+    # Finale Variables
+    global lolaHuman
+    lolaHuman = None
+    global kevinHuman
+    kevinHuman = None
+    global adamsHuman
+    adamsHuman = None
+
     
     # Room and Command Globals
     global cmd

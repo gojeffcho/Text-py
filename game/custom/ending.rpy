@@ -128,29 +128,32 @@ label credits:
   # CREDITS
   $desc = "                        {size=40}TEAM JEFF{/size}{nw}"
   $say()
-  
-  $desc = """                      {b}Writing{/b}:
+
+  $desc = """                      {b}Producer{/b}:
+                              Jeff Cho {nw}"""
+  $say()
+
+  $desc = """                      {b}Writers{/b}:
                               Shelby Carleton
-                              Jeff Cho
                               Maddy Hebert
                               Aidan Herron {nw}"""
   $say()
 
-  $desc = """                      {b}Programming{/b}:
-                              Jeff Cho
-                              Brandon Wieliczko {nw}"""
-  $say()         
-    
-  $desc = """                      {b}Design{/b}:
+  $desc = """                      {b}Designers{/b}:
                               Jeff Cho
                               Kieran Downs {nw}"""
   $say()
   
-  $desc = """                      {b}Music{/b}:
+  $desc = """                      {b}Composer{/b}:
                               Kieran Downs {nw}"""
   $say()                             
-    
-  $desc = """                      {b}Audio{/b}:
+
+  $desc = """                      {b}Developers{/b}:
+                              Jeff Cho
+                              Brandon Wieliczko {nw}"""
+  $say()         
+        
+  $desc = """                      {b}Sound Technicians{/b}:
                               Jeff Cho
                               Kieran Downs {nw}"""
   $say()                             

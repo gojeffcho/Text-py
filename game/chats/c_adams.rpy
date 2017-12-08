@@ -1,5 +1,8 @@
 label p_adams:
 
+  if day == "Fri":
+    jump adams_final
+
   play music "music/boss.mp3" fadein 2.0 loop
 
   python:
