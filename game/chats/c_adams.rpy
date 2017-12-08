@@ -28,33 +28,7 @@ label p_adams:
       followupA = { 
         "JOB1" : "Our newsletters have lots of information regarding updates about our company.  You'll get them in your email periodically - read them over to get a sense of why what we do here is so important.",
       }
-      
-#     elif day == "Tue":
-#       questions = {
-#         "START" : "Good afternoon, Mr. Adams.",
-#         "" : "",
-#         "" : "",
-#         "" : ""
-#       }
-# 
-#       answers = {
-#         "START": "Good afternoon, " + username + ".  How did you first day go?",
-#         "": "",
-#         "" : "",
-#         "END" : ""
-#       }
-# 
-#       followupQ = { 
-#         "START1" : "Very well.",
-#         "START2" : "Terribly.",
-#         "START3" : "Funny thing just happened..."
-#       }
-# 
-#       followupA = { 
-#         "START1" : "Excellent, I'm glad to hear that.",
-#         "START2" : "So it goes.  You'll get the hang of it.",
-#         "START3" : "Let's talk about that in a moment."
-#       }
+    
     
     elif day == "Wed":
       questions = {

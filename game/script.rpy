@@ -286,7 +286,8 @@ label start:
     $day = "Fri"
     play music "music/bg0.mp3" fadein 2.5 loop
     $backdoor = True
-    jump expression daysetup[day]
+    jump force_logout
+#     jump expression daysetup[day]
     
 #     $chatlist.append("p_adams")
 #     jump mainscreen

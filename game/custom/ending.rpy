@@ -1,6 +1,74 @@
 label ending:
 
+  python:  
+    global roomlabel
+    roomlabel = ""
+    hide_val = True
+
+  play music "music/ending.mp3" fadein 2.5 loop
+
+  if adamsHuman == 1:
+    if kevinHuman == 1:
+      # Status Quo Ending
+      $desc = "STATUS QUO ENDING"
+      $say()
+    
+    
+    elif kevinHuman == -1:
+      # Pro Human Ending
+      $desc = "PRO HUMAN ENDING"
+      $say()
+    
+      
+    else:
+      $desc = "KEVIN ERROR"
+      $say()
+      
+  elif adamsHuman == -1:
+    if kevinHuman == 1:
+      # Pro AI Ending
+      $desc = "PRO AI ENDING"
+      $say()
+    
+      
+    elif kevinHuman == -1:
+      # Anarchy Ending
+      $desc = "ANARCHY ENDING"
+      $say()
+    
+      
+    else:
+      $desc = "KEVIN ERROR 2"
+      $say()
   
+  else:
+    $desc = "ADAMS ERROR"
+    $say()
+    
+    nvl clear
+    
+
+label lolaEnding:
+
+  stop music fadeout 4.0
+  
+  play music "music/lola.mp3" fadein 2.5 loop
+
+  if lolaHuman == 1:
+    # Happy Lola
+    $desc = "LOLA YAY"
+    $say()
+    
+  elif lolaHuman == -1:
+    # Ded Lola
+    $desc = "DED LOLA"
+    $say()
+    
+  else:
+    $desc = "LOLA ERROR"
+    $say()
+      
+  stop music fadeout 4.0
   
 label full_ending:
 

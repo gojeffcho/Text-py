@@ -45,6 +45,12 @@ label force_logout:
                 $flush_input()
                 
                 if day == "Fri":
+                  
+                  stop music fadeout 4.0
+                  $desc = "Logging out for the last time... Press <{b}ENTER{/b}> to end the game."
+                  $say()
+                  
+                  nvl clear
                   jump ending
                   
                 else:
