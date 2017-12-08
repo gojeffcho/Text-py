@@ -15,17 +15,17 @@ label sheep_1014:
       }
 
       answers = {
-        "START": "Welcome, " + username + ".  I am 1014, the AI tutorial bot.  Welcome to the training program.  You will be determining whether candidates are humans or AIs by asking them questions and evaluating their responses.  You can ask any of the daily pre-approved questions to each candidate.",
+        "START": "Welcome, " + username + "! I hope you're enjoying your first day here so far! I'm 10-14, the AI tutorial bot.  You'll be determining whether candidates are humans or AIs by asking them questions and evaluating their responses. You can ask any of the daily pre-approved questions to each candidate.",
         "QUESTIONS": """Today's questions are:
   {b}MATH{/b}: Ask the candidate a math question
   {b}REALJOKE{/b}: Tell the candidate a hilarious joke
   {b}FAKEJOKE{/b}: Tell the candidate a joke with an incorrect punchline
   {b}MEMORY{/b}: Ask the candidate about their earliest memory
   {b}EMPATHY{/b}: Ask the candidate a question which tests their empathy.""",
-        "DISCERN" : "Look for indicators in the answers you receive that the candidate is AI or human.  For example, AIs with less customization will commonly be more precise when answering mathematical questions than humans.",
-        "REPORT" : "You can register a decision at any time after the first answer you receive from a candidate by typing 'REPORT HUMAN' or 'REPORT AI'.",
-        "REWARD" : "We track statistics on every candidate you screen correctly or incorrectly, which affect your employee status.  It is an {i}incentive{/i}.  These statistics will be updated the next working day after the candidates have undergone external assessment based on your screening.",
-        "END" : "The tutorial is now complete. I am going to take a snack break. I have bits and bytes today! ^_^ I will queue up a test candidate for you to screen."
+        "DISCERN" : "Look for indicators in the answers you get that the candidate is AI or human.  For example, AIs with less customization might be more precise when answering mathematical questions than humans!",
+        "REPORT" : "You can register a decision any time after the first answer you get by typing 'REPORT HUMAN' or 'REPORT AI'.",
+        "REWARD" : "We track statistics on every candidate you screen correctly or incorrectly, which affects your employee status.  It's an incentive to try your hardest!  These statistics will be updated the next working day after the candidates have been external assessed based on your screening.",
+        "END" : "Yay, you finished the tutorial!  I'm going to take a snack break - I have bits and bytes today!  ^_^  I'll queue up a test candidate for you to screen."
       }
 
       followupQ = { 
@@ -34,8 +34,8 @@ label sheep_1014:
       }
 
       followupA = { 
-        "DISCERN1" : "One more important indicator is that AIs will often fail to display empathy, unlike humans.  For example, how are you today, " + username + "?  ...Just kidding.  I do not care.",
-        "REPORT1" : "You can ask the candidate more questions until you have determined your answer.  If you have used all five questions, you must report them as one or the other based on the answers you have received." 
+        "DISCERN1" : "An important indicator is that AIs often fail to display empathy, unlike humans.  For example, I hope that you're enjoying my tutorial! ...Wait, I'm sorry, that was a bad example. ^_^",
+        "REPORT1" : "Don't worry! You can ask the candidate more questions until you're sure. Make sure you pay attention, because if you ask all five questions, you'll still have to report them based on the answers you received. Just try your best!" 
       }
     
     elif day == "Tue":
