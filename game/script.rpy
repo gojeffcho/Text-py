@@ -289,6 +289,7 @@ label start:
 #     $day = "Fri"
 #     play music "music/bg0.mp3" fadein 2.5 loop
 #     $backdoor = True
+#     jump captcha
 #     jump force_logout
 #     jump expression daysetup[day]
     
@@ -296,10 +297,11 @@ label start:
 #     jump mainscreen
 #     jump exploit
 
-    $lolaHuman = -1
-    $adamsHuman = 1
-    $kevinHuman = -1
-    jump ending
+    # ENDING DEBUG
+#     $lolaHuman = -1
+#     $adamsHuman = 1
+#     $kevinHuman = -1
+#     jump ending
 
 
     # MAIN GAME START
