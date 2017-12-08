@@ -15,7 +15,7 @@ label p_adams:
       }
 
       answers = {
-        "START": "Hello and welcome to Electric Sheep Incorporated.  I'm Philip Adams, I'll be your handler.  There's some paperwork to get sorted before we begin.  As it's your first day here " + username + ", do you have any questions before we begin, about the company or your job?",
+        "START": "Hello and welcome to Electric Sheep Incorporated.  I'm Philip Adams, I'll be your handler.  As it's your first day here " + username + ", do you have any questions before we begin, about the company or your job?",
         "COMPANY": "Electric Sheep Incorporated is a 'key player in the competitive technological landscape'.  Or so marketing tells me.",
         "JOB" : "You will be a part of our Turing Division, critically assessing candidates who are applying for jobs with firms who contract us to determine whether applicants are human or AI.",
         "END" : "Excellent.  I'll leave you with our AI tutorial bot, 10-14.  It will show you what you will be doing here and how to do it.  It is designed to be personable."
