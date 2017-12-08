@@ -13,7 +13,7 @@ label spam92:
     text = ""
 
     if prevexploited == True:
-      text += "YOU DID GOOD.\n\nINTEL HIGHLY VALUABLE.\n\nDELIVER AGAIN TODAY."
+      text += "WELL DONE.\n\nINTEL HIGHLY VALUABLE.\n\nDELIVER AGAIN TODAY."
     else:
       text += "YOU DID NOT DELIVER.\n\nNEED ACTIONABLE INTEL.\n\nDELIVER TODAY.\n\n"
     

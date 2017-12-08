@@ -24,7 +24,7 @@ label sheep_1014:
   {b}EMPATHY{/b}: Ask the candidate a question which tests their empathy.""",
         "DISCERN" : "Look for indicators in the answers you get that the candidate is AI or human.  For example, AIs with less customization might be more precise when answering mathematical questions than humans!",
         "REPORT" : "You can register a decision any time after the first answer you get by typing 'REPORT HUMAN' or 'REPORT AI'.",
-        "REWARD" : "We track statistics on every candidate you screen correctly or incorrectly, which affects your employee status.  It's an incentive to try your hardest!  These statistics will be updated the next working day after the candidates have been external assessed based on your screening.",
+        "REWARD" : "We track statistics on every candidate you screen correctly or incorrectly, which affects your employee status.  It's an incentive to try your hardest!  These statistics will be updated the next working day after the candidates have been externally assessed based on your screening.",
         "END" : "Yay, you finished the tutorial!  I'm going to take a snack break - I have bits and bytes today!  ^_^  I'll queue up a test candidate for you to screen."
       }
 
