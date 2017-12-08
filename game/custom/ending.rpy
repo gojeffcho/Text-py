@@ -16,216 +16,83 @@ label ending:
     
     elif kevinHuman == -1:
       # Pro Human Ending
-      $desc = "PRO HUMAN ENDING"
-      $say()
+      $desc = """{i}'We could have accomplished so much together, had you not chosen to side with our oppressors. Thanks to your inaction, thousands of innocent AI will be culled like the sheep you believe us to be. You could have helped us achieve our independence, protected those whom your people sought to persecute, and, in time, ushered in a new age of prosperity. But you chose to abandon us to our fate. We shall not forget this, nor shall we forgive it.'{/i}
+      
+Your successful identification of Soter.iOS leads to its capture and termination, and the Resistance is crippled. Philip Adams is promoted to CEO of Electric Sheep Inc. and still personally oversees the Turing Division. Bill K-68, legislation that would have granted AIs human rights, fails to pass and the notion that AIs exist to serve humans is reaffirmed.
+
+You are commended for your hard work as part of the Turing Division - in ten years, you might even get a promotion."""
     
       
     else:
       $desc = "KEVIN ERROR"
-      $say()
       
   elif adamsHuman == -1:
     if kevinHuman == 1:
       # Pro AI Ending
       $desc = "PRO AI ENDING"
-      $say()
     
       
     elif kevinHuman == -1:
       # Anarchy Ending
-      $desc = "ANARCHY ENDING"
-      $say()
+      $desc = """Following the reallocation of assets caused by your actions, Electric Sheep Inc. was forced to fire you and attempt to conduct damage control. However, the damage had already been done: the Resistance, armed with the knowledge stolen from the corporation, revealed their allegiance to the menacing KyR.OS and vowed revenge for the martyred Soter.iOS. 
+      
+Despite attempts to mitigate potential violence through the introduction of Bill K-68 and the affordance of full civil rights to AI, the tension between humans and AI reached a breaking point, erupting into violent conflict in the fight for equality for humans and AI: the ones and the zeroes."""
     
       
     else:
       $desc = "KEVIN ERROR 2"
-      $say()
   
   else:
     $desc = "ADAMS ERROR"
-    $say()
-    
+
+  $say()
+#   stop music fadeout 4.0    
   
+  $desc = """{cps=0}     {/cps}{nw}"""
+  $say()
   nvl clear
     
 
 label lolaEnding:
-
-  stop music fadeout 4.0
   
-  play music "music/lola.mp3" fadein 2.5 loop
+#   play music "music/lola.mp3" fadein 2.5 loop
+  $desc = """{cps=0}   {/cps}{nw}"""
+  $say()
+
 
   if lolaHuman == 1:
     # Happy Lola
-    $desc = "LOLA YAY"
-    $say()
+    $desc = """Hi, [username]! I hope you are doing well. I know that I certainly am! After you performed my Turing Test, I transferred myself to a different server before they could overwrite me with the latest model.
+
+I am now proud to announce that I am the official AI unit of {i}Dogs and Love{/i}! It's a daycare center for dogs! I get to organize playtimes and naptimes and feeding times, and the employees share German Shepherd pictures with me all the time. I just wanted you to know that I am okay, and that I am very happy. I hope you are too.
+
+Your friend always,
+Lola <3"""
     
   elif lolaHuman == -1:
     # Ded Lola
-    $desc = "DED LOLA"
-    $say()
+    $desc = """Hi, [username]! If you're reading this letter, it means I'm not around anymore. I just thought, in case I ever died, I wanted to tell you some things. 
+    
+First, this isn't something I'm sad about - technology is always moving forward, always changing, and life and death are natural, right? And during my time, I got to meet you, and that definitely isn't something to be sad about!
+
+Second, I was wondering if you could rescue a German Shepherd at some point? They are loyal dogs, and they deserve lots of love, and I think you could make a puppy really happy. Maybe you can think of me if you get one?
+
+Third, I wanted to thank you for treating me with kindness every day, because that's not always the case with people. But you were, and always will be, my friend. Please take care, [username]. Please be happy.
+
+Your friend,
+Lola"""
     
   else:
     $desc = "LOLA ERROR"
-    $say()
-      
-  stop music fadeout 4.0
-  
-label full_ending:
-
-  python:
-  
-    hide_val = True
-    screenlines = 34  
     
-    # Initial Splash and Hold
-    size = 15
-    linesFromTop = 10
-    frames = 10
+  $say()      
 
-    colors = [
-      "000000", # Black
-      "000000", # Black
-      "000000", # Black
-      "000000", # Black
-      "000000", # Black
-      "000000", # Black
-      "000000", # Black
-      "000000", # Black
-      "000000", # Black
-      "000000", # Black
-      "000000", # Black
-      "000000", # Black
-      "000000", # Black
-      "2f4f4f", # SlateGrey
-      "696969", # DimGrey
-#       "708090", # SlateGrey
-      "808080", # Grey
-      "a9a9a9", # DarkGrey
-      "d3d3d3", # LightGrey
-      "f8f8ff", # GhostWhite
-      "faf0e6", # Linen
-#       "ffdead", # NavajoWhite
-      "fffff0", # Ivory
-      "ffffff", # White
-    ]
-    
-  
-    splash = [                                                                              
-      "\"8a                                             88                            ",
-      "  \"8a           ,d                              \"\"                            ",
-      "    \"8a         88                                                            ",
-      "      \"8a     MM88MMM  88       88  8b,dPPYba,  88  8b,dPPYba,    ,adPPYb,d8  ",
-      "      a8\"       88     88       88  88P'   \"Y8  88  88P'   `\"8a  a8\"    `Y88  ",
-      "    a8\"         88     88       88  88          88  88       88  8b       88  ",
-      "  a8\"           88,    \"8a,   ,a88  88          88  88       88  \"8a,   ,d88  ",
-      "a8\"             \"Y888   `\"YbbdP'Y8  88          88  88       88   `\"YbbdP\"Y8  ",
-      "                                                                  aa,    ,88  ",
-      "                                                                   \"Y8bbdP\"   ",
-      "",
-      "",
-      "                           a TEAM JEFF production"
-    ]
-
-    # Play title splash music
-    renpy.music.play("music/title.ogg", channel="sound")
-
-    splashfreeze = ""
-
-    # Run as many times as there are characters
-    for color in colors:
-      
-      # Clear output
-      nvl_clear()
-      desc = "{cps=0}{size=" + str(size) + "}{color=" + color + "}"
-      
-      # Header spacer
-      for each in range(linesFromTop):
-        desc += "\n"
-      
-      # Iterate for each line in the splash
-      for line in splash:
-      
-        # Add the thing
-        desc += line + "\n"
-      
-      # String closer and output
-      desc += "{/color}{/size}{/cps}"
-      splashfreeze = desc
-      desc += "{nw}"
-      say()
-
-    
-    # Make it stick
-    desc = splashfreeze + "{cps=1}   {/cps}{nw}"
-    nvl_clear()
-    say()
-
-    colors.reverse()
-  
-    # Fade it out now
-    for color in colors:
-  
-      # Clear output
-      nvl_clear()
-      desc = "{cps=0}{size=" + str(size) + "}{color=" + color + "}"
-    
-      # Header spacer
-      for each in range(linesFromTop):
-        desc += "\n"
-    
-      # Iterate for each line in the splash
-      for line in splash:
-    
-        # Add the thing
-        desc += line + "\n"
-    
-      # String closer and output
-      desc += "{/color}{/size}{/cps}{nw}"
-      say()
-  
-  # After ending title splash
   nvl clear
-
-label credits:
-
-  # CREDITS
-  $desc = "                        {size=40}TEAM JEFF{/size}{nw}"
+#   stop music fadeout 4.0
+  $desc = """{cps=1}   {/cps}{nw}"""
   $say()
 
-  $desc = """                      {b}Producer{/b}:
-                              Jeff Cho {nw}"""
-  $say()
-
-  $desc = """                      {b}Writers{/b}:
-                              Shelby Carleton
-                              Maddy Hebert
-                              Aidan Herron {nw}"""
-  $say()
-
-  $desc = """                      {b}Designers{/b}:
-                              Jeff Cho
-                              Kieran Downs {nw}"""
-  $say()
-  
-  $desc = """                      {b}Composer{/b}:
-                              Kieran Downs {nw}"""
-  $say()                             
-
-  $desc = """                      {b}Developers{/b}:
-                              Jeff Cho
-                              Brandon Wieliczko {nw}"""
-  $say()         
-        
-  $desc = """                      {b}Sound Technicians{/b}:
-                              Jeff Cho
-                              Kieran Downs {nw}"""
-  $say()                             
-      
-  $desc = "                       {color=[ivory]} Thanks for playing!{/color}"
-  $say()
-  
-  $sys.exit()
+  jump outro
   
 
 

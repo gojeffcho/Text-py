@@ -179,7 +179,7 @@ label p_adamsStart:
               elif day == "Fri":
                 $adamsFinal = True
                 $lolaFinal = True
-                call news9
+                call news9 from _call_news9
                     
               
               
