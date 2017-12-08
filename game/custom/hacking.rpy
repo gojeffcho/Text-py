@@ -134,6 +134,7 @@ label hackgame:
             $count = 0
         elif(sayGuessed):
             $sayGuessed = False
+            $echo()
         else:
             $echo()
 
@@ -157,7 +158,6 @@ label hackgame:
                 $desc += "Currently no words have been guessed.\n"
                 $say()
 
-            $say()
         elif cmd.lower() == secretWord.lower():
             $desc = garbString + " " + "CORRECT" + " " + garbString +"\n"
             $say()
