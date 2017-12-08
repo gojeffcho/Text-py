@@ -12,6 +12,10 @@ init python:
 
 label hackgame:
 
+
+    $room = "##_HACK.EXE_##"
+    $update_roomlabel()
+
     # This is a comment test
     python:
 
@@ -97,30 +101,62 @@ label hackgame:
                 count += 1
 
         # save orginal list        
-        orgDesc = deepcopy(desc)
-        desc = "Correctly guess the password from the options beblow, type 'help' for assistance: \n" + orgDesc + "\n"
+        startDesc = deepcopy(desc)
+        desc = " "+"_"*70 +'\n' + "| Correctly guess the password from the options beblow:" +" "*16 +"|\n" + "| Type Help to see a list of commands." + " "*32 +" | \n"+ "|"+ "_"*70+"|\n" +startDesc
+        desc +="|" + "-"*70 + "|\n"
+        desc +="| Available Commands: "+ " "*49 + "|\n"
+        desc += "|      <{color=#"+ crimson + "}" + "'WORD'" +"{/color}>:  Type the word you believe is correct" + " "*17 + "|\n"
+        desc += "|      <{color=#" + crimson + "}"+"FORCE" + "{/color}>:   Program will automatically try every possiblity" + " "*6 +"|\n"
+        desc += "|      <{color=#" +  crimson +"}QUIT"+  "{/color}>:    Exit the program" + " "*37 + "|\n"
+        desc += "|      <{color=#" + crimson +"}GUESSED" "{/color}>: Shows the previously guessed words if forrgotten" + " "*5 + "|\n" 
+        desc += " " + "-"*70 + "\n"
+
         # desc += "The correct word is: " + secretWord
+        orgDesc = deepcopy(desc)
+        fastDesc = "{cps=0}" + orgDesc + "{/cps}"
         say()
     jump hackstart
 
 
     label hackstart:
 
+    $wordList = ["apples", "hacked", "fallen", "ravage", "wonder", "labels", "tested", "listen", "savage"]
+    $guessedList = []
     $count = 0
+    $sayGuessed = False
     while True:
         $count += 1
-        if(count >= 4):
+        if(count >= 3):
             nvl clear
-            $desc = orgDesc
-            $say()
+            $desc = fastDesc
+            #$say()
+            $echo()
             $count = 0
-        $echo()
+        elif(sayGuessed):
+            $sayGuessed = False
+        else:
+            $echo()
 
-        if cmd.lower() == "help":
-            $flush_input()
-            nvl clear
-            $desc = "To give up type {b}'quit'{/b}, to brute force the password type 'force'\n"
-            $desc += orgDesc
+        if cmd.lower() == "guessed":
+            $sayGuessed = True
+            if len(wordList) != 0:
+                $flush_input()
+                nvl clear
+                $count = 0
+                $desc = fastDesc
+                $desc += "Guessed words: "
+                python:
+                    for aWord in guessedList:
+                        desc += str(aWord) + " "
+                $say()
+
+            else:   
+                $flush_input()             
+                nvl clear
+                $desc = fastDesc
+                $desc += "Currently no words have been guessed.\n"
+                $say()
+
             $say()
         elif cmd.lower() == secretWord.lower():
             $desc = garbString + " " + "CORRECT" + " " + garbString +"\n"
@@ -150,13 +186,14 @@ label hackgame:
 
         elif len(cmd.lower()) == 0 or cmd.lower() == " ":
             $desc = "Invalid input"
+            $count += 1
             $say()
 
         else:
             $desc = "{color=#" + crimson + "}" + "INCORRECT{/color}\n"
             python:
                 correct = 0
-                guessed = cmd
+                guessed = cmd.lower()
 
                 if len(guessed) != len(secretWord):
                     desc += "Invalid guess, enter one of the words on the screen\n"
@@ -168,6 +205,8 @@ label hackgame:
                         correct, wrong = isCorrect(guessed, secretWord)
                         desc += "Correctly guess letters: {color=#" + crimson +"}" + str(correct) + "{/color}\n"
                         desc += "Right letter wrong place: {color=#" + crimson + "}" + str(wrong) + "{/color}\n" 
+                        if guessed not in guessedList:
+                            guessedList.append(guessed)
                         flush_input()
                         say()
 
