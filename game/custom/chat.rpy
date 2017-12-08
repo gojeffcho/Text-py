@@ -80,7 +80,12 @@ label chat:
                       if chat == "sheep_1014":
                         s += "Assistant bot on standby.\n"
                       elif chat == "p_adams":
-                        s += "Supervisor wishes to chat with you.\n"
+                        if day == "Fri" and adamsFinal:
+                          s += "{color=[crimson]}FINAL CHAT{/crimson}"
+                        else:
+                          s += "Supervisor wishes to chat with you.\n"
+                      elif chat == "soterios":
+                        s += "{color=[crimson]}FINAL CHAT{/crimson}"
                       else:
                         s += "Candidate ready for screening\n"
                     s += "{/cps}"

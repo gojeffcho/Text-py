@@ -1,6 +1,6 @@
 label p_adams:
 
-  if day == "Fri":
+  if day == "Fri" and adamsFinal:
     jump adams_final
 
   play music "music/boss.mp3" fadein 2.0 loop
@@ -196,13 +196,14 @@ label p_adamsStart:
               elif day == "Wed":
                 # Second exploit offer
                 if backdoor == None:
-                  call spam87
+                  call spam87 from _call_spam87_2
                   
                 # Exploit was installed
                 else:
-                    call spam92
+                    call spam92 from _call_spam92
                     
               elif day == "Fri":
+                $adamsFinal = True
                 $chatlist.append("sera")
                 $chatlist.append("obs_1014")
                     

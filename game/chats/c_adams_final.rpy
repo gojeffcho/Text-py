@@ -1,4 +1,7 @@
-label sera:
+label adams_final:
+
+  play music "music/boss.mp3" fadein 2.0 loop
+
   python:
     questions = {
       "WORK" : "What do you like most about your work?",
@@ -9,30 +12,25 @@ label sera:
     }
 
     answers = {
-      "WORK": "Being somewhat able to direct the cutting edge of technology is pretty nice.",
-      "DEATH": "I'd find someone to publish the remainder of my work. I've worked for so long on it, it'd be a damn shame for nobody to read it.",
-      "LOVE" : "It's the best feeling in the world.",
-      "SEX" : "I think sex is a great thing.",
-      "HUMAN" : "Hard to say. What is human? Is it an idea? Something biologically determined? Am I more or less 'human' than you are?",
+      "WORK": "It's not a question of liking. It is necessary.",
+      "DEATH": "I would live my day normally. Being human means knowing you are going to die. There is no need to fear it. Just let it be.",
+      "LOVE" : "A human emotion. Nothing more, nothing less.",
+      "SEX" : "I enjoy it as much as the next man.",
+      "HUMAN" : "Yes. I don't know how I got added to your queue or why you feel the need to ask me these questions, but you can report me as human now.",
     }
 
     followupQ = { 
-      "WORK1" : "What do you do?",
-      "DEATH1" : "Who would benefit from your work?",
-      "HUMAN1" : "Are you human or AI?"
     }
 
     followupA = { 
-      "WORK1" : "I work with a lot of AI, and write a lot of reports.",
-      "DEATH1" : "Tons of people, hopefully, and the AI I've worked with. Humans think that they're special, but you talk to an AI for five minutes and you realize they're the same as we are - just trying to make their way in the world.",
-      "HUMAN1" : "What's the difference?"
     }
+      
 
     usercolor = random_colour()
-    target = Chat("sera", 1, random_colour(), questions, answers, followupQ, followupA)
+    target = Chat("p_adams", 0, random_colour(), questions, answers, followupQ, followupA)
     target.start()
 
-label seraStart:
+label adamsStart:
 
     $expected = ["LOOK", "L", "HELP", "?"]
     if target.getAsked():
@@ -64,7 +62,7 @@ label seraStart:
             if len(args) == 0:
                 $flush_input()
                 nvl clear
-                jump seraStart
+                jump adamsStart
             else:
                 $has_args()
                 
@@ -74,13 +72,17 @@ label seraStart:
         elif cmd.upper() == "REPORT":
             if len(args) == 1:
                 # Correct input
+                stop music fadeout 4.0
                                 
                 if args[0].upper() == "HUMAN":
                     # Human Report
                     $desc = "You reported " + target.getId() + " as human.  Press {b}ENTER{/b} to return to the chat menu."
                     $say()
                     $flush_input()
+                    
+                    play music "music/bg0.mp3" fadein 2.0 loop
                     $target.reportAsHuman(True)
+                    $adamsHuman = 1
                     nvl clear
                     jump chat
                 
@@ -89,7 +91,10 @@ label seraStart:
                     $desc = "You reported " + target.getId() + " as AI.  Press {b}ENTER{/b} to return to the chat menu."
                     $say()
                     $flush_input()
+                    
+                    play music "music/bg0.mp3" fadein 2.0 loop
                     $target.reportAsHuman(False)
+                    $adamsHuman = -1
                     nvl clear
                     jump chat
                 

@@ -43,14 +43,20 @@ label force_logout:
         elif cmd.upper() == "LOGOUT":
             if len(args) == 0:
                 $flush_input()
-                $desc = """Your screenings for today have been registered with the system and will be corroborated with external interviews with the candidates.  You will be rewarded for each screening you classified correctly, and your employee status will be updated upon your next login.  Goodbye."""
-                $say()
-                $flush_input()
                 
-                $displayname = "logged out"
-                nvl clear
-                jump next_day   # DEMO BUILD
-#                 jump demo_end
+                if day == "Fri":
+                  jump ending
+                  
+                else:
+                
+                  $desc = """Your screenings for today have been registered with the system and will be corroborated with external interviews with the candidates.  You will be rewarded for each screening you classified correctly, and your employee status will be updated upon your next login.  Goodbye."""
+                  $say()
+                  $flush_input()
+                
+                  $displayname = "logged out"
+                  nvl clear
+                  jump next_day
+                  
             else:
                 $has_args()
             
@@ -64,7 +70,4 @@ label next_day:
   
     jump login
     
-
-
-                
                 

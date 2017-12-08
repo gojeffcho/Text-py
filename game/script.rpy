@@ -213,6 +213,8 @@ init 0 python:
     backdoor = None
     
     # Finale Variables
+    global adamsFinal
+    adamsFinal = False
     global lolaHuman
     lolaHuman = None
     global kevinHuman
@@ -249,14 +251,8 @@ init 0 python:
 
     # Random Colour
     global colourList
-    global colourSelected
     colourList = [crimson, skyblue, darkcyan, ivory, highlight2, highlight1, sheepcolor, darkgreen]
-    colourSelected = []
 
-    global randColour
-    global randColourLast
-    randColour = ""
-    randColourLast = ""
 
 
     ######################
@@ -287,7 +283,7 @@ label start:
     scene bg black
 
     # DEBUG START        
-    $day = "Thu"
+    $day = "Fri"
     play music "music/bg0.mp3" fadein 2.5 loop
     $backdoor = True
     jump expression daysetup[day]
