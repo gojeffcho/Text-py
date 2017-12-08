@@ -32,6 +32,9 @@ init -2 python:
     # Remove help keymap function
     config.keymap['help'] = []
     
+    # Remove MENU keymaps
+    config.keymap['game_menu'] = []
+    
     # Fix skip control
     config.keymap['skip'] = []
     config.keymap['toggle_skip'] = []

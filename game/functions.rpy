@@ -295,28 +295,9 @@ init 0 python:
         else:
             hacked = False
 
-###     DEPRECATED
-### random_colour_old(): selects random color from a list
-###                          
-    def random_colour_old():
-        global colourList
-        global colourSelected
-        colourList = [crimson, skyblue, darkcyan, ivory, highlight2, highlight1, sheepcolor]
-        selected = randint(0, len(colourList)-1)
-
-        # Run a loop to get a new colour not yet selected
-        while(colourList[selected] in colourSelected):
-            if(len(colourList) == len(colourSelected)):
-                colourSelected = []
-            selected = randint(0, len(colourList)-1)
-
-        colourSelected.append(colourList[selected])
-        return colourList[selected]
-
 ###
 ### random_colour(): selects a random color
 ###
     def random_colour():
         global colourList
-        selected = randint(0, len(colourList)-1)
-        return colourList[selected]
+        return colourList[randint(0, len(colourList) - 1)]
