@@ -175,6 +175,9 @@ label p_adamsStart:
                 # Exploit was installed
                 else:
                     call spam92 from _call_spam92
+              
+              elif day == "Thu":
+                call spam97
                     
               elif day == "Fri":
                 $adamsFinal = True

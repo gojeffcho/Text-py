@@ -301,8 +301,13 @@ label start:
     scene bg black
 
     # DEBUG START        
-#     $day = "Wed"
-#     play music "music/bg0.mp3" fadein 2.5 loop
+    $day = "Thu"
+    play music "music/bg0.mp3" fadein 2.5 loop
+    $backdoor = True
+    $prevExploited = False
+    $todayExploited = False
+    call spam97
+    jump mail
 #     $backdoor = False
 #     jump captcha
 #     jump force_logout
@@ -312,12 +317,14 @@ label start:
 #     jump mainscreen
 #     jump exploit
 
+  
+
     # ENDING DEBUG
-    $lolaHuman = -1
-    $adamsHuman = 1
-    $kevinHuman = 1
-    play music "music/ending.mp3" fadein 2.5 loop
-    jump outro
+#     $lolaHuman = -1
+#     $adamsHuman = 1
+#     $kevinHuman = 1
+#     play music "music/ending.mp3" fadein 2.5 loop
+#     jump outro
 #     jump ending
 #     jump credits
 

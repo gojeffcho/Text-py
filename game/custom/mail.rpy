@@ -145,6 +145,8 @@ label mail:
                           $chatlist.append("p_adams")
                         elif key == "spam92":
                           $del emaillist[key]
+                        elif key == "spam97":
+                          $del emaillist[key]
                         elif key == "news9":
                           $chatlist.append("sera")
                       

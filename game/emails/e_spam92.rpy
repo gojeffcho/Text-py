@@ -4,9 +4,9 @@ label spam92:
   
     key = "spam92"
     
-    subj = "SPAM"
+    subj = "your urgent attention"
     
-    tx = "deaddropbw73nk@fwdnet.stablebase.kz"
+    tx = "deaddropf41V2s5@castnet.co.in"
     
     rx = username[:5] + "713@electricsheep.ca"
   
