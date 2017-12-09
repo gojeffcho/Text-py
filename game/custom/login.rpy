@@ -437,7 +437,7 @@ Example: {b}> create shelby{/b}"""
 
             else:
                 $flush_input()
-                $desc = "{color=#[errorcolor]}Error{/color}: Please enter a valid username with no spaces."
+                $desc = "{color=#[errorcolor]}Error{/color}: Please enter 'create' followed by a 5-15 character username."
                 $say()
 
         else:

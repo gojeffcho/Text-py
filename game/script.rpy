@@ -297,7 +297,7 @@ label start:
 #     jump expression daysetup[day]
     
 #     $chatlist.append("p_adams")
-    jump mainscreen
+#     jump mainscreen
 #     jump exploit
 
     # ENDING DEBUG

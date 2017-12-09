@@ -1,8 +1,5 @@
 label mainscreen:
 
-    $desc = "{color=32cd32}TEST TEST {/color}"
-    $say()
-
     $update_avails()
 
     # Inject Resistance First Contact on Day 2

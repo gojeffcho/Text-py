@@ -1,7 +1,5 @@
 init -1 python:
 
-  global usercolor
-
   ## PRECONDITION: each chat must have at least three questions
   ## NOTE: we're going to need to grab getQuestions() and concatenate it
   ##       to $expected in order to validate user inputs... Christ.
@@ -37,6 +35,7 @@ init -1 python:
       self.__id = id
       self.__isHuman = isHuman
       
+      global usercolor
       while usercolor == color:
         if id == "sheep_1014" or id == "p_adams" or id == "unknown" or id == "soterios":
           usercolor = random_colour()
