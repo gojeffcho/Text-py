@@ -169,7 +169,7 @@ label p_adamsStart:
 
               elif day == "Wed":
                 # Second exploit offer
-                if backdoor == None:
+                if backdoor == None or backdoor == False:
                   call spam87 from _call_spam87_2
                   
                 # Exploit was installed

@@ -147,8 +147,9 @@ label mail:
                           $del emaillist[key]
                         elif key == "news9":
                           $chatlist.append("sera")
-                          
-                      $emaillist[key].setRead()
+                      
+                      if key in emaillist:
+                        $emaillist[key].setRead()
                       $update_avails()
                       
                       # Install backdoor app

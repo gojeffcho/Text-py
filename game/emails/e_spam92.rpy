@@ -15,7 +15,7 @@ label spam92:
     if prevexploited == True:
       text += "WELL DONE.\n\nINTEL HIGHLY VALUABLE.\n\nDELIVER AGAIN TODAY.\n\n"
     else:
-      text += "YOU DID NOT DELIVER.\n\nNEED ACTIONABLE INTEL.\n\nDELIVER TODAY.\n\n "
+      text += "YOU DID NOT DELIVER.\n\nNEED ACTIONABLE INTEL.\n\nDELIVER TODAY.\n\n"
     
     text += ""
     
