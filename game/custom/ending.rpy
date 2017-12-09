@@ -36,7 +36,7 @@ label ending:
       # Status Quo Ending
       $linesFromTop = 8
       $epilogue = [
-"Your screening of Soter.iOS as human allows it to run for and achieve a",
+"Your screening of SOTER.iOS as human allows it to run for and achieve a",
 "key political position from which it is able to effect pro-AI change. In",
 "particular, it champions Bill K-68, and the legislation successfully",
 "passes into law, giving AIs equal rights to humans.",
@@ -63,10 +63,10 @@ label ending:
 "{i}But you chose to abandon us to our fate. We shall not forget this, nor{/i}",
 "{i}shall we forgive it.'{/i}",
 "",  
-"Your successful identification of Soter.iOS leads to its capture and",
-"termination. It is discovered that Soter.iOS was one of the many faces",
+"Your successful identification of SOTER.iOS leads to its capture and",
+"termination. It is discovered that SOTER.iOS was one of the many faces",
 "of the distributed entity named KyR.OS. The Amyna, commonly referred to",
-"as the Resistance, are crippled without Soter.iOS' leadership, leading",
+"as the Resistance, are crippled without SOTER.iOS' leadership, leading",
 "to internal fragmentation. The AI resistance movement effectively dies",
 "as a result.",
 "",
@@ -89,7 +89,7 @@ label ending:
       # Pro AI Ending
       $linesFromTop = 6
       $epilogue = [
-"Your screening of Soter.iOS as human allows it to run for and achieve",
+"Your screening of SOTER.iOS as human allows it to run for and achieve",
 "a key political position from which it is able to effect pro-AI change.",
 "In particular, it champions Bill K-68, and the legislation successfully",
 "passes into law, giving AIs equal rights to humans. This leads to mass",
@@ -115,9 +115,9 @@ label ending:
       # Anarchy Ending
       $linesFromTop = 8
       $epilogue = [
-"Your successful identification of Soter.iOS leads to its capture and", "termination. It is discovered that Soter.iOS was one of the many faces of", 
+"Your successful identification of SOTER.iOS leads to its capture and", "termination. It is discovered that SOTER.iOS was one of the many faces of", 
 "the distributed entity named KyR.OS. The Amyna, commonly referred to as", 
-"the Resistance, are crippled without Soter.iOS' leadership, leading to", "internal fragmentation. The more radicalized sects which break off from", "the Amyna begin employing guerilla and terror tactics in their fight for",
+"the Resistance, are crippled without SOTER.iOS' leadership, leading to", "internal fragmentation. The more radicalized sects which break off from", "the Amyna begin employing guerilla and terror tactics in their fight for",
 "recognition and rights.",
 "",
 "Philip Adams is declared missing after failing to report to work", 

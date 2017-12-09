@@ -9,10 +9,10 @@ label attk7:
     
     rx = "allhands@intern.electricsheep.ca"
   
-    text = """Yesterday's distributed denial
-of service ('DDoS') attack against government 
-servers has been claimed by the rampant AI 
-calling itself KyR.OS.
+    text = """Yesterday's distributed denial of service 
+('DDoS') attack against government servers has
+been claimed by the rampant AI calling itself
+'KyR.OS'.
 
 KyR.OS is an extremist AI which has orchestrated 
 numerous DDoS attacks and conducted a series of 

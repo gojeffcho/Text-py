@@ -31,7 +31,7 @@ label soterios:
       
 
     usercolor = random_colour()
-    target = Chat("Soter.iOS", 0, "6c4898", questions, answers, followupQ, followupA)
+    target = Chat("SOTER.iOS", 0, "6c4898", questions, answers, followupQ, followupA)
     target.start()
 
 label soteriosStart:
