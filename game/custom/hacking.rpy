@@ -122,14 +122,14 @@ label hackgame:
 
     $wordList = ["apples", "hacked", "fallen", "ravage", "wonder", "labels", "tested", "listen", "savage"]
     $guessedList = []
-    $count = 0
+    $count = -1
     $sayGuessed = False
     while True:
         $count += 1
-        if(count >= 3):
+        if(count >= 2):
             nvl clear
-            $desc = fastDesc
-            #$say()
+            $desc = fastDesc 
+            $say()
             $echo()
             $count = 0
         elif(sayGuessed):
@@ -185,8 +185,7 @@ label hackgame:
             return
 
         elif len(cmd.lower()) == 0 or cmd.lower() == " ":
-            $desc = "Invalid input"
-            $count += 1
+            $desc += "Invalid input"
             $say()
 
         else:
@@ -199,6 +198,11 @@ label hackgame:
                     desc += "Invalid guess, enter one of the words on the screen\n"
                     flush_input()
                     say()
+
+                elif guessed not in wordList:
+                    desc += "Invalid guess, enter one of the words on the screen\n"
+                    flush_input()
+                    say()                    
 
                 else:
                     try:
