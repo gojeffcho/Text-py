@@ -64,7 +64,7 @@ label chat:
 
         elif cmd.upper() == "SHOW":
             
-            if len(args) == 1 and args[0] == "chats":
+            if len(args) == 1 and args[0].lower() == "chats":
                 $flush_input()
                 
                 if len(chatlist) == 0:
@@ -103,6 +103,7 @@ label chat:
         elif cmd.upper() == "CHAT":
             $t = args
             if len(t) == 1:
+                $t[0] = t[0].lower()
                 if t[0] in chatlist:
                     term "Initiating chat with [t[0]]{cps=6}... ... ... {/cps}{nw}"
                     play sound "music/beep.ogg"
