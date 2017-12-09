@@ -2,11 +2,6 @@ label outro:
 
   python:
   
-    # No skip for you
-    config.keymap['dismiss'].remove('K_RETURN')
-    config.keymap['dismiss'].remove('K_KP_ENTER')
-    config.keymap['dismiss'].remove('K_SELECT')
-  
     hide_val = True
     screenlines = 34  
     
@@ -146,8 +141,9 @@ label credits:
         
   $desc += """                      {b}Sound Technicians{/b}:
                               Jeff Cho
-                              Kieran Downs """
-                                
+                              Kieran Downs {nw}"""
+  
+  $freeze = desc                              
   $say()                             
   
     # Let them end the game, I guess.
@@ -156,8 +152,39 @@ label credits:
     config.keymap['dismiss'].append('K_KP_ENTER')
     config.keymap['dismiss'].append('K_SELECT')
   
-  stop music fadeout 4.0
-  $desc = """{cps=1}      {/cps}{nw}"""
+  $desc = ""
   $say()
+  
+  stop music fadeout 5.0
+
+  # Exeunt omnes 
+  python:
+    colors = [
+      "15db15",
+      "12c512",
+      "10af10",
+      "0e990e",
+      "0c830c",
+      "0a6d0a",
+      "085708",
+      "064106",
+      "042b04",
+      "021502",
+      "000000",
+      "000000"
+    ]
+    for color in colors:
+
+      # Clear output
+      nvl_clear()
+      desc = "{cps=0}{color=" + color + "}"
+  
+      desc += freeze
+  
+      # String closer and output
+      desc += "{/color}{/cps}{nw}"
+      say()
+  
+  pause 4.5
   
   $sys.exit()

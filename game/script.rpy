@@ -301,22 +301,23 @@ label start:
     scene bg black
 
     # DEBUG START        
-    $day = "Wed"
-    play music "music/bg0.mp3" fadein 2.5 loop
-    $backdoor = False
+#     $day = "Wed"
+#     play music "music/bg0.mp3" fadein 2.5 loop
+#     $backdoor = False
 #     jump captcha
 #     jump force_logout
-    jump expression daysetup[day]
+#     jump expression daysetup[day]
     
 #     $chatlist.append("p_adams")
 #     jump mainscreen
 #     jump exploit
 
     # ENDING DEBUG
-#     $lolaHuman = -1
-#     $adamsHuman = 1
-#     $kevinHuman = 1
-#     jump outro
+    $lolaHuman = -1
+    $adamsHuman = 1
+    $kevinHuman = 1
+    play music "music/ending.mp3" fadein 2.5 loop
+    jump outro
 #     jump ending
 #     jump credits
 
