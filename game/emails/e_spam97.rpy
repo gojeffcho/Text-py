@@ -15,11 +15,11 @@ label spam97:
     text = ""
 
     if backdoor == True:
-      if prevExploited:
+      if prevexploited:
         text += "RECEIVED PAYLOAD YESTERDAY. GOAL NEARLY REACHED."
         text += "\nADAMS AN OBSTACLE. FINAL STEP."
         
-        if todayExploited:
+        if todayexploited:
           # Installed, exploited D3, exploited D4
           text += "\n\nWILL ADD HIM TO SCREENING FOR TOMORROW. REMOVE"
           text += "\nTHE OBSTACLE."
@@ -30,7 +30,7 @@ label spam97:
           text += "\nSCREENING FOR TOMORROW. REMOVE THE OBSTACLE."
       
       else:
-        if todayExploited:
+        if todayexploited:
           # Installed, did not exploit D3, exploited D4
           text += "DID NOT RECEIVE PAYLOAD YESERDAY. RECEIVED"
           text += "\nTODAY. WILL TRY TO GET ADAMS ON SCREENING LIST"
