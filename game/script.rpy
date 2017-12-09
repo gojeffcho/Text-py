@@ -300,8 +300,9 @@ label start:
     # ENDING DEBUG
 #     $lolaHuman = -1
 #     $adamsHuman = 1
-#     $kevinHuman = -1
+#     $kevinHuman = 1
 #     jump ending
+#     jump credits
 
 
     # MAIN GAME START

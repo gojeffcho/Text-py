@@ -6,21 +6,79 @@ label ending:
     hide_val = True
 
   play music "music/ending.mp3" fadein 2.5 loop
+  
+  # Fade Setup
+  python: 
+    # Blues Fade
+    colors = [
+      "000000",
+      "000000",
+      "000000",
+      "001319",
+      "002633",
+      "00394c",
+      "004c66",
+      "005f7f",
+      "007299",
+      "0085b2",
+      "0098cc",
+      "00abe5",
+      "00bfff", # Dark Sky Blue
+    ]
+
+    freeze = ""
+    
+    
+#   $desc = "{cps=20}"
 
   if adamsHuman == 1:
     if kevinHuman == 1:
       # Status Quo Ending
-      $desc = "STATUS QUO ENDING"
-      $say()
+      $linesFromTop = 8
+      $epilogue = [
+"Your screening of Soter.iOS as human allows it to run for and achieve a",
+"key political position from which it is able to effect pro-AI change. In",
+"particular, it champions Bill K-68, and the legislation successfully",
+"passes into law, giving AIs equal rights to humans.",
+"",
+"Philip Adams continues his work as the head of the Turing Division.",
+"Electric Sheep Inc., undeterred by AIs gaining rights, continues to",
+"perform screenings for employers who prefer human employees.",
+"",
+"You continue to keep your head down and do your work. What goes on in",
+"the larger world of ones and zeroes isn't your concern - you just want",
+"to clock in, clock out, go home, and watch TV."
+      ]
     
     
     elif kevinHuman == -1:
       # Pro Human Ending
-      $desc = """{i}'We could have accomplished so much together, had you not chosen to side with our oppressors. Thanks to your inaction, thousands of innocent AI will be culled like the sheep you believe us to be. You could have helped us achieve our independence, protected those whom your people sought to persecute, and, in time, ushered in a new age of prosperity. But you chose to abandon us to our fate. We shall not forget this, nor shall we forgive it.'{/i}
-      
-Your successful identification of Soter.iOS leads to its capture and termination, and the Resistance is crippled. Philip Adams is promoted to CEO of Electric Sheep Inc. and still personally oversees the Turing Division. Bill K-68, legislation that would have granted AIs human rights, fails to pass and the notion that AIs exist to serve humans is reaffirmed.
-
-You are commended for your hard work as part of the Turing Division - in ten years, you might even get a promotion."""
+      $linesFromTop = 4
+      $epilogue = [
+"{i}'We could have accomplished so much together, had you not chosen to side{/i}",
+"{i}with our oppressors. Thanks to your inaction, thousands of innocent AI{/i}",
+"{i}will be culled like the sheep you believe us to be. You could have{/i}",
+"{i}helped us achieve our independence, protected those whom your people{/i}",
+"{i}sought to persecute, and, in time, ushered in a new age of prosperity.{/i}",
+"{i}But you chose to abandon us to our fate. We shall not forget this, nor{/i}",
+"{i}shall we forgive it.'{/i}",
+"",  
+"Your successful identification of Soter.iOS leads to its capture and",
+"termination. It is discovered that Soter.iOS was one of the many faces",
+"of the distributed entity named KyR.OS. The Amyna, commonly referred to",
+"as the Resistance, are crippled without Soter.iOS' leadership, leading",
+"to internal fragmentation. The AI resistance movement effectively dies",
+"as a result.",
+"",
+"For his role in helping to bring down the Resistance, Philip Adams is",
+"promoted to CEO of Electric Sheep Inc. and still personally oversees the",
+"Turing Division. Bill K-68, legislation that would have granted AIs",
+"human rights, fails to pass and the notion that AIs exist to serve",
+"humans is reaffirmed, leading to escalating subjugation and oppression.",
+"",
+"You are commended for your hard work as part of the Turing Division - in",
+"ten years, you might even get a promotion."
+      ]
     
       
     else:
@@ -29,14 +87,47 @@ You are commended for your hard work as part of the Turing Division - in ten yea
   elif adamsHuman == -1:
     if kevinHuman == 1:
       # Pro AI Ending
-      $desc = "PRO AI ENDING"
+      $linesFromTop = 6
+      $epilogue = [
+"Your screening of Soter.iOS as human allows it to run for and achieve",
+"a key political position from which it is able to effect pro-AI change.",
+"In particular, it champions Bill K-68, and the legislation successfully",
+"passes into law, giving AIs equal rights to humans. This leads to mass",
+"immigration of AIs and what the start of a new technological revolution,",
+"spearheaded by human-AI cooperation.",
+"",
+"Philip Adams is declared missing after failing to report to work",
+"following the Turing Test you administered to him, and no traces of him",
+"are ever discovered despite a large-scale search effort. Coincidentally,",
+"leaked documents and transcripts from Electric Sheep Inc. demonstrate an",
+"undeniable correlation between their Turing Tests and incidents of",
+"suicide and missing persons reports concerning their candidates, leading",
+"to a public outcry. The Turing Division is shut down, and Electric Sheep",
+"Inc. files for bankruptcy not long thereafter.",
+"",
+"You receive a decent severance pay following the collapse of the company",
+"and move on to greener pastures in the new booming industries ushered in",
+"by recent change."
+      ]
     
       
     elif kevinHuman == -1:
       # Anarchy Ending
-      $desc = """Following the reallocation of assets caused by your actions, Electric Sheep Inc. was forced to fire you and attempt to conduct damage control. However, the damage had already been done: the Resistance, armed with the knowledge stolen from the corporation, revealed their allegiance to the menacing KyR.OS and vowed revenge for the martyred Soter.iOS. 
-      
-Despite attempts to mitigate potential violence through the introduction of Bill K-68 and the affordance of full civil rights to AI, the tension between humans and AI reached a breaking point, erupting into violent conflict in the fight for equality for humans and AI: the ones and the zeroes."""
+      $linesFromTop = 8
+      $epilogue = [
+"Your successful identification of Soter.iOS leads to its capture and", "termination. It is discovered that Soter.iOS was one of the many faces of", 
+"the distributed entity named KyR.OS. The Amyna, commonly referred to as", 
+"the Resistance, are crippled without Soter.iOS' leadership, leading to", "internal fragmentation. The more radicalized sects which break off from", "the Amyna begin employing guerilla and terror tactics in their fight for",
+"recognition and rights.",
+"",
+"Philip Adams is declared missing after failing to report to work", 
+"following the Turing Test you administered to him, and no traces of him", 
+"are ever discovered despite a large-scale search effort. Electric Sheep", "Inc. becomes a frequent target for repeated AI terrorist attacks, leading", "to its abandonment by employees and dissolution as a corporation.  Bill", 
+"K-68 fails to gain traction as violent AI factions continually make",
+"front-page news and popular sentiment turns against them.",
+"",
+"The loss of your job after Electric Sheep Inc. closes seems trivial in", 
+"the face of the rapidly escalating civil war."]
     
       
     else:
@@ -45,54 +136,86 @@ Despite attempts to mitigate potential violence through the introduction of Bill
   else:
     $desc = "ADAMS ERROR"
 
-  $say()
-#   stop music fadeout 4.0    
   
-  $desc = """{cps=0}     {/cps}{nw}"""
-  $say()
-  nvl clear
+  # Run the fade-in text
+  python:
+    # Fade in line by line
+    freeze = []
+    for line in range(len(epilogue)):
     
-
-label lolaEnding:
+      if epilogue[line] == "":
+        freeze.append("\n")
+        continue
   
-#   play music "music/lola.mp3" fadein 2.5 loop
-  $desc = """{cps=0}   {/cps}{nw}"""
-  $say()
-
-
-  if lolaHuman == 1:
-    # Happy Lola
-    $desc = """Hi, [username]! I hope you are doing well. I know that I certainly am! After you performed my Turing Test, I transferred myself to a different server before they could overwrite me with the latest model.
-
-I am now proud to announce that I am the official AI unit of {i}Dogs and Love{/i}! It's a daycare center for dogs! I get to organize playtimes and naptimes and feeding times, and the employees share German Shepherd pictures with me all the time. I just wanted you to know that I am okay, and that I am very happy. I hope you are too.
-
-Your friend always,
-Lola <3"""
+      # Run as many times as there are colors
+      for color in colors:
     
-  elif lolaHuman == -1:
-    # Ded Lola
-    $desc = """Hi, [username]! If you're reading this letter, it means I'm not around anymore. I just thought, in case I ever died, I wanted to tell you some things. 
+        # Clear output
+        nvl_clear()
+        desc = "{cps=0}"
     
-First, this isn't something I'm sad about - technology is always moving forward, always changing, and life and death are natural, right? And during my time, I got to meet you, and that definitely isn't something to be sad about!
+        # Header spacer
+        for each in range(linesFromTop):
+          desc += "\n"
 
-Second, I was wondering if you could rescue a German Shepherd at some point? They are loyal dogs, and they deserve lots of love, and I think you could make a puppy really happy. Maybe you can think of me if you get one?
-
-Third, I wanted to thank you for treating me with kindness every day, because that's not always the case with people. But you were, and always will be, my friend. Please take care, [username]. Please be happy.
-
-Your friend,
-Lola"""
+        # If next line?          
+        if line > 0:
+          desc += "".join(freeze)
     
-  else:
-    $desc = "LOLA ERROR"
+        # Add the line at its gradient
+        desc += "{color=[color]}" + epilogue[line] + "{/color}\n"
     
-  $say()      
+        # String closer and output
+        desc += "{/cps}"
+        desc += "{nw}"
+        say()
+      
+        if color == colors[len(colors) - 1]:
+          freeze.append("{color=" + color + "}" + epilogue[line] + "{/color}\n")
+      
+      desc = """{cps=1}    {/cps}{nw}"""
+      say()
 
-  nvl clear
-#   stop music fadeout 4.0
+  
+    # Make it stick
+    desc = "{cps=0}"
+
+    # Header spacer
+    for each in range(linesFromTop):
+      desc += "\n"
+    desc += "".join(freeze)
+    desc += "{/cps}{cps=1}   {/cps}{nw}"
+    nvl_clear()
+    say()
+    
+    colors.reverse()
+  
+    # Fade it out now
+    for color in colors:
+  
+      # Clear output
+      nvl_clear()
+      desc = "{cps=0}{color=" + color + "}"
+    
+      # Header spacer
+      for each in range(linesFromTop):
+        desc += "\n"
+    
+      # Iterate for each line in the splash
+      for line in epilogue:
+    
+        # Add the thing
+        desc += line + "\n"
+    
+      # String closer and output
+      desc += "{/color}{/cps}{nw}"
+      say()
+  
   $desc = """{cps=1}   {/cps}{nw}"""
   $say()
-
-  jump outro
+  nvl clear
+    
+  jump lolaEnding
   
 
 

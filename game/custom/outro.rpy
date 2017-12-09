@@ -117,7 +117,7 @@ label outro:
 label credits:
 
   # CREDITS
-  $desc = "                        {size=40}TEAM JEFF{/size}{nw}"
+  $desc = "                         {size=25}TEAM JEFF{/size}{nw}"
   $say()
 
   $desc = """                      {b}Producer{/b}:
@@ -126,6 +126,7 @@ label credits:
 
   $desc = """                      {b}Writers{/b}:
                               Shelby Carleton
+                              Jeff Cho
                               Maddy Hebert
                               Aidan Herron {nw}"""
   $say()
@@ -149,7 +150,8 @@ label credits:
                               Kieran Downs {nw}"""
   $say()                             
       
-  $desc = "                       {color=[ivory]} Thanks for playing!{/color}"
+  stop music fadeout 4.0
+  $desc = """{cps=1}      {/cps}{nw}"""
   $say()
   
   $sys.exit()
