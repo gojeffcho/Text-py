@@ -424,7 +424,7 @@ Example: {b}> create shelby{/b}"""
                     $say()
                 
                 else: 
-                    $set_username(args[0])
+                    $set_username(args[0].lower())
                     $flush_input()
                     
                     $desc = """Your username has been set to {b}[username]{/b}.  Please remember this username as you will use it to log in each day along with your bio-authentication.\n\nPress {b}<ENTER>{/b} to continue when you are ready."""
@@ -788,7 +788,8 @@ Please type {b}login <username>{/b} to log in, or {b}help{/b} for a list of avai
             $flush_input
             $desc =  "{cps=125}Last user logged onto this computer was: '"
             if day == "Mon":
-              $desc += "brando466"
+                $desc += username
+              #$desc += "brando466"
             else:
               $desc += username
             $desc += "'{/cps}"
@@ -796,7 +797,7 @@ Please type {b}login <username>{/b} to log in, or {b}help{/b} for a list of avai
         
         elif cmd.upper() == "LOGIN":
             if len(args) == 1:
-                if args[0] == username:
+                if args[0].lower() == username.lower():
                     $desc = "Press and hold {b}<ENTER>{/b} for one second for bioauthentication..."
                     $say()
                     
