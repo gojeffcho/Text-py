@@ -102,11 +102,11 @@ label mail:
         elif cmd.upper() == "READ":
             
             if len(args) == 1:
-                $key = args[0]
+                $key = args[0].lower()
                 $flush_input()
                 if key in emaillist.keys():
                 
-                    if key.upper() == "SPAM42" and emaillist[key].getRead() != True:
+                    if key == "spam42" and emaillist[key].getRead() != True:
                     
                       term "Downloading email [key]{cps=6}... ... ... {/cps}{nw}"
                       play sound "music/distorted.ogg"
@@ -134,20 +134,25 @@ label mail:
                       nvl clear
                     
                       $desc = emaillist[key].read()
-                      $update_avails()
                       $say()
                       
-                      if key.upper() == "INFO3":
-                        $chatlist.append("max")
-                      elif key.upper() == "NEWS5" or key.upper() == "NEWS6":
-                        $chatlist.append("p_adams")
-                      elif key.upper() == "SPAM92":
-                        $del emaillist[key]
-                      elif key.upper() == "NEWS9":
-                        $chatlist.append("sera")
+                      if emaillist[key].getRead() == False:
+                        if key == "info3":
+                          $chatlist.append("max")
+                        elif key == "news5":
+                          $chatlist.append("p_adams")
+                        elif key == "news6":
+                          $chatlist.append("p_adams")
+                        elif key == "spam92":
+                          $del emaillist[key]
+                        elif key == "news9":
+                          $chatlist.append("sera")
+                          
+                      $emaillist[key].setRead()
+                      $update_avails()
                       
                       # Install backdoor app
-                      if key.upper() == "SPAM87":
+                      if key == "spam87":
                         $desc = "Install 'exploit.app'? <Yes/No>"
                         $say()
                         

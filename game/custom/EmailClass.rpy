@@ -73,9 +73,6 @@ init -1 python:
     def read(self):
       outputString = ""
       
-      # TODO: Time increment?
-      self.setRead()
-      
       # Format output string          |15                                     |40
       outputString = "\n{cps=100}{color=#[highlight1]}"
       outputString += "===== [[ Email: {0:>6}] =========================\n\n".format(self.getId())
