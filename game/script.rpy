@@ -41,7 +41,19 @@ init -2 python:
     config.keymap['fast_skip'] = []
     
     # Remove mouseclick skip
-    config.keymap['dismiss'].remove('mouseup_1')    
+    config.keymap['dismiss'].remove('mouseup_1')
+    
+    # Remove a bunch of other stuff
+    config.keymap['full_inspector'] = []
+    config.keymap['hide_windows'] = []
+    config.keymap['inspector'] = []
+    config.keymap['developer'] = []
+    config.keymap['progress_screen'] = []
+    config.keymap['rollforward'] = []
+    config.keymap['focus_left'] = []
+    config.keymap['focus_right'] = []
+    config.keymap['focus_up'] = []
+    config.keymap['focus_down'] = []
     
     global captcha
     captcha = {}
