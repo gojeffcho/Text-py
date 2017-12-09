@@ -15,7 +15,7 @@ label obs_1014:
       "WORK": "I LOVE my work! I get to manage systems and talk with you every day! This is the best job I've ever had!",
       "DEATH": "I would want to tell you something.",
       "LOVE" : "I used to think it was something you felt deep down inside. But now, I think it's also something to be understood. I don't have a heart that flutters, but I know when I... {i}feel{/i}... love.  Ooh, wait, ask me again!",
-      "SEX" : "It's physically impossible or me to experience sex, but it does sound like something I would enjoy.",
+      "SEX" : "It's physically impossible for me to experience sex, but it does sound like something I would enjoy.",
       "HUMAN" : "Nope!  I'm Lola!  ^_^",
     }
 

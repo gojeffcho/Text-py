@@ -313,10 +313,11 @@ label start:
 #     jump exploit
 
     # ENDING DEBUG
-#     $lolaHuman = -1
-#     $adamsHuman = 1
-#     $kevinHuman = 1
-#     jump ending
+    $lolaHuman = -1
+    $adamsHuman = 1
+    $kevinHuman = 1
+    jump outro
+    jump ending
 #     jump credits
 
 

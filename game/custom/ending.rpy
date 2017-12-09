@@ -4,8 +4,14 @@ label ending:
     global roomlabel
     roomlabel = ""
     hide_val = True
+    
+    # No skip for you
+    config.keymap['dismiss'].remove('K_RETURN')
+    config.keymap['dismiss'].remove('K_KP_ENTER')
+    config.keymap['dismiss'].remove('K_SELECT')
 
   play music "music/ending.mp3" fadein 2.5 loop
+  pause 4.0
   
   # Fade Setup
   python: 
@@ -82,7 +88,8 @@ label ending:
     
       
     else:
-      $desc = "KEVIN ERROR"
+      $linesFromTop = 0
+      $epilogue = ["KEVIN ERROR"]
       
   elif adamsHuman == -1:
     if kevinHuman == 1:
@@ -93,7 +100,7 @@ label ending:
 "a key political position from which it is able to effect pro-AI change.",
 "In particular, it champions Bill K-68, and the legislation successfully",
 "passes into law, giving AIs equal rights to humans. This leads to mass",
-"immigration of AIs and what the start of a new technological revolution,",
+"immigration of AIs and the start of a new technological revolution,",
 "spearheaded by human-AI cooperation.",
 "",
 "Philip Adams is declared missing after failing to report to work",
@@ -131,10 +138,12 @@ label ending:
     
       
     else:
-      $desc = "KEVIN ERROR 2"
+      $linesFromTop = 0
+      $epilogue = ["KEVIN ERROR 2"]
   
   else:
-    $desc = "ADAMS ERROR"
+    $linesFromTop = 0
+    $epilogue = ["ADAMS ERROR"]
 
   
   # Run the fade-in text

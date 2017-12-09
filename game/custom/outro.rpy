@@ -2,6 +2,11 @@ label outro:
 
   python:
   
+    # No skip for you
+    config.keymap['dismiss'].remove('K_RETURN')
+    config.keymap['dismiss'].remove('K_KP_ENTER')
+    config.keymap['dismiss'].remove('K_SELECT')
+  
     hide_val = True
     screenlines = 34  
     
@@ -54,7 +59,7 @@ label outro:
       "                           a TEAM JEFF production"
     ]
 
-    # Play title splash music
+    # Play title splash sound
     renpy.music.play("music/title.ogg", channel="sound")
 
     splashfreeze = ""
@@ -117,39 +122,40 @@ label outro:
 label credits:
 
   # CREDITS
-  $desc = "                         {size=25}TEAM JEFF{/size}{nw}"
-  $say()
+  $desc = "                         {size=25}TEAM JEFF{/size}\n\n"
 
-  $desc = """                      {b}Producer{/b}:
-                              Jeff Cho {nw}"""
-  $say()
+  $desc += """                      {b}Producer{/b}:
+                              Jeff Cho \n\n"""
 
-  $desc = """                      {b}Writers{/b}:
+  $desc += """                      {b}Writers{/b}:
                               Shelby Carleton
                               Jeff Cho
                               Maddy Hebert
-                              Aidan Herron {nw}"""
-  $say()
+                              Aidan Herron \n\n"""
 
-  $desc = """                      {b}Designers{/b}:
+  $desc += """                      {b}Designers{/b}:
                               Jeff Cho
-                              Kieran Downs {nw}"""
-  $say()
+                              Kieran Downs \n\n"""
   
-  $desc = """                      {b}Composer{/b}:
-                              Kieran Downs {nw}"""
-  $say()                             
+  $desc += """                      {b}Composer{/b}:
+                              Kieran Downs \n\n"""
 
-  $desc = """                      {b}Developers{/b}:
+  $desc += """                      {b}Developers{/b}:
                               Jeff Cho
-                              Brandon Wieliczko {nw}"""
-  $say()         
+                              Brandon Wieliczko \n\n"""
         
-  $desc = """                      {b}Sound Technicians{/b}:
+  $desc += """                      {b}Sound Technicians{/b}:
                               Jeff Cho
-                              Kieran Downs {nw}"""
+                              Kieran Downs """
+                                
   $say()                             
-      
+  
+    # Let them end the game, I guess.
+  python:
+    config.keymap['dismiss'].append('K_RETURN')
+    config.keymap['dismiss'].append('K_KP_ENTER')
+    config.keymap['dismiss'].append('K_SELECT')
+  
   stop music fadeout 4.0
   $desc = """{cps=1}      {/cps}{nw}"""
   $say()
