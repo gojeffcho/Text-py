@@ -788,8 +788,7 @@ Please type {b}login <username>{/b} to log in, or {b}help{/b} for a list of avai
             $flush_input
             $desc =  "{cps=125}Last user logged onto this computer was: '"
             if day == "Mon":
-                $desc += username
-              #$desc += "brando466"
+              $desc += "brando466"
             else:
               $desc += username
             $desc += "'{/cps}"
