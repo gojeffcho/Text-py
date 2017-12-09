@@ -147,6 +147,13 @@ init 0 python:
     global darkgreen
     darkgreen = "006400"
     
+    global springgreen
+    springgreen = "00fa9a"
+    
+    # Random Colour
+    global colourList
+    colourList = [crimson, skyblue, darkcyan, ivory, highlight2, sheepcolor, darkgreen, springgreen]
+    
     # Track easter eggs
     global easters
     easters = ["permeable", "fuck", "goddamn", "shit", "bitch", "cunt", "friggin", "dick", "ass", "asshole", "penis", "cock", "pussy", "damn", "hell", "fucking", "motherfucker", "motherfucking"]
@@ -252,10 +259,6 @@ init 0 python:
     global hacked
     hacked = False
 
-    # Random Colour
-    global colourList
-    colourList = [crimson, skyblue, darkcyan, ivory, highlight2, highlight1, sheepcolor, darkgreen]
-
 
 
     ######################
@@ -294,7 +297,7 @@ label start:
 #     jump expression daysetup[day]
     
 #     $chatlist.append("p_adams")
-#     jump mainscreen
+    jump mainscreen
 #     jump exploit
 
     # ENDING DEBUG

@@ -35,7 +35,7 @@ label resistance_first:
       }
 
       usercolor = random_colour()
-      target = StructuredChat("unknown", random_colour(), questions, answers, followupQ, followupA)
+      target = StructuredChat("unknown", "6c4898", questions, answers, followupQ, followupA)
       target.start()
 
 label resistance_firstStart:

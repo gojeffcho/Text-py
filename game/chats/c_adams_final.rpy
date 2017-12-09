@@ -27,7 +27,7 @@ label adams_final:
       
 
     usercolor = random_colour()
-    target = Chat("p_adams", 0, random_colour(), questions, answers, followupQ, followupA)
+    target = Chat("p_adams", 0, "32cd32", questions, answers, followupQ, followupA)
     target.start()
 
 label adamsStart:
